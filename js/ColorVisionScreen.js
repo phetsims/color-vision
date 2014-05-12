@@ -20,7 +20,7 @@ define( function( require ) {
     Screen.call( this, colorVisionString, null /* no icon, single-screen sim */,
       function() { return {}; },
       function( model ) { return new ColorVisionScreenView( model ); },
-      { backgroundColor: 'rgb(50,50,50)' }
+      { backgroundColor: 'black' }
     );
   }
 
