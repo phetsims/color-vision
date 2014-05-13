@@ -11,11 +11,11 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
 
 
-  function ColorVisionSlider( model ) {
+  function ColorVisionSlider( model, color ) {
 
     Node.call( this );
 
-    this.sliderValue = new Property( 0 );
+    this.sliderValue = new Property( 50 );
 
     // var hSlider = new HSlider( model.redIntensityProperty, { min: 0, max: 100 },
     // from PropertySet in model
@@ -23,18 +23,19 @@ define( function( require ) {
     var hSlider = new HSlider( this.sliderValue, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
+        trackSize: new Dimension2( 104, 2)
       } );
     hSlider.rotation = Math.PI / 2;
 
-    var sliderGradient = new LinearGradient( 0, 0, 0, hSlider.height + 20 ).
-      addColorStop( 0, 'red' ).
-      addColorStop( 0.5, '#600000' ).
+    var sliderGradient = new LinearGradient( 0, 0, 0, hSlider.height + 30 ).
+      addColorStop( 0, color ).
       addColorStop( 1, 'black' );
 
-    var rectangle = new Rectangle( 700, 25, hSlider.width + 8, hSlider.height + 40, 5, 5, {
-      fill: sliderGradient,
-      stroke: '#c0b9b9'
-    });
+    var rectangle = new Rectangle( 0, 0, hSlider.width + 8, hSlider.height + 30, 5, 5,
+      {
+        fill: sliderGradient,
+        stroke: '#c0b9b9'
+      } );
     hSlider.centerX = rectangle.centerX;
     hSlider.centerY = rectangle.centerY;
 
