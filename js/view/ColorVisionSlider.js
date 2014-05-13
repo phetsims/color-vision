@@ -26,7 +26,7 @@ define( function( require ) {
         thumbSize: new Dimension2( 14, 28 ),
         trackSize: new Dimension2( 104, 2)
       } );
-    hSlider.rotation = Math.PI / 2;
+    hSlider.rotation = -Math.PI / 2;
 
     var rectHeight = hSlider.height + 30;
     var rectWidth = hSlider.width + 8;

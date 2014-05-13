@@ -19,16 +19,30 @@ define( function( require ) {
     Node.call( this );
 
     var strokeColor = '#c0b9b9'; // TODO: move to constants file
+    var scaleFactor = 256 / 100;
+
+    function getRGB() {
+      return 'rgb(' + [
+        Math.floor( model.redIntensityProperty.value * scaleFactor ),
+        Math.floor( model.greenIntensityProperty.value * scaleFactor ),
+        Math.floor( model.blueIntensityProperty.value * scaleFactor ) ].join() + ')';
+    };
 
     var ellipse = new Shape().ellipse( 0, 0, yRadius * 2, yRadius, 0 );
     var path = new Path( ellipse,
       {
-        fill: 'gray',
+        fill: getRGB(),
         lineWidth: 0.5,
         stroke: strokeColor,
         centerX: centerX,
         centerY: centerY
       } );
+
+    // add listeners
+    var listener = function() { path.fill = getRGB(); };
+    model.redIntensityProperty.link( listener );
+    model.greenIntensityProperty.link( listener );
+    model.blueIntensityProperty.link( listener );
 
     this.addChild( path );
 
