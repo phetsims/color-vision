@@ -15,9 +15,12 @@ define( function( require ) {
 
   function ColorVisionModel() {
     // model elements
-    this.redIntensityProperty = new Property( 50 );
-    this.greenIntensityProperty = new Property( 50 );
-    this.blueIntensityProperty = new Property( 50 );
+    PropertySet.call( this, {
+        redIntensity: 50,
+        greenIntensity: 50,
+        blueIntensity: 50
+      }
+    );
   }
 
   return inherit( PropertySet, ColorVisionModel );
