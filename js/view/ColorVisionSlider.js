@@ -17,28 +17,34 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var Node = require( 'SCENERY/nodes/Node' );
 
-
   function ColorVisionSlider( model, color ) {
 
     Node.call( this );
 
-    this.sliderValue = new Property( 50 );
+    var intensityProperty;
+    if ( color === 'red' ) {
+      intensityProperty = model.redIntensityProperty;
+    } else if ( color === 'green' ) {
+      intensityProperty = model.greenIntensityProperty;
+    } else if ( color === 'blue' ) {
+      intensityProperty = model.blueIntensityProperty;
+    }
 
-    // var hSlider = new HSlider( model.redIntensityProperty, { min: 0, max: 100 },
-    // from PropertySet in model
-
-    var hSlider = new HSlider( this.sliderValue, { min: 0, max: 100 },
+    var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
         trackSize: new Dimension2( 104, 2)
       } );
     hSlider.rotation = Math.PI / 2;
 
-    var sliderGradient = new LinearGradient( 0, 0, 0, hSlider.height + 30 ).
+    var rectHeight = hSlider.height + 30;
+    var rectWidth = hSlider.width + 8;
+
+    var sliderGradient = new LinearGradient( 0, 0, 0, rectHeight ).
       addColorStop( 0, color ).
       addColorStop( 1, 'black' );
 
-    var rectangle = new Rectangle( 0, 0, hSlider.width + 8, hSlider.height + 30, 5, 5,
+    var rectangle = new Rectangle( 0, 0, rectWidth, rectHeight, 5, 5,
       {
         fill: sliderGradient,
         stroke: '#c0b9b9'

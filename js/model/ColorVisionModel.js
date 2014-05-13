@@ -11,9 +11,13 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
+  var Property = require( 'AXON/Property' );
 
   function ColorVisionModel() {
-
+    // model elements
+    this.redIntensityProperty = new Property( 50 );
+    this.greenIntensityProperty = new Property( 50 );
+    this.blueIntensityProperty = new Property( 50 );
   }
 
   return inherit( PropertySet, ColorVisionModel );
