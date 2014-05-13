@@ -20,7 +20,9 @@
 
   // images
   var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
+  var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
+  var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
 
   function ColorVisionScreenView( model ) {
 
@@ -36,24 +38,10 @@
 
 
     // Add flashlights
-    var flashlightScale = new Vector2( 0.36, 0.2 );
-
-    var redFlashlight = new Image( flashlight,
-      {
-        scale: flashlightScale,
-        rotation: -Math.PI / 6
-      } );
-
-    var greenFlashlight = new Image( flashlight,
-      {
-        scale: flashlightScale,
-      } );
-
-    var blueFlashlight = new Image( flashlight,
-      {
-        scale: flashlightScale,
-        rotation: Math.PI / 6
-      } );
+    var flashlightScale = 0.72;
+    var redFlashlight = new Image( flashlightDown, { scale: flashlightScale } );
+    var greenFlashlight = new Image( flashlight, { scale: flashlightScale } );
+    var blueFlashlight = new Image( flashlightUp, { scale: flashlightScale } );
 
     var flashlightVBox = new VBox(
       {
@@ -62,7 +50,7 @@
           greenFlashlight,
           blueFlashlight ],
         spacing: 75,
-        right: this.layoutBounds.maxX - 100,
+        right: this.layoutBounds.maxX - 75,
         centerY: this.layoutBounds.centerY
       } );
 
