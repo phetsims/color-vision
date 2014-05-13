@@ -14,8 +14,9 @@
   var ScreenView = require( 'JOIST/ScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
-  var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var Vector2 = require( 'DOT/Vector2' );
+  var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
+  var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
 
   // images
   var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
@@ -33,6 +34,8 @@
         opacity: 0.5
       } ) );
 
+
+    // Add flashlights
     var flashlightScale = new Vector2( 0.36, 0.2 );
 
     var redFlashlight = new Image( flashlight,
@@ -65,6 +68,7 @@
 
     this.addChild( flashlightVBox );
 
+    // Add sliders
     var redSlider = new ColorVisionSlider( model.redIntensityProperty, 'red' );
     var greenSlider = new ColorVisionSlider( model.greenIntensityProperty, 'green' );
     var blueSlider = new ColorVisionSlider( model.blueIntensityProperty, 'blue' );
@@ -81,6 +85,12 @@
       } );
 
     this.addChild( sliderVBox );
+
+    // Add thought bubbles
+    this.addChild( new ColorVisionEllipse( model, 225, 55, 53 ) );
+    this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
+    this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
+    this.addChild( new ColorVisionEllipse( model, 50, 220, 7 ) );
 
   }
 
