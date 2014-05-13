@@ -30,9 +30,9 @@
       opacity: 0.5
     } ) );
 
-    var redSlider = new ColorVisionSlider( model, 'red' );
-    var greenSlider = new ColorVisionSlider( model, 'green' );
-    var blueSlider = new ColorVisionSlider( model, 'blue' );
+    var redSlider = new ColorVisionSlider( model.redIntensityProperty, 'red' );
+    var greenSlider = new ColorVisionSlider( model.greenIntensityProperty, 'green' );
+    var blueSlider = new ColorVisionSlider( model.blueIntensityProperty, 'blue' );
 
     var vBox = new VBox(
       {

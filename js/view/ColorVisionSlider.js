@@ -17,18 +17,9 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var Node = require( 'SCENERY/nodes/Node' );
 
-  function ColorVisionSlider( model, color ) {
+  function ColorVisionSlider( intensityProperty, color ) {
 
     Node.call( this );
-
-    var intensityProperty;
-    if ( color === 'red' ) {
-      intensityProperty = model.redIntensityProperty;
-    } else if ( color === 'green' ) {
-      intensityProperty = model.greenIntensityProperty;
-    } else if ( color === 'blue' ) {
-      intensityProperty = model.blueIntensityProperty;
-    }
 
     var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
