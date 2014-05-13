@@ -23,6 +23,7 @@
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
+  var head = require( 'image!COLOR_VISION/head.png' );
 
   function ColorVisionScreenView( model ) {
 
@@ -35,7 +36,6 @@
         scale: this.layoutBounds.height / mockupImage.height,
         opacity: 0.5
       } ) );
-
 
     // Add flashlights
     var flashlightScale = 0.72;
@@ -79,6 +79,14 @@
     this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
     this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
     this.addChild( new ColorVisionEllipse( model, 50, 220, 7 ) );
+
+    // Add head image
+    this.addChild( new Image( head,
+      {
+        bottom: this.layoutBounds.bottom,
+        left: this.layoutBounds.minX + 60,
+        scale: 0.7
+      } ) );
 
   }
 
