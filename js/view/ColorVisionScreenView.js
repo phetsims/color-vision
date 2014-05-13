@@ -24,15 +24,17 @@
     ScreenView.call( this );
 
     this.addChild( new Image( mockupImage, {
-      centerX: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerX,
-      centerY: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerY,
-      scale: ScreenView.DEFAULT_LAYOUT_BOUNDS.height / mockupImage.height,
+      centerX: this.layoutBounds.centerX,
+      centerY: this.layoutBounds.centerY,
+      scale: this.layoutBounds.height / mockupImage.height,
       opacity: 0.5
     } ) );
 
     var redSlider = new ColorVisionSlider( model.redIntensityProperty, 'red' );
     var greenSlider = new ColorVisionSlider( model.greenIntensityProperty, 'green' );
     var blueSlider = new ColorVisionSlider( model.blueIntensityProperty, 'blue' );
+
+    console.log(this.layoutBounds.maxX);
 
     var vBox = new VBox(
       {
@@ -41,8 +43,8 @@
           greenSlider,
           blueSlider ],
         spacing: 22,
-        x: 700,
-        y: 30
+        x: this.layoutBounds.maxX - 68,
+        centerY: this.layoutBounds.centerY
       } );
 
     this.addChild( vBox );
