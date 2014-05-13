@@ -1,3 +1,10 @@
+// Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * View for ColorVisionSlider objects
+ *
+ * @author Aaron Davis (PhET Interactive Simulations)
+ */
 define( function( require ) {
   'use strict';
 

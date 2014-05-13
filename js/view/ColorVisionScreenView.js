@@ -1,4 +1,11 @@
-define( function( require ) {
+// Copyright 2002-2013, University of Colorado Boulder
+
+/**
+ * View for the first ColorVision screen
+ *
+ * @author Aaron Davis (PhET Interactive Simulations)
+ */
+ define( function( require ) {
   'use strict';
 
   // modules
@@ -39,9 +46,6 @@ define( function( require ) {
 
     this.addChild( vBox );
 
-    // this.addChild( redSlider );
-    // this.addChild( greenSlider );
-    // this.addChild( blueSlider );
   }
 
   return inherit( ScreenView, ColorVisionScreenView );
