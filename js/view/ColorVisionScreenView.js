@@ -62,7 +62,7 @@
           greenFlashlight,
           blueFlashlight ],
         spacing: 75,
-        x: this.layoutBounds.maxX - 200,
+        right: this.layoutBounds.maxX - 100,
         centerY: this.layoutBounds.centerY
       } );
 
@@ -80,7 +80,7 @@
           greenSlider,
           blueSlider ],
         spacing: 22,
-        x: this.layoutBounds.maxX - 68,
+        right: this.layoutBounds.maxX - 30,
         centerY: this.layoutBounds.centerY
       } );
 
