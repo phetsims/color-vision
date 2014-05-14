@@ -12,7 +12,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var ObservableArray = require( 'AXON/ObservableArray');
-  var Color = require( 'SCENERY/util/Color' );
 
   /**
    * @param {Color} color
@@ -23,7 +22,7 @@ define( function( require ) {
   }
 
   var updateAnimationFrame = function( dt ) {
-    this.location = this.location.plus( this.velocity );
+    // TODO
   };
 
   return inherit( PropertySet, PhotonBeam, { updateAnimationFrame: updateAnimationFrame } );

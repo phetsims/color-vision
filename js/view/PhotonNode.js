@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * View for ColorVisionSlider objects
+ * View for Photon objects
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -22,9 +22,6 @@ define( function( require ) {
 
     Node.call( this );
     var thisNode = this;
-
-    var scaleFactor = 2.55;
-    console.log ( photon.color );
 
     var ellipse = new Shape().ellipse( 0, 0, 3, 2, 0 );
     var path = new Path( ellipse,

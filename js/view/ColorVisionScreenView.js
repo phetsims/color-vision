@@ -17,11 +17,10 @@
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
-  var PhotonNode = require( 'COLOR_VISION/view/PhotonNode' );
   var PhotonBeamNode = require( 'COLOR_VISION/view/PhotonBeamNode' );
 
   // images
-  var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
+  // var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
@@ -90,6 +89,7 @@
         scale: 0.7
       } ) );
 
+    // Add photon beams
     var mvt = new ModelViewTransform2.createIdentity();
 
     var redBeam = new PhotonBeamNode( mvt, model.redIntensityProperty, -Math.PI / 6, 240, 45 );
