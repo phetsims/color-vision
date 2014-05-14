@@ -14,8 +14,10 @@
   var ScreenView = require( 'JOIST/ScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
+  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
+  var PhotonNode = require( 'COLOR_VISION/view/PhotonNode' );
 
   // images
   var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
@@ -28,13 +30,15 @@
 
     ScreenView.call( this );
 
-    this.addChild( new Image( mockupImage,
-      {
-        centerX: this.layoutBounds.centerX,
-        centerY: this.layoutBounds.centerY,
-        scale: this.layoutBounds.height / mockupImage.height,
-        opacity: 0.5
-      } ) );
+    // this.addChild( new Image( mockupImage,
+    //   {
+    //     centerX: this.layoutBounds.centerX,
+    //     centerY: this.layoutBounds.centerY,
+    //     scale: this.layoutBounds.height / mockupImage.height,
+    //     opacity: 0.5
+    //   } ) );
+
+    console.log( model );
 
     // Add flashlights
     var flashlightScale = 0.72;
@@ -86,6 +90,9 @@
         left: this.layoutBounds.minX + 60,
         scale: 0.7
       } ) );
+
+    var mvt = new ModelViewTransform2.createIdentity();
+    this.addChild( new PhotonNode( model.photon, mvt ) );
 
   }
 
