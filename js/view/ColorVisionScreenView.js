@@ -18,6 +18,7 @@
   var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
   var PhotonNode = require( 'COLOR_VISION/view/PhotonNode' );
+  var PhotonBeamNode = require( 'COLOR_VISION/view/PhotonBeamNode' );
 
   // images
   var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
@@ -90,8 +91,12 @@
       } ) );
 
     var mvt = new ModelViewTransform2.createIdentity();
-    this.addChild( new PhotonNode( model.photon, mvt ) );
 
+    var redBeam = new PhotonBeamNode( mvt, model.redIntensityProperty, -Math.PI / 6, 240, 45 );
+    redBeam.right = flashlightVBox.left + 30;
+    redBeam.top = this.layoutBounds.top + 100;
+
+    this.addChild( redBeam );
   }
 
   return inherit( ScreenView, ColorVisionScreenView );
