@@ -23,7 +23,8 @@ define( function( require ) {
     Node.call( this );
     var thisNode = this;
 
-    var scaleFactor = 256 / 100;
+    var scaleFactor = 2.55;
+    console.log ( photon.color );
 
     var ellipse = new Shape().ellipse( 0, 0, 3, 2, 0 );
     var path = new Path( ellipse,
@@ -43,9 +44,9 @@ define( function( require ) {
       thisNode.rotation = orientation;
     } );
 
-    // photon.intensityProperty.link( function( intensity ) {
-    //   thisNode.fill = 'rgb(' + ( photon.intensity * scaleFactor ) + '0, 0)';
-    // } );
+    photon.colorProperty.link( function( color ) {
+      thisNode.fill = color;
+    } );
 
   }
 

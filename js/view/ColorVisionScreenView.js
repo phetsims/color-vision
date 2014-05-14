@@ -38,8 +38,6 @@
     //     opacity: 0.5
     //   } ) );
 
-    console.log( model );
-
     // Add flashlights
     var flashlightScale = 0.72;
     var redFlashlight = new Image( flashlightDown, { scale: flashlightScale } );

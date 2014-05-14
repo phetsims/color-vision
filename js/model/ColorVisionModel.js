@@ -12,6 +12,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
+  var ObservableArray = require( 'AXON/ObservableArray');
+  var Color = require( 'SCENERY/util/Color' );
   var Photon = require( 'COLOR_VISION/model/Photon' );
 
   function ColorVisionModel() {
@@ -24,7 +26,8 @@ define( function( require ) {
     );
 
     // for testing only
-    this.photon = new Photon( new Vector2( 300, 300 ), 0, new Vector2( -10, -10 ), 100, 'red' );
+    this.photon = new Photon( new Vector2( 300, 300 ), new Vector2( -1, -1 ), 0, new Color( 0, 255, 0) );
+    // this.photons = new ObservableArray();
 
   }
 

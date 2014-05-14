@@ -13,28 +13,26 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Color = require( 'SCENERY/util/Color' );
 
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
-   * @param {Dimension2} size
    * @param {Number} orientation in radians
-   * @param {Number} intensity of color, must be in [0, 100]
-   * @param {String} color, must be one of 'red', 'green', 'blue'
+   * @param {Color} color
    */
-  function Photon( location, orientation, velocity, intensity, color ) {
+  function Photon( location, velocity, orientation, color ) {
+
     PropertySet.call( this,
       {
         location: location,
         orientation: orientation,
-        intensity: intensity
+        color: color
       } );
     this.velocity = velocity;
-    this.color = color;
   }
 
   var updateAnimationFrame = function( dt ) {
-    console.log( dt );
     this.location = this.location.plus( this.velocity );
   };
 
