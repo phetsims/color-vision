@@ -10,7 +10,6 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
   var HSlider = require( 'SUN/HSlider');
   var Rectangle = require( 'SCENERY/nodes/Rectangle');
   var LinearGradient = require( 'SCENERY/util/LinearGradient');

@@ -14,7 +14,6 @@
   var ScreenView = require( 'JOIST/ScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
-  var Vector2 = require( 'DOT/Vector2' );
   var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
 

@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var Property = require( 'AXON/Property' );
 
   function ColorVisionModel() {
     // model elements

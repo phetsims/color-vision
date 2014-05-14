@@ -26,7 +26,7 @@ define( function( require ) {
         Math.floor( model.redIntensityProperty.value * scaleFactor ),
         Math.floor( model.greenIntensityProperty.value * scaleFactor ),
         Math.floor( model.blueIntensityProperty.value * scaleFactor ) ].join() + ')';
-    };
+    }
 
     var ellipse = new Shape().ellipse( 0, 0, yRadius * 2, yRadius, 0 );
     var path = new Path( ellipse,
