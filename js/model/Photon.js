@@ -2,7 +2,7 @@
 
 /**
  * Model of a photon.
- * The photon has fixed velocity and color, and a mutable location, orientation and intensity.
+ * The photon has fixed velocity, and a mutable location, orientation and color.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
