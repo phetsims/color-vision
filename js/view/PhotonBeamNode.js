@@ -1,31 +1,48 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * View for PhotonBeam objects
+ * Photon beam
  *
  * @author Aaron Davis (PhET Interactive Simulations)
+ * @author Sam Reid (PhET Interactive Simulations)
+ * @author Jonathan Olson
  */
 define( function( require ) {
   'use strict';
 
-  // modules
+  // imports
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
-  function PhotonBeamNode( mvt, intensityProperty, orientation, width, heigth ) {
+  /**
+   * @param {Bounds2} canvasBounds
+   * @param {Array} photons
+   * @constructor
+   */
+  function PhotonBeamNode( canvasBounds, photons ) {
 
-    Node.call( this );
+    var thisNode = this;
+    this.beamBounds = canvasBounds;
+    this.photons = photons;
 
-    var rectangle = new Rectangle( 0, 0, width, heigth, 0, 0,
-      {
-        fill: 'rgba(100, 100, 100, 0.5)',
-        rotation: orientation,
-      } );
-
-    this.addChild( rectangle );
+    CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
+    this.invalidatePaint();
 
   }
 
-  return inherit( Node, PhotonBeamNode );
+  return inherit( CanvasNode, PhotonBeamNode, {
+
+    // @param {CanvasContextWrapper} wrapper
+    paintCanvas: function( wrapper ) {
+      var context = wrapper.context;
+      for ( var i = 0; i < this.photons.length; i++ ) {
+        context.fillStyle = this.photons[i].color;
+        context.fillRect( this.photons[i].location.x, this.photons[i].location.y, 3, 2 );
+      }
+    },
+
+    step: function( dt ) {
+      this.invalidatePaint();
+    }
+  } );
 } );

@@ -18,21 +18,39 @@ define( function( require ) {
   function ColorVisionModel() {
     // model elements
     PropertySet.call( this, {
-        redIntensity: 50,
-        greenIntensity: 50,
-        blueIntensity: 50
+        redIntensity: 0,
+        greenIntensity: 0,
+        blueIntensity: 0
       }
     );
 
-    // for testing only
-    this.photon = new Photon( new Vector2( 300, 300 ), new Vector2( -1, -1 ), 0, new Color( 0, 255, 0) );
+    this.maxPhotons = 500;
+    this.photons = [];      // for photons in use
+    this.photonPool = [];   // for recycled photons
 
   }
 
   return inherit( PropertySet, ColorVisionModel,
     {
       step: function( dt ) {
-        this.photon.updateAnimationFrame( dt );
+        var numToCreate = Math.floor( 0.1 * this.greenIntensity );
+        for ( var j = 0; j < numToCreate; j++ ) {
+          if ( this.photonPool.length > 0 ) {
+            var photon = this.photonPool.pop();
+            photon.location.x = 220;
+            this.photons.push( photon );
+          } else if ( this.photons.length <= this.maxPhotons ) {
+            this.photons.push( new Photon( new Vector2( 220, Math.floor( Math.random() * 50 ) ), new Vector2( -5, 0 ), 0, '#00ff00' ) );
+          }
+        }
+        for ( var i = 0; i < this.photons.length; i++ ) {
+          if ( this.photons[i].location.x > 0 ) {
+            this.photons[i].updateAnimationFrame( dt );
+          } else {
+            this.photonPool.push( this.photons[i] );
+            this.photons.splice( i, 1 );
+          }
+        }
       }
     } );
 } );

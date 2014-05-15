@@ -12,12 +12,13 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
    * @param {Number} orientation in radians
-   * @param {Color} color
+   * @param {String} color (rgb string)
    */
   function Photon( location, velocity, orientation, color ) {
 
@@ -25,9 +26,9 @@ define( function( require ) {
       {
         location: location,
         orientation: orientation,
-        color: color
       } );
     this.velocity = velocity;
+    this.color = color;
   }
 
   var updateAnimationFrame = function( dt ) {

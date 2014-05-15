@@ -15,9 +15,11 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var Bounds2 = require( 'DOT/Bounds2' );
   var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/view/PhotonBeamNode' );
+  var PhotonNode = require( 'COLOR_VISION/view/PhotonNode' );
 
   // images
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
@@ -81,14 +83,31 @@ define( function( require ) {
       } ) );
 
     // Add photon beams
-    var mvt = new ModelViewTransform2.createIdentity();
+    // this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.photons );
+    // this.redBeam.x = 330;
+    // this.redBeam.y = 210;
+    // this.redBeam.rotation = -Math.PI / 6;
 
-    var redBeam = new PhotonBeamNode( mvt, model.redIntensityProperty, -Math.PI / 6, 240, 45 );
-    redBeam.right = flashlightVBox.left + 30;
-    redBeam.top = this.layoutBounds.top + 100;
+    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.photons );
+    this.greenBeam.x = 330;
+    this.greenBeam.y = 230;
 
-    this.addChild( redBeam );
+    // this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.photons );
+    // this.blueBeam.x = 330;
+    // this.blueBeam.y = 230;
+
+    // this.addChild( this.redBeam );
+    this.addChild( this.greenBeam );
+    // this.addChild( this.blueBeam );
+    // for ( var i = 0; i < model.photons.length; i++ ) {
+    //   this.addChild( new PhotonNode( model.photons[i] ) );
+    // }
   }
 
-  return inherit( ScreenView, ColorVisionScreenView );
+  return inherit( ScreenView, ColorVisionScreenView,
+    {
+      step: function( dt ) {
+        this.greenBeam.step( dt );
+      }
+    } );
 } );

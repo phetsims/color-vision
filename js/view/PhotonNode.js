@@ -12,29 +12,26 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Shape = require( 'KITE/Shape' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   /**
    * @param {Photon} photon
-   * @param {ModelViewTransform2} mvt
    */
-  function PhotonNode( photon, mvt ) {
+  function PhotonNode( photon ) {
 
     Node.call( this );
     var thisNode = this;
 
-    var ellipse = new Shape().ellipse( 0, 0, 3, 2, 0 );
-    var path = new Path( ellipse,
+    var rectangle = new Rectangle( 0, 0, 3, 2,
       {
-        fill: photon.color,
-        lineWidth: 0,
+        fill: 'red'
       } );
 
-    this.addChild( path );
+    this.addChild( rectangle );
 
     // Register for properties for synchronization with model.
     photon.locationProperty.link( function( location ) {
-      thisNode.translation = mvt.modelToViewPosition( location );
+      thisNode.translation = location;
     } );
 
     photon.orientationProperty.link( function( orientation ) {
