@@ -21,17 +21,9 @@ define( function( require ) {
     var strokeColor = '#c0b9b9'; // TODO: move to constants file
     var scaleFactor = 256 / 100;
 
-    function getRGB() {
-      return 'rgb(' + [
-        Math.floor( model.redIntensityProperty.value * scaleFactor ),
-        Math.floor( model.greenIntensityProperty.value * scaleFactor ),
-        Math.floor( model.blueIntensityProperty.value * scaleFactor ) ].join() + ')';
-    }
-
     var ellipse = new Shape().ellipse( 0, 0, yRadius * 2, yRadius, 0 );
     var path = new Path( ellipse,
       {
-        fill: getRGB(),
         lineWidth: 0.5,
         stroke: strokeColor,
         centerX: centerX,
@@ -39,13 +31,18 @@ define( function( require ) {
       } );
 
     // add listeners
-    var listener = function() { path.fill = getRGB(); };
-    model.redIntensityProperty.link( listener );
-    model.greenIntensityProperty.link( listener );
-    model.blueIntensityProperty.link( listener );
+
+    var rgbProperty = model.toDerivedProperty( ['redIntensity', 'greenIntensity', 'blueIntensity'],
+      function( redIntensity, greenIntensity, blueIntensity ) {
+        return 'rgb(' + [
+          Math.floor( redIntensity * scaleFactor ),
+          Math.floor( greenIntensity * scaleFactor ),
+          Math.floor( blueIntensity * scaleFactor ) ].join() + ')';
+      } );
+
+    rgbProperty.linkAttribute( path, 'fill' );
 
     this.addChild( path );
-
   }
 
   return inherit( Node, ColorVisionEllipse );
