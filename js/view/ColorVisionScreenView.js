@@ -6,7 +6,7 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
  */
- define( function( require ) {
+define( function( require ) {
   'use strict';
 
   // modules
@@ -20,7 +20,6 @@
   var PhotonBeamNode = require( 'COLOR_VISION/view/PhotonBeamNode' );
 
   // images
-  // var mockupImage = require( 'image!COLOR_VISION/mockup1.png' );
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
@@ -29,14 +28,6 @@
   function ColorVisionScreenView( model ) {
 
     ScreenView.call( this );
-
-    // this.addChild( new Image( mockupImage,
-    //   {
-    //     centerX: this.layoutBounds.centerX,
-    //     centerY: this.layoutBounds.centerY,
-    //     scale: this.layoutBounds.height / mockupImage.height,
-    //     opacity: 0.5
-    //   } ) );
 
     // Add flashlights
     var flashlightScale = 0.72;
