@@ -83,12 +83,12 @@ define( function( require ) {
       } ) );
 
     // Add photon beams
-    // this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.photons );
+    // this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.redBeam );
     // this.redBeam.x = 330;
     // this.redBeam.y = 210;
     // this.redBeam.rotation = -Math.PI / 6;
 
-    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.photons );
+    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.greenBeam );
     this.greenBeam.x = 330;
     this.greenBeam.y = 230;
 

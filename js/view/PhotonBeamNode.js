@@ -16,14 +16,15 @@ define( function( require ) {
 
   /**
    * @param {Bounds2} canvasBounds
-   * @param {Array} photons
+   * @param {Array} photonBeam
    * @constructor
    */
-  function PhotonBeamNode( canvasBounds, photons ) {
+  function PhotonBeamNode( canvasBounds, photonBeam ) {
 
     var thisNode = this;
     this.beamBounds = canvasBounds;
-    this.photons = photons;
+    this.photons = photonBeam.photons;
+    this.color = photonBeam.color;
 
     CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
     this.invalidatePaint();
@@ -35,8 +36,8 @@ define( function( require ) {
     // @param {CanvasContextWrapper} wrapper
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
+      context.fillStyle = this.color;
       for ( var i = 0; i < this.photons.length; i++ ) {
-        context.fillStyle = this.photons[i].color;
         context.fillRect( this.photons[i].location.x, this.photons[i].location.y, 3, 2 );
       }
     },
