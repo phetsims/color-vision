@@ -86,7 +86,7 @@ define( function( require ) {
     this.addChild( sliderVBox );
 
     // Add thought bubbles
-    this.addChild( new ColorVisionEllipse( model, 225, 55, 53 ) );
+    this.addChild( new ColorVisionEllipse( model, 225, 60, 53 ) );
     this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
     this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
     this.addChild( new ColorVisionEllipse( model, 50, 220, 7 ) );
