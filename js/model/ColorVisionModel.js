@@ -11,8 +11,6 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Color = require( 'SCENERY/util/Color' );
   var PhotonBeam = require( 'COLOR_VISION/model/PhotonBeam' );
 
   function ColorVisionModel() {
@@ -24,9 +22,9 @@ define( function( require ) {
       }
     );
 
-    this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty );
-    this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty );
-    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty );
+    this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, 280 );
+    this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, 240 );
+    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty, 280 );
 
   }
 

@@ -14,12 +14,10 @@ define( function( require ) {
   var ScreenView = require( 'JOIST/ScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/view/PhotonBeamNode' );
-  var PhotonNode = require( 'COLOR_VISION/view/PhotonNode' );
 
   // images
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
@@ -30,6 +28,25 @@ define( function( require ) {
   function ColorVisionScreenView( model ) {
 
     ScreenView.call( this );
+
+    // Add photon beams
+    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.redBeam );
+    this.redBeam.x = 322;
+    this.redBeam.y = 228;
+    this.redBeam.rotation = -Math.PI / 6;
+
+    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.greenBeam );
+    this.greenBeam.x = 330;
+    this.greenBeam.y = 230;
+
+    this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.blueBeam );
+    this.blueBeam.x = 340;
+    this.blueBeam.y = 230;
+    this.blueBeam.rotation = Math.PI / 6;
+
+    this.addChild( this.redBeam );
+    this.addChild( this.greenBeam );
+    this.addChild( this.blueBeam );
 
     // Add flashlights
     var flashlightScale = 0.72;
@@ -82,32 +99,14 @@ define( function( require ) {
         scale: 0.7
       } ) );
 
-    // Add photon beams
-    // this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.redBeam );
-    // this.redBeam.x = 330;
-    // this.redBeam.y = 210;
-    // this.redBeam.rotation = -Math.PI / 6;
-
-    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.greenBeam );
-    this.greenBeam.x = 330;
-    this.greenBeam.y = 230;
-
-    // this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.photons );
-    // this.blueBeam.x = 330;
-    // this.blueBeam.y = 230;
-
-    // this.addChild( this.redBeam );
-    this.addChild( this.greenBeam );
-    // this.addChild( this.blueBeam );
-    // for ( var i = 0; i < model.photons.length; i++ ) {
-    //   this.addChild( new PhotonNode( model.photons[i] ) );
-    // }
   }
 
   return inherit( ScreenView, ColorVisionScreenView,
     {
       step: function( dt ) {
+        this.redBeam.step( dt );
         this.greenBeam.step( dt );
+        this.blueBeam.step( dt );
       }
     } );
 } );

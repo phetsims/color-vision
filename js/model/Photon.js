@@ -2,7 +2,6 @@
 
 /**
  * Model of a photon.
- * The photon has fixed velocity, and a mutable location, orientation and color.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -12,27 +11,20 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
-   * @param {Number} orientation in radians
-   * @param {String} color (rgb string)
    */
-  function Photon( location, velocity, orientation, color ) {
-
-    PropertySet.call( this,
-      {
-        location: location,
-        orientation: orientation,
-      } );
+  function Photon( location, velocity ) {
+    this.location = location;
     this.velocity = velocity;
-    this.color = color;
   }
 
   var updateAnimationFrame = function( dt ) {
-    this.location = this.location.plus( this.velocity );
+    // this.location = this.location.plus( this.velocity );
+    this.location.x = this.location.x + this.velocity.x;
+    this.location.y = this.location.y + this.velocity.y;
   };
 
   return inherit( PropertySet, Photon, { updateAnimationFrame: updateAnimationFrame } );

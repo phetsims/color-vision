@@ -17,30 +17,30 @@ define( function( require ) {
   /**
    * @param {Color} color
    */
-  function PhotonBeam( color, intensityProperty ) {
-    this.maxPhotons = 500;
+  function PhotonBeam( color, intensityProperty, len ) {
+    this.maxPhotons = 300;
     this.photons = [];      // for photons in use
     this.photonPool = [];   // for recycled photons
 
     this.color = color;
     this.intensityProperty = intensityProperty;
+    this.len = len;
 
   }
 
   var updateAnimationFrame = function( dt ) {
 
     // create number of new photons proportional to intensity
-    var numToCreate = Math.floor( 0.1 * parseInt( this.intensityProperty.value ) );
-    // console.log( numToCreate );
+    var numToCreate = Math.floor( 0.05 * this.intensityProperty.value );
     for ( var i = 0; i < numToCreate; i++ ) {
 
       if ( this.photonPool.length > 0 ) {
         var photon = this.photonPool.pop();
-        photon.location.x = 220;
+        photon.location.x = this.len;
         this.photons.push( photon );
 
       } else if ( this.photons.length <= this.maxPhotons ) {
-        this.photons.push( new Photon( new Vector2( 220, Math.floor( Math.random() * 50 ) ), new Vector2( -5, 0 ), 0, this.color ) );
+        this.photons.push( new Photon( new Vector2( this.len, Math.floor( Math.random() * 50 ) ), new Vector2( -5, 0 ) ) );
       }
 
     }
