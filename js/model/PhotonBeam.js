@@ -20,7 +20,7 @@ define( function( require ) {
   function PhotonBeam( color, intensityProperty, len ) {
 
     // constants
-    this.maxPhotons = 300;
+    this.maxPhotons = 800;
     this.velocity = new Vector2( -4, 0 );
 
     this.photons = [];      // for photons in use
