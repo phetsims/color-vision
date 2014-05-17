@@ -18,13 +18,16 @@ define( function( require ) {
     PropertySet.call( this, {
         redIntensity: 0,
         greenIntensity: 0,
-        blueIntensity: 0
+        blueIntensity: 0,
+        perceivedRedIntensity: 0,
+        perceivedGreenIntensity: 0,
+        perceivedBlueIntensity: 0
       }
     );
 
-    this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, 280 );
-    this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, 240 );
-    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty, 280 );
+    this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, 280 );
+    this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, 240 );
+    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, 280 );
 
   }
 

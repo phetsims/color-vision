@@ -31,8 +31,7 @@ define( function( require ) {
       } );
 
     // add listeners
-
-    var rgbProperty = model.toDerivedProperty( ['redIntensity', 'greenIntensity', 'blueIntensity'],
+    var rgbProperty = model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
       function( redIntensity, greenIntensity, blueIntensity ) {
         return 'rgb(' + [
           Math.floor( redIntensity * scaleFactor ),

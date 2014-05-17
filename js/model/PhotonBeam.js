@@ -17,7 +17,7 @@ define( function( require ) {
   /**
    * @param {Color} color
    */
-  function PhotonBeam( color, intensityProperty, len ) {
+  function PhotonBeam( color, intensityProperty, perceivedIntensityProperty, len ) {
 
     // constants
     this.maxPhotons = 800;
@@ -28,6 +28,7 @@ define( function( require ) {
 
     this.color = color;
     this.intensityProperty = intensityProperty;
+    this.perceivedIntensityProperty = perceivedIntensityProperty;
     this.len = len;
     this.frameCount = 0;
 
@@ -58,12 +59,13 @@ define( function( require ) {
           // if there are photons in the recycled pool, use these
           if ( this.photonPool.length > 0 ) {
             var photon = this.photonPool.pop();
+            photon.intensity = intensity;
             photon.location.x = this.len;
             this.photons.push( photon );
 
           // otherwise, create a new photon
           } else if ( this.photons.length <= this.maxPhotons ) {
-            this.photons.push( new Photon( new Vector2( this.len, Math.floor( Math.random() * 50 ) ), this.velocity ) );
+            this.photons.push( new Photon( new Vector2( this.len, Math.floor( Math.random() * 50 ) ), this.velocity, intensity ) );
           }
 
         }
@@ -82,6 +84,7 @@ define( function( require ) {
         this.photons[j].updateAnimationFrame( dt );
 
       } else {
+        this.perceivedIntensityProperty.value = this.photons[j].intensity;
         this.photonPool.push( this.photons[j] );
         this.photons.splice( j, 1 );
       }

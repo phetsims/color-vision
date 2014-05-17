@@ -16,13 +16,13 @@ define( function( require ) {
    * @param {Vector2} location
    * @param {Vector2} velocity
    */
-  function Photon( location, velocity ) {
+  function Photon( location, velocity, intensity ) {
     this.location = location;
     this.velocity = velocity;
+    this.intensity = intensity;
   }
 
   var updateAnimationFrame = function( dt ) {
-    // this.location = this.location.plus( this.velocity );
     this.location.x = this.location.x + this.velocity.x;
     this.location.y = this.location.y + this.velocity.y;
   };
