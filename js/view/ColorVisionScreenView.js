@@ -95,7 +95,7 @@ define( function( require ) {
     this.addChild( new Image( head,
       {
         bottom: this.layoutBounds.bottom,
-        left: this.layoutBounds.minX + 60,
+        left: 60,
         scale: 0.7
       } ) );
 

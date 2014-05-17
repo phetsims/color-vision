@@ -70,7 +70,7 @@ define( function( require ) {
 
           // otherwise, create a new photon
           } else if ( this.photons.length <= this.maxPhotons ) {
-            this.photons.push( new Photon( new Vector2( this.len, yLocation ), new Vector2( -5, yVelocity ) , intensity ) );
+            this.photons.push( new Photon( new Vector2( this.len, yLocation ), new Vector2( -4, yVelocity ) , intensity ) );
           }
 
         }
@@ -94,6 +94,11 @@ define( function( require ) {
         this.photons.splice( j, 1 );
       }
 
+    }
+
+    // make sure that the intensity is 0 if there are no more photons
+    if ( this.photons.length === 0 ) {
+      this.perceivedIntensityProperty.value = 0;
     }
   };
 
