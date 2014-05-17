@@ -56,16 +56,21 @@ define( function( require ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
 
+          var yVelocity = Math.random() * 1.5 - 0.75;
+          var yLocation = yVelocity * 25 + 25;
+
           // if there are photons in the recycled pool, use these
           if ( this.photonPool.length > 0 ) {
             var photon = this.photonPool.pop();
             photon.intensity = intensity;
+            photon.location.y = yLocation;
             photon.location.x = this.len;
+            photon.velocity.y = yVelocity;
             this.photons.push( photon );
 
           // otherwise, create a new photon
           } else if ( this.photons.length <= this.maxPhotons ) {
-            this.photons.push( new Photon( new Vector2( this.len, Math.floor( Math.random() * 50 ) ), this.velocity, intensity ) );
+            this.photons.push( new Photon( new Vector2( this.len, yLocation ), new Vector2( -5, yVelocity ) , intensity ) );
           }
 
         }
@@ -82,6 +87,13 @@ define( function( require ) {
 
       if ( this.photons[j].location.x > 0 ) {
         this.photons[j].updateAnimationFrame( dt );
+        // this.photons[j].location.x = this.photons[j].location.x + this.photons[j].velocity.x;
+
+        // if ( this.photons[j].location.y < 40 ) {
+        //   this.photons[j].location.y = this.photons[j].location.y - 0.5;
+        // } else if ( this.photons[j].location.y > 60 ) {
+        //   this.photons[j].location.y = this.photons[j].location.y + 0.5;
+        // }
 
       } else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
