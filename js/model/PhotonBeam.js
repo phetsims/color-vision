@@ -87,13 +87,6 @@ define( function( require ) {
 
       if ( this.photons[j].location.x > 0 ) {
         this.photons[j].updateAnimationFrame( dt );
-        // this.photons[j].location.x = this.photons[j].location.x + this.photons[j].velocity.x;
-
-        // if ( this.photons[j].location.y < 40 ) {
-        //   this.photons[j].location.y = this.photons[j].location.y - 0.5;
-        // } else if ( this.photons[j].location.y > 60 ) {
-        //   this.photons[j].location.y = this.photons[j].location.y + 0.5;
-        // }
 
       } else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
