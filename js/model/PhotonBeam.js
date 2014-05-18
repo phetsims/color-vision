@@ -56,7 +56,7 @@ define( function( require ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
 
-          var yVelocity = Math.random() * 1.5 - 0.75;
+          var yVelocity = Math.random() * 1.25 - 0.625;
           var yLocation = yVelocity * 25 + 25;
 
           // if there are photons in the recycled pool, use these
