@@ -13,17 +13,18 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
   var ColorVisionScreenView = require( 'COLOR_VISION/rgb/view/ColorVisionScreenView' );
   var ColorVisionModel = require( 'COLOR_VISION/rgb/model/ColorVisionModel' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // strings
   var rgbString = require( 'string!COLOR_VISION/rgb' );
 
-  function ColorVisionScreen() {
-    Screen.call( this, rgbString, null /* no icon, single-screen sim */,
+  function RGBScreen() {
+    Screen.call( this, rgbString, new Rectangle( 0, 0, 10, 10 ),
       function() { return new ColorVisionModel(); },
       function( model ) { return new ColorVisionScreenView( model ); },
       { backgroundColor: 'black' }
     );
   }
 
-  return inherit( Screen, ColorVisionScreen );
+  return inherit( Screen, RGBScreen );
 } );

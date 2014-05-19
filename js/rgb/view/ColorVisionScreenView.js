@@ -34,6 +34,7 @@ define( function( require ) {
     //       make the final edges vertical or more contoured to face
     //       probably make head opaque - ask Bryce cc Ariel, Same
     //       make other beams similar to redBeam
+    //       email Bryce for homescreen icon and navbar icons for both screens, do in code, ask Bryce what he thinks
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.redBeam,
       {
         x: 322,

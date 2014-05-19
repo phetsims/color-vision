@@ -10,7 +10,8 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ColorVisionScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
+  var RGBScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
+  var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
 
@@ -35,7 +36,7 @@ define( function( require ) {
   }
 
   SimLauncher.launch( function() {
-    var sim = new Sim( simTitle, [ new ColorVisionScreen() ], simOptions );
+    var sim = new Sim( simTitle, [ new RGBScreen(), new SingleBulbScreen() ], simOptions );
     sim.start();
   } );
 } );
