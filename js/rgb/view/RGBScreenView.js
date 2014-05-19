@@ -16,6 +16,7 @@ define( function( require ) {
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
+  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
 
@@ -23,7 +24,6 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
-  var head = require( 'image!COLOR_VISION/head.png' );
 
   function RGBScreenView( model ) {
 
@@ -99,13 +99,7 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50, 220, 7 ) );
 
     // Add head image
-    this.addChild( new Image( head,
-      {
-        bottom: this.layoutBounds.bottom,
-        left: 60,
-        scale: 0.7
-      } ) );
-
+    this.addChild( new HeadNode( this.layoutBounds.bottom ) );
   }
 
   return inherit( ScreenView, RGBScreenView,
