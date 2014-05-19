@@ -13,6 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
   var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * @param {Color} color
@@ -57,7 +58,7 @@ define( function( require ) {
         for ( var i = 0; i < numToCreate; i++ ) {
 
           var yVelocity = Math.random() * 1.25 - 0.625;
-          var yLocation = yVelocity * 25 + 55;
+          var yLocation = yVelocity * 25 + ( Constants.BEAM_HEIGHT / 2 );
 
           // if there are photons in the recycled pool, use these
           if ( this.photonPool.length > 0 ) {
@@ -85,7 +86,7 @@ define( function( require ) {
     // move all photons that are currently active
     for ( var j = 0; j < this.photons.length; j++ ) {
 
-      if ( this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < 110 ) {
+      if ( this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < Constants.BEAM_HEIGHT ) {
         this.photons[j].updateAnimationFrame( dt );
 
       } else {

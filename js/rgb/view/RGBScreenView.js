@@ -19,6 +19,7 @@ define( function( require ) {
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // images
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
@@ -34,23 +35,23 @@ define( function( require ) {
     //       email Bryce for homescreen icon and navbar icons for both screens, do in code, ask Bryce what he thinks
     //       should we add reset all button to bottom left of RGBScreen?
     //       email about other images too
-    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 300, 110 ), model.redBeam,
+    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
       {
-        x: 300,
+        x: 280,
         y: 205,
         rotation: -Math.PI / 6
       } );
 
-    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 110 ), model.greenBeam,
+    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.greenBeam,
       {
         x: 330,
-        y: 200,
       } );
+    this.greenBeam.centerY = this.layoutBounds.centerY;
 
-    this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, 320, 110 ), model.blueBeam,
+    this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.blueBeam,
       {
-        x: 330,
-        y: 188,
+        x: 320,
+        y: 172,
         rotation: Math.PI / 6
       } );
 
