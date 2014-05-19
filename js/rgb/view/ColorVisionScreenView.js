@@ -23,7 +23,7 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
-  var head = require( 'image!COLOR_VISION/solid-head.png' );
+  var head = require( 'image!COLOR_VISION/head.png' );
 
   function ColorVisionScreenView( model ) {
 
