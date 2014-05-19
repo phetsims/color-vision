@@ -18,13 +18,15 @@ define( function( require ) {
    * @param {PhotonBeam} photonBeam
    * @constructor
    */
-  function PhotonBeamNode( canvasBounds, photonBeam ) {
+  function PhotonBeamNode( canvasBounds, photonBeam, options ) {
 
     this.beamBounds = canvasBounds;
     this.photons = photonBeam.photons;
     this.color = photonBeam.color;
 
-    CanvasNode.call( this, { pickable: false, canvasBounds: canvasBounds } );
+    options = _.extend( { pickable: false, canvasBounds: canvasBounds }, options );
+
+    CanvasNode.call( this, options );
     this.invalidatePaint();
 
   }

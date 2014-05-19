@@ -23,17 +23,23 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
-  var head = require( 'image!COLOR_VISION/head.png' );
+  var head = require( 'image!COLOR_VISION/solid-head.png' );
 
   function ColorVisionScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add photon beams
-    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.redBeam );
-    this.redBeam.x = 322;
-    this.redBeam.y = 228;
-    this.redBeam.rotation = -Math.PI / 6;
+    // TODO: make the canvas bounds surrounding the whole trapezoid
+    //       make the final edges vertical or more contoured to face
+    //       probably make head opaque - ask Bryce cc Ariel, Same
+    //       make other beams similar to redBeam
+    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.redBeam,
+      {
+        x: 322,
+        y: 228,
+        rotation: -Math.PI / 6
+      } );
 
     this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.greenBeam );
     this.greenBeam.x = 330;
