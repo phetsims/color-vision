@@ -31,9 +31,7 @@ define( function( require ) {
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add photon beams
-    // TODO: probably make head opaque - ask Bryce cc Ariel, Same
     //       email Bryce for homescreen icon and navbar icons for both screens, do in code, ask Bryce what he thinks
-    //       should we add reset all button to bottom left of RGBScreen?
     //       email about other images too
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
       {
