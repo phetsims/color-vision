@@ -15,7 +15,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var ColorVisionSlider = require( 'COLOR_VISION/rgb/view/ColorVisionSlider' );
+  var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
 
@@ -25,7 +25,7 @@ define( function( require ) {
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
   var head = require( 'image!COLOR_VISION/head.png' );
 
-  function ColorVisionScreenView( model ) {
+  function RGBScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
@@ -75,9 +75,9 @@ define( function( require ) {
     this.addChild( flashlightVBox );
 
     // Add sliders
-    var redSlider = new ColorVisionSlider( model.redIntensityProperty, 'red' );
-    var greenSlider = new ColorVisionSlider( model.greenIntensityProperty, 'green' );
-    var blueSlider = new ColorVisionSlider( model.blueIntensityProperty, 'blue' );
+    var redSlider = new RGBSlider( model.redIntensityProperty, 'red' );
+    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green' );
+    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue' );
 
     var sliderVBox = new VBox(
       {
@@ -108,7 +108,7 @@ define( function( require ) {
 
   }
 
-  return inherit( ScreenView, ColorVisionScreenView,
+  return inherit( ScreenView, RGBScreenView,
     {
       step: function( dt ) {
         this.redBeam.step( dt );

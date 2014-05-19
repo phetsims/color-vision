@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * View for ColorVisionSlider objects
+ * View for RGBSlider objects
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -16,7 +16,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var Node = require( 'SCENERY/nodes/Node' );
 
-  function ColorVisionSlider( intensityProperty, color ) {
+  function RGBSlider( intensityProperty, color ) {
 
     Node.call( this );
 
@@ -47,5 +47,5 @@ define( function( require ) {
     this.addChild( rectangle );
   }
 
-  return inherit( Node, ColorVisionSlider );
+  return inherit( Node, RGBSlider );
 } );

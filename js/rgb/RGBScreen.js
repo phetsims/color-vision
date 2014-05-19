@@ -11,8 +11,8 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var Screen = require( 'JOIST/Screen' );
-  var ColorVisionScreenView = require( 'COLOR_VISION/rgb/view/ColorVisionScreenView' );
-  var ColorVisionModel = require( 'COLOR_VISION/rgb/model/ColorVisionModel' );
+  var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
+  var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // strings
@@ -20,8 +20,8 @@ define( function( require ) {
 
   function RGBScreen() {
     Screen.call( this, rgbString, new Rectangle( 0, 0, 10, 10 ),
-      function() { return new ColorVisionModel(); },
-      function( model ) { return new ColorVisionScreenView( model ); },
+      function() { return new RGBModel(); },
+      function( model ) { return new RGBScreenView( model ); },
       { backgroundColor: 'black' }
     );
   }

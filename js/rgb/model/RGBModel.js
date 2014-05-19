@@ -13,7 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var PhotonBeam = require( 'COLOR_VISION/rgb/model/PhotonBeam' );
 
-  function ColorVisionModel() {
+  function RGBModel() {
     // model elements
     PropertySet.call( this, {
         redIntensity: 0,
@@ -31,7 +31,7 @@ define( function( require ) {
 
   }
 
-  return inherit( PropertySet, ColorVisionModel,
+  return inherit( PropertySet, RGBModel,
     {
       step: function( dt ) {
         this.redBeam.updateAnimationFrame();
