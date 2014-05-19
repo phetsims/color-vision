@@ -12,7 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Photon = require( 'COLOR_VISION/model/Photon' );
+  var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
 
   /**
    * @param {Color} color

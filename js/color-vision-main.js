@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ColorVisionScreen = require( 'COLOR_VISION/ColorVisionScreen' );
+  var ColorVisionScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
 

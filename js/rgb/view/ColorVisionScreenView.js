@@ -15,9 +15,9 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var ColorVisionSlider = require( 'COLOR_VISION/view/ColorVisionSlider' );
-  var ColorVisionEllipse = require( 'COLOR_VISION/view/ColorVisionEllipse' );
-  var PhotonBeamNode = require( 'COLOR_VISION/view/PhotonBeamNode' );
+  var ColorVisionSlider = require( 'COLOR_VISION/rgb/view/ColorVisionSlider' );
+  var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
+  var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
 
   // images
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );

@@ -11,14 +11,14 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var Screen = require( 'JOIST/Screen' );
-  var ColorVisionScreenView = require( 'COLOR_VISION/view/ColorVisionScreenView' );
-  var ColorVisionModel = require( 'COLOR_VISION/model/ColorVisionModel' );
+  var ColorVisionScreenView = require( 'COLOR_VISION/rgb/view/ColorVisionScreenView' );
+  var ColorVisionModel = require( 'COLOR_VISION/rgb/model/ColorVisionModel' );
 
   // strings
-  var colorVisionString = require( 'string!COLOR_VISION/color-vision.name' );
+  var rgbString = require( 'string!COLOR_VISION/rgb' );
 
   function ColorVisionScreen() {
-    Screen.call( this, colorVisionString, null /* no icon, single-screen sim */,
+    Screen.call( this, rgbString, null /* no icon, single-screen sim */,
       function() { return new ColorVisionModel(); },
       function( model ) { return new ColorVisionScreenView( model ); },
       { backgroundColor: 'black' }

@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var PhotonBeam = require( 'COLOR_VISION/model/PhotonBeam' );
+  var PhotonBeam = require( 'COLOR_VISION/rgb/model/PhotonBeam' );
 
   function ColorVisionModel() {
     // model elements
