@@ -103,5 +103,10 @@ define( function( require ) {
     }
   };
 
-  return inherit( PropertySet, PhotonBeam, { updateAnimationFrame: updateAnimationFrame } );
+  var reset = function() {
+    this.photons = [];
+    this.photonPool = [];
+  };
+
+  return inherit( PropertySet, PhotonBeam, { updateAnimationFrame: updateAnimationFrame, reset: reset } );
 } );

@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
 
@@ -27,6 +28,19 @@ define( function( require ) {
 
     // Add head image
     this.addChild( new HeadNode( this.layoutBounds.bottom ) );
+
+    // Add 'Reset All' button, resets the sim to its initial state
+    var resetAllButton = new ResetAllButton(
+      {
+        listener: function() {
+          model.reset();
+        },
+
+        bottom: this.layoutBounds.bottom - 15,
+        right: this.layoutBounds.right
+      } );
+
+    this.addChild( resetAllButton );
   }
 
   return inherit( ScreenView, RGBScreenView,

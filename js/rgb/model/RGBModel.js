@@ -38,6 +38,20 @@ define( function( require ) {
         this.redBeam.updateAnimationFrame();
         this.greenBeam.updateAnimationFrame();
         this.blueBeam.updateAnimationFrame();
+      },
+
+      reset: function() {
+        this.redIntensityProperty.value = 0;
+        this.greenIntensityProperty.value = 0;
+        this.blueIntensityProperty.value = 0;
+        this.perceivedRedIntensityProperty.value = 0;
+        this.perceivedGreenIntensityProperty.value = 0;
+        this.perceivedBlueIntensityProperty.value = 0;
+
+        // this.redBeam.reset();
+        // this.greenBeam.reset();
+        // this.blueBeam.reset();
       }
+
     } );
 } );

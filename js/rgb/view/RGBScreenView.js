@@ -14,6 +14,7 @@ define( function( require ) {
   var ScreenView = require( 'JOIST/ScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
@@ -100,6 +101,18 @@ define( function( require ) {
 
     // Add head image
     this.addChild( new HeadNode( this.layoutBounds.bottom ) );
+
+    // Add 'Reset All' button, resets the sim to its initial state
+    var resetAllButton = new ResetAllButton(
+      {
+        listener: function() {
+          model.reset();
+        },
+
+        bottom: this.layoutBounds.bottom - 15
+      } );
+
+    this.addChild( resetAllButton );
   }
 
   return inherit( ScreenView, RGBScreenView,
