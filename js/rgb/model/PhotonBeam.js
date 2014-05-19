@@ -17,7 +17,7 @@ define( function( require ) {
   /**
    * @param {Color} color
    */
-  function PhotonBeam( color, intensityProperty, perceivedIntensityProperty, len ) {
+  function PhotonBeam( color, intensityProperty, perceivedIntensityProperty, size ) {
 
     // constants
     this.maxPhotons = 800;
@@ -29,7 +29,7 @@ define( function( require ) {
     this.color = color;
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
-    this.len = len;
+    this.size = size;
     this.frameCount = 0;
 
   }
@@ -57,20 +57,20 @@ define( function( require ) {
         for ( var i = 0; i < numToCreate; i++ ) {
 
           var yVelocity = Math.random() * 1.25 - 0.625;
-          var yLocation = yVelocity * 25 + 25;
+          var yLocation = yVelocity * 25 + 55;
 
           // if there are photons in the recycled pool, use these
           if ( this.photonPool.length > 0 ) {
             var photon = this.photonPool.pop();
             photon.intensity = intensity;
             photon.location.y = yLocation;
-            photon.location.x = this.len;
+            photon.location.x = this.size;
             photon.velocity.y = yVelocity;
             this.photons.push( photon );
 
           // otherwise, create a new photon
           } else if ( this.photons.length <= this.maxPhotons ) {
-            this.photons.push( new Photon( new Vector2( this.len, yLocation ), new Vector2( -4, yVelocity ) , intensity ) );
+            this.photons.push( new Photon( new Vector2( this.size, yLocation ), new Vector2( -4, yVelocity ) , intensity ) );
           }
 
         }
@@ -85,7 +85,7 @@ define( function( require ) {
     // move all photons that are currently active
     for ( var j = 0; j < this.photons.length; j++ ) {
 
-      if ( this.photons[j].location.x > 0 ) {
+      if ( this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < 110 ) {
         this.photons[j].updateAnimationFrame( dt );
 
       } else {

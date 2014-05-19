@@ -30,26 +30,29 @@ define( function( require ) {
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add photon beams
-    // TODO: make the canvas bounds surrounding the whole trapezoid
-    //       make the final edges vertical or more contoured to face
-    //       probably make head opaque - ask Bryce cc Ariel, Same
-    //       make other beams similar to redBeam
+    // TODO: probably make head opaque - ask Bryce cc Ariel, Same
     //       email Bryce for homescreen icon and navbar icons for both screens, do in code, ask Bryce what he thinks
-    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.redBeam,
+    //       should we add reset all button to bottom left of RGBScreen?
+    //       email about other images too
+    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 300, 110 ), model.redBeam,
       {
-        x: 322,
-        y: 228,
+        x: 300,
+        y: 205,
         rotation: -Math.PI / 6
       } );
 
-    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 50 ), model.greenBeam );
-    this.greenBeam.x = 330;
-    this.greenBeam.y = 230;
+    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, 240, 110 ), model.greenBeam,
+      {
+        x: 330,
+        y: 200,
+      } );
 
-    this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.blueBeam );
-    this.blueBeam.x = 340;
-    this.blueBeam.y = 230;
-    this.blueBeam.rotation = Math.PI / 6;
+    this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, 320, 110 ), model.blueBeam,
+      {
+        x: 330,
+        y: 188,
+        rotation: Math.PI / 6
+      } );
 
     this.addChild( this.redBeam );
     this.addChild( this.greenBeam );
@@ -96,7 +99,7 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 225, 60, 53 ) );
     this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
     this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
-    this.addChild( new ColorVisionEllipse( model, 50, 220, 7 ) );
+    this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
 
     // Add head image
     this.addChild( new HeadNode( this.layoutBounds.bottom ) );

@@ -27,7 +27,7 @@ define( function( require ) {
 
     this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, 280 );
     this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, 240 );
-    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, 280 );
+    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, 320 );
 
   }
 
