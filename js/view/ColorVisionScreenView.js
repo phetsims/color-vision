@@ -27,7 +27,7 @@ define( function( require ) {
 
   function ColorVisionScreenView( model ) {
 
-    ScreenView.call( this );
+    ScreenView.call( this, { renderer: 'svg' } );
 
     // Add photon beams
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, 280, 50 ), model.redBeam );
