@@ -31,8 +31,6 @@ define( function( require ) {
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add photon beams
-    //       email Bryce for homescreen icon and navbar icons for both screens, do in code, ask Bryce what he thinks
-    //       email about other images too
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
       {
         x: 280,

@@ -11,17 +11,17 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var Screen = require( 'JOIST/Screen' );
-  var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
+  var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // strings
-  var singleBulbScreen = require( 'string!COLOR_VISION/singlebulb' );
+  var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
 
   function SingleBulbScreen() {
-    Screen.call( this, singleBulbScreen, new Rectangle( 0, 0, 10, 10 ),
+    Screen.call( this, singleBulbString, new Rectangle( 0, 0, 10, 10 ),
       function() { return new RGBModel(); },
-      function( model ) { return new RGBScreenView( model ); },
+      function( model ) { return new SingleBulbScreenView( model ); },
       { backgroundColor: 'black' }
     );
   }
