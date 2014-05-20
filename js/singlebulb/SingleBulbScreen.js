@@ -12,6 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Screen = require( 'JOIST/Screen' );
   var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
+  var SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
@@ -19,7 +20,7 @@ define( function( require ) {
   var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
 
   function SingleBulbScreen() {
-    Screen.call( this, singleBulbString, new Rectangle( 0, 0, 10, 10 ),
+    Screen.call( this, singleBulbString, new SingleBulbIconNode(),
       function() { return new RGBModel(); },
       function( model ) { return new SingleBulbScreenView( model ); },
       { backgroundColor: 'black' }
