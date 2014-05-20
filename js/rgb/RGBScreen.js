@@ -14,7 +14,6 @@ define( function( require ) {
   var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
   var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // strings
   var rgbString = require( 'string!COLOR_VISION/rgb' );

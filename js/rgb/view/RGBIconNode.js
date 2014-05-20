@@ -12,14 +12,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var VBox = require( 'SCENERY/nodes/VBox' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
-
-  // images
-  var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
-  var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
-  var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
 
   function RGBIconNode() {
 

@@ -14,7 +14,6 @@ define( function( require ) {
   var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
   var SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // strings
   var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
