@@ -20,6 +20,7 @@ define( function( require ) {
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
+  var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // images
@@ -110,6 +111,8 @@ define( function( require ) {
       } );
 
     this.addChild( resetAllButton );
+
+    this.addChild( new RGBIconNode() );
   }
 
   return inherit( ScreenView, RGBScreenView,
