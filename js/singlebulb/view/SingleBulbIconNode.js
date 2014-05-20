@@ -1,10 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Photon beam
+ * SingleBulbIconNode - for navbar and homepage icons
  *
  * @author Aaron Davis (PhET Interactive Simulations)
- * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
@@ -20,7 +19,7 @@ define( function( require ) {
   // images
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
 
-  function RGBIconNode( width, height ) {
+  function SingleBulbIconNode( width, height ) {
 
     Node.call( this );
 
@@ -49,5 +48,5 @@ define( function( require ) {
 
   }
 
-  return inherit( Node, RGBIconNode );
+  return inherit( Node, SingleBulbIconNode );
 } );

@@ -1,10 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Photon beam
+ * RGBIconNode - for navbar and homepage icons
  *
  * @author Aaron Davis (PhET Interactive Simulations)
- * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
