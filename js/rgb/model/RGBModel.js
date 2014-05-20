@@ -48,9 +48,9 @@ define( function( require ) {
         this.perceivedGreenIntensityProperty.value = 0;
         this.perceivedBlueIntensityProperty.value = 0;
 
-        // this.redBeam.reset();
-        // this.greenBeam.reset();
-        // this.blueBeam.reset();
+        this.redBeam.reset();
+        this.greenBeam.reset();
+        this.blueBeam.reset();
       }
 
     } );

@@ -104,8 +104,10 @@ define( function( require ) {
   };
 
   var reset = function() {
-    this.photons = [];
-    this.photonPool = [];
+    // set all photons to be out of bounds to trigger empty redraw
+    for ( var i = 0; i < this.photons.length; i++ ) {
+      this.photons[i].location.x = 0;
+    }
   };
 
   return inherit( PropertySet, PhotonBeam, { updateAnimationFrame: updateAnimationFrame, reset: reset } );

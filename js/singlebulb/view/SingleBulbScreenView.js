@@ -32,10 +32,7 @@ define( function( require ) {
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
       {
-        listener: function() {
-          model.reset();
-        },
-
+        listener: function() { model.reset(); },
         bottom: this.layoutBounds.bottom - 15,
         right: this.layoutBounds.right
       } );
