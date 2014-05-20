@@ -25,7 +25,7 @@ define( function( require ) {
 
     Node.call( this );
 
-    var rectangle = new Rectangle( 0, 0, 75, 50 );
+    var rectangle = new Rectangle( 0, 0, 75, 50, { fill: 'black' } );
     var flashlightScale = 0.12;
     var redFlashlight = new Image( flashlightDown, { scale: flashlightScale } );
     var greenFlashlight = new Image( flashlight, { scale: flashlightScale } );
@@ -38,8 +38,8 @@ define( function( require ) {
           greenFlashlight,
           blueFlashlight ],
         spacing: 5,
-        right: rectangle.right,
-        centerY: rectangle.centerY
+        right: rectangle.right - 5,
+        centerY: rectangle.centerY + 3
       } );
 
     rectangle.addChild( flashlightVBox );
