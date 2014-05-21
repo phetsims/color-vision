@@ -110,7 +110,8 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
-        bottom: this.layoutBounds.bottom - 15
+        bottom: this.layoutBounds.bottom - 15,
+        left: this.layoutBounds.left
       } );
 
     this.addChild( resetAllButton );
