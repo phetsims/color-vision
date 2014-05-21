@@ -8,13 +8,14 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
 
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
+   * @param {Number} value between 0-255 for rgb intensity
    */
   function Photon( location, velocity, intensity ) {
     this.location = location;

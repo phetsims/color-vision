@@ -9,7 +9,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var RGBScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
   var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
   var Sim = require( 'JOIST/Sim' );
