@@ -9,8 +9,14 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PropertySet = require( 'AXON/PropertySet' );
+  var Poolable = require( 'PHET_CORE/Poolable' );
+  var Vector2 = require( 'DOT/Vector2' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+
+  // contants
+  var xVelocity = -4 * 60;
+  var fanFactor = 1.2;
+  var halfFanFactor = fanFactor / 2;
 
   /**
    * @param {Vector2} location
@@ -24,10 +30,37 @@ define( function( require ) {
     this.intensity = intensity;
   }
 
-  var updateAnimationFrame = function( dt ) {
-    this.location.x = this.location.x + dt * this.velocity.x;
-    this.location.y = this.location.y + dt * this.velocity.y;
+  Photon.prototype = {
+    updateAnimationFrame: function( dt ) {
+      this.location.x = this.location.x + dt * this.velocity.x;
+      this.location.y = this.location.y + dt * this.velocity.y;
+    }
   };
 
-  return inherit( PropertySet, Photon, { updateAnimationFrame: updateAnimationFrame } );
+  Poolable( Photon, {
+    maxPoolSize: 100,
+    initialSize: 100,
+    defaultFactory: function() {
+      return new Photon( new Vector2(), new Vector2( xVelocity, 0 ), 0 );
+    },
+    constructorDuplicateFactory: function( pool ) {
+      return function( size, intensity ) {
+        var yVelocity = Math.random() * fanFactor - halfFanFactor;
+        var yLocation = yVelocity * 25 + ( Constants.BEAM_HEIGHT / 2 );
+        yVelocity *= 60;
+        if ( pool.length ) {
+          var photon = pool.pop();
+          photon.intensity = intensity;
+          photon.location.y = yLocation;
+          photon.location.x = size;
+          photon.velocity.y = yVelocity;
+          return photon;
+        } else {
+          return new Photon( new Vector2( size, yLocation ), new Vector2( xVelocity, yVelocity ), intensity );
+        }
+      };
+    }
+  } );
+
+  return Photon;
 } );

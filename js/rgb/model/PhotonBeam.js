@@ -11,15 +11,8 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Poolable = require( 'PHET_CORE/Poolable' );
   var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
-
-  // contants
-  var xVelocity = -4 * 60;
-  var fanFactor = 1.2;
-  var halfFanFactor = fanFactor / 2;
 
   /**
    * @param {String} color an rgb string
@@ -37,31 +30,6 @@ define( function( require ) {
     this.size = size;
     this.frameCount = 0;
   }
-
-  Poolable( PhotonBeam, {
-    maxPoolSize: 100,
-    initialSize: 100,
-    defaultFactory: function() {
-      return new Photon( new Vector2(), new Vector2( xVelocity, 0 ), 0 );
-    },
-    constructorDuplicateFactory: function( pool ) {
-      return function( size, intensity ) {
-        var yVelocity = Math.random() * fanFactor - halfFanFactor;
-        var yLocation = yVelocity * 25 + ( Constants.BEAM_HEIGHT / 2 );
-        yVelocity *= 60;
-        if ( pool.length ) {
-          var photon = pool.pop();
-          photon.intensity = intensity;
-          photon.location.y = yLocation;
-          photon.location.x = size;
-          photon.velocity.y = yVelocity;
-          return photon;
-        } else {
-          return new Photon( new Vector2( size, yLocation ), new Vector2( xVelocity, yVelocity ), intensity );
-        }
-      };
-    }
-  } );
 
   var updateAnimationFrame = function( dt ) {
 
@@ -84,7 +52,7 @@ define( function( require ) {
       if ( intensity >= cycleLength || this.frameCount % spacing === 0 ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
-          this.photons.push( PhotonBeam.createFromPool( this.size, intensity ) );
+          this.photons.push( Photon.createFromPool( this.size, intensity ) );
         }
       }
 
@@ -102,8 +70,7 @@ define( function( require ) {
 
       } else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
-        // this.photons[j].freeToPool();
-        PhotonBeam.pool.push( this.photons[j] );
+        this.photons[j].freeToPool();
         this.photons.splice( j, 1 );
       }
 
