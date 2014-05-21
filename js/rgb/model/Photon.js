@@ -37,6 +37,7 @@ define( function( require ) {
     }
   };
 
+  /* jshint -W064 */
   Poolable( Photon, {
     maxPoolSize: 100,
     initialSize: 100,
