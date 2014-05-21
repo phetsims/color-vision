@@ -25,7 +25,6 @@ define( function( require ) {
   }
 
   var updateAnimationFrame = function( dt ) {
-    dt = dt * 50; // scale the dt up to a reasonable value
     this.location.x = this.location.x + dt * this.velocity.x;
     this.location.y = this.location.y + dt * this.velocity.y;
   };

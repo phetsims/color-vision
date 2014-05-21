@@ -15,6 +15,9 @@ define( function( require ) {
   var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
+  // contants
+  var xVelocity = -4 * 60;
+
   /**
    * @param {String} color an rgb string
    * @param {Property} intensityProperty the intensity property for this color from the model
@@ -60,7 +63,7 @@ define( function( require ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
 
-          var yVelocity = Math.random() * 1.25 - 0.625;
+          var yVelocity = Math.random() * 1.20 - 0.6;
           var yLocation = yVelocity * 25 + ( Constants.BEAM_HEIGHT / 2 );
 
           // if there are photons in the recycled pool, use these
@@ -69,12 +72,12 @@ define( function( require ) {
             photon.intensity = intensity;
             photon.location.y = yLocation;
             photon.location.x = this.size;
-            photon.velocity.y = yVelocity;
+            photon.velocity.y = yVelocity * 60;
             this.photons.push( photon );
 
           // otherwise, create a new photon
           } else if ( this.photons.length <= this.maxPhotons ) {
-            this.photons.push( new Photon( new Vector2( this.size, yLocation ), new Vector2( -4, yVelocity ) , intensity ) );
+            this.photons.push( new Photon( new Vector2( this.size, yLocation ), new Vector2( xVelocity, yVelocity * 60 ) , intensity ) );
           }
 
         }
