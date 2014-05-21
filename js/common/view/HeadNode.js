@@ -15,6 +15,10 @@ define( function( require ) {
   //images
   var head = require( 'image!COLOR_VISION/head.png' );
 
+  /**
+   * @param {Number} bottom the bottom of the HeadNode (should be layoutBounds.bottom)
+   # @constructor
+   */
   function HeadNode( bottom ) {
 
     Image.call( this, head,

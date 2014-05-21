@@ -18,6 +18,9 @@ define( function( require ) {
   // strings
   var rgbString = require( 'string!COLOR_VISION/rgb' );
 
+  /**
+   * @constructor
+   */
   function RGBScreen() {
     Screen.call( this, rgbString, new RGBIconNode(),
       function() { return new RGBModel(); },

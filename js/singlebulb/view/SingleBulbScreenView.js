@@ -19,6 +19,9 @@ define( function( require ) {
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
 
+  /**
+   * @constructor
+   */
   function RGBScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );

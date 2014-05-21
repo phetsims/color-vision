@@ -16,6 +16,7 @@ define( function( require ) {
    * @param {Vector2} location
    * @param {Vector2} velocity
    * @param {Number} value between 0-255 for rgb intensity
+   # @constructor
    */
   function Photon( location, velocity, intensity ) {
     this.location = location;

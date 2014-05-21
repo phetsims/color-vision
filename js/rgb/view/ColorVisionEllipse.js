@@ -14,6 +14,13 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
 
+  /**
+   * @param {PropertySet} model the model being used, either RGBModel or SingleBulbModel
+   * @param {Number} centerX
+   * @param {Number} centerY
+   * @param {Number} yRadius
+   * @constructor
+   */
   function ColorVisionEllipse( model, centerX, centerY, yRadius ) {
 
     Node.call( this );

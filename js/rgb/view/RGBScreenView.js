@@ -27,6 +27,10 @@ define( function( require ) {
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
 
+  /**
+   * @param {RGBModel} model
+   * @constructor
+   */
   function RGBScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );

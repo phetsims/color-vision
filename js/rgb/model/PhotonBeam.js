@@ -16,7 +16,11 @@ define( function( require ) {
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
-   * @param {Color} color
+   * @param {String} color an rgb string
+   * @param {Property} intensityProperty the intensity property for this color from the model
+   * @param {Property} perceivedIntensityProperty the percieved intensity property for this color from the model
+   * @param {Number} size the length of the beam
+   # @constructor
    */
   function PhotonBeam( color, intensityProperty, perceivedIntensityProperty, size ) {
 

@@ -19,6 +19,11 @@ define( function( require ) {
   // images
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
 
+  /**
+   * @param {Number} rotation
+   * @param {String} color - an rgb string or other legitimate color string
+   # @constructor
+   */
   function FlashlightNode( rotation, color ) {
 
     Node.call( this );

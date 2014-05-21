@@ -16,6 +16,7 @@ define( function( require ) {
   /**
    * @param {Bounds2} canvasBounds
    * @param {PhotonBeam} photonBeam
+   * @param {Object} options
    * @constructor
    */
   function PhotonBeamNode( canvasBounds, photonBeam, options ) {

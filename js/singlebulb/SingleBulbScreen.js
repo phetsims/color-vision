@@ -18,6 +18,9 @@ define( function( require ) {
   // strings
   var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
 
+  /**
+   * @constructor
+   */
   function SingleBulbScreen() {
     Screen.call( this, singleBulbString, new SingleBulbIconNode(),
       function() { return new RGBModel(); },

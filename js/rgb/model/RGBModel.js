@@ -14,8 +14,10 @@ define( function( require ) {
   var PhotonBeam = require( 'COLOR_VISION/rgb/model/PhotonBeam' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
+  /**
+   * @constructor
+   */
   function RGBModel() {
-    // model elements
     PropertySet.call( this, {
         redIntensity: 0,
         greenIntensity: 0,

@@ -16,6 +16,11 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var Node = require( 'SCENERY/nodes/Node' );
 
+  /**
+   * @param {Property} intensityProperty the intensity property for this color from the model
+   * @param {String} color
+   * @constructor
+   */
   function RGBSlider( intensityProperty, color ) {
 
     Node.call( this );

@@ -15,6 +15,9 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
 
+  /**
+   * @constructor
+   */
   function RGBIconNode() {
 
     Node.call( this );
