@@ -35,9 +35,9 @@ define( function( require ) {
   return inherit( PropertySet, RGBModel,
     {
       step: function( dt ) {
-        this.redBeam.updateAnimationFrame();
-        this.greenBeam.updateAnimationFrame();
-        this.blueBeam.updateAnimationFrame();
+        this.redBeam.updateAnimationFrame( dt );
+        this.greenBeam.updateAnimationFrame( dt );
+        this.blueBeam.updateAnimationFrame( dt );
       },
 
       reset: function() {

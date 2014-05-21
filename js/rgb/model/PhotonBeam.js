@@ -22,7 +22,6 @@ define( function( require ) {
 
     // constants
     this.maxPhotons = 800;
-    this.velocity = new Vector2( -4, 0 );
 
     this.photons = [];      // for photons in use
     this.photonPool = [];   // for recycled photons

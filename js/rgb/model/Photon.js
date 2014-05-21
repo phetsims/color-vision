@@ -24,8 +24,9 @@ define( function( require ) {
   }
 
   var updateAnimationFrame = function( dt ) {
-    this.location.x = this.location.x + this.velocity.x;
-    this.location.y = this.location.y + this.velocity.y;
+    dt = dt * 50; // scale the dt up to a reasonable value
+    this.location.x = this.location.x + dt * this.velocity.x;
+    this.location.y = this.location.y + dt * this.velocity.y;
   };
 
   return inherit( PropertySet, Photon, { updateAnimationFrame: updateAnimationFrame } );
