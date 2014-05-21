@@ -12,11 +12,14 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Poolable = require( 'PHET_CORE/Poolable' );
   var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // contants
   var xVelocity = -4 * 60;
+  var fanFactor = 1.2;
+  var halfFanFactor = fanFactor / 2;
 
   /**
    * @param {String} color an rgb string
@@ -26,20 +29,39 @@ define( function( require ) {
    # @constructor
    */
   function PhotonBeam( color, intensityProperty, perceivedIntensityProperty, size ) {
-
-    // constants
-    this.maxPhotons = 800;
-
-    this.photons = [];      // for photons in use
-    this.photonPool = [];   // for recycled photons
+    this.photons = [];
 
     this.color = color;
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
     this.size = size;
     this.frameCount = 0;
-
   }
+
+  Poolable( PhotonBeam, {
+    maxPoolSize: 100,
+    initialSize: 100,
+    defaultFactory: function() {
+      return new Photon( new Vector2(), new Vector2( xVelocity, 0 ), 0 );
+    },
+    constructorDuplicateFactory: function( pool ) {
+      return function( size, intensity ) {
+        var yVelocity = Math.random() * fanFactor - halfFanFactor;
+        var yLocation = yVelocity * 25 + ( Constants.BEAM_HEIGHT / 2 );
+        yVelocity *= 60;
+        if ( pool.length ) {
+          var photon = pool.pop();
+          photon.intensity = intensity;
+          photon.location.y = yLocation;
+          photon.location.x = size;
+          photon.velocity.y = yVelocity;
+          return photon;
+        } else {
+          return new Photon( new Vector2( size, yLocation ), new Vector2( xVelocity, yVelocity ), intensity );
+        }
+      };
+    }
+  } );
 
   var updateAnimationFrame = function( dt ) {
 
@@ -62,24 +84,7 @@ define( function( require ) {
       if ( intensity >= cycleLength || this.frameCount % spacing === 0 ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
-
-          var yVelocity = Math.random() * 1.20 - 0.6;
-          var yLocation = yVelocity * 25 + ( Constants.BEAM_HEIGHT / 2 );
-
-          // if there are photons in the recycled pool, use these
-          if ( this.photonPool.length > 0 ) {
-            var photon = this.photonPool.pop();
-            photon.intensity = intensity;
-            photon.location.y = yLocation;
-            photon.location.x = this.size;
-            photon.velocity.y = yVelocity * 60;
-            this.photons.push( photon );
-
-          // otherwise, create a new photon
-          } else if ( this.photons.length <= this.maxPhotons ) {
-            this.photons.push( new Photon( new Vector2( this.size, yLocation ), new Vector2( xVelocity, yVelocity * 60 ) , intensity ) );
-          }
-
+          this.photons.push( PhotonBeam.createFromPool( this.size, intensity ) );
         }
       }
 
@@ -97,7 +102,8 @@ define( function( require ) {
 
       } else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
-        this.photonPool.push( this.photons[j] );
+        // this.photons[j].freeToPool();
+        PhotonBeam.pool.push( this.photons[j] );
         this.photons.splice( j, 1 );
       }
 

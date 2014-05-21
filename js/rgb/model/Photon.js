@@ -18,7 +18,7 @@ define( function( require ) {
    * @param {Number} value between 0-255 for rgb intensity
    # @constructor
    */
-  function Photon( location, velocity, intensity ) {
+  function Photon( location, velocity, intensity, startX ) {
     this.location = location;
     this.velocity = velocity;
     this.intensity = intensity;
