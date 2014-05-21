@@ -28,7 +28,7 @@ define( function( require ) {
       {
         scale: 0.12,
         left: rectangle.centerX,
-        centerY: rectangle.centerY,
+        centerY: rectangle.centerY
       } );
 
     rectangle.addChild( flashlightImage );
