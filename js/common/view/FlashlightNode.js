@@ -19,11 +19,9 @@ define( function( require ) {
   // images
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
 
-  function FlashlightNode( rotation, color, options ) {
+  function FlashlightNode( rotation, color ) {
 
     Node.call( this );
-
-    options = _.extend( this.options, options );
 
     var rectangle = new Rectangle( 0, 0, 50, 25, { rotation: rotation } );
     var flashlightImage = new Image( flashlight,
