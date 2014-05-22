@@ -15,7 +15,7 @@ define( function( require ) {
 
   // contants
   var xVelocity = -4 * 60;
-  var fanFactor = 1.2;
+  var fanFactor = 1.05;
   var halfFanFactor = fanFactor / 2;
 
   /**

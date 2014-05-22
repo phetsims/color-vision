@@ -33,7 +33,7 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
 
     // Add head image
-    this.addChild( new HeadNode( this.layoutBounds.bottom ) );
+    this.addChild( new HeadNode( this.layoutBounds.bottom + 15 ) );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
