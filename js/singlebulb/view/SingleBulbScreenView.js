@@ -12,12 +12,18 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
   var StepButton = require( 'SCENERY_PHET/StepButton' );
   var Color = require( 'SCENERY/util/Color' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
+  var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
+
+  // images
+  var headFront = require ( 'image!COLOR_VISION/head-front.png' );
+  var headBack = require ( 'image!COLOR_VISION/head.png' );
 
   /**
    * @constructor
@@ -33,7 +39,14 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
 
     // Add head image
-    this.addChild( new HeadNode( this.layoutBounds.bottom + 15 ) );
+    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
+
+    // Add flashlight
+    this.addChild( new FlashlightWithButtonNode( model.redIntensityProperty,
+      {
+        centerY: this.layoutBounds.centerY + 10,
+        right: this.layoutBounds.maxX
+      } ) );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
