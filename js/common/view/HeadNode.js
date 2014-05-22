@@ -13,7 +13,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
 
   //images
-  var head = require( 'image!COLOR_VISION/head.png' );
+  var head = require( 'image!COLOR_VISION/color-vision-head.png' );
 
   /**
    * @param {Number} bottom the bottom of the HeadNode (should be layoutBounds.bottom)
