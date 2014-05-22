@@ -24,9 +24,9 @@ define( function( require ) {
 
     var rectangle = new Rectangle( 0, 0, 75, 50, { fill: 'black' } );
 
-    var redFlashlight = new FlashlightNode( -Math.PI / 6, 'red' );
+    var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
-    var blueFlashlight = new FlashlightNode( Math.PI / 6, 'blue' );
+    var blueFlashlight = new FlashlightNode( Math.PI / 12, 'blue' );
 
     var flashlightVBox = new VBox(
       {
