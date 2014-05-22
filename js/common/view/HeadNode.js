@@ -19,9 +19,9 @@ define( function( require ) {
    * @param {Number} bottom the bottom of the HeadNode (should be layoutBounds.bottom)
    # @constructor
    */
-  function HeadNode( bottom ) {
+  function HeadNode( image, bottom ) {
 
-    Image.call( this, head,
+    Image.call( this, image,
       {
         bottom: bottom,
         left: 60,
