@@ -26,6 +26,8 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
+  var headFront = require ( 'image!COLOR_VISION/head-front.png' );
+  var headBack = require ( 'image!COLOR_VISION/head.png' );
 
   /**
    * @param {RGBModel} model
@@ -34,6 +36,8 @@ define( function( require ) {
   function RGBScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
+
+    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
 
     // Add photon beams
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
@@ -104,7 +108,7 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
 
     // Add head image
-    this.addChild( new HeadNode( this.layoutBounds.bottom + 15 ) );
+    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + 15 ) );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
