@@ -37,6 +37,7 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
+    // Add back head image
     this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
 
     // Add photon beams
@@ -63,6 +64,9 @@ define( function( require ) {
     this.addChild( this.redBeam );
     this.addChild( this.greenBeam );
     this.addChild( this.blueBeam );
+
+    // Add front head image (the photons are sandwiched between two head images to get the cutoff point looking right)
+    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + 15 ) );
 
     // Add flashlights
     var flashlightScale = 0.72;
@@ -106,9 +110,6 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
     this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
     this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
-
-    // Add head image
-    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + 15 ) );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
