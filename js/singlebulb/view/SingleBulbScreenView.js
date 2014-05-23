@@ -68,12 +68,39 @@ define( function( require ) {
     var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', colorProperty,
       {
         content: new Image( whiteLightIcon ),
-        scale: 0.8,
-        left: flashlightNode.left + 10,
+        scale: 0.6,
+        left: flashlightNode.left + 13,
         bottom: flashlightNode.top - 15
       } );
 
+    var coloredLightButton = new RectangularStickyToggleButton( 'colored', 'white', colorProperty,
+      {
+        content: new Image( singleColorLightIcon ),
+        scale: 0.6,
+        left: whiteLightButton.right + 20,
+        bottom: flashlightNode.top - 15
+      } );
+
+    var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', colorProperty,
+      {
+        content: new Image( beamViewIcon ),
+        scale: 0.6,
+        left: flashlightNode.left + 13,
+        top: flashlightNode.bottom + 15
+      } );
+
+    var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', colorProperty,
+      {
+        content: new Image( photonViewIcon ),
+        scale: 0.6,
+        left: beamViewButton.right + 20,
+        top: flashlightNode.bottom + 15
+      } );
+
     this.addChild( whiteLightButton );
+    this.addChild( coloredLightButton );
+    this.addChild( beamViewButton );
+    this.addChild( photonViewButton );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
