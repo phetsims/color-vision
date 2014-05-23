@@ -21,7 +21,7 @@ define( function( require ) {
 
     Node.call( this );
 
-    var rectangle = new Rectangle( 0, 0, 75, 50, { fill: 'black' } );
+    var rectangle = new Rectangle( 0, 0, 548, 373, { fill: 'black' } );
     var flashlightNode = new FlashlightNode( 0, 'yellow' );
     flashlightNode.centerX = rectangle.centerX;
     flashlightNode.centerY = rectangle.centerY;

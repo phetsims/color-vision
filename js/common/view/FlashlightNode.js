@@ -28,10 +28,11 @@ define( function( require ) {
 
     Node.call( this );
 
-    var rectangle = new Rectangle( 0, 0, 50, 25, { rotation: rotation } );
+    var scale = 0.8;
+    var rectangle = new Node( { rotation: rotation} );
     var flashlightImage = new Image( flashlight,
       {
-        scale: 0.12,
+        scale: scale,
         left: rectangle.centerX,
         centerY: rectangle.centerY
       } );
@@ -40,11 +41,13 @@ define( function( require ) {
 
     var startX = flashlightImage.left + 2;
     var centerY = flashlightImage.centerY + 0.5;
+    var dx = 20 / 0.12 * scale;
+    var dy = 3 / 0.12 * scale;
     var beamShape = new Shape().
-      moveTo( startX, centerY + 3 ).
-      lineTo( startX - 20, centerY + 6 ).
-      lineTo( startX - 20, centerY - 6 ).
-      lineTo( startX, centerY - 3 ).
+      moveTo( startX, centerY + dy ).
+      lineTo( startX - dx, centerY + dy * 2 ).
+      lineTo( startX - dx, centerY - dy * 2 ).
+      lineTo( startX, centerY - dy ).
       close();
 
     var beamNode = new Path( beamShape,

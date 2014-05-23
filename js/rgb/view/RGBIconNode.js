@@ -22,7 +22,7 @@ define( function( require ) {
 
     Node.call( this );
 
-    var rectangle = new Rectangle( 0, 0, 75, 50, { fill: 'black' } );
+    var rectangle = new Rectangle( 0, 0, 548, 373, { fill: 'black' } );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
@@ -34,14 +34,13 @@ define( function( require ) {
           redFlashlight,
           greenFlashlight,
           blueFlashlight ],
-        spacing: -20,
-        right: rectangle.right - 5,
-        centerY: rectangle.centerY + 3
+        spacing: 4,
+        centerX: rectangle.centerX,
+        centerY: rectangle.centerY
       } );
 
     rectangle.addChild( flashlightVBox );
     this.addChild( rectangle );
-
   }
 
   return inherit( Node, RGBIconNode );
