@@ -12,6 +12,7 @@ define( function( require ) {
     RED_BEAM_LENGTH: 300,
     GREEN_BEAM_LENGTH: 250,
     BLUE_BEAM_LENGTH: 330,
-    FLASHLIGHT_ANGLE: Math.PI / 6
+    FLASHLIGHT_ANGLE: Math.PI / 6,
+    CENTER_Y_OFFSET: -20
   };
 } );

@@ -21,6 +21,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
 
   var Property = require( 'AXON/Property' );
@@ -40,19 +41,23 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
+    // for moving the thought bubbles together as a group
+    var thoughtBubbleX = -15;
+    var thoughtBubbleY = -10;
+
     // Add thought bubbles
-    this.addChild( new ColorVisionEllipse( model, 225, 60, 53 ) );
-    this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
-    this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
-    this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
+    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60  + thoughtBubbleY, 45 ) );
+    this.addChild( new ColorVisionEllipse( model, 90  + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
+    this.addChild( new ColorVisionEllipse( model, 62  + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
+    this.addChild( new ColorVisionEllipse( model, 50  + thoughtBubbleX, 220 + thoughtBubbleY,  7 ) );
 
     // Add head image
-    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
+    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
 
     // Add flashlight
     var flashlightNode = new FlashlightWithButtonNode( model.redIntensityProperty,
       {
-        centerY: this.layoutBounds.centerY + 10,
+        centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
         right: this.layoutBounds.maxX
       } );
     this.addChild( flashlightNode );
@@ -74,8 +79,9 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
-        bottom: this.layoutBounds.bottom - 15,
-        right: this.layoutBounds.right
+        bottom: this.layoutBounds.bottom - 5,
+        right: this.layoutBounds.right - 30,
+        radius: 18
       } );
 
     this.addChild( resetAllButton );

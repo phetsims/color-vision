@@ -37,10 +37,8 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
-    var headHeight = -20;
-
     // Add back head image
-    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + headHeight ) );
+    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
 
     // Add photon beams
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
@@ -54,7 +52,7 @@ define( function( require ) {
       {
         x: 320,
       } );
-    this.greenBeam.centerY = this.layoutBounds.centerY + headHeight;
+    this.greenBeam.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.blueBeam,
       {
@@ -68,7 +66,7 @@ define( function( require ) {
     this.addChild( this.blueBeam );
 
     // Add front head image (the photons are sandwiched between two head images to get the cutoff point looking right)
-    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + headHeight ) );
+    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
 
     // Add flashlights
     var flashlightScale = 0.72;
@@ -84,7 +82,7 @@ define( function( require ) {
           blueFlashlight ],
         spacing: 60,
         right: this.layoutBounds.maxX - 75,
-        centerY: this.layoutBounds.centerY + headHeight,
+        centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
       } );
 
     this.addChild( flashlightVBox );
@@ -107,7 +105,7 @@ define( function( require ) {
 
     this.addChild( sliderVBox );
 
-        // Add 'Reset All' button
+    // Add 'Reset All' button
     var resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
