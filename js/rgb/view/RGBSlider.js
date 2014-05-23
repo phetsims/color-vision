@@ -28,7 +28,7 @@ define( function( require ) {
     var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
-        trackSize: new Dimension2( 104, 2)
+        trackSize: new Dimension2( 100, 2)
       } );
     hSlider.rotation = -Math.PI / 2;
 

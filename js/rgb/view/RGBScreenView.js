@@ -37,28 +37,30 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
+    var headHeight = -20;
+
     // Add back head image
-    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
+    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + headHeight ) );
 
     // Add photon beams
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
       {
         x: 280,
-        y: 205,
-        rotation: -Math.PI / 6
+        y: 200,
+        rotation: -Constants.FLASHLIGHT_ANGLE
       } );
 
     this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.greenBeam,
       {
-        x: 330,
+        x: 320,
       } );
-    this.greenBeam.centerY = this.layoutBounds.centerY;
+    this.greenBeam.centerY = this.layoutBounds.centerY + headHeight;
 
     this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.blueBeam,
       {
         x: 320,
-        y: 172,
-        rotation: Math.PI / 6
+        y: 140,
+        rotation: Constants.FLASHLIGHT_ANGLE
       } );
 
     this.addChild( this.redBeam );
@@ -66,7 +68,7 @@ define( function( require ) {
     this.addChild( this.blueBeam );
 
     // Add front head image (the photons are sandwiched between two head images to get the cutoff point looking right)
-    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + 15 ) );
+    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + headHeight ) );
 
     // Add flashlights
     var flashlightScale = 0.72;
@@ -80,9 +82,9 @@ define( function( require ) {
           redFlashlight,
           greenFlashlight,
           blueFlashlight ],
-        spacing: 75,
+        spacing: 60,
         right: this.layoutBounds.maxX - 75,
-        centerY: this.layoutBounds.centerY
+        centerY: this.layoutBounds.centerY + headHeight,
       } );
 
     this.addChild( flashlightVBox );
@@ -98,28 +100,33 @@ define( function( require ) {
           redSlider,
           greenSlider,
           blueSlider ],
-        spacing: 22,
+        spacing: 15,
         right: this.layoutBounds.maxX - 30,
-        centerY: this.layoutBounds.centerY
+        centerY: flashlightVBox.centerY
       } );
 
     this.addChild( sliderVBox );
 
-    // Add thought bubbles
-    this.addChild( new ColorVisionEllipse( model, 225, 60, 53 ) );
-    this.addChild( new ColorVisionEllipse( model, 90, 105, 15 ) );
-    this.addChild( new ColorVisionEllipse( model, 62, 165, 12 ) );
-    this.addChild( new ColorVisionEllipse( model, 50, 220,  7 ) );
-
-    // Add 'Reset All' button, resets the sim to its initial state
+        // Add 'Reset All' button
     var resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
-        bottom: this.layoutBounds.bottom - 15,
-        left: this.layoutBounds.left
+        bottom: this.layoutBounds.bottom - 5,
+        right: sliderVBox.right,
+        radius: 18
       } );
 
     this.addChild( resetAllButton );
+
+    // for moving the thought bubbles together as a group
+    var thoughtBubbleX = -15;
+    var thoughtBubbleY = -10;
+
+    // Add thought bubbles
+    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60  + thoughtBubbleY, 45 ) );
+    this.addChild( new ColorVisionEllipse( model, 90  + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
+    this.addChild( new ColorVisionEllipse( model, 62  + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
+    this.addChild( new ColorVisionEllipse( model, 50  + thoughtBubbleX, 220 + thoughtBubbleY,  7 ) );
 
   }
 

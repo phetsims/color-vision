@@ -10,7 +10,8 @@ define( function( require ) {
   return {
     BEAM_HEIGHT: 130,
     RED_BEAM_LENGTH: 300,
-    GREEN_BEAM_LENGTH: 240,
-    BLUE_BEAM_LENGTH: 330
+    GREEN_BEAM_LENGTH: 250,
+    BLUE_BEAM_LENGTH: 330,
+    FLASHLIGHT_ANGLE: Math.PI / 6
   };
 } );
