@@ -20,7 +20,7 @@ define( function( require ) {
   var InOutRadioButton = require( 'SUN/InOutRadioButton' );
   var Color = require( 'SCENERY/util/Color' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
+  var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
 
   var Property = require( 'AXON/Property' );

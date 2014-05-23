@@ -18,7 +18,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var ColorVisionEllipse = require( 'COLOR_VISION/rgb/view/ColorVisionEllipse' );
+  var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
