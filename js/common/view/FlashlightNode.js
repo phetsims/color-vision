@@ -37,9 +37,7 @@ define( function( require ) {
         centerY: rectangle.centerY
       } );
 
-    rectangle.addChild( flashlightImage );
-
-    var startX = flashlightImage.left + 2;
+    var startX = flashlightImage.left + 15;
     var centerY = flashlightImage.centerY + 0.5;
     var dx = 20 / 0.12 * scale;
     var dy = 3 / 0.12 * scale;
@@ -54,7 +52,9 @@ define( function( require ) {
       {
         fill: color
       } );
+
     rectangle.addChild( beamNode );
+    rectangle.addChild( flashlightImage );
     this.addChild( rectangle );
 
   }

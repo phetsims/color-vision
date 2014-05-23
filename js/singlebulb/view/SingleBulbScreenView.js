@@ -57,7 +57,7 @@ define( function( require ) {
       } );
     this.addChild( flashlightNode );
 
-    var colorProperty = new Property('white')
+    var colorProperty = new Property('white');
 
     // Add buttons
     var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', colorProperty,
