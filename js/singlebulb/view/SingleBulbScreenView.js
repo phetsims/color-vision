@@ -124,6 +124,9 @@ define( function( require ) {
       right: flashlightNode.left - 100
     };
 
+    // Add the circular filter images into the scene
+    // Note: In Chrome, there is a 1px wide white line that can been seen separating the two image halves,
+    // seen in both Windows and OSX. So far, it has seemed minor enough to ignore.
     this.addChild( new Image( filterLeftImage, filterOptions ) );
     this.addChild( new Image( filterRightImage, filterOptions ) );
 
