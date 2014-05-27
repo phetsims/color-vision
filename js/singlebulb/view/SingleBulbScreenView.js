@@ -74,37 +74,41 @@ define( function( require ) {
     var colorProperty = new Property('white');
     var beamProperty = new Property('beam');
 
+    var distanceFromFlashlight = 15;
+    var buttonDistance = 13;
+
     // Add buttons
+    // Could have used HBox, but with only two buttons seemed like it was unnecessary
     var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', colorProperty,
       {
         content: new Image( whiteLightIcon ),
         scale: 0.6,
-        left: flashlightNode.left + 13,
-        bottom: flashlightNode.top - 15
+        left: flashlightNode.left + buttonDistance,
+        bottom: flashlightNode.top - distanceFromFlashlight
       } );
 
     var coloredLightButton = new RectangularStickyToggleButton( 'colored', 'white', colorProperty,
       {
         content: new Image( singleColorLightIcon ),
         scale: 0.6,
-        left: whiteLightButton.right + 20,
-        bottom: flashlightNode.top - 15
+        left: whiteLightButton.right + buttonDistance,
+        bottom: flashlightNode.top - distanceFromFlashlight
       } );
 
     var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', beamProperty,
       {
         content: new Image( beamViewIcon ),
         scale: 0.6,
-        left: flashlightNode.left + 13,
-        top: flashlightNode.bottom + 15
+        left: flashlightNode.left + buttonDistance,
+        top: flashlightNode.bottom + distanceFromFlashlight
       } );
 
     var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', beamProperty,
       {
         content: new Image( photonViewIcon ),
         scale: 0.6,
-        left: beamViewButton.right + 20,
-        top: flashlightNode.bottom + 15
+        left: beamViewButton.right + buttonDistance,
+        top: flashlightNode.bottom + distanceFromFlashlight
       } );
 
     this.addChild( whiteLightButton );
