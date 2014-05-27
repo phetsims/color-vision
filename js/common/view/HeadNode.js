@@ -12,9 +12,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Image = require( 'SCENERY/nodes/Image' );
 
-  //images
-  var head = require( 'image!COLOR_VISION/color-vision-head.png' );
-
   /**
    * @param {Number} bottom the bottom of the HeadNode (should be layoutBounds.bottom)
    # @constructor

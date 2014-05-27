@@ -17,7 +17,6 @@ define( function( require ) {
   var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
   var StepButton = require( 'SCENERY_PHET/StepButton' );
   var RectangularStickyToggleButton = require( 'SUN/buttons/RectangularStickyToggleButton' );
-  var InOutRadioButton = require( 'SUN/InOutRadioButton' );
   var Color = require( 'SCENERY/util/Color' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
@@ -27,7 +26,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   // images
-  var headFront = require ( 'image!COLOR_VISION/head-front.png' );
   var headBack = require ( 'image!COLOR_VISION/head.png' );
   var whiteLightIcon = require ( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
   var singleColorLightIcon = require ( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
@@ -120,7 +118,7 @@ define( function( require ) {
       centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
       scale: 0.7,
       right: flashlightNode.left - 100
-    }
+    };
 
     this.addChild( new Image( filterLeftImage, filterOptions ) );
     this.addChild( new Image( filterRightImage, filterOptions ) );

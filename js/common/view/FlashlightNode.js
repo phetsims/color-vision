@@ -14,7 +14,6 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // images
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
