@@ -13,6 +13,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
+  // If this is set to true, it will show a rectangle around the beam.
+  // This is useful for getting the placement of the beam correct relative to the
+  // flashlight image.
+  var debug = false;
+
   /**
    * @param {Bounds2} canvasBounds
    * @param {PhotonBeam} photonBeam
@@ -38,8 +43,10 @@ define( function( require ) {
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
       /* uncomment to show rectangle around beam */
-      // context.fillStyle = 'rgba(50,50,50,0.5)';
-      // context.fillRect( 0, 0, this.beamBounds.maxX, this.beamBounds.maxY );
+      if (debug) {
+        context.fillStyle = 'rgba(50,50,50,0.5)';
+        context.fillRect( 0, 0, this.beamBounds.maxX, this.beamBounds.maxY );
+      }
 
       context.fillStyle = this.color;
       for ( var i = 0; i < this.photons.length; i++ ) {

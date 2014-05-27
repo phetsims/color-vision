@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model of a photon.
+ * Model of a photon. TODO: add comments about why Pooling is important
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -13,7 +13,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
-  // contants
+  // constants
   var xVelocity = -4 * 60;
   var fanFactor = 1.05;
   var halfFanFactor = fanFactor / 2;
@@ -24,7 +24,7 @@ define( function( require ) {
    * @param {Number} value between 0-255 for rgb intensity
    # @constructor
    */
-  function Photon( location, velocity, intensity, startX ) {
+  function Photon( location, velocity, intensity ) {
     this.location = location;
     this.velocity = velocity;
     this.intensity = intensity;
@@ -39,6 +39,7 @@ define( function( require ) {
 
   /* jshint -W064 */
   Poolable( Photon, {
+    // TODO: document why 100?
     maxPoolSize: 100,
     initialSize: 100,
     defaultFactory: function() {

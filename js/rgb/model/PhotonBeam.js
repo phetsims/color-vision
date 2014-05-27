@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model of a photon beam.
+ * Model of a photon beam, made of individual photon particles.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -17,7 +17,7 @@ define( function( require ) {
   /**
    * @param {String} color an rgb string
    * @param {Property} intensityProperty the intensity property for this color from the model
-   * @param {Property} perceivedIntensityProperty the percieved intensity property for this color from the model
+   * @param {Property} perceivedIntensityProperty the perceived intensity property for this color from the model
    * @param {Number} size the length of the beam
    # @constructor
    */
@@ -71,7 +71,7 @@ define( function( require ) {
       } else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
         this.photons[j].freeToPool();
-        this.photons.splice( j, 1 );
+        this.photons.splice( j, 1 ); // remove jth photon from list
       }
 
     }
