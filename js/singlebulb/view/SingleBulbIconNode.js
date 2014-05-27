@@ -28,7 +28,6 @@ define( function( require ) {
 
     rectangle.addChild( flashlightNode );
     this.addChild( rectangle );
-
   }
 
   return inherit( Node, SingleBulbIconNode );

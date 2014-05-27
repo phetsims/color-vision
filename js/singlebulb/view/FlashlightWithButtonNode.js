@@ -26,7 +26,7 @@ define( function( require ) {
 
     var flashlightImage = new Image( flashlight,
       {
-        scale: 0.72,
+        scale: 0.72
       } );
 
     var button = new BooleanRoundStickyToggleButton( onOffProperty,
@@ -40,7 +40,6 @@ define( function( require ) {
     this.addChild( flashlightImage );
     this.addChild( button );
     this.mutate( options );
-
   }
 
   return inherit( Node, FlashlightWithButtonNode );
