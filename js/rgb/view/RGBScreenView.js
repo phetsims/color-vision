@@ -44,7 +44,7 @@ define( function( require ) {
     this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
       {
         x: 280,
-        y: 200,
+        y: 190,
         rotation: -Constants.FLASHLIGHT_ANGLE
       } );
 
@@ -57,7 +57,7 @@ define( function( require ) {
     this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.blueBeam,
       {
         x: 320,
-        y: 140,
+        y: 145,
         rotation: Constants.FLASHLIGHT_ANGLE
       } );
 
@@ -80,7 +80,7 @@ define( function( require ) {
           redFlashlight,
           greenFlashlight,
           blueFlashlight ],
-        spacing: 60,
+        spacing: 70,
         right: this.layoutBounds.maxX - 75,
         centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
       } );
