@@ -33,6 +33,9 @@ define( function( require ) {
   var singleColorLightIcon = require ( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
   var beamViewIcon = require ( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
   var photonViewIcon = require ( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
+  var filterLeftImage = require ( 'image!COLOR_VISION/filter-left.png' );
+  var filterRightImage = require ( 'image!COLOR_VISION/filter-right.png' );
+  var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
 
   /**
    * @constructor
@@ -40,6 +43,13 @@ define( function( require ) {
   function RGBScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
+
+    this.addChild( new Image( mockupImage, {
+      centerX: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerX - 25,
+      centerY: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerY - 25,
+      scale: ScreenView.DEFAULT_LAYOUT_BOUNDS.height / mockupImage.height,
+      opacity: 0.5
+    } ) );
 
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
@@ -58,11 +68,13 @@ define( function( require ) {
     var flashlightNode = new FlashlightWithButtonNode( model.redIntensityProperty,
       {
         centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
-        right: this.layoutBounds.maxX
+        right: this.layoutBounds.maxX - 50
       } );
     this.addChild( flashlightNode );
 
+    // temporary properties while getting the view together
     var colorProperty = new Property('white');
+    var beamProperty = new Property('beam');
 
     // Add buttons
     var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', colorProperty,
@@ -81,7 +93,7 @@ define( function( require ) {
         bottom: flashlightNode.top - 15
       } );
 
-    var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', colorProperty,
+    var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', beamProperty,
       {
         content: new Image( beamViewIcon ),
         scale: 0.6,
@@ -89,7 +101,7 @@ define( function( require ) {
         top: flashlightNode.bottom + 15
       } );
 
-    var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', colorProperty,
+    var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', beamProperty,
       {
         content: new Image( photonViewIcon ),
         scale: 0.6,
@@ -101,6 +113,17 @@ define( function( require ) {
     this.addChild( coloredLightButton );
     this.addChild( beamViewButton );
     this.addChild( photonViewButton );
+
+    // right and left filters have the same image dimensions (while only taking up half of the image each),
+    // so can be positioned the same location and will match up perfectly
+    var filterOptions = {
+      centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
+      scale: 0.7,
+      right: flashlightNode.left - 100
+    }
+
+    this.addChild( new Image( filterLeftImage, filterOptions ) );
+    this.addChild( new Image( filterRightImage, filterOptions ) );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
