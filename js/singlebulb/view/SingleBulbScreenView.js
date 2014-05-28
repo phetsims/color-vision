@@ -20,12 +20,14 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Rectangle = require( 'DOT/Rectangle' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
+  var GaussianNode = require( 'COLOR_VISION/singlebulb/view/GaussianNode' );
 
   var Property = require( 'AXON/Property' );
 
@@ -61,6 +63,7 @@ define( function( require ) {
     var sliderYOffset = 24;
     var sliderXOffset = 20;
     var sliderTrackWidth = 200;
+    var sliderTrackHeight = 40;
     var playStepButtonColor = new Color( 247, 151, 34 );
 
     // temporary properties while getting the view together
@@ -97,7 +100,8 @@ define( function( require ) {
         right: wavelengthSliderDistance,
         tweakersVisible: false,
         valueVisible: false,
-        trackWidth: sliderTrackWidth
+        trackWidth: sliderTrackWidth,
+        trackHeight: sliderTrackHeight
       } );
 
     // Add wire from flashlight to WavelengthSlider
@@ -170,7 +174,8 @@ define( function( require ) {
         right: wavelengthSliderDistance,
         tweakersVisible: false,
         valueVisible: false,
-        trackWidth: sliderTrackWidth
+        trackWidth: sliderTrackWidth,
+        trackHeight: sliderTrackHeight
       } );
 
     this.addChild( new FilterWireNode(
@@ -180,6 +185,10 @@ define( function( require ) {
     ) );
 
     this.addChild( lowerSliderNode );
+
+    var trackRectangle = new Rectangle( lowerSliderNode.x + sliderXOffset, lowerSliderNode.top - 8, sliderTrackWidth, sliderTrackHeight + 8 );
+    var gaussian = new GaussianNode( wavelengthPropery2, trackRectangle );
+    this.addChild( gaussian );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
