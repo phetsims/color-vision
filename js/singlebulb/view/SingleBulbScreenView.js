@@ -61,6 +61,7 @@ define( function( require ) {
     var sliderYOffset = 24;
     var sliderXOffset = 20;
     var sliderTrackWidth = 200;
+    var playStepButtonColor = new Color( 247, 151, 34 );
 
     // temporary properties while getting the view together
     var colorProperty = new Property('white');
@@ -194,9 +195,10 @@ define( function( require ) {
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.redIntensityProperty,
       {
-        baseColor: new Color( 247, 151, 34 ),
-        bottom: this.layoutBounds.bottom - 5,
-        centerX: this.layoutBounds.centerX - 32
+        baseColor: playStepButtonColor,
+        bottom: this.layoutBounds.bottom - 20,
+        centerX: this.layoutBounds.centerX - 25,
+        radius: 20
       } );
 
     this.addChild( playPauseButton );
@@ -204,9 +206,10 @@ define( function( require ) {
     // Add step button
     var stepButton = new StepButton( function( dt ) { console.log( dt ); }, model.redIntensityProperty,
       {
-        baseColor: new Color( 247, 151, 34 ),
-        bottom: this.layoutBounds.bottom - 12,
-        centerX: this.layoutBounds.centerX + 32
+        baseColor: playStepButtonColor,
+        bottom: this.layoutBounds.bottom - 20,
+        centerX: this.layoutBounds.centerX + 25,
+        radius: 15
       } );
 
     this.addChild( stepButton );
