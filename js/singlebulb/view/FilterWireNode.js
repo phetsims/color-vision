@@ -55,7 +55,8 @@ define( function( require ) {
         size: new Dimension2( switchHeight * 2, switchHeight ),
         centerTop: new Vector2( start.x, start.y - switchDistance ),
         trackOffFill: 'gray',
-        trackOnFill: 'black'
+        trackOnFill: 'black',
+        trackStroke: 'yellow'
       } );
 
     this.addChild( wirePath );
