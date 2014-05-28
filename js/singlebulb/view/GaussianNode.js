@@ -41,14 +41,19 @@ define( function( require ) {
     var distanceFromMean = 3;
     var height = track.bottom - track.top;
     var xScale = 10;
-    var xOffset = track.left - ( distanceFromMean * xScale ) + wavelengthToPosition( filterWavelengthProperty.value );
+    var xOffset = track.left - 20;
 
     // create a gaussian shape with many short line segments
-    var curve = new Shape().moveTo( xOffset, track.bottom );
-    for ( var i = -distanceFromMean; i <= distanceFromMean; i += distanceFromMean * 2 / numSamples ) {
-      curve.lineTo( i * xScale + xOffset, track.bottom - gaussian( i ) * height );
-    }
-    curve.close();
+    var createGaussian = function( position ) {
+      var curve = new Shape().moveTo( xOffset, track.bottom );
+      for ( var i = -distanceFromMean; i <= distanceFromMean; i += distanceFromMean * 2 / numSamples ) {
+        curve.lineTo( i * xScale + xOffset + position, track.bottom - gaussian( i ) * height );
+      }
+      curve.close();
+      return curve;
+    };
+
+    var curve = createGaussian( wavelengthToPosition( filterWavelengthProperty.value ) );
 
     var path = new Path( curve,
       {
@@ -58,9 +63,9 @@ define( function( require ) {
       } );
 
     filterWavelengthProperty.link( function( wavelength ) {
-      var postion = wavelengthToPosition( wavelength );
-      path.x = postion + xScale;
-      wavelengthSlider.setClipArea( curve );
+      var position = wavelengthToPosition( wavelength );
+      path.x = position + xScale;
+      wavelengthSlider.setClipArea( createGaussian( position ) );
     } );
 
     this.addChild( path );

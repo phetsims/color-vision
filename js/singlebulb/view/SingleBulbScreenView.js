@@ -39,7 +39,7 @@ define( function( require ) {
   var photonViewIcon = require ( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
   var filterLeftImage = require ( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require ( 'image!COLOR_VISION/filter-right.png' );
-  var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
+  // var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
 
   /**
    * @constructor
@@ -48,12 +48,12 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
-    this.addChild( new Image( mockupImage, {
-      centerX: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerX - 25,
-      centerY: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerY - 25,
-      scale: ScreenView.DEFAULT_LAYOUT_BOUNDS.height / mockupImage.height,
-      opacity: 0.5
-    } ) );
+    // this.addChild( new Image( mockupImage, {
+    //   centerX: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerX - 25,
+    //   centerY: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerY - 25,
+    //   scale: ScreenView.DEFAULT_LAYOUT_BOUNDS.height / mockupImage.height,
+    //   opacity: 0.5
+    // } ) );
 
     // constants
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
@@ -179,6 +179,11 @@ define( function( require ) {
         opacity: 0.5
       } );
 
+    // Add opaque slider in same place as the transparent one.
+    // This allows the gaussian shape to clip out a section of the opaque slider
+    // to give the effect of the gaussian being opaque and the rest of the slider 50% transparent
+    // ISSUES: re-rendering the Gaussian shape is choppy on iPad
+    //         the transparent slider handle should be opaque
     var lowerSliderNodeOpaque = new WavelengthSlider( wavelengthPropery2,
       {
         bottom: this.layoutBounds.bottom - 20,
@@ -195,15 +200,12 @@ define( function( require ) {
       new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
     ) );
 
-    var trackRectangle = new Rectangle( sliderXOffset, - 8, sliderTrackWidth, sliderTrackHeight + 8 );
+    var trackRectangle = new Rectangle( sliderXOffset, - 8, sliderTrackWidth, sliderTrackHeight + 7 );
     var gaussian = new GaussianNode( wavelengthPropery2, trackRectangle, lowerSliderNodeOpaque );
 
     this.addChild( lowerSliderNodeTransparent );
     this.addChild( lowerSliderNodeOpaque );
     lowerSliderNodeOpaque.addChild( gaussian );
-
-    // lowerSliderNodeOpaque.clipArea = new Shape.circle( 0, 0, 10 );
-
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
