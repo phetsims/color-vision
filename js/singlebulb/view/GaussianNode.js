@@ -60,7 +60,7 @@ define( function( require ) {
     filterWavelengthProperty.link( function( wavelength ) {
       var postion = wavelengthToPosition( wavelength );
       path.x = postion + xScale;
-      wavelengthSlider.setClipArea( path );
+      wavelengthSlider.setClipArea( curve );
     } );
 
     this.addChild( path );
