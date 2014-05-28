@@ -28,6 +28,7 @@ define( function( require ) {
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
   var GaussianNode = require( 'COLOR_VISION/singlebulb/view/GaussianNode' );
+  var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
 
   var Property = require( 'AXON/Property' );
 
@@ -207,6 +208,29 @@ define( function( require ) {
     this.addChild( lowerSliderNodeTransparent );
     this.addChild( lowerSliderNodeOpaque );
     lowerSliderNodeOpaque.addChild( gaussian );
+
+    var filterLeft = new FilterHalfEllipse
+      (
+        wavelengthPropery2,
+        filterLeftNode.centerX + 1,
+        filterLeftNode.centerY,
+        filterLeftNode.width / 2 - 13,
+        filterLeftNode.height / 2 - 12,
+        true
+      );
+
+    var filterRight = new FilterHalfEllipse
+      (
+        wavelengthPropery2,
+        filterLeftNode.centerX - 1,
+        filterLeftNode.centerY,
+        filterLeftNode.width / 2 - 13,
+        filterLeftNode.height / 2 - 12,
+        false
+      );
+
+    this.addChild( filterLeft );
+    this.addChild( filterRight );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
