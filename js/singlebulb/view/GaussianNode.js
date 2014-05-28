@@ -16,8 +16,8 @@ define( function( require ) {
   var Util = require( 'DOT/Util' );
 
   /**
-   * @param {Property} filterWavelengthProperty
-   * @param {Rectangle} track
+   * @param {Property} filterWavelengthProperty in units of wavelength
+   * @param {Rectangle} track a rectangle bounding the WavelengthSlider track
    * @constructor
    */
   function GaussianNode( filterWavelengthProperty, track ) {
@@ -31,9 +31,10 @@ define( function( require ) {
       return constant * Math.pow( Math.E, exponent );
     }
 
-    var wavelengthToPosition = function( wavelength ) {
+    // this function is almost identical to the one in WavelengthSlider, perhaps it should be refactored out
+    function wavelengthToPosition( wavelength ) {
       return Math.floor( Util.clamp( Util.linear( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, track.width, wavelength ), 0, track.width ) );
-    };
+    }
 
     // constants for determining the shape of the gaussian
     var numSamples = 50;
@@ -42,6 +43,7 @@ define( function( require ) {
     var xScale = 10;
     var xOffset = track.left - ( distanceFromMean * xScale );
 
+    // create a gaussian shape with many short line segments
     var curve = new Shape().moveTo( xOffset, track.bottom );
     for ( var i = -distanceFromMean; i <= distanceFromMean; i += distanceFromMean * 2 / numSamples ) {
       curve.lineTo( i * xScale + xOffset, track.bottom - gaussian( i ) * height );
