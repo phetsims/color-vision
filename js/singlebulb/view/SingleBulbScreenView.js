@@ -63,7 +63,7 @@ define( function( require ) {
     var sliderYOffset = 24;
     var sliderXOffset = 20;
     var sliderTrackWidth = 200;
-    var sliderTrackHeight = 40;
+    var sliderTrackHeight = 30;
     var playStepButtonColor = new Color( 247, 151, 34 );
 
     // temporary properties while getting the view together
@@ -168,7 +168,18 @@ define( function( require ) {
     this.addChild( filterRightNode );
 
     // Add lower WavelengthSlider
-    var lowerSliderNode = new WavelengthSlider( wavelengthPropery2,
+    var lowerSliderNodeTransparent = new WavelengthSlider( wavelengthPropery2,
+      {
+        bottom: this.layoutBounds.bottom - 20,
+        right: wavelengthSliderDistance,
+        tweakersVisible: false,
+        valueVisible: false,
+        trackWidth: sliderTrackWidth,
+        trackHeight: sliderTrackHeight,
+        opacity: 0.5
+      } );
+
+    var lowerSliderNodeOpaque = new WavelengthSlider( wavelengthPropery2,
       {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance,
@@ -181,14 +192,18 @@ define( function( require ) {
     this.addChild( new FilterWireNode(
       new Property( 'on' ),
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( lowerSliderNode.left + sliderXOffset, lowerSliderNode.centerY - sliderYOffset )
+      new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
     ) );
 
-    this.addChild( lowerSliderNode );
+    var trackRectangle = new Rectangle( sliderXOffset, - 8, sliderTrackWidth, sliderTrackHeight + 8 );
+    var gaussian = new GaussianNode( wavelengthPropery2, trackRectangle, lowerSliderNodeOpaque );
 
-    var trackRectangle = new Rectangle( lowerSliderNode.x + sliderXOffset, lowerSliderNode.top - 8, sliderTrackWidth, sliderTrackHeight + 8 );
-    var gaussian = new GaussianNode( wavelengthPropery2, trackRectangle );
-    this.addChild( gaussian );
+    this.addChild( lowerSliderNodeTransparent );
+    this.addChild( lowerSliderNodeOpaque );
+    lowerSliderNodeOpaque.addChild( gaussian );
+
+    // lowerSliderNodeOpaque.clipArea = new Shape.circle( 0, 0, 10 );
+
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
