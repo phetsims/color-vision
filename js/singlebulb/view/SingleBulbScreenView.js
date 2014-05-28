@@ -61,7 +61,7 @@ define( function( require ) {
     var buttonDistance = 13;
     var buttonScale = 0.6;
     var sliderYOffset = 24;
-    var sliderXOffset = 20;
+    var sliderXOffset = 18;
     var sliderTrackWidth = 200;
     var sliderTrackHeight = 30;
     var playStepButtonColor = new Color( 247, 151, 34 );
@@ -184,6 +184,7 @@ define( function( require ) {
     // to give the effect of the gaussian being opaque and the rest of the slider 50% transparent
     // ISSUES: re-rendering the Gaussian shape is choppy on iPad
     //         the transparent slider handle should be opaque
+    //         this lines from the opaque slider still show ontop of the gaussian
     var lowerSliderNodeOpaque = new WavelengthSlider( wavelengthPropery2,
       {
         bottom: this.layoutBounds.bottom - 20,

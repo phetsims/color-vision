@@ -13,9 +13,9 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   /**
-   * @param{Vector2} start
-   * @param{Vector2} end
-   * @param{Number} width
+   * @param {Vector2} start
+   * @param {Vector2} end
+   * @param {Number} width
    * @constructor
    */
   function FlashlightWireNode( start, end, width ) {

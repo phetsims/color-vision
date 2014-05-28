@@ -17,8 +17,9 @@ define( function( require ) {
   var OnOffSwitch = require( 'SUN/OnOffSwitch' );
 
   /**
-   * @param{Vector2} start
-   * @param{Vector2} end
+   * @param {Property} onProperty
+   * @param {Vector2} start
+   * @param {Vector2} end
    * @constructor
    */
   function FilterWireNode( onProperty, start, end ) {

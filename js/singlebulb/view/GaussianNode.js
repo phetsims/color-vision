@@ -18,6 +18,7 @@ define( function( require ) {
   /**
    * @param {Property} filterWavelengthProperty in units of wavelength
    * @param {Rectangle} track a rectangle bounding the WavelengthSlider track
+   * @param {WavelengthSlider} wavelengthSlider the slider whose clipArea must be set to the gaussian shape
    * @constructor
    */
   function GaussianNode( filterWavelengthProperty, track, wavelengthSlider ) {
@@ -41,7 +42,7 @@ define( function( require ) {
     var distanceFromMean = 3;
     var height = track.bottom - track.top;
     var xScale = 10;
-    var xOffset = track.left - 20;
+    var xOffset = track.left - 18;
 
     // create a gaussian shape with many short line segments
     var createGaussian = function( position ) {
@@ -57,9 +58,7 @@ define( function( require ) {
 
     var path = new Path( curve,
       {
-        lineWidth: 0.5,
-        stroke: 'white',
-        opacity: 0.1
+        lineWidth: 0.5
       } );
 
     filterWavelengthProperty.link( function( wavelength ) {
