@@ -25,6 +25,7 @@ define( function( require ) {
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
+  var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
 
   var Property = require( 'AXON/Property' );
 
@@ -95,7 +96,6 @@ define( function( require ) {
 
     this.addChild( upperSliderNode );
 
-
     var distanceFromFlashlight = 15;
     var buttonDistance = 13;
 
@@ -149,8 +149,16 @@ define( function( require ) {
     // Add the circular filter images into the scene
     // Note: In Chrome, there is a 1px wide white line that can been seen separating the two image halves,
     // seen in both Windows and OSX. So far, it has seemed minor enough to ignore.
-    this.addChild( new Image( filterLeftImage, filterOptions ) );
-    this.addChild( new Image( filterRightImage, filterOptions ) );
+    var filterLeftNode = new Image( filterLeftImage, filterOptions );
+    var filterRightNode = new Image( filterRightImage, filterOptions );
+    this.addChild( filterLeftNode );
+    this.addChild( filterRightNode );
+
+    this.addChild( new FilterWireNode(
+      new Property( 'on' ),
+      new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
+      new Vector2( 600, 400 )
+    ) );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
