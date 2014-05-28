@@ -18,10 +18,13 @@ define( function( require ) {
   var StepButton = require( 'SCENERY_PHET/StepButton' );
   var RectangularStickyToggleButton = require( 'SUN/buttons/RectangularStickyToggleButton' );
   var Color = require( 'SCENERY/util/Color' );
+  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+  var Vector2 = require( 'DOT/Vector2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
+  var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
 
   var Property = require( 'AXON/Property' );
 
@@ -49,6 +52,11 @@ define( function( require ) {
       opacity: 0.5
     } ) );
 
+    // temporary properties while getting the view together
+    var colorProperty = new Property('white');
+    var beamProperty = new Property('beam');
+    var wavelengthPropery = new Property(500);
+
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
     var thoughtBubbleY = -10;
@@ -70,9 +78,23 @@ define( function( require ) {
       } );
     this.addChild( flashlightNode );
 
-    // temporary properties while getting the view together
-    var colorProperty = new Property('white');
-    var beamProperty = new Property('beam');
+    // Add upper WavelengthSlider
+    var upperSliderNode = new WavelengthSlider( wavelengthPropery,
+      {
+        top: this.layoutBounds.top + 20,
+        right: this.layoutBounds.maxX - 70,
+        tweakersVisible: false,
+        valueVisible: false
+      } );
+
+    // Add wire from flashlight to WavelengthSlider
+    this.addChild( new FlashlightWireNode(
+      new Vector2( flashlightNode.right - 10, flashlightNode.centerY + 2 ),
+      new Vector2( upperSliderNode.right - 20, upperSliderNode.centerY - 24 ),
+      25 ) );
+
+    this.addChild( upperSliderNode );
+
 
     var distanceFromFlashlight = 15;
     var buttonDistance = 13;
