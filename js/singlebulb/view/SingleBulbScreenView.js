@@ -53,10 +53,20 @@ define( function( require ) {
       opacity: 0.5
     } ) );
 
+    // constants
+    var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
+    var distanceFromFlashlight = 15;
+    var buttonDistance = 13;
+    var buttonScale = 0.6;
+    var sliderYOffset = 24;
+    var sliderXOffset = 20;
+    var sliderTrackWidth = 200;
+
     // temporary properties while getting the view together
     var colorProperty = new Property('white');
     var beamProperty = new Property('beam');
     var wavelengthPropery = new Property(500);
+    var wavelengthPropery2 = new Property(500);
 
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
@@ -83,28 +93,26 @@ define( function( require ) {
     var upperSliderNode = new WavelengthSlider( wavelengthPropery,
       {
         top: this.layoutBounds.top + 20,
-        right: this.layoutBounds.maxX - 70,
+        right: wavelengthSliderDistance,
         tweakersVisible: false,
-        valueVisible: false
+        valueVisible: false,
+        trackWidth: sliderTrackWidth
       } );
 
     // Add wire from flashlight to WavelengthSlider
     this.addChild( new FlashlightWireNode(
       new Vector2( flashlightNode.right - 10, flashlightNode.centerY + 2 ),
-      new Vector2( upperSliderNode.right - 20, upperSliderNode.centerY - 24 ),
+      new Vector2( upperSliderNode.right - sliderXOffset, upperSliderNode.centerY - sliderYOffset ),
       25 ) );
 
     this.addChild( upperSliderNode );
-
-    var distanceFromFlashlight = 15;
-    var buttonDistance = 13;
 
     // Add buttons
     // Could have used HBox, but with only two buttons seemed like it was unnecessary
     var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', colorProperty,
       {
         content: new Image( whiteLightIcon ),
-        scale: 0.6,
+        scale: buttonScale,
         left: flashlightNode.left + buttonDistance,
         bottom: flashlightNode.top - distanceFromFlashlight
       } );
@@ -112,7 +120,7 @@ define( function( require ) {
     var coloredLightButton = new RectangularStickyToggleButton( 'colored', 'white', colorProperty,
       {
         content: new Image( singleColorLightIcon ),
-        scale: 0.6,
+        scale: buttonScale,
         left: whiteLightButton.right + buttonDistance,
         bottom: flashlightNode.top - distanceFromFlashlight
       } );
@@ -120,7 +128,7 @@ define( function( require ) {
     var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', beamProperty,
       {
         content: new Image( beamViewIcon ),
-        scale: 0.6,
+        scale: buttonScale,
         left: flashlightNode.left + buttonDistance,
         top: flashlightNode.bottom + distanceFromFlashlight
       } );
@@ -128,7 +136,7 @@ define( function( require ) {
     var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', beamProperty,
       {
         content: new Image( photonViewIcon ),
-        scale: 0.6,
+        scale: buttonScale,
         left: beamViewButton.right + buttonDistance,
         top: flashlightNode.bottom + distanceFromFlashlight
       } );
@@ -154,11 +162,23 @@ define( function( require ) {
     this.addChild( filterLeftNode );
     this.addChild( filterRightNode );
 
+    // Add lower WavelengthSlider
+    var lowerSliderNode = new WavelengthSlider( wavelengthPropery2,
+      {
+        bottom: this.layoutBounds.bottom - 20,
+        right: wavelengthSliderDistance,
+        tweakersVisible: false,
+        valueVisible: false,
+        trackWidth: sliderTrackWidth
+      } );
+
     this.addChild( new FilterWireNode(
       new Property( 'on' ),
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( 600, 400 )
+      new Vector2( lowerSliderNode.left + sliderXOffset, lowerSliderNode.centerY - sliderYOffset )
     ) );
+
+    this.addChild( lowerSliderNode );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
