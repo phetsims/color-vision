@@ -1,7 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model of a photon. TODO: add comments about why Pooling is important
+ * Model of a photon. Pooling is used in this class to reduce the number of heap
+ * allocations that occur every second, and the overhead of the extra garbage collection.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -39,9 +40,11 @@ define( function( require ) {
 
   /* jshint -W064 */
   Poolable( Photon, {
-    // TODO: document why 100?
-    maxPoolSize: 100,
-    initialSize: 100,
+    // Use a pool size of 50. This number was chosen because logging the size of the pool
+    // revealed that with all the photon beams going at full blast, there are usually somewhere
+    // between 10 and 35 photons in the pool at a time, so 50 seemed like a reasonable upper bound.
+    maxPoolSize: 50, // 50 is the default value, show explicitly here for clarity
+    initialSize: 50, // fill the pool to start, so photons are ready to go when the beams turn on
     defaultFactory: function() {
       return new Photon( new Vector2(), new Vector2( xVelocity, 0 ), 0 );
     },
