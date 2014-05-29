@@ -234,7 +234,6 @@ define( function( require ) {
       (
         headImageNode.right - 35,
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 24,
-        // filterLeft.right,
         flashlightNode.left + 12,
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
       );

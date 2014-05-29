@@ -46,9 +46,10 @@ define( function( require ) {
       .close();
 
     var leftPath = new Path( leftHalf, { opacity: 0.5 } );
-    var rightPath = new Path( rightHalf );
+    var rightPath = new Path( rightHalf, { opacity: 0.9 } );
 
     function filteredBeam( wavelength ) {
+      // this is just a first approximation, needs improvement
       if ( Math.abs( flashlightWavelengthProperty.value - filterWavelengthProperty.value ) < 20 ) {
         leftPath.fill = VisibleColor.wavelengthToColor( wavelength );
       } else {
