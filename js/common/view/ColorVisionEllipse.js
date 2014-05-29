@@ -37,6 +37,7 @@ define( function( require ) {
         centerY: centerY
       } );
 
+    // if using RGB model
     if ( model.redIntensityProperty ) {
       // add listeners
       var rgbProperty = model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
@@ -49,8 +50,12 @@ define( function( require ) {
 
       rgbProperty.linkAttribute( path, 'fill' );
 
-      this.addChild( path );
+    // if using singlebulb model
+    } else {
+      model.perceivedColorProperty.linkAttribute( path, 'fill' );
     }
+
+    this.addChild( path );
   }
 
   return inherit( Node, ColorVisionEllipse );

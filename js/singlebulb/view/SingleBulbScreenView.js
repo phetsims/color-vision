@@ -206,7 +206,7 @@ define( function( require ) {
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
       );
 
-    var beam = new SolidBeamNode( model.flashlightWavelengthProperty, model.filterWavelengthProperty, model.flashlightOnProperty, model.filterVisibleProperty, beamBounds, filterLeftNode.centerX );
+    var beam = new SolidBeamNode( model.flashlightWavelengthProperty, model.perceivedColorProperty, model.flashlightOnProperty, model.filterVisibleProperty, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter to below the beam and the left side
     this.addChild( filterRightNode );

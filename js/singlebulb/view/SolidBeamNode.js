@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {Number} cutoff the x-coordinate of the filter
    * @constructor
    */
-  function SolidBeamNode( flashlightWavelengthProperty, filterWavelengthProperty, flashlightOnProperty, filterVisibleProperty, bounds, cutoff ) {
+  function SolidBeamNode( flashlightWavelengthProperty, perceivedColorProperty, flashlightOnProperty, filterVisibleProperty, bounds, cutoff ) {
 
     Node.call( this );
 
@@ -55,26 +55,14 @@ define( function( require ) {
       .lineTo( bounds.maxX, bounds.minY - triangleHeight )
       .close();
 
-    var leftHalf = new Path( leftHalfShape, { opacity: 0.5 } );
-    var rightHalf = new Path( rightHalfShape, { opacity: 0.9 } );
-    var wholeBeam = new Path( wholeBeamShape, { opacity: 0.9 } );
-
-    function fillFilteredBeam( wavelength ) {
-      // this is just a first approximation, needs improvement
-      if ( Math.abs( flashlightWavelengthProperty.value - filterWavelengthProperty.value ) < 20 ) {
-        leftHalf.fill = VisibleColor.wavelengthToColor( wavelength );
-      } else {
-        leftHalf.fill = 'rgba(0,0,0,0)';
-      }
-    }
+    var leftHalf = new Path( leftHalfShape );
+    var rightHalf = new Path( rightHalfShape );
+    var wholeBeam = new Path( wholeBeamShape );
 
     flashlightWavelengthProperty.link( function( wavelength ) {
-      rightHalf.fill = VisibleColor.wavelengthToColor( wavelength );
-      fillFilteredBeam( wavelength );
-    } );
-
-    filterWavelengthProperty.link( function( wavelength ) {
-      fillFilteredBeam( wavelength );
+      var newColor = VisibleColor.wavelengthToColor( wavelength );
+      rightHalf.fill = newColor;
+      wholeBeam.fill = newColor;
     } );
 
     filterVisibleProperty.link( function( visible ) {
@@ -89,6 +77,7 @@ define( function( require ) {
     } );
 
     flashlightOnProperty.linkAttribute( this, 'visible' );
+    perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
 
     this.addChild( leftHalf );
     this.addChild( rightHalf );
