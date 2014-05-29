@@ -72,8 +72,9 @@ define( function( require ) {
     // temporary properties while getting the view together
     var colorProperty = new Property('white');
     var beamProperty = new Property('beam');
-    var wavelengthPropery = new Property(500);
-    var wavelengthPropery2 = new Property(500);
+    var wavelengthPropery = new Property(570);
+    var wavelengthPropery2 = new Property(570);
+    var onProperty = new Property(true);
 
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
@@ -90,7 +91,7 @@ define( function( require ) {
     this.addChild( headImageNode );
 
     // Add flashlight
-    var flashlightNode = new FlashlightWithButtonNode( model.redIntensityProperty,
+    var flashlightNode = new FlashlightWithButtonNode( onProperty,
       {
         centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
         right: this.layoutBounds.maxX - 50
@@ -238,7 +239,7 @@ define( function( require ) {
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
       );
 
-    var beam = new SolidBeamNode( wavelengthPropery, wavelengthPropery2, beamBounds, filterLeftNode.centerX );
+    var beam = new SolidBeamNode( wavelengthPropery, wavelengthPropery2, onProperty, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter to below the beam and the left side
     this.addChild( filterRightNode );

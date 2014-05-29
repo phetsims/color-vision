@@ -17,17 +17,18 @@ define( function( require ) {
   /**
    * @param {Property} flashlightWavelengthProperty
    * @param {Property} filterWavelengthProperty
+   * @param {Property} onProperty
    * @param {Bounds2} bounds
    * @constructor
    */
-  function SolidBeamNode( flashlightWavelengthProperty, filterWavelengthProperty, bounds, cutoff ) {
+  function SolidBeamNode( flashlightWavelengthProperty, filterWavelengthProperty, onProperty, bounds, cutoff ) {
 
     Node.call( this );
 
     // use the principle of similar triangles to calculate where to split the beam
     var height = bounds.minY - bounds.maxY;
     var width = bounds.maxX - bounds.minX;
-    var triangleHeight = 8;
+    var triangleHeight = 8; // half the difference between the large end and small end of the beam
     var ratio = triangleHeight / width;
     var smallerTriangleHeight = ( bounds.maxX - cutoff ) * ratio;
 
@@ -48,7 +49,7 @@ define( function( require ) {
     var leftPath = new Path( leftHalf, { opacity: 0.5 } );
     var rightPath = new Path( rightHalf, { opacity: 0.9 } );
 
-    function filteredBeam( wavelength ) {
+    function fillFilteredBeam( wavelength ) {
       // this is just a first approximation, needs improvement
       if ( Math.abs( flashlightWavelengthProperty.value - filterWavelengthProperty.value ) < 20 ) {
         leftPath.fill = VisibleColor.wavelengthToColor( wavelength );
@@ -58,12 +59,26 @@ define( function( require ) {
     }
 
     flashlightWavelengthProperty.link( function( wavelength ) {
-      rightPath.fill = VisibleColor.wavelengthToColor( wavelength );
-      filteredBeam( wavelength );
+      // if ( onProperty.value ) {
+        rightPath.fill = VisibleColor.wavelengthToColor( wavelength );
+        fillFilteredBeam( wavelength );
+      // }
     } );
 
     filterWavelengthProperty.link( function( wavelength ) {
-      filteredBeam( wavelength );
+      // if ( onProperty.value ) {
+        fillFilteredBeam( wavelength );
+      // }
+    } );
+
+    onProperty.link( function( isOn ) {
+      if ( !isOn ) {
+        leftPath.fill = 'rgba(0,0,0,0)';
+        rightPath.fill = 'rgba(0,0,0,0)';
+      } else {
+        rightPath.fill = VisibleColor.wavelengthToColor( flashlightWavelengthProperty.value );
+        fillFilteredBeam( flashlightWavelengthProperty.value );
+      }
     } );
 
     this.addChild( leftPath );

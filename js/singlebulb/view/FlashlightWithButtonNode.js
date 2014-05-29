@@ -20,7 +20,7 @@ define( function( require ) {
   /**
    * @constructor
    */
-  function FlashlightWithButtonNode( onOffProperty, options ) {
+  function FlashlightWithButtonNode( onProperty, options ) {
 
     Node.call( this );
 
@@ -29,7 +29,7 @@ define( function( require ) {
         scale: 0.72
       } );
 
-    var button = new BooleanRoundStickyToggleButton( onOffProperty,
+    var button = new BooleanRoundStickyToggleButton( onProperty,
       {
         centerY: flashlightImage.centerY + 2,
         centerX: flashlightImage.centerX + 15,
