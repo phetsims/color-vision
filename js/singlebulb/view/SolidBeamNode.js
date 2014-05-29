@@ -59,27 +59,15 @@ define( function( require ) {
     }
 
     flashlightWavelengthProperty.link( function( wavelength ) {
-      // if ( onProperty.value ) {
-        rightPath.fill = VisibleColor.wavelengthToColor( wavelength );
-        fillFilteredBeam( wavelength );
-      // }
+      rightPath.fill = VisibleColor.wavelengthToColor( wavelength );
+      fillFilteredBeam( wavelength );
     } );
 
     filterWavelengthProperty.link( function( wavelength ) {
-      // if ( onProperty.value ) {
-        fillFilteredBeam( wavelength );
-      // }
+      fillFilteredBeam( wavelength );
     } );
 
-    onProperty.link( function( isOn ) {
-      if ( !isOn ) {
-        leftPath.fill = 'rgba(0,0,0,0)';
-        rightPath.fill = 'rgba(0,0,0,0)';
-      } else {
-        rightPath.fill = VisibleColor.wavelengthToColor( flashlightWavelengthProperty.value );
-        fillFilteredBeam( flashlightWavelengthProperty.value );
-      }
-    } );
+    onProperty.linkAttribute( this, 'visible' );
 
     this.addChild( leftPath );
     this.addChild( rightPath );

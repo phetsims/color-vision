@@ -22,7 +22,7 @@ define( function( require ) {
    * @param {Number} radiusY
    * @constructor
    */
-  function FilterHalfEllipse( filterWavelengthProperty, centerX, centerY, radiusX, radiusY, left ) {
+  function FilterHalfEllipse( filterWavelengthProperty, filterVisibleProperty, centerX, centerY, radiusX, radiusY, left ) {
 
     Node.call( this );
 
@@ -36,6 +36,8 @@ define( function( require ) {
     filterWavelengthProperty.link( function( wavelength ) {
       path.fill = VisibleColor.wavelengthToColor( wavelength );
     } );
+
+    filterVisibleProperty.linkAttribute( this, 'visible' );
 
     this.addChild( path );
   }

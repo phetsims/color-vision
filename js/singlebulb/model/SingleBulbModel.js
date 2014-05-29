@@ -22,7 +22,7 @@ define( function( require ) {
         flashlightWavelength: 570, // default wavelength is yellow color
         filterWavelength: 570,
         flashlightOn: true,
-        filterOn: true,
+        filterVisible: true,
         running: true,
         play: true
       }

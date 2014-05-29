@@ -162,6 +162,8 @@ define( function( require ) {
     // seen in both Windows and OSX. So far, it has seemed minor enough to ignore.
     var filterLeftNode = new Image( filterLeftImage, filterOptions );
     var filterRightNode = new Image( filterRightImage, filterOptions );
+    model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
+    model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 
     // Add lower WavelengthSlider
     var lowerSliderNodeTransparent = new WavelengthSlider( model.filterWavelengthProperty,
@@ -192,7 +194,7 @@ define( function( require ) {
       } );
 
     this.addChild( new FilterWireNode(
-      model.filterOnProperty,
+      model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
       new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
     ) );
@@ -207,6 +209,7 @@ define( function( require ) {
     var filterLeft = new FilterHalfEllipse
       (
         model.filterWavelengthProperty,
+        model.filterVisibleProperty,
         filterLeftNode.centerX + 1,
         filterLeftNode.centerY,
         filterLeftNode.width / 2 - 13,
@@ -217,6 +220,7 @@ define( function( require ) {
     var filterRight = new FilterHalfEllipse
       (
         model.filterWavelengthProperty,
+        model.filterVisibleProperty,
         filterLeftNode.centerX - 1,
         filterLeftNode.centerY,
         filterLeftNode.width / 2 - 13,
