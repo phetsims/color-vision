@@ -37,18 +37,20 @@ define( function( require ) {
         centerY: centerY
       } );
 
-    // add listeners
-    var rgbProperty = model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
-      function( redIntensity, greenIntensity, blueIntensity ) {
-        return 'rgb(' + [
-          Math.floor( redIntensity * scaleFactor ),
-          Math.floor( greenIntensity * scaleFactor ),
-          Math.floor( blueIntensity * scaleFactor ) ].join() + ')';
-      } );
+    if ( model.redIntensityProperty ) {
+      // add listeners
+      var rgbProperty = model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
+        function( redIntensity, greenIntensity, blueIntensity ) {
+          return 'rgb(' + [
+            Math.floor( redIntensity * scaleFactor ),
+            Math.floor( greenIntensity * scaleFactor ),
+            Math.floor( blueIntensity * scaleFactor ) ].join() + ')';
+        } );
 
-    rgbProperty.linkAttribute( path, 'fill' );
+      rgbProperty.linkAttribute( path, 'fill' );
 
-    this.addChild( path );
+      this.addChild( path );
+    }
   }
 
   return inherit( Node, ColorVisionEllipse );

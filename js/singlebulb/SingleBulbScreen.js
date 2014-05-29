@@ -13,7 +13,7 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
   var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
   var SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
-  var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
+  var SingleBulbModel = require( 'COLOR_VISION/singlebulb/model/SingleBulbModel' );
 
   // strings
   var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
@@ -23,7 +23,7 @@ define( function( require ) {
    */
   function SingleBulbScreen() {
     Screen.call( this, singleBulbString, new SingleBulbIconNode(),
-      function() { return new RGBModel(); },
+      function() { return new SingleBulbModel(); },
       function( model ) { return new SingleBulbScreenView( model ); },
       { backgroundColor: 'black' }
     );

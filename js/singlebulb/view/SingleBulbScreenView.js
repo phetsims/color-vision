@@ -69,13 +69,6 @@ define( function( require ) {
     var sliderTrackHeight = 30;
     var playStepButtonColor = new Color( 247, 151, 34 );
 
-    // temporary properties while getting the view together
-    var colorProperty = new Property('white');
-    var beamProperty = new Property('beam');
-    var wavelengthPropery = new Property(570);
-    var wavelengthPropery2 = new Property(570);
-    var onProperty = new Property(true);
-
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
     var thoughtBubbleY = -10;
@@ -91,7 +84,7 @@ define( function( require ) {
     this.addChild( headImageNode );
 
     // Add flashlight
-    var flashlightNode = new FlashlightWithButtonNode( onProperty,
+    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
         centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
         right: this.layoutBounds.maxX - 50
@@ -99,7 +92,7 @@ define( function( require ) {
     this.addChild( flashlightNode );
 
     // Add upper WavelengthSlider
-    var upperSliderNode = new WavelengthSlider( wavelengthPropery,
+    var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty,
       {
         top: this.layoutBounds.top + 20,
         right: wavelengthSliderDistance,
@@ -119,7 +112,7 @@ define( function( require ) {
 
     // Add buttons
     // Could have used HBox, but with only two buttons seemed like it was unnecessary
-    var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', colorProperty,
+    var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', model.colorProperty,
       {
         content: new Image( whiteLightIcon ),
         scale: buttonScale,
@@ -127,7 +120,7 @@ define( function( require ) {
         bottom: flashlightNode.top - distanceFromFlashlight
       } );
 
-    var coloredLightButton = new RectangularStickyToggleButton( 'colored', 'white', colorProperty,
+    var coloredLightButton = new RectangularStickyToggleButton( 'colored', 'white', model.colorProperty,
       {
         content: new Image( singleColorLightIcon ),
         scale: buttonScale,
@@ -135,7 +128,7 @@ define( function( require ) {
         bottom: flashlightNode.top - distanceFromFlashlight
       } );
 
-    var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', beamProperty,
+    var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', model.beamProperty,
       {
         content: new Image( beamViewIcon ),
         scale: buttonScale,
@@ -143,7 +136,7 @@ define( function( require ) {
         top: flashlightNode.bottom + distanceFromFlashlight
       } );
 
-    var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', beamProperty,
+    var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', model.beamProperty,
       {
         content: new Image( photonViewIcon ),
         scale: buttonScale,
@@ -171,7 +164,7 @@ define( function( require ) {
     var filterRightNode = new Image( filterRightImage, filterOptions );
 
     // Add lower WavelengthSlider
-    var lowerSliderNodeTransparent = new WavelengthSlider( wavelengthPropery2,
+    var lowerSliderNodeTransparent = new WavelengthSlider( model.filterWavelengthProperty,
       {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance,
@@ -188,7 +181,7 @@ define( function( require ) {
     // ISSUES: re-rendering the Gaussian shape is choppy on iPad
     //         the transparent slider handle should be opaque
     //         this lines from the opaque slider still show ontop of the gaussian
-    var lowerSliderNodeOpaque = new WavelengthSlider( wavelengthPropery2,
+    var lowerSliderNodeOpaque = new WavelengthSlider( model.filterWavelengthProperty,
       {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance,
@@ -199,13 +192,13 @@ define( function( require ) {
       } );
 
     this.addChild( new FilterWireNode(
-      new Property( 'on' ),
+      model.filterOnProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
       new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
     ) );
 
     var trackRectangle = new Rectangle( sliderXOffset, - 8, sliderTrackWidth, sliderTrackHeight + 7 );
-    var gaussian = new GaussianNode( wavelengthPropery2, trackRectangle, lowerSliderNodeOpaque );
+    var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
 
     this.addChild( lowerSliderNodeTransparent );
     this.addChild( lowerSliderNodeOpaque );
@@ -213,7 +206,7 @@ define( function( require ) {
 
     var filterLeft = new FilterHalfEllipse
       (
-        wavelengthPropery2,
+        model.filterWavelengthProperty,
         filterLeftNode.centerX + 1,
         filterLeftNode.centerY,
         filterLeftNode.width / 2 - 13,
@@ -223,7 +216,7 @@ define( function( require ) {
 
     var filterRight = new FilterHalfEllipse
       (
-        wavelengthPropery2,
+        model.filterWavelengthProperty,
         filterLeftNode.centerX - 1,
         filterLeftNode.centerY,
         filterLeftNode.width / 2 - 13,
@@ -239,7 +232,7 @@ define( function( require ) {
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
       );
 
-    var beam = new SolidBeamNode( wavelengthPropery, wavelengthPropery2, onProperty, beamBounds, filterLeftNode.centerX );
+    var beam = new SolidBeamNode( model.flashlightWavelengthProperty, model.filterWavelengthProperty, model.flashlightOnProperty, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter to below the beam and the left side
     this.addChild( filterRightNode );
@@ -263,7 +256,7 @@ define( function( require ) {
     this.addChild( resetAllButton );
 
     // Add Play/Pause button
-    var playPauseButton = new PlayPauseButton( model.redIntensityProperty,
+    var playPauseButton = new PlayPauseButton( model.runningProperty,
       {
         baseColor: playStepButtonColor,
         bottom: this.layoutBounds.bottom - 20,
@@ -274,7 +267,7 @@ define( function( require ) {
     this.addChild( playPauseButton );
 
     // Add step button
-    var stepButton = new StepButton( function( dt ) { console.log( dt ); }, model.redIntensityProperty,
+    var stepButton = new StepButton( function( dt ) { console.log( dt ); }, model.playProperty,
       {
         baseColor: playStepButtonColor,
         bottom: this.layoutBounds.bottom - 20,
