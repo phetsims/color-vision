@@ -17,7 +17,7 @@ define( function( require ) {
    */
   function SingleBulbModel() {
     PropertySet.call( this, {
-        color: 'white',            // takes values 'white' and 'colored'
+        color: 'colored',          // takes values 'white' and 'colored'
         beam: 'beam',              // takes values 'beam' and 'photon'
         flashlightWavelength: 570, // default wavelength is yellow color
         filterWavelength: 570,

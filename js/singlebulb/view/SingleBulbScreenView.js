@@ -31,6 +31,7 @@ define( function( require ) {
   var GaussianNode = require( 'COLOR_VISION/singlebulb/view/GaussianNode' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
+  var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
 
   var Property = require( 'AXON/Property' );
 
@@ -61,7 +62,7 @@ define( function( require ) {
     // constants
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
     var distanceFromFlashlight = 15;
-    var buttonDistance = 13;
+    var buttonOffsetFromFlashlight = 13;
     var buttonScale = 0.6;
     var sliderYOffset = 24;
     var sliderXOffset = 18;
@@ -111,43 +112,20 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // Add buttons
-    // Could have used HBox, but with only two buttons seemed like it was unnecessary
-    var whiteLightButton = new RectangularStickyToggleButton( 'white', 'colored', model.colorProperty,
+    var colorWhiteSelectButtons = new ColorVisionToggleButtons( model.colorProperty, 'color',
       {
-        content: new Image( whiteLightIcon ),
-        scale: buttonScale,
-        left: flashlightNode.left + buttonDistance,
-        bottom: flashlightNode.top - distanceFromFlashlight
+        bottom: flashlightNode.top - distanceFromFlashlight,
+        left: flashlightNode.left + buttonOffsetFromFlashlight
       } );
 
-    var coloredLightButton = new RectangularStickyToggleButton( 'colored', 'white', model.colorProperty,
+    var beamPhotonSelectButtons = new ColorVisionToggleButtons( model.beamProperty, 'beam',
       {
-        content: new Image( singleColorLightIcon ),
-        scale: buttonScale,
-        left: whiteLightButton.right + buttonDistance,
-        bottom: flashlightNode.top - distanceFromFlashlight
+        top: flashlightNode.bottom + distanceFromFlashlight,
+        left: flashlightNode.left + buttonOffsetFromFlashlight
       } );
 
-    var beamViewButton = new RectangularStickyToggleButton( 'beam', 'photon', model.beamProperty,
-      {
-        content: new Image( beamViewIcon ),
-        scale: buttonScale,
-        left: flashlightNode.left + buttonDistance,
-        top: flashlightNode.bottom + distanceFromFlashlight
-      } );
-
-    var photonViewButton = new RectangularStickyToggleButton( 'photon', 'beam', model.beamProperty,
-      {
-        content: new Image( photonViewIcon ),
-        scale: buttonScale,
-        left: beamViewButton.right + buttonDistance,
-        top: flashlightNode.bottom + distanceFromFlashlight
-      } );
-
-    this.addChild( whiteLightButton );
-    this.addChild( coloredLightButton );
-    this.addChild( beamViewButton );
-    this.addChild( photonViewButton );
+    this.addChild( colorWhiteSelectButtons );
+    this.addChild( beamPhotonSelectButtons );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so can be positioned the same location and will match up perfectly
