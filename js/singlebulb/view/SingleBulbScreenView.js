@@ -16,7 +16,6 @@ define( function( require ) {
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
   var StepButton = require( 'SCENERY_PHET/StepButton' );
-  var RectangularStickyToggleButton = require( 'SUN/buttons/RectangularStickyToggleButton' );
   var Color = require( 'SCENERY/util/Color' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -33,14 +32,8 @@ define( function( require ) {
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
 
-  var Property = require( 'AXON/Property' );
-
   // images
   var headBack = require ( 'image!COLOR_VISION/head.png' );
-  var whiteLightIcon = require ( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
-  var singleColorLightIcon = require ( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
-  var beamViewIcon = require ( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
-  var photonViewIcon = require ( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
   var filterLeftImage = require ( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require ( 'image!COLOR_VISION/filter-right.png' );
   // var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
@@ -63,7 +56,6 @@ define( function( require ) {
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
     var distanceFromFlashlight = 15;
     var buttonOffsetFromFlashlight = 13;
-    var buttonScale = 0.6;
     var sliderYOffset = 24;
     var sliderXOffset = 18;
     var sliderTrackWidth = 200;

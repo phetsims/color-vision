@@ -1,10 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Scenery node for the Attach/Detach toggle buttons which determine whether the skater can fly off the track or not.
- * This was formerly called "roller coaster mode"
+ * Panel containing a set of toggle buttons.
  *
- * @author Sam Reid
+ * @author Aaron Davis
  */
 define( function( require ) {
   'use strict';
@@ -27,14 +26,14 @@ define( function( require ) {
     if ( buttonSet === 'color' ) {
       iconOne = whiteLightIcon;
       iconTwo = singleColorLightIcon;
-      valueOne = 'white'
-      valueTwo = 'colored'
+      valueOne = 'white';
+      valueTwo = 'colored';
     } else
     if ( buttonSet === 'beam') {
       iconOne = beamViewIcon;
       iconTwo = photonViewIcon;
-      valueOne = 'beam'
-      valueTwo = 'photon'
+      valueOne = 'beam';
+      valueTwo = 'photon';
     } else {
       console.error( 'error: ColorVisionToggleButtons must take either "color" or "beam" as second argument' );
     }
