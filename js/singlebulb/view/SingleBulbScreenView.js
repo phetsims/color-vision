@@ -21,6 +21,7 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Rectangle = require( 'DOT/Rectangle' );
+  var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
@@ -29,6 +30,7 @@ define( function( require ) {
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
   var GaussianNode = require( 'COLOR_VISION/singlebulb/view/GaussianNode' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
+  var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
 
   var Property = require( 'AXON/Property' );
 
@@ -84,7 +86,8 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50  + thoughtBubbleX, 220 + thoughtBubbleY,  7 ) );
 
     // Add head image
-    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
+    var headImageNode = new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET );
+    this.addChild( headImageNode );
 
     // Add flashlight
     var flashlightNode = new FlashlightWithButtonNode( model.redIntensityProperty,
@@ -165,8 +168,6 @@ define( function( require ) {
     // seen in both Windows and OSX. So far, it has seemed minor enough to ignore.
     var filterLeftNode = new Image( filterLeftImage, filterOptions );
     var filterRightNode = new Image( filterRightImage, filterOptions );
-    this.addChild( filterLeftNode );
-    this.addChild( filterRightNode );
 
     // Add lower WavelengthSlider
     var lowerSliderNodeTransparent = new WavelengthSlider( wavelengthPropery2,
@@ -229,8 +230,26 @@ define( function( require ) {
         false
       );
 
-    this.addChild( filterLeft );
+    var beamBounds = new Bounds2
+      (
+        headImageNode.right - 35,
+        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 24,
+        // filterLeft.right,
+        flashlightNode.left + 12,
+        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
+      );
+
+    var beam = new SolidBeamNode( wavelengthPropery2, beamBounds );
+
+    // Add right side of filter to below the beam and the left side
     this.addChild( filterRight );
+    this.addChild( filterRightNode );
+
+    // Add beam before the left side of the filter so it shows up
+    this.addChild( beam );
+
+    this.addChild( filterLeft );
+    this.addChild( filterLeftNode );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
