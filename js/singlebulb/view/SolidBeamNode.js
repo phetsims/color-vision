@@ -15,32 +15,58 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
+   * @param {Property} flashlightWavelengthProperty
    * @param {Property} filterWavelengthProperty
    * @param {Bounds2} bounds
    * @constructor
    */
-  function SolidBeamNode( filterWavelengthProperty, bounds ) {
+  function SolidBeamNode( flashlightWavelengthProperty, filterWavelengthProperty, bounds, cutoff ) {
 
     Node.call( this );
 
+    // use the principle of similar triangles to calculate where to split the beam
     var height = bounds.minY - bounds.maxY;
-    var smallEndHeight = height * 0.9;
-    var difference = ( height - smallEndHeight ) * 2;
+    var width = bounds.maxX - bounds.minX;
+    var triangleHeight = 8;
+    var ratio = triangleHeight / width;
+    var smallerTriangleHeight = ( bounds.maxX - cutoff ) * ratio;
 
-    var shape = new Shape()
+    var leftHalf = new Shape()
       .moveTo( bounds.minX, bounds.minY )
       .lineTo( bounds.minX, bounds.maxY )
-      .lineTo( bounds.maxX, bounds.maxY + difference )
-      .lineTo( bounds.maxX, bounds.minY - difference )
+      .lineTo( cutoff, bounds.maxY + smallerTriangleHeight )
+      .lineTo( cutoff, bounds.minY - smallerTriangleHeight )
       .close();
 
-    var path = new Path( shape, { opacity: 0.5 } );
+    var rightHalf = new Shape()
+      .moveTo( cutoff, bounds.minY - smallerTriangleHeight )
+      .lineTo( cutoff, bounds.maxY + smallerTriangleHeight )
+      .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
+      .lineTo( bounds.maxX, bounds.minY - triangleHeight )
+      .close();
 
-    filterWavelengthProperty.link( function( wavelength ) {
-      path.fill = VisibleColor.wavelengthToColor( wavelength );
+    var leftPath = new Path( leftHalf, { opacity: 0.5 } );
+    var rightPath = new Path( rightHalf );
+
+    function filteredBeam( wavelength ) {
+      if ( Math.abs( flashlightWavelengthProperty.value - filterWavelengthProperty.value ) < 20 ) {
+        leftPath.fill = VisibleColor.wavelengthToColor( wavelength );
+      } else {
+        leftPath.fill = 'rgba(0,0,0,0)';
+      }
+    }
+
+    flashlightWavelengthProperty.link( function( wavelength ) {
+      rightPath.fill = VisibleColor.wavelengthToColor( wavelength );
+      filteredBeam( wavelength );
     } );
 
-    this.addChild( path );
+    filterWavelengthProperty.link( function( wavelength ) {
+      filteredBeam( wavelength );
+    } );
+
+    this.addChild( leftPath );
+    this.addChild( rightPath );
   }
 
   return inherit( Node, SolidBeamNode );

@@ -239,17 +239,17 @@ define( function( require ) {
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
       );
 
-    var beam = new SolidBeamNode( wavelengthPropery2, beamBounds );
+    var beam = new SolidBeamNode( wavelengthPropery, wavelengthPropery2, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter to below the beam and the left side
-    this.addChild( filterRight );
     this.addChild( filterRightNode );
+    this.addChild( filterRight );
 
     // Add beam before the left side of the filter so it shows up
     this.addChild( beam );
 
-    this.addChild( filterLeft );
     this.addChild( filterLeftNode );
+    this.addChild( filterLeft );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(
