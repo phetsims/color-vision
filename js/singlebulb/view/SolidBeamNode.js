@@ -26,7 +26,6 @@ define( function( require ) {
     Node.call( this );
 
     // use the principle of similar triangles to calculate where to split the beam
-    var height = bounds.minY - bounds.maxY;
     var width = bounds.maxX - bounds.minX;
     var triangleHeight = 8; // half the difference between the large end and small end of the beam
     var ratio = triangleHeight / width;
@@ -53,7 +52,8 @@ define( function( require ) {
       // this is just a first approximation, needs improvement
       if ( Math.abs( flashlightWavelengthProperty.value - filterWavelengthProperty.value ) < 20 ) {
         leftPath.fill = VisibleColor.wavelengthToColor( wavelength );
-      } else {
+      }
+      else {
         leftPath.fill = 'rgba(0,0,0,0)';
       }
     }
