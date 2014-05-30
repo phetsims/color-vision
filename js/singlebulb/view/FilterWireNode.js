@@ -48,7 +48,7 @@ define( function( require ) {
     var wirePath = new Path( wire,
       {
         lineWidth: 5,
-        stroke: '#999999',
+        stroke: '#999999'
       } );
 
     var onOffSwitch = new OnOffSwitch( onProperty,
