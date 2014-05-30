@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * HeadNode
+ * Shows the head/brain/eyeball for both screens.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -13,8 +13,9 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
 
   /**
+   * @param {Image} image the image to display for the head
    * @param {Number} bottom the bottom of the HeadNode (should be layoutBounds.bottom)
-   # @constructor
+   * @constructor
    */
   function HeadNode( image, bottom ) {
 

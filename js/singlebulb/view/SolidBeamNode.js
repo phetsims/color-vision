@@ -85,9 +85,11 @@ define( function( require ) {
         if ( light === 'white' && filterVisible ) {
           leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
           rightHalf.fill = new Color( 255, 255, 255, 1 );
-        } else if ( light === 'white' && !filterVisible ) {
+        }
+        else if ( light === 'white' && !filterVisible ) {
           wholeBeam.fill = new Color( 255, 255, 255, defaultBeamAlpha );
-        } else if ( light === 'colored' && filterVisible ) {
+        }
+        else if ( light === 'colored' && filterVisible ) {
           rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
         }
       } );

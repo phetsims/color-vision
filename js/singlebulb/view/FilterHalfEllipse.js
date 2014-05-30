@@ -16,10 +16,12 @@ define( function( require ) {
 
   /**
    * @param {Property} filterWavelengthProperty
+   * @param {Property} filterVisibleProperty
    * @param {Number} centerX
    * @param {Number} centerY
    * @param {Number} radiusX
    * @param {Number} radiusY
+   * @param {Number} left
    * @constructor
    */
   function FilterHalfEllipse( filterWavelengthProperty, filterVisibleProperty, centerX, centerY, radiusX, radiusY, left ) {

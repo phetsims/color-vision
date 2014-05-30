@@ -16,10 +16,10 @@ define( function( require ) {
   var RadioButton = require( 'SUN/RadioButton' );
 
   // images
-  var whiteLightIcon = require ( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
-  var singleColorLightIcon = require ( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
-  var beamViewIcon = require ( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
-  var photonViewIcon = require ( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
+  var whiteLightIcon = require( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
+  var singleColorLightIcon = require( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
+  var beamViewIcon = require( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
+  var photonViewIcon = require( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
 
   function ColorVisionToggleButtons( property, buttonSet, options ) {
     var iconOne, iconTwo, valueOne, valueTwo;
@@ -28,13 +28,14 @@ define( function( require ) {
       iconTwo = singleColorLightIcon;
       valueOne = 'white';
       valueTwo = 'colored';
-    } else
-    if ( buttonSet === 'beam') {
+    }
+    else if ( buttonSet === 'beam' ) {
       iconOne = beamViewIcon;
       iconTwo = photonViewIcon;
       valueOne = 'beam';
       valueTwo = 'photon';
-    } else {
+    }
+    else {
       console.error( 'error: ColorVisionToggleButtons must take either "color" or "beam" as second argument' );
     }
 

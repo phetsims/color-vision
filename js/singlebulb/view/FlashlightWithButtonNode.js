@@ -15,7 +15,7 @@ define( function( require ) {
   var BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
 
   // images
-  var flashlight = require ( 'image!COLOR_VISION/flashlight.png' );
+  var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
 
   /**
    * @constructor

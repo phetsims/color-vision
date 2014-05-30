@@ -43,7 +43,8 @@ define( function( require ) {
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
 
-      if (debug) {
+      //If the debug flag is enabled, it will show the bounds of the canvas
+      if ( debug ) {
         context.fillStyle = 'rgba(50,50,50,0.5)';
         context.fillRect( 0, 0, this.beamBounds.maxX, this.beamBounds.maxY );
       }

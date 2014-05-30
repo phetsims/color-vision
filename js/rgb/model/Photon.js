@@ -15,7 +15,7 @@ define( function( require ) {
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // constants
-  var xVelocity = -4 * 60;
+  var xVelocity = -240;
   var fanFactor = 1.05;
   var halfFanFactor = fanFactor / 2;
 
@@ -61,7 +61,8 @@ define( function( require ) {
           // set y velocity to determine how much fanning, x velocity is constant
           photon.velocity.y = yVelocity;
           return photon;
-        } else {
+        }
+        else {
           return new Photon( new Vector2( size, yLocation ), new Vector2( xVelocity, yVelocity ), intensity );
         }
       };
