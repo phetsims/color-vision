@@ -13,6 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
 
   /**
    * @constructor
@@ -74,15 +75,21 @@ define( function( require ) {
           return VisibleColor.wavelengthToColor( flashlightWavelength );
         }
       } );
+
+    this.photonBeam = new SingleBulbPhotonBeam( this, Constants.SINGLE_BEAM_LENGTH );
+
   }
 
   return inherit( PropertySet, SingleBulbModel,
     {
       step: function( dt ) {
+        this.photonBeam.updateAnimationFrame( dt );
       },
 
       reset: function() {
         PropertySet.prototype.reset.call( this );
+
+        this.photonBeam.reset();
       }
 
     } );

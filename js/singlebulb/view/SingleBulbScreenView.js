@@ -31,6 +31,7 @@ define( function( require ) {
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
+  var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
 
   // images
   var headBack = require ( 'image!COLOR_VISION/head.png' );
@@ -75,6 +76,16 @@ define( function( require ) {
     // Add head image
     var headImageNode = new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET );
     this.addChild( headImageNode );
+
+    // Add photonBeam
+    this.photonBeamNode = new SingleBulbPhotonBeamNode( model, new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+      {
+        x: 320,
+      } );
+    this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
+    this.photonBeamNode.visible = false;
+
+    this.addChild( this.photonBeamNode );
 
     // Add flashlight
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
@@ -262,7 +273,7 @@ define( function( require ) {
   return inherit( ScreenView, RGBScreenView,
     {
       step: function( dt ) {
-
+        this.photonBeamNode.step( dt );
       }
     } );
 } );

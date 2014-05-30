@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 

@@ -1,10 +1,9 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Photon beam
+ * Photon beam for single bulb view
  *
  * @author Aaron Davis (PhET Interactive Simulations)
- * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
@@ -13,22 +12,24 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
-  // If this is set to true, it will show a rectangle around the beam.
-  // This is useful for getting the placement of the beam correct relative to the
-  // flashlight image.
-  var debug = false;
+  var debug = true;
 
   /**
+   * @param {SingleBulbModel} model
    * @param {Bounds2} canvasBounds
-   * @param {PhotonBeam} photonBeam
    * @param {Object} options
    * @constructor
    */
-  function PhotonBeamNode( canvasBounds, photonBeam, options ) {
+  function SingleBulbPhotonBeamNode( model, canvasBounds, options ) {
+
+    this.flashlightWavelength = model.flashlightWavelengthProperty;
+    this.filterWavelength = model.filterWavelengthProperty;
+    this.filterVisible = model.filterVisibleProperty;
+    this.flashlightOn = model.flashlightOnProperty;
+
+    this.photons = model.photonBeam.photons;
 
     this.beamBounds = canvasBounds;
-    this.photons = photonBeam.photons;
-    this.color = photonBeam.color;
 
     options = _.extend( { pickable: false, canvasBounds: canvasBounds }, options );
 
@@ -37,7 +38,7 @@ define( function( require ) {
 
   }
 
-  return inherit( CanvasNode, PhotonBeamNode, {
+  return inherit( CanvasNode, SingleBulbPhotonBeamNode, {
 
     // @param {CanvasContextWrapper} wrapper
     paintCanvas: function( wrapper ) {
@@ -48,8 +49,8 @@ define( function( require ) {
         context.fillRect( 0, 0, this.beamBounds.maxX, this.beamBounds.maxY );
       }
 
-      context.fillStyle = this.color;
       for ( var i = 0; i < this.photons.length; i++ ) {
+        context.fillStyle = this.photons[i].intensity.toCSS();
         context.fillRect( this.photons[i].location.x, this.photons[i].location.y, 3, 2 );
       }
     },
