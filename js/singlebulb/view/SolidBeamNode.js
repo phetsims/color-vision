@@ -75,15 +75,22 @@ define( function( require ) {
 
     // This derived property listens for any changes to the model that condition when the beam should be white.
     // It is not assigned to a var, since it would never be used.
-    model.toDerivedProperty( [ 'filterWavelength', 'light', 'filterVisible' ],
-      function( filterWavelength, light, filterVisible ) {
+    model.toDerivedProperty( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible' ],
+      function( flashlightWavelength, filterWavelength, light, filterVisible ) {
+        console.log( 'caslled' );
         if ( light === 'white' && filterVisible ) {
           leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
           rightHalf.fill = 'white';
         } else if ( light === 'white' && !filterVisible ) {
           wholeBeam.fill = 'white';
+        } else if ( light === 'colored' && filterVisible ) {
+          rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
         }
       } );
+
+    model.lightProperty.link( function ( light ) {
+
+    } );
 
     model.flashlightOnProperty.linkAttribute( this, 'visible' );
     model.perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
