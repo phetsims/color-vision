@@ -14,6 +14,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Util = require( 'DOT/Util' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * @param {Property} filterWavelengthProperty in units of wavelength
@@ -39,7 +40,7 @@ define( function( require ) {
 
     // constants for determining the shape of the gaussian
     var numSamples = 50;
-    var distanceFromMean = 3;
+    var distanceFromMean = wavelengthToPosition( VisibleColor.MIN_WAVELENGTH + ( Constants.GAUSSIAN_WIDTH / 2 ) );
     var height = track.bottom - track.top;
     var xScale = 10;
     var xOffset = track.left - 18;

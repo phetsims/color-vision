@@ -13,6 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * @constructor
@@ -47,7 +48,7 @@ define( function( require ) {
         // if the filter is visible, and the beam is colored
         } else if ( filterVisible && light === 'colored' ) {
           var percent;
-          var halfWidth = 25; // TODO: this needs to be factored out somewhere accessible to both this and the gaussian node. Should be half the number of wavelengths covered by the gaussian
+          var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
 
           // If the flashlightWavelength is outside the transmission width, no color passes.
           if ( flashlightWavelength < filterWavelength - halfWidth || flashlightWavelength > filterWavelength + halfWidth ) {
