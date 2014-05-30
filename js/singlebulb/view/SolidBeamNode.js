@@ -15,15 +15,12 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
-   * @param {Property} flashlightWavelengthProperty
-   * @param {Property} filterWavelengthProperty
-   * @param {Property} flashlightOnProperty
-   * @param {Property} filterVisibleProperty
+   * @param {SingleBulbModel} model
    * @param {Bounds2} bounds
    * @param {Number} cutoff the x-coordinate of the filter
    * @constructor
    */
-  function SolidBeamNode( flashlightWavelengthProperty, perceivedColorProperty, flashlightOnProperty, filterVisibleProperty, bounds, cutoff ) {
+  function SolidBeamNode( model, bounds, cutoff ) {
 
     Node.call( this );
 
@@ -59,13 +56,13 @@ define( function( require ) {
     var rightHalf = new Path( rightHalfShape );
     var wholeBeam = new Path( wholeBeamShape );
 
-    flashlightWavelengthProperty.link( function( wavelength ) {
+    model.flashlightWavelengthProperty.link( function( wavelength ) {
       var newColor = VisibleColor.wavelengthToColor( wavelength );
       rightHalf.fill = newColor;
       wholeBeam.fill = newColor;
     } );
 
-    filterVisibleProperty.link( function( visible ) {
+    model.filterVisibleProperty.link( function( visible ) {
       // when the filter turns off, make the whole beam visible and the halves invisible
       wholeBeam.visible = !visible;
       leftHalf.visible = visible;
@@ -76,8 +73,20 @@ define( function( require ) {
       }
     } );
 
-    flashlightOnProperty.linkAttribute( this, 'visible' );
-    perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
+    // This derived property listens for any changes to the model that condition when the beam should be white.
+    // It is not assigned to a var, since it would never be used.
+    model.toDerivedProperty( [ 'filterWavelength', 'color', 'filterVisible' ],
+      function( filterWavelength, light, filterVisible ) {
+        if ( light === 'white' && filterVisible ) {
+          leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
+          rightHalf.fill = 'white';
+        } else if ( light === 'white' && !filterVisible ) {
+          wholeBeam.fill = 'white';
+        }
+      } );
+
+    model.flashlightOnProperty.linkAttribute( this, 'visible' );
+    model.perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
 
     this.addChild( leftHalf );
     this.addChild( rightHalf );

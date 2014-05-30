@@ -94,13 +94,20 @@ define( function( require ) {
         trackWidth: sliderTrackWidth,
         trackHeight: sliderTrackHeight
       } );
+    model.colorProperty.link( function( light ) {
+      upperSliderNode.visible = ( light === 'white' ? false : true );
+    } );
 
     // Add wire from flashlight to WavelengthSlider
-    this.addChild( new FlashlightWireNode(
+    var flashlightWire = new FlashlightWireNode(
       new Vector2( flashlightNode.right - 10, flashlightNode.centerY + 2 ),
       new Vector2( upperSliderNode.right - sliderXOffset, upperSliderNode.centerY - sliderYOffset ),
-      25 ) );
+      25 );
+    model.colorProperty.link( function( light ) {
+      flashlightWire.visible = ( light === 'white' ? false : true );
+    } );
 
+    this.addChild( flashlightWire );
     this.addChild( upperSliderNode );
 
     // Add buttons
@@ -206,7 +213,7 @@ define( function( require ) {
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
       );
 
-    var beam = new SolidBeamNode( model.flashlightWavelengthProperty, model.perceivedColorProperty, model.flashlightOnProperty, model.filterVisibleProperty, beamBounds, filterLeftNode.centerX );
+    var beam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter to below the beam and the left side
     this.addChild( filterRightNode );

@@ -35,13 +35,17 @@ define( function( require ) {
         'flashlightWavelength',
         'filterWavelength',
         'flashlightOn',
-        'filterVisible'
+        'filterVisible',
+        'color'
       ],
-      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible ) {
+      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, color ) {
+
+        // if flashlight is not on, the perceived color is black
         if ( !flashlightOn ) {
           return 'black';
-        } else if ( filterVisible ) {
 
+        // if the filter is visible, and the beam is colored
+        } else if ( filterVisible && color === 'colored' ) {
           var percent;
           var halfWidth = 25; // TODO: this needs to be factored out somewhere accessible to both this and the gaussian node. Should be half the number of wavelengths covered by the gaussian
 
@@ -53,9 +57,19 @@ define( function( require ) {
           else {
             percent = 100 - ( ( Math.abs( filterWavelength - flashlightWavelength ) / halfWidth ) * 100 );
           }
-          var color = VisibleColor.wavelengthToColor( flashlightWavelength );
+          var newColor = VisibleColor.wavelengthToColor( flashlightWavelength );
           var alpha = percent / 100;
-          return new Color( color.r, color.g, color.b, alpha );
+          return new Color( newColor.r, newColor.g, newColor.b, alpha );
+
+        // if the filter is visible, and the beam is white return the filter wavelength's color
+        } else if ( filterVisible && color === 'white' ) {
+          return VisibleColor.wavelengthToColor( filterWavelength );
+
+        // if the beam is white and the filter is not visible, return white
+        } else if ( !filterVisible && color === 'white' ) {
+          return 'white';
+
+        // if the filter is not visible return the flashlight wavelength's color
         } else {
           return VisibleColor.wavelengthToColor( flashlightWavelength );
         }
