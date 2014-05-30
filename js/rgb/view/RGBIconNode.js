@@ -16,6 +16,7 @@ define( function( require ) {
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
 
   /**
+   * @param {String|Color} fill the fill for the background rectangle
    * @constructor
    */
   function RGBIconNode( fill ) {
