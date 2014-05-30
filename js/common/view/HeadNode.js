@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * HeadNode
+ * Shows the head/brain/eyeball for both screens.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
