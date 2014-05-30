@@ -94,7 +94,7 @@ define( function( require ) {
         trackWidth: sliderTrackWidth,
         trackHeight: sliderTrackHeight
       } );
-    model.colorProperty.link( function( light ) {
+    model.lightProperty.link( function( light ) {
       upperSliderNode.visible = ( light === 'white' ? false : true );
     } );
 
@@ -103,7 +103,7 @@ define( function( require ) {
       new Vector2( flashlightNode.right - 10, flashlightNode.centerY + 2 ),
       new Vector2( upperSliderNode.right - sliderXOffset, upperSliderNode.centerY - sliderYOffset ),
       25 );
-    model.colorProperty.link( function( light ) {
+    model.lightProperty.link( function( light ) {
       flashlightWire.visible = ( light === 'white' ? false : true );
     } );
 
@@ -111,7 +111,7 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // Add buttons
-    var colorWhiteSelectButtons = new ColorVisionToggleButtons( model.colorProperty, 'color',
+    var colorWhiteSelectButtons = new ColorVisionToggleButtons( model.lightProperty, 'color',
       {
         bottom: flashlightNode.top - distanceFromFlashlight,
         left: flashlightNode.left + buttonOffsetFromFlashlight

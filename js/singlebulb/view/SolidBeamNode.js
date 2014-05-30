@@ -75,7 +75,7 @@ define( function( require ) {
 
     // This derived property listens for any changes to the model that condition when the beam should be white.
     // It is not assigned to a var, since it would never be used.
-    model.toDerivedProperty( [ 'filterWavelength', 'color', 'filterVisible' ],
+    model.toDerivedProperty( [ 'filterWavelength', 'light', 'filterVisible' ],
       function( filterWavelength, light, filterVisible ) {
         if ( light === 'white' && filterVisible ) {
           leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
