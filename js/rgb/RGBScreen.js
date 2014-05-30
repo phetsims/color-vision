@@ -14,18 +14,20 @@ define( function( require ) {
   var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
   var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // strings
   var rgbString = require( 'string!COLOR_VISION/rgb' );
 
   /**
+   * @param {String} fill the color of the background of the icon
    * @constructor
    */
   function RGBScreen() {
-    Screen.call( this, rgbString, new RGBIconNode(),
+    Screen.call( this, rgbString, new RGBIconNode( Constants.HOME_SCREEN_ICON_FILL ),
       function() { return new RGBModel(); },
       function( model ) { return new RGBScreenView( model ); },
-      { backgroundColor: 'black' }
+      { backgroundColor: 'black', navigationBarIcon: new RGBIconNode( 'black' ) }
     );
   }
 

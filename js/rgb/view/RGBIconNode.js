@@ -18,11 +18,11 @@ define( function( require ) {
   /**
    * @constructor
    */
-  function RGBIconNode() {
+  function RGBIconNode( fill ) {
 
     Node.call( this );
 
-    var rectangle = new Rectangle( 0, 0, 548, 373, { fill: 'black' } );
+    var rectangle = new Rectangle( 0, 0, 548, 373, { fill: fill } );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
@@ -34,7 +34,7 @@ define( function( require ) {
           redFlashlight,
           greenFlashlight,
           blueFlashlight ],
-        spacing: 4,
+        spacing: -4,
         centerX: rectangle.centerX,
         centerY: rectangle.centerY
       } );

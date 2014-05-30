@@ -82,7 +82,6 @@ define( function( require ) {
     // It is not assigned to a var, since it would never be used.
     model.toDerivedProperty( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible' ],
       function( flashlightWavelength, filterWavelength, light, filterVisible ) {
-        console.log( 'caslled' );
         if ( light === 'white' && filterVisible ) {
           leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
           rightHalf.fill = new Color( 255, 255, 255, 1 );

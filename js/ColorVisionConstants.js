@@ -14,6 +14,7 @@ define( function( require ) {
     BLUE_BEAM_LENGTH: 330,
     FLASHLIGHT_ANGLE: Math.PI / 6,
     CENTER_Y_OFFSET: -20,
+    HOME_SCREEN_ICON_FILL: '#e7e9cc',
     GAUSSIAN_WIDTH: 50 // in units of wavelengths
   };
 } );
