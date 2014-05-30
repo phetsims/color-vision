@@ -95,7 +95,7 @@ define( function( require ) {
         trackHeight: sliderTrackHeight
       } );
     model.lightProperty.link( function( light ) {
-      upperSliderNode.visible = ( light === 'white' ? false : true );
+      upperSliderNode.visible = ( light !== 'white' );
     } );
 
     // Add wire from flashlight to WavelengthSlider
@@ -104,7 +104,7 @@ define( function( require ) {
       new Vector2( upperSliderNode.right - sliderXOffset, upperSliderNode.centerY - sliderYOffset ),
       25 );
     model.lightProperty.link( function( light ) {
-      flashlightWire.visible = ( light === 'white' ? false : true );
+      flashlightWire.visible = ( light !== 'white' );
     } );
 
     this.addChild( flashlightWire );
