@@ -15,7 +15,7 @@ define( function( require ) {
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // constants
-  var xVelocity = -4 * 60;
+  var xVelocity = -240;
   var fanFactor = 1.05;
   var halfFanFactor = fanFactor / 2;
 
