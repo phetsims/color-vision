@@ -50,7 +50,7 @@ define( function( require ) {
 
     this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.greenBeam,
       {
-        x: 320,
+        x: 320
       } );
     this.greenBeam.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
