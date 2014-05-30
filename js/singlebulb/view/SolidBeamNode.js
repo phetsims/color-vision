@@ -88,10 +88,6 @@ define( function( require ) {
         }
       } );
 
-    model.lightProperty.link( function ( light ) {
-
-    } );
-
     model.flashlightOnProperty.linkAttribute( this, 'visible' );
     model.perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
 
