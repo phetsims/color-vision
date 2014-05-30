@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * FlashlightNode - for use inside icons for both pages
+ * FlashlightNode - for use inside icons for both screens
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
