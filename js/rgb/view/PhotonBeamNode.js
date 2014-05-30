@@ -43,7 +43,7 @@ define( function( require ) {
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
       /* uncomment to show rectangle around beam */
-      if (debug) {
+      if ( debug ) {
         context.fillStyle = 'rgba(50,50,50,0.5)';
         context.fillRect( 0, 0, this.beamBounds.maxX, this.beamBounds.maxY );
       }

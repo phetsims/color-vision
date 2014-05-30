@@ -61,7 +61,8 @@ define( function( require ) {
           // set y velocity to determine how much fanning, x velocity is constant
           photon.velocity.y = yVelocity;
           return photon;
-        } else {
+        }
+        else {
           return new Photon( new Vector2( size, yLocation ), new Vector2( xVelocity, yVelocity ), intensity );
         }
       };

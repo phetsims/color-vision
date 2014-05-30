@@ -33,9 +33,9 @@ define( function( require ) {
   var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
 
   // images
-  var headBack = require ( 'image!COLOR_VISION/head.png' );
-  var filterLeftImage = require ( 'image!COLOR_VISION/filter-left.png' );
-  var filterRightImage = require ( 'image!COLOR_VISION/filter-right.png' );
+  var headBack = require( 'image!COLOR_VISION/head.png' );
+  var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
+  var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
   // var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
 
   /**
@@ -67,10 +67,10 @@ define( function( require ) {
     var thoughtBubbleY = -10;
 
     // Add thought bubbles
-    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60  + thoughtBubbleY, 45 ) );
-    this.addChild( new ColorVisionEllipse( model, 90  + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
-    this.addChild( new ColorVisionEllipse( model, 62  + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
-    this.addChild( new ColorVisionEllipse( model, 50  + thoughtBubbleX, 220 + thoughtBubbleY,  7 ) );
+    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
+    this.addChild( new ColorVisionEllipse( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
+    this.addChild( new ColorVisionEllipse( model, 62 + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
+    this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
 
     // Add head image
     var headImageNode = new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET );
@@ -176,7 +176,7 @@ define( function( require ) {
       new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
     ) );
 
-    var trackRectangle = new Rectangle( sliderXOffset, - 8, sliderTrackWidth, sliderTrackHeight + 7 );
+    var trackRectangle = new Rectangle( sliderXOffset, -8, sliderTrackWidth, sliderTrackHeight + 7 );
     var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
 
     this.addChild( lowerSliderNodeTransparent );
@@ -184,34 +184,34 @@ define( function( require ) {
     lowerSliderNodeOpaque.addChild( gaussian );
 
     var filterLeft = new FilterHalfEllipse
-      (
-        model.filterWavelengthProperty,
-        model.filterVisibleProperty,
+    (
+      model.filterWavelengthProperty,
+      model.filterVisibleProperty,
         filterLeftNode.centerX + 1,
-        filterLeftNode.centerY,
+      filterLeftNode.centerY,
         filterLeftNode.width / 2 - 13,
         filterLeftNode.height / 2 - 12,
-        true
-      );
+      true
+    );
 
     var filterRight = new FilterHalfEllipse
-      (
-        model.filterWavelengthProperty,
-        model.filterVisibleProperty,
+    (
+      model.filterWavelengthProperty,
+      model.filterVisibleProperty,
         filterLeftNode.centerX - 1,
-        filterLeftNode.centerY,
+      filterLeftNode.centerY,
         filterLeftNode.width / 2 - 13,
         filterLeftNode.height / 2 - 12,
-        false
-      );
+      false
+    );
 
     var beamBounds = new Bounds2
-      (
+    (
         headImageNode.right - 35,
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 24,
         flashlightNode.left + 12,
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
-      );
+    );
 
     var beam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
 

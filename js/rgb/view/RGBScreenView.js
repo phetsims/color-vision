@@ -26,8 +26,8 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
-  var headFront = require ( 'image!COLOR_VISION/head-front.png' );
-  var headBack = require ( 'image!COLOR_VISION/head.png' );
+  var headFront = require( 'image!COLOR_VISION/head-front.png' );
+  var headBack = require( 'image!COLOR_VISION/head.png' );
 
   /**
    * @param {RGBModel} model
@@ -121,10 +121,10 @@ define( function( require ) {
     var thoughtBubbleY = -10;
 
     // Add thought bubbles
-    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60  + thoughtBubbleY, 45 ) );
-    this.addChild( new ColorVisionEllipse( model, 90  + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
-    this.addChild( new ColorVisionEllipse( model, 62  + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
-    this.addChild( new ColorVisionEllipse( model, 50  + thoughtBubbleX, 220 + thoughtBubbleY,  7 ) );
+    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
+    this.addChild( new ColorVisionEllipse( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
+    this.addChild( new ColorVisionEllipse( model, 62 + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
+    this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
 
   }
 

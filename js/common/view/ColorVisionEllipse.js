@@ -50,8 +50,10 @@ define( function( require ) {
 
       rgbProperty.linkAttribute( path, 'fill' );
 
+    }
+
     // if using singlebulb model
-    } else {
+    else {
       model.perceivedColorProperty.linkAttribute( path, 'fill' );
     }
 

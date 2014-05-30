@@ -43,7 +43,8 @@ define( function( require ) {
     var numToCreate;
     if ( intensity < cycleLength ) {
       numToCreate = 1;
-    } else {
+    }
+    else {
       numToCreate = Math.floor( 0.05 * intensity );
     }
 
@@ -68,7 +69,8 @@ define( function( require ) {
       if ( this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < Constants.BEAM_HEIGHT ) {
         this.photons[j].updateAnimationFrame( dt );
 
-      } else {
+      }
+      else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
         this.photons[j].freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list

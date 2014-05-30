@@ -44,8 +44,9 @@ define( function( require ) {
         if ( !flashlightOn ) {
           return 'black';
 
-        // if the filter is visible, and the beam is colored
-        } else if ( filterVisible && light === 'colored' ) {
+          // if the filter is visible, and the beam is colored
+        }
+        else if ( filterVisible && light === 'colored' ) {
           var percent;
           var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
 
@@ -61,16 +62,18 @@ define( function( require ) {
           newColor.setAlpha( percent / 100 );
           return newColor;
 
+        }
         // if the filter is visible, and the beam is white return the filter wavelength's color
-        } else if ( filterVisible && light === 'white' ) {
+        else if ( filterVisible && light === 'white' ) {
           return VisibleColor.wavelengthToColor( filterWavelength );
 
+        }
         // if the beam is white and the filter is not visible, return white
-        } else if ( !filterVisible && light === 'white' ) {
+        else if ( !filterVisible && light === 'white' ) {
           return 'white';
-
+        }
         // if the filter is not visible return the flashlight wavelength's color
-        } else {
+        else {
           return VisibleColor.wavelengthToColor( flashlightWavelength );
         }
       } );
