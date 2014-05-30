@@ -12,7 +12,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-  var Color = require( 'SCENERY/util/Color' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
@@ -58,9 +57,9 @@ define( function( require ) {
           else {
             percent = 100 - ( ( Math.abs( filterWavelength - flashlightWavelength ) / halfWidth ) * 100 );
           }
-          var newColor = VisibleColor.wavelengthToColor( flashlightWavelength );
-          var alpha = percent / 100;
-          return new Color( newColor.r, newColor.g, newColor.b, alpha );
+          var newColor = VisibleColor.wavelengthToColor( flashlightWavelength ).copy();
+          newColor.setAlpha( percent / 100 );
+          return newColor;
 
         // if the filter is visible, and the beam is white return the filter wavelength's color
         } else if ( filterVisible && light === 'white' ) {

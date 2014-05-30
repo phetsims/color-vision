@@ -13,6 +13,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/Shape' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  var Color = require( 'SCENERY/util/Color' );
 
   /**
    * @param {SingleBulbModel} model
@@ -23,6 +24,9 @@ define( function( require ) {
   function SolidBeamNode( model, bounds, cutoff ) {
 
     Node.call( this );
+
+    // constant
+    var defaultBeamAlpha = 0.8;
 
     // use the principle of similar triangles to calculate where to split the beam
     var width = bounds.maxX - bounds.minX;
@@ -69,7 +73,8 @@ define( function( require ) {
       rightHalf.visible = visible;
 
       if ( wholeBeam.visible ) {
-        wholeBeam.fill = rightHalf.fill;
+        wholeBeam.fill = rightHalf.fill.copy();
+        wholeBeam.fill.setAlpha( defaultBeamAlpha );
       }
     } );
 
@@ -80,9 +85,9 @@ define( function( require ) {
         console.log( 'caslled' );
         if ( light === 'white' && filterVisible ) {
           leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
-          rightHalf.fill = 'white';
+          rightHalf.fill = new Color( 255, 255, 255, 1 );
         } else if ( light === 'white' && !filterVisible ) {
-          wholeBeam.fill = 'white';
+          wholeBeam.fill = new Color( 255, 255, 255, defaultBeamAlpha );
         } else if ( light === 'colored' && filterVisible ) {
           rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
         }
