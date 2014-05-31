@@ -41,13 +41,7 @@ define( function( require ) {
     var spacing = Math.floor( cycleLength / intensity );
 
     // create number of new photons proportional to intensity (between 1 and 5)
-    var numToCreate;
-    if ( intensity < cycleLength ) {
-      numToCreate = 1;
-    }
-    else {
-      numToCreate = Math.floor( 0.05 * intensity );
-    }
+    var numToCreate = ( intensity < cycleLength ) ? 1 : Math.floor( 0.05 * intensity );
 
     // only create new photons if intensity is greater than 0
     if ( intensity > 0 ) {
