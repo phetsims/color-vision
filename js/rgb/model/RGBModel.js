@@ -18,6 +18,19 @@ define( function( require ) {
    * @constructor
    */
   function RGBModel() {
+
+    /**
+     * RGGModel contains 6 intensity properties, all of which range between 0-100.
+     *
+     * The values of the properties redIntensity, greenIntensity, and blueIntensity are determined
+     * from the sliders, and indicate the density of the photons coming out of the flashlights.
+     *
+     * The perceivedIntensity properties determine the color of the thought
+     * bubbles. They are calculated by taking the intensity value of the most recent photon to
+     * reach the end of the photon beam (the person's eye). Each photon keeps a record of the
+     * intensity for this reason, even though it is not used in determining intensity of the
+     * photon itself, which is constant.
+     */
     PropertySet.call( this, {
         redIntensity: 0,
         greenIntensity: 0,
