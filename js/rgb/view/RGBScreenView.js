@@ -41,21 +41,24 @@ define( function( require ) {
     this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
 
     // Add photon beams
-    this.redBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.redBeam,
+    this.redBeam = new PhotonBeamNode( model.redBeam,
       {
+        canvasBounds: new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 280,
         y: 190,
         rotation: -Constants.FLASHLIGHT_ANGLE
       } );
 
-    this.greenBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.greenBeam,
+    this.greenBeam = new PhotonBeamNode( model.greenBeam,
       {
+        canvasBounds: new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320
       } );
     this.greenBeam.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
-    this.blueBeam = new PhotonBeamNode( new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ), model.blueBeam,
+    this.blueBeam = new PhotonBeamNode( model.blueBeam,
       {
+        canvasBounds: new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320,
         y: 145,
         rotation: Constants.FLASHLIGHT_ANGLE

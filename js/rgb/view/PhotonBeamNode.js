@@ -19,22 +19,20 @@ define( function( require ) {
   var debug = false;
 
   /**
-   * @param {Bounds2} canvasBounds
    * @param {PhotonBeam} photonBeam
-   * @param {Object} options
+   * @param {Object} options (must contain a field canvasBounds to indicate the bounds of the beam)
    * @constructor
    */
-  function PhotonBeamNode( canvasBounds, photonBeam, options ) {
+  function PhotonBeamNode( photonBeam, options ) {
 
-    this.beamBounds = canvasBounds;
+    this.beamBounds = options.canvasBounds;
     this.photons = photonBeam.photons;
     this.color = photonBeam.color;
 
-    options = _.extend( { pickable: false, canvasBounds: canvasBounds }, options );
+    // options = _.extend( { pickable: false }, options );
 
     CanvasNode.call( this, options );
     this.invalidatePaint();
-
   }
 
   return inherit( CanvasNode, PhotonBeamNode, {
