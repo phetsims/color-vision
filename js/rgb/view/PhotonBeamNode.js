@@ -29,8 +29,6 @@ define( function( require ) {
     this.photons = photonBeam.photons;
     this.color = photonBeam.color;
 
-    // options = _.extend( { pickable: false }, options );
-
     CanvasNode.call( this, options );
     this.invalidatePaint();
   }
