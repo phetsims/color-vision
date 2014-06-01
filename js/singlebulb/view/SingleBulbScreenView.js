@@ -67,6 +67,9 @@ define( function( require ) {
     var thoughtBubbleX = -15;
     var thoughtBubbleY = -10;
 
+    // keep a reference to this node
+    var thisNode = this;
+
     // Add thought bubbles
     this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
     this.addChild( new ColorVisionEllipse( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
@@ -80,10 +83,12 @@ define( function( require ) {
     // Add photonBeam
     this.photonBeamNode = new SingleBulbPhotonBeamNode( model, new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
       {
-        x: 320,
+        x: 320
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
-    this.photonBeamNode.visible = false;
+    model.beamProperty.link( function( beam ) {
+      thisNode.photonBeamNode.visible = ( beam === 'photon' );
+    } );
 
     this.addChild( this.photonBeamNode );
 
@@ -225,6 +230,9 @@ define( function( require ) {
     );
 
     var beam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
+    model.beamProperty.link( function( beamProperty ) {
+      beam.visible = ( beamProperty === 'beam' );
+    } );
 
     // Add right side of filter to below the beam and the left side
     this.addChild( filterRightNode );
