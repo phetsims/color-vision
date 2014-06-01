@@ -85,8 +85,13 @@ define( function( require ) {
         // check if the photon just passed through the filter
         if ( this.photons[j].location.x < cutoff && !this.photons[j].passedFilter ) {
           this.photons[j].passedFilter = true;
+
           if ( Math.random() >= percent ) {
             filtered = true;
+
+          // if the beam is white and the photon is not filtered, make sure it is the color of the filter
+          } else if ( this.light.value === 'white') {
+            this.photons[j].intensity = VisibleColor.wavelengthToColor( this.filterWavelength.value );
           }
         }
       }
@@ -94,7 +99,6 @@ define( function( require ) {
       // otherwise move the photon unless it goes out of bounds
       if ( !filtered && this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < Constants.BEAM_HEIGHT ) {
           this.photons[j].updateAnimationFrame( dt );
-
       } else {
         this.photons[j].freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
