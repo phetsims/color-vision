@@ -64,8 +64,13 @@ define( function( require ) {
     var percent;
     if ( this.filterVisible.value ) {
 
+      // If the beam is white, pass 30% of photons
+      if ( this.light.value === 'white' ) {
+        percent = 0.3;
+      }
+
       // If the flashlightWavelength is outside the transmission width, no photons pass.
-      if ( this.flashlightWavelength.value < this.filterWavelength.value - halfWidth || this.flashlightWavelength.value > this.filterWavelength.value + halfWidth ) {
+      else if ( this.flashlightWavelength.value < this.filterWavelength.value - halfWidth || this.flashlightWavelength.value > this.filterWavelength.value + halfWidth ) {
         percent = 0;
       }
       // flashlightWavelength is within the transmission width, pass a linear percentage.
