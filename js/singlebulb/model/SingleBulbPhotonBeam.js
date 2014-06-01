@@ -44,7 +44,7 @@ define( function( require ) {
     }
 
     // the x-coordinate of the filter relative to this node's bounds
-    var cutoff = 140;
+    var cutoff = 120;
 
     // initialize a contant rate of 5 new photons per animation frame
     var newColor;
@@ -52,7 +52,7 @@ define( function( require ) {
       newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
       var newPhoton = Photon.createFromPool( this.size, newColor );
       newPhoton.passedFilter = false;
-      newPhoton.isWhite = this.light.value;
+      newPhoton.isWhite = ( this.light.value === 'white' );
       this.photons.push( newPhoton );
     }
 
@@ -76,49 +76,60 @@ define( function( require ) {
       }
     }
 
+    // keep track of whether or not we have set the last photon to cross out of bounds during this animation frame
     var lastPhotonSet = false;
 
     // move all photons that are currently active
     for ( var j = 0; j < this.photons.length; j++ ) {
+      var photon = this.photons[j];
 
       // check if the photon needs to be filtered out
       if ( this.filterVisible.value ) {
         // check if the photon just passed through the filter
-        if ( this.photons[j].location.x < cutoff && !this.photons[j].passedFilter ) {
-          this.photons[j].passedFilter = true;
+        if ( photon.location.x < cutoff && !photon.passedFilter ) {
 
+          // remove a percentage of photons from the beam
           if ( Math.random() >= percent ) {
-            this.photons[j].freeToPool();
+            photon.freeToPool();
             this.photons.splice( j, 1 ); // remove jth photon from list
-
-          // if the beam is white and the photon is not filtered, make sure it is the color of the filter
-          } else if ( this.light.value === 'white') {
-            this.photons[j].intensity = VisibleColor.wavelengthToColor( this.filterWavelength.value );
-            this.photons[j].isWhite = true;
+          }
+          // if the beam is white, make sure it is the color of the filter
+          else if ( photon.isWhite ) {
+            photon.intensity = VisibleColor.wavelengthToColor( this.filterWavelength.value );
+            photon.isWhite = false;
           }
         }
       }
 
+      // keep track of photons which pass the filter
+      if ( photon.location.x < cutoff ) {
+        photon.passedFilter = true;
+      }
+
       // otherwise move the photon unless it goes out of bounds
-      if ( this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < Constants.BEAM_HEIGHT ) {
-          this.photons[j].updateAnimationFrame( dt );
+      if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
+          photon.updateAnimationFrame( dt );
+
+      // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       } else {
         if ( !lastPhotonSet ) {
-          if ( this.photons[j].isWhite && !this.filterVisible.value ) {
+          if ( photon.isWhite ) {
             this.lastPhotonColor.value = new Color( 255, 255, 255, 1 );
           } else {
-            this.lastPhotonColor.value = this.photons[j].intensity;
+            this.lastPhotonColor.value = photon.intensity;
           }
           lastPhotonSet = true;
         }
-        this.photons[j].freeToPool();
+        photon.freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
       }
     }
 
-    // if ( !lastPhotonSet ) {
-    //   this.lastPhotonColor.value = new Color( 0, 0, 0, 1 );
-    // }
+    // if no photons pass off the end this frame, and if no photons are passing through the filter,
+    // set the lastPhotonColor to black so the perceived color will be black
+    if ( !lastPhotonSet && percent === 0 ) {
+      this.lastPhotonColor.value = new Color( 0, 0, 0, 1 );
+    }
   };
 
   var reset = function() {

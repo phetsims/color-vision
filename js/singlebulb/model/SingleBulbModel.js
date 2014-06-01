@@ -51,12 +51,11 @@ define( function( require ) {
         if ( beam === 'photon' ) {
           return lastPhoton;
         }
-
         // if flashlight is not on, the perceived color is black
         else if ( !flashlightOn ) {
           return 'black';
         }
-        // if the filter is visible, and the beam is colored
+        // if the filter is visible, and the beam is colored, calculate the percentage of color to pass
         else if ( filterVisible && light === 'colored' ) {
           var percent;
           var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
@@ -74,16 +73,15 @@ define( function( require ) {
           return newColor;
 
         }
-        // if the filter is visible, and the beam is white return the filter wavelength's color
+        // if the filter is visible, and the beam is white, return the filter wavelength's color
         else if ( filterVisible && light === 'white' ) {
           return VisibleColor.wavelengthToColor( filterWavelength );
-
         }
         // if the beam is white and the filter is not visible, return white
         else if ( !filterVisible && light === 'white' ) {
           return 'white';
         }
-        // if the filter is not visible return the flashlight wavelength's color
+        // if the filter is not visible, return the flashlight wavelength's color
         else {
           return VisibleColor.wavelengthToColor( flashlightWavelength );
         }
