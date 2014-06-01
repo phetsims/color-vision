@@ -18,7 +18,7 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
-   * @param {Number} size the length of the beam
+   * @param {Number} size the length of the beam. This is used to determine what location to restart the photons.
    # @constructor
    */
   function SingleBulbPhotonBeam( model, size ) {
@@ -42,6 +42,10 @@ define( function( require ) {
       return new Color( r, g, b, 1 );
     }
 
+    // the x-coordinate of the filter relative to this node's bounds
+    var cutoff = 110;
+
+    // initialize a contant rate of 5 new photons per animation frame
     var newColor;
     for ( var i = 0; i < 5; i++ ) {
       if ( this.light.value === 'white' ) {
@@ -49,22 +53,54 @@ define( function( require ) {
       } else {
         newColor = VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
       }
-      this.photons.push( Photon.createFromPool( this.size, newColor ) );
+      var newPhoton = Photon.createFromPool( this.size, newColor );
+      newPhoton.passedFilter = false;
+      this.photons.push( newPhoton );
     }
+
+
+    // if the filter is visible, caluculate the percentage of photons to pass
+    var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
+    var percent;
+    if ( this.filterVisible.value ) {
+
+      // If the flashlightWavelength is outside the transmission width, no photons pass.
+      if ( this.flashlightWavelength.value < this.filterWavelength.value - halfWidth || this.flashlightWavelength.value > this.filterWavelength.value + halfWidth ) {
+        percent = 0;
+      }
+      // flashlightWavelength is within the transmission width, pass a linear percentage.
+      else {
+        percent = 1 - ( ( Math.abs( this.filterWavelength.value - this.flashlightWavelength.value ) / halfWidth ) );
+      }
+    }
+
+    // filtered boolean notes whether a given photon needs to be filtered
+    var filtered = false;
 
     // move all photons that are currently active
     for ( var j = 0; j < this.photons.length; j++ ) {
 
-      if ( this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < Constants.BEAM_HEIGHT ) {
-        this.photons[j].updateAnimationFrame( dt );
+      // check if the photon needs to be filtered out
+      if ( this.filterVisible.value ) {
+        // check if the photon just passed through the filter
+        if ( this.photons[j].location.x < cutoff && !this.photons[j].passedFilter ) {
+          this.photons[j].passedFilter = true;
+          if ( Math.random() >= percent ) {
+            filtered = true;
+          }
+        }
+      }
+
+      // otherwise move the photon unless it goes out of bounds
+      if ( !filtered && this.photons[j].location.x > 0 && this.photons[j].location.y > 0 && this.photons[j].location.y < Constants.BEAM_HEIGHT ) {
+          this.photons[j].updateAnimationFrame( dt );
 
       } else {
         this.photons[j].freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
+        filtered = false;
       }
-
     }
-
   };
 
   var reset = function() {

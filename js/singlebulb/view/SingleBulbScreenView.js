@@ -67,9 +67,6 @@ define( function( require ) {
     var thoughtBubbleX = -15;
     var thoughtBubbleY = -10;
 
-    // keep a reference to this node
-    var thisNode = this;
-
     // Add thought bubbles
     this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
     this.addChild( new ColorVisionEllipse( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
