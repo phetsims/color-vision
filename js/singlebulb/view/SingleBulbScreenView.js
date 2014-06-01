@@ -80,27 +80,22 @@ define( function( require ) {
     var headImageNode = new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET );
     this.addChild( headImageNode );
 
-    // Add photonBeam
-    this.photonBeamNode = new SingleBulbPhotonBeamNode( model, new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+    // Create photonBeam node
+    this.photonBeamNode = new SingleBulbPhotonBeamNode( model,
       {
+        canvasBounds: new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
-    model.beamProperty.link( function( beam ) {
-      thisNode.photonBeamNode.visible = ( beam === 'photon' );
-    } );
 
-    this.addChild( this.photonBeamNode );
-
-    // Add flashlight
+    // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
         centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
         right: this.layoutBounds.maxX - 50
       } );
-    this.addChild( flashlightNode );
 
-    // Add upper WavelengthSlider
+    // Create upper WavelengthSlider node
     var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty,
       {
         top: this.layoutBounds.top + 20,
@@ -225,14 +220,11 @@ define( function( require ) {
     (
         headImageNode.right - 35,
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 24,
-        flashlightNode.left + 12,
+        flashlightNode.left + 15,
         this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
     );
 
     var beam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
-    model.beamProperty.link( function( beamProperty ) {
-      beam.visible = ( beamProperty === 'beam' );
-    } );
 
     // Add right side of filter to below the beam and the left side
     this.addChild( filterRightNode );
@@ -240,9 +232,13 @@ define( function( require ) {
 
     // Add beam before the left side of the filter so it shows up
     this.addChild( beam );
+    this.addChild( this.photonBeamNode );
 
     this.addChild( filterLeftNode );
     this.addChild( filterLeft );
+
+    // flashlight is added after the beams so it covers up the beginning of the beam
+    this.addChild( flashlightNode );
 
     // Add 'Reset All' button, resets the sim to its initial state
     var resetAllButton = new ResetAllButton(

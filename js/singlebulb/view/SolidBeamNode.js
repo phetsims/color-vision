@@ -94,7 +94,12 @@ define( function( require ) {
         }
       } );
 
-    model.flashlightOnProperty.linkAttribute( this, 'visible' );
+    var visibleProperty = model.toDerivedProperty( [ 'flashlightOn', 'beam' ],
+      function( flashlightOn, beamProperty ) {
+        return ( flashlightOn && beamProperty === 'beam' );
+      } );
+    visibleProperty.linkAttribute( this, 'visible' );
+
     model.perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
 
     this.addChild( leftHalf );
