@@ -12,6 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  var Color = require( 'SCENERY/util/Color' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
 
@@ -27,7 +28,10 @@ define( function( require ) {
         flashlightOn: true,
         filterVisible: true,
         running: true,
-        play: true
+        play: true,
+
+        // keep track of the last photon to hit the eye for use in calculating the perceived color
+        lastPhotonColor: new Color( 0, 0, 0, 0 )
       }
     );
 
@@ -37,16 +41,22 @@ define( function( require ) {
         'filterWavelength',
         'flashlightOn',
         'filterVisible',
-        'light'
+        'light',
+        'beam',
+        'lastPhotonColor'
       ],
-      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, light ) {
+      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, light, beam, lastPhoton ) {
+
+        // if the beam is in photon mode, return the color of the last photon to hit the eye
+        if ( beam === 'photon' ) {
+          return lastPhoton;
+        }
 
         // if flashlight is not on, the perceived color is black
-        if ( !flashlightOn ) {
+        else if ( !flashlightOn ) {
           return 'black';
-
-          // if the filter is visible, and the beam is colored
         }
+        // if the filter is visible, and the beam is colored
         else if ( filterVisible && light === 'colored' ) {
           var percent;
           var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
@@ -80,7 +90,6 @@ define( function( require ) {
       } );
 
     this.photonBeam = new SingleBulbPhotonBeam( this, Constants.SINGLE_BEAM_LENGTH );
-
   }
 
   return inherit( PropertySet, SingleBulbModel,
