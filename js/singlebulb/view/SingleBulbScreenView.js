@@ -159,7 +159,8 @@ define( function( require ) {
         valueVisible: false,
         trackWidth: sliderTrackWidth,
         trackHeight: sliderTrackHeight,
-        opacity: 0.5
+        trackOpacity: 0.5,
+        cursorVisible: false
       } );
 
     // Add opaque slider in same place as the transparent one.
@@ -175,7 +176,8 @@ define( function( require ) {
         tweakersVisible: false,
         valueVisible: false,
         trackWidth: sliderTrackWidth,
-        trackHeight: sliderTrackHeight
+        trackHeight: sliderTrackHeight,
+        cursorVisible: false
       } );
 
     this.addChild( new FilterWireNode(

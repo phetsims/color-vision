@@ -13,7 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
-  var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
+  var Photon = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**

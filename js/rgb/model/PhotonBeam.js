@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var Photon = require( 'COLOR_VISION/rgb/model/Photon' );
+  var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
@@ -47,7 +47,7 @@ define( function( require ) {
       if ( intensity >= cycleLength || this.frameCount % spacing === 0 ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
-          this.photons.push( Photon.createFromPool( this.size, intensity ) );
+          this.photons.push( RGBPhoton.createFromPool( this.size, intensity ) );
         }
       }
 
@@ -67,7 +67,7 @@ define( function( require ) {
       else {
         this.perceivedIntensityProperty.value = this.photons[j].intensity;
         this.photons[j].freeToPool();
-        this.photons.splice( j, 1 ); // remove jth photon from list
+        this.photons.splice( j, 1 ); // remove jth RGBPhoton from list
       }
 
     }
