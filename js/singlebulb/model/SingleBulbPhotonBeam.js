@@ -30,7 +30,6 @@ define( function( require ) {
     this.filterVisible = model.filterVisibleProperty;
     this.flashlightOn = model.flashlightOnProperty;
     this.light = model.lightProperty;
-    this.perceivedColor = model.perceivedColorProperty;
     this.lastPhotonColor = model.lastPhotonColorProperty;
   }
 
@@ -45,16 +44,6 @@ define( function( require ) {
 
     // the x-coordinate of the filter relative to this node's bounds
     var cutoff = 120;
-
-    // initialize a contant rate of 5 new photons per animation frame
-    var newColor;
-    for ( var i = 0; i < 5; i++ ) {
-      newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
-      var newPhoton = Photon.createFromPool( this.size, newColor );
-      newPhoton.passedFilter = false;
-      newPhoton.isWhite = ( this.light.value === 'white' );
-      this.photons.push( newPhoton );
-    }
 
     // if the filter is visible, caluculate the percentage of photons to pass
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
@@ -73,6 +62,24 @@ define( function( require ) {
       // flashlightWavelength is within the transmission width, pass a linear percentage.
       else {
         percent = 1 - ( ( Math.abs( this.filterWavelength.value - this.flashlightWavelength.value ) / halfWidth ) );
+      }
+    }
+
+    // initialize a contant rate of 5 new photons per animation frame if the flashlight is on
+    if ( this.flashlightOn.value ) {
+      var newColor;
+
+      for ( var i = 0; i < 5; i++ ) {
+        newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
+        var newPhoton = Photon.createFromPool( this.size, percent );
+
+        // these three attributes are used in the single bulb screen only, so they are not part of the Photon class
+        // if its better than assigning them here, I could create another photon class for this screen
+        newPhoton.passedFilter = false;
+        newPhoton.isWhite = ( this.light.value === 'white' );
+        newPhoton.color = newColor;
+
+        this.photons.push( newPhoton );
       }
     }
 
@@ -95,7 +102,7 @@ define( function( require ) {
           }
           // if the beam is white, make sure it is the color of the filter
           else if ( photon.isWhite ) {
-            photon.intensity = VisibleColor.wavelengthToColor( this.filterWavelength.value );
+            photon.color = VisibleColor.wavelengthToColor( this.filterWavelength.value );
             photon.isWhite = false;
           }
         }
@@ -114,9 +121,11 @@ define( function( require ) {
       } else {
         if ( !lastPhotonSet ) {
           if ( photon.isWhite ) {
-            this.lastPhotonColor.value = new Color( 255, 255, 255, 1 );
+            this.lastPhotonColor.value = new Color( 255, 255, 255, photon.intensity );
           } else {
-            this.lastPhotonColor.value = photon.intensity;
+            var colorWithIntensity = photon.color.copy();
+            colorWithIntensity.setAlpha( photon.intensity );
+            this.lastPhotonColor.value = colorWithIntensity;
           }
           lastPhotonSet = true;
         }

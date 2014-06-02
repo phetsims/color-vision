@@ -66,10 +66,10 @@ define( function( require ) {
           }
           // flashlightWavelength is within the transmission width, pass a linear percentage.
           else {
-            percent = 100 - ( ( Math.abs( filterWavelength - flashlightWavelength ) / halfWidth ) * 100 );
+            percent = 1 - ( ( Math.abs( filterWavelength - flashlightWavelength ) / halfWidth ) );
           }
           var newColor = VisibleColor.wavelengthToColor( flashlightWavelength ).copy();
-          newColor.setAlpha( percent / 100 );
+          newColor.setAlpha( percent );
           return newColor;
 
         }
