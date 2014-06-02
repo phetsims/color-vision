@@ -77,6 +77,7 @@ define( function( require ) {
         // if its better than assigning them here, I could create another photon class for this screen
         newPhoton.passedFilter = false;
         newPhoton.isWhite = ( this.light.value === 'white' );
+        newPhoton.wasWhite = ( this.light.value === 'white' );
         newPhoton.color = newColor;
 
         this.photons.push( newPhoton );
@@ -121,10 +122,13 @@ define( function( require ) {
       } else {
         if ( !lastPhotonSet ) {
           if ( photon.isWhite ) {
-            this.lastPhotonColor.value = new Color( 255, 255, 255, photon.intensity );
+            this.lastPhotonColor.value = new Color( 255, 255, 255, 1 );
           } else {
+            // set the intensity of the plast photon to leave so we know to adjust the intensity of the perceived color
             var colorWithIntensity = photon.color.copy();
-            colorWithIntensity.setAlpha( photon.intensity );
+            if ( !photon.wasWhite ) {
+              colorWithIntensity.setAlpha( photon.intensity );
+            }
             this.lastPhotonColor.value = colorWithIntensity;
           }
           lastPhotonSet = true;
