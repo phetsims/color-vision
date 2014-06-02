@@ -16,6 +16,8 @@ define( function( require ) {
     FLASHLIGHT_ANGLE: Math.PI / 6,
     CENTER_Y_OFFSET: -20,
     HOME_SCREEN_ICON_FILL: '#e7e9cc',
-    GAUSSIAN_WIDTH: 50 // in units of wavelengths
+    GAUSSIAN_WIDTH: 50, // in units of wavelengths
+    X_VELOCITY: -240,  // x-velocity of photons
+    FAN_FACTOR: 1.05   // amount of fanning of photons
   };
 } );

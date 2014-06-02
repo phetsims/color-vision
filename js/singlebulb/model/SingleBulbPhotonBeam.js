@@ -13,7 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
-  var Photon = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
+  var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
@@ -47,7 +47,7 @@ define( function( require ) {
 
     // if the filter is visible, caluculate the percentage of photons to pass
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
-    var percent;
+    var percent = 1;
     if ( this.filterVisible.value ) {
 
       // If the beam is white, pass 30% of photons
@@ -71,15 +71,7 @@ define( function( require ) {
 
       for ( var i = 0; i < 5; i++ ) {
         newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
-        var newPhoton = Photon.createFromPool( this.size, percent );
-
-        // these three attributes are used in the single bulb screen only, so they are not part of the Photon class
-        // if its better than assigning them here, I could create another photon class for this screen
-        newPhoton.passedFilter = false;
-        newPhoton.isWhite = ( this.light.value === 'white' );
-        newPhoton.wasWhite = ( this.light.value === 'white' );
-        newPhoton.color = newColor;
-
+        var newPhoton = SingleBulbPhoton.createFromPool( this.size, percent, newColor, ( this.light.value === 'white' ) );
         this.photons.push( newPhoton );
       }
     }
@@ -116,7 +108,7 @@ define( function( require ) {
 
       // otherwise move the photon unless it goes out of bounds
       if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
-          photon.updateAnimationFrame( dt );
+        photon.updateAnimationFrame( dt );
 
       // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       } else {
