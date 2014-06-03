@@ -37,6 +37,7 @@ define( function( require ) {
 
   var updateAnimationFrame = function( dt ) {
 
+    // don't run the animation frame if the sim is paused
     if ( this.paused.value ) {
       return;
     }
@@ -75,11 +76,7 @@ define( function( require ) {
       for ( var i = 0; i < 5; i++ ) {
         newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
 
-        // set the photonIntensity to be the same as the percentage passing through the filter.
-        // this is used when setting the perceived color when the photon hits the eye.
-        // make sure the intensity is at least 0.2, otherwise it looks too black in the view
-        var photonIntensity = ( percent < 0.2 ) ? 0.2 : percent;
-        var newPhoton = SingleBulbPhoton.createFromPool( this.size, photonIntensity, newColor, ( this.light.value === 'white' ) );
+        var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.light.value === 'white' ) );
         this.photons.push( newPhoton );
       }
     }
@@ -103,6 +100,13 @@ define( function( require ) {
           else if ( photon.isWhite ) {
             photon.color = VisibleColor.wavelengthToColor( this.filterWavelength.value );
             photon.isWhite = false;
+          }
+          // if the photon is not white
+          else {
+            // set the photonIntensity to be the same as the percentage passing through the filter,
+            // for use when setting the perceived color when the photon hits the eye.
+            // make sure the intensity is at least 0.2, otherwise it looks too black in the view
+            photon.intensity = ( percent < 0.2 ) ? 0.2 : percent;
           }
         }
       }
