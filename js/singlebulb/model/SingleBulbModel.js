@@ -27,7 +27,7 @@ define( function( require ) {
         filterWavelength: 570,
         flashlightOn: true,
         filterVisible: true,
-        running: true,
+        paused: false,
         play: true,
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color

@@ -255,7 +255,7 @@ define( function( require ) {
     this.addChild( resetAllButton );
 
     // Add Play/Pause button
-    var playPauseButton = new PlayPauseButton( model.runningProperty,
+    var playPauseButton = new PlayPauseButton( model.pausedProperty,
       {
         baseColor: playStepButtonColor,
         bottom: this.layoutBounds.bottom - 20,

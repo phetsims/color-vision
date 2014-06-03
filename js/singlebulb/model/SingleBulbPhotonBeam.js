@@ -32,9 +32,14 @@ define( function( require ) {
     this.light = model.lightProperty;
     this.lastPhotonColor = model.lastPhotonColorProperty;
     this.perceivedColor = model.perceivedColorProperty;
+    this.paused = model.pausedProperty;
   }
 
   var updateAnimationFrame = function( dt ) {
+
+    if ( this.paused.value ) {
+      return;
+    }
 
     function randomColor() {
       var r = Math.floor( Math.random() * 256 );
