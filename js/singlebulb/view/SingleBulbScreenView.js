@@ -61,6 +61,7 @@ define( function( require ) {
     var sliderXOffset = 18;
     var sliderTrackWidth = 200;
     var sliderTrackHeight = 30;
+    var photonBeamStart = 320;
     var playStepButtonColor = new Color( 247, 151, 34 );
 
     // for moving the thought bubbles together as a group
@@ -76,14 +77,6 @@ define( function( require ) {
     // Add head image
     var headImageNode = new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET );
     this.addChild( headImageNode );
-
-    // Create photonBeam node
-    this.photonBeamNode = new SingleBulbPhotonBeamNode( model,
-      {
-        canvasBounds: new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
-        x: 320
-      } );
-    this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
@@ -149,6 +142,17 @@ define( function( require ) {
     var filterRightNode = new Image( filterRightImage, filterOptions );
     model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
     model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
+
+    // this is a little bit of a hack
+    model.photonBeam.filterOffset = filterLeftNode.centerX - photonBeamStart;
+
+    // Create photonBeam node
+    this.photonBeamNode = new SingleBulbPhotonBeamNode( model,
+      {
+        canvasBounds: new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        x: photonBeamStart
+      } );
+    this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     // Add lower WavelengthSlider
     var lowerSliderNodeTransparent = new WavelengthSlider( model.filterWavelengthProperty,

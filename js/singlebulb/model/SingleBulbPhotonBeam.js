@@ -31,6 +31,7 @@ define( function( require ) {
     this.flashlightOn = model.flashlightOnProperty;
     this.light = model.lightProperty;
     this.lastPhotonColor = model.lastPhotonColorProperty;
+    this.perceivedColor = model.perceivedColorProperty;
   }
 
   var updateAnimationFrame = function( dt ) {
@@ -43,7 +44,7 @@ define( function( require ) {
     }
 
     // the x-coordinate of the filter relative to this node's bounds
-    var cutoff = 120;
+    // var this.filterOffset = 120;
 
     // if the filter is visible, caluculate the percentage of photons to pass
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
@@ -83,11 +84,9 @@ define( function( require ) {
     for ( var j = 0; j < this.photons.length; j++ ) {
       var photon = this.photons[j];
 
-      // check if the photon needs to be filtered out
-      if ( this.filterVisible.value ) {
-        // check if the photon just passed through the filter
-        if ( photon.location.x < cutoff && !photon.passedFilter ) {
-
+      // check if the photon just passed through the filter location
+      if ( photon.location.x < this.filterOffset && !photon.passedFilter ) {
+        if ( this.filterVisible.value ) {
           // remove a percentage of photons from the beam
           if ( Math.random() >= percent ) {
             photon.freeToPool();
@@ -102,7 +101,7 @@ define( function( require ) {
       }
 
       // keep track of photons which pass the filter
-      if ( photon.location.x < cutoff ) {
+      if ( photon.location.x < this.filterOffset ) {
         photon.passedFilter = true;
       }
 
@@ -130,10 +129,11 @@ define( function( require ) {
       }
     }
 
-    // if no photons pass off the end this frame, and if no photons are passing through the filter,
-    // set the lastPhotonColor to black so the perceived color will be black
-    if ( !lastPhotonSet && percent === 0 ) {
-      this.lastPhotonColor.value = new Color( 0, 0, 0, 1 );
+    // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
+    if ( percent === 0 && this.filterVisible.value && !this.perceivedColor.value.equals( Color.BLACK ) ) {
+      var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, Color.BLACK.withAlpha( 0 ), false );
+      blackPhoton.passedFilter = true;
+      this.photons.push( blackPhoton );
     }
   };
 
