@@ -43,9 +43,6 @@ define( function( require ) {
       return new Color( r, g, b, 1 );
     }
 
-    // the x-coordinate of the filter relative to this node's bounds
-    // var this.filterOffset = 120;
-
     // if the filter is visible, caluculate the percentage of photons to pass
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
     var percent = 1;
@@ -72,7 +69,12 @@ define( function( require ) {
 
       for ( var i = 0; i < 5; i++ ) {
         newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
-        var newPhoton = SingleBulbPhoton.createFromPool( this.size, percent, newColor, ( this.light.value === 'white' ) );
+
+        // set the photonIntensity to be the same as the percentage passing through the filter.
+        // this is used when setting the perceived color when the photon hits the eye.
+        // make sure the intensity is at least 0.2, otherwise it looks too black in the view
+        var photonIntensity = ( percent < 0.2 ) ? 0.2 : percent;
+        var newPhoton = SingleBulbPhoton.createFromPool( this.size, photonIntensity, newColor, ( this.light.value === 'white' ) );
         this.photons.push( newPhoton );
       }
     }
