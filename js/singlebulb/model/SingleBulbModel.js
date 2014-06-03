@@ -34,7 +34,7 @@ define( function( require ) {
       }
     );
 
-    this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused } );
+    this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused; } );
 
     this.perceivedColorProperty = this.toDerivedProperty(
       [
