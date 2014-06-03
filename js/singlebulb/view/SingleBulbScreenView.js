@@ -266,7 +266,7 @@ define( function( require ) {
     this.addChild( playPauseButton );
 
     // Add step button
-    var stepButton = new StepButton( function( dt ) { console.log( dt ); }, model.playProperty,
+    var stepButton = new StepButton( function() { model.manualStep() }, model.stepEnabledProperty,
       {
         baseColor: playStepButtonColor,
         bottom: this.layoutBounds.bottom - 20,

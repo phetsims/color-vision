@@ -25,6 +25,7 @@ define( function( require ) {
     this.photons = [];
     this.size = size;
 
+    // keep a reference to all the needed properties
     this.flashlightWavelength = model.flashlightWavelengthProperty;
     this.filterWavelength = model.filterWavelengthProperty;
     this.filterVisible = model.filterVisibleProperty;
@@ -32,15 +33,9 @@ define( function( require ) {
     this.light = model.lightProperty;
     this.lastPhotonColor = model.lastPhotonColorProperty;
     this.perceivedColor = model.perceivedColorProperty;
-    this.paused = model.pausedProperty;
   }
 
   var updateAnimationFrame = function( dt ) {
-
-    // don't run the animation frame if the sim is paused
-    if ( this.paused.value ) {
-      return;
-    }
 
     function randomColor() {
       var r = Math.floor( Math.random() * 256 );

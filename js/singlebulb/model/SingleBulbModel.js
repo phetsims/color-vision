@@ -28,12 +28,13 @@ define( function( require ) {
         flashlightOn: true,
         filterVisible: true,
         paused: false,
-        play: true,
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color
         lastPhotonColor: new Color( 0, 0, 0, 0 )
       }
     );
+
+    this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused } );
 
     this.perceivedColorProperty = this.toDerivedProperty(
       [
@@ -93,7 +94,14 @@ define( function( require ) {
   return inherit( PropertySet, SingleBulbModel,
     {
       step: function( dt ) {
-        this.photonBeam.updateAnimationFrame( dt );
+        if ( !this.paused ) {
+          this.photonBeam.updateAnimationFrame( dt );
+        }
+      },
+
+      // step one frame, assuming 60fps
+      manualStep: function() {
+        this.photonBeam.updateAnimationFrame( 1 / 60 );
       },
 
       reset: function() {
