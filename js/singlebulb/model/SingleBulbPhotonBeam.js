@@ -25,7 +25,7 @@ define( function( require ) {
     this.photons = [];
     this.size = size;
 
-    // keep a reference to all the needed properties
+    // keep a reference to all the needed properties, would it be better to inherit from SingleBulbModel?
     this.flashlightWavelength = model.flashlightWavelengthProperty;
     this.filterWavelength = model.filterWavelengthProperty;
     this.filterVisible = model.filterVisibleProperty;
@@ -49,13 +49,8 @@ define( function( require ) {
     var percent = 1;
     if ( this.filterVisible.value ) {
 
-      // If the beam is white, pass 30% of photons
-      if ( this.light.value === 'white' ) {
-        percent = 0.3;
-      }
-
       // If the flashlightWavelength is outside the transmission width, no photons pass.
-      else if ( this.flashlightWavelength.value < this.filterWavelength.value - halfWidth || this.flashlightWavelength.value > this.filterWavelength.value + halfWidth ) {
+      if ( this.flashlightWavelength.value < this.filterWavelength.value - halfWidth || this.flashlightWavelength.value > this.filterWavelength.value + halfWidth ) {
         percent = 0;
       }
       // flashlightWavelength is within the transmission width, pass a linear percentage.
@@ -66,11 +61,8 @@ define( function( require ) {
 
     // initialize a contant rate of 5 new photons per animation frame if the flashlight is on
     if ( this.flashlightOn.value ) {
-      var newColor;
-
       for ( var i = 0; i < 5; i++ ) {
-        newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
-
+        var newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
         var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.light.value === 'white' ) );
         this.photons.push( newPhoton );
       }
@@ -85,6 +77,9 @@ define( function( require ) {
 
       // check if the photon just passed through the filter location
       if ( this.filterVisible.value && photon.location.x < this.filterOffset && !photon.passedFilter ) {
+
+        // set the percent to be 30% for white photons
+        percent = ( !photon.wasWhite ) ? percent : 0.3;
 
         // remove a percentage of photons from the beam
         if ( Math.random() >= percent ) {
