@@ -34,8 +34,10 @@ define( function( require ) {
       }
     );
 
+    // the step button is enabled only when the sim is paused
     this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused; } );
 
+    // the color perceived by the person depends on almost every property
     this.perceivedColorProperty = this.toDerivedProperty(
       [
         'flashlightWavelength',
@@ -46,11 +48,13 @@ define( function( require ) {
         'beam',
         'lastPhotonColor'
       ],
-      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, light, beam, lastPhoton ) {
+      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, light, beam, lastPhotonColor ) {
 
-        // if the beam is in photon mode, return the color of the last photon to hit the eye
+        // If the beam is in photon mode, return the color of the last photon to hit the eye.
+        // The logic for handling all of the cases where the beam is in photon mode is in the file
+        // SingleBulbPhotonBeam, where lastPhotonColor is set.
         if ( beam === 'photon' ) {
-          return lastPhoton;
+          return lastPhotonColor;
         }
         // if flashlight is not on, the perceived color is black
         else if ( !flashlightOn ) {

@@ -84,25 +84,24 @@ define( function( require ) {
       var photon = this.photons[j];
 
       // check if the photon just passed through the filter location
-      if ( photon.location.x < this.filterOffset && !photon.passedFilter ) {
-        if ( this.filterVisible.value ) {
-          // remove a percentage of photons from the beam
-          if ( Math.random() >= percent ) {
-            photon.freeToPool();
-            this.photons.splice( j, 1 ); // remove jth photon from list
-          }
-          // if the beam is white, make sure it is the color of the filter
-          else if ( photon.isWhite ) {
-            photon.color = VisibleColor.wavelengthToColor( this.filterWavelength.value );
-            photon.isWhite = false;
-          }
-          // if the photon is not white
-          else {
-            // set the photonIntensity to be the same as the percentage passing through the filter,
-            // for use when setting the perceived color when the photon hits the eye.
-            // make sure the intensity is at least 0.2, otherwise it looks too black in the view
-            photon.intensity = ( percent < 0.2 ) ? 0.2 : percent;
-          }
+      if ( this.filterVisible.value && photon.location.x < this.filterOffset && !photon.passedFilter ) {
+
+        // remove a percentage of photons from the beam
+        if ( Math.random() >= percent ) {
+          photon.freeToPool();
+          this.photons.splice( j, 1 ); // remove jth photon from list
+        }
+        // if the beam is white, make sure it is the color of the filter
+        else if ( photon.isWhite ) {
+          photon.color = VisibleColor.wavelengthToColor( this.filterWavelength.value );
+          photon.isWhite = false;
+        }
+        // if the photon is not white
+        else {
+          // set the photonIntensity to be the same as the percentage passing through the filter,
+          // for use when setting the perceived color when the photon hits the eye.
+          // make sure the intensity is at least 0.2, otherwise it looks too black in the view
+          photon.intensity = ( percent < 0.2 ) ? 0.2 : percent;
         }
       }
 

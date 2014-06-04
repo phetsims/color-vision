@@ -143,7 +143,7 @@ define( function( require ) {
     model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
     model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 
-    // this is a little bit of a hack
+    // tell the photon beam where the filter location is
     model.photonBeam.filterOffset = filterLeftNode.centerX - photonBeamStart;
 
     // Create photonBeam node
