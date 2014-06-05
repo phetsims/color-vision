@@ -9,17 +9,17 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var Path = require( 'SCENERY/nodes/Path' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Shape = require( 'KITE/Shape' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Util = require( 'DOT/Util' );
+  var LinearFunction = require( 'DOT/LinearFunction' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * @param {Property} filterWavelengthProperty in units of wavelength
    * @param {Rectangle} track a rectangle bounding the WavelengthSlider track
-   * @param {WavelengthSlider} wavelengthSlider the slider whose clipArea must be set to the gaussian shape
+   * @param {WavelengthSlider} wavelengthSlider the slider whose clipArea will be set to the gaussian shape
    * @constructor
    */
   function GaussianNode( filterWavelengthProperty, track, wavelengthSlider ) {
@@ -28,7 +28,6 @@ define( function( require ) {
 
     // function for a gaussian with mean 0 and standard deviation 0.5
     var constant = 1 / ( 0.5 * Math.sqrt( 2 * Math.PI ) );
-
     function gaussian( x ) {
       var exponent = -Math.pow( x, 2 );
       return constant * Math.pow( Math.E, exponent );
@@ -46,31 +45,32 @@ define( function( require ) {
     var xScale = 10;
     var xOffset = track.left - 18;
 
-    // create a gaussian shape with many short line segments
+    // save the coordinates of the outline of the gaussian in a table to avoid recomputing so much
+    this.gaussianLookupTable = [];
+    var domainLinearFunction = new LinearFunction( 0, numSamples, -distanceFromMean, distanceFromMean, true );
+    for ( var i = 0; i < numSamples; i++ ) {
+      var xCoord = domainLinearFunction( i );
+      this.gaussianLookupTable.push( { x: xCoord * xScale + xOffset, y: track.bottom - gaussian( xCoord ) * height } );
+    }
+
+    /**
+     * The createGaussian function returns a Shape object that looks like a gaussian.
+     * @param {Number} position the x-coordinate of the gaussian within the wavelength slider track
+     */
+    var thisNode = this;
     var createGaussian = function( position ) {
-      var curve = new Shape().moveTo( xOffset, track.bottom );
-      for ( var i = -distanceFromMean; i <= distanceFromMean; i += distanceFromMean * 2 / numSamples ) {
-        curve.lineTo( i * xScale + xOffset + position, track.bottom - gaussian( i ) * height );
+      var curve = new Shape().moveTo( xOffset + position, track.bottom );
+      for ( var i = 0; i < numSamples; i++ ) {
+        curve.lineTo( thisNode.gaussianLookupTable[i].x + position, thisNode.gaussianLookupTable[i].y );
       }
       curve.close();
       return curve;
     };
 
-    var curve = createGaussian( wavelengthToPosition( filterWavelengthProperty.value ) );
-
-    var path = new Path( curve,
-      {
-        lineWidth: 0.5
-      } );
-
     filterWavelengthProperty.link( function( wavelength ) {
-      var position = wavelengthToPosition( wavelength );
-      path.x = position + xScale;
-      wavelengthSlider.setClipArea( createGaussian( position ) );
+      wavelengthSlider.setClipArea( createGaussian( wavelengthToPosition( wavelength ) ) );
     } );
-
-    this.addChild( path );
   }
 
-  return inherit( Path, GaussianNode );
+  return inherit( Node, GaussianNode );
 } );
