@@ -46,7 +46,6 @@ define( function( require ) {
     this.domainLinearFunction = new LinearFunction( 0, this.numSamples, -3, 3, true );
     for ( var i = 0; i < this.numSamples; i++ ) {
       var xCoord = this.domainLinearFunction( i );
-      console.log(gaussian( xCoord ) * this.canvasHeight * 1.2);
       this.gaussianLookupTable.push( { x: xCoord, y: gaussian( xCoord ) * this.canvasHeight * 1.2 } );
     }
 
@@ -60,8 +59,6 @@ define( function( require ) {
       thisNode.gaussianPosition = Math.floor( thisNode.wavelengthToPosition( wavelength ) );
       thisNode.invalidatePaint();
     } );
-
-    this.invalidatePaint();
   }
 
   return inherit( CanvasNode, GaussianCanvasNode, {
@@ -75,11 +72,6 @@ define( function( require ) {
         context.fillStyle = this.colorLookup[colorIndex];
         context.fillRect( this.gaussianLookupTable[i].x + colorIndex, this.canvasHeight, 2, -this.gaussianLookupTable[i].y );
       }
-    },
-
-    step: function( dt ) {
-      this.invalidatePaint();
     }
-
   } );
 } );

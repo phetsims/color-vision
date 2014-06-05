@@ -175,7 +175,7 @@ define( function( require ) {
     // var trackRectangle = new Rectangle( sliderXOffset, -8, sliderTrackWidth, sliderTrackHeight + 7 );
     // var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
 
-    var trackBounds = new Bounds2( sliderXOffset, -8, sliderXOffset + sliderTrackWidth, sliderTrackHeight - 10 );
+    var trackBounds = new Bounds2( 0, 0, sliderTrackWidth, sliderTrackHeight - 1 );
     var gaussian = new GaussianCanvasNode( model.filterWavelengthProperty, trackBounds );
 
     this.addChild( lowerSliderNodeTransparent );
