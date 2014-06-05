@@ -28,6 +28,7 @@ define( function( require ) {
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
   var GaussianNode = require( 'COLOR_VISION/singlebulb/view/GaussianNode' );
+  var GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
@@ -154,48 +155,27 @@ define( function( require ) {
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
-    // Add lower WavelengthSlider
-    var lowerSliderNodeTransparent = new WavelengthSlider( model.filterWavelengthProperty,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        right: wavelengthSliderDistance,
-        tweakersVisible: false,
-        valueVisible: false,
-        trackWidth: sliderTrackWidth,
-        trackHeight: sliderTrackHeight,
-        trackOpacity: 0.5,
-        cursorVisible: false
-      } );
-
     // Add opaque slider in same place as the transparent one.
     // This allows the gaussian shape to clip out a section of the opaque slider
     // to give the effect of the gaussian being opaque and the rest of the slider 50% transparent
     // ISSUES: re-rendering the Gaussian shape is choppy on iPad
     //         the transparent slider handle should be opaque
     //         this lines from the opaque slider still show ontop of the gaussian
-    var lowerSliderNodeOpaque = new WavelengthSlider( model.filterWavelengthProperty,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        right: wavelengthSliderDistance,
-        tweakersVisible: false,
-        valueVisible: false,
-        trackWidth: sliderTrackWidth,
-        trackHeight: sliderTrackHeight,
-        cursorVisible: false
-      } );
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, sliderTrackWidth, sliderTrackWidth );
+    gaussianSlider.bottom = this.layoutBounds.bottom - 20;
+    gaussianSlider.right = wavelengthSliderDistance;
 
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
+      new Vector2( gaussianSlider.left + sliderXOffset, gaussianSlider.centerY - sliderYOffset )
     ) );
 
     var trackRectangle = new Rectangle( sliderXOffset, -8, sliderTrackWidth, sliderTrackHeight + 7 );
-    var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
+    // var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
 
-    this.addChild( lowerSliderNodeTransparent );
-    this.addChild( lowerSliderNodeOpaque );
-    lowerSliderNodeOpaque.addChild( gaussian );
+    this.addChild( gaussianSlider );
+    // lowerSliderNodeOpaque.addChild( gaussian );
 
     var filterLeft = new FilterHalfEllipse
     (
