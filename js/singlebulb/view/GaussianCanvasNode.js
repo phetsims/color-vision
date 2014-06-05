@@ -29,7 +29,7 @@ define( function( require ) {
     this.numSamples = 50;
     this.canvasWidth = canvasBounds.maxX - canvasBounds.minX;
     this.canvasHeight = canvasBounds.maxY - canvasBounds.minY;
-    console.log(canvasBounds);
+    console.log(this.canvasHeight);
 
     // for converting wavelength to position
     this.wavelengthToPosition = new LinearFunction( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, this.canvasWidth, true );
@@ -73,7 +73,7 @@ define( function( require ) {
       for ( var i = 0; i < this.numSamples; i++ ) {
         var colorIndex = i + this.gaussianPosition - this.numSamples / 2;
         context.fillStyle = this.colorLookup[colorIndex];
-        context.fillRect( this.gaussianLookupTable[i].x + colorIndex, this.canvasHeight, 1, -this.gaussianLookupTable[i].y );
+        context.fillRect( this.gaussianLookupTable[i].x + colorIndex, this.canvasHeight, 2, -this.gaussianLookupTable[i].y );
       }
     },
 
