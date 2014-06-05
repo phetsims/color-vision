@@ -154,7 +154,7 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     // Add lower WavelengthSlider
-    var lowerSliderNodeTransparent = new WavelengthSlider( model.filterWavelengthProperty,
+    var filterWavelengthSlider = new WavelengthSlider( model.filterWavelengthProperty,
       {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance,
@@ -169,19 +169,14 @@ define( function( require ) {
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( lowerSliderNodeTransparent.left + sliderXOffset, lowerSliderNodeTransparent.centerY - sliderYOffset )
+      new Vector2( filterWavelengthSlider.left + sliderXOffset, filterWavelengthSlider.centerY - sliderYOffset )
     ) );
-
-    // var trackRectangle = new Rectangle( sliderXOffset, -8, sliderTrackWidth, sliderTrackHeight + 7 );
-    // var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
 
     var trackBounds = new Bounds2( 0, 0, sliderTrackWidth, sliderTrackHeight - 1 );
     var gaussian = new GaussianCanvasNode( model.filterWavelengthProperty, trackBounds );
 
-    this.addChild( lowerSliderNodeTransparent );
-    // this.addChild( lowerSliderNodeOpaque );
-    // lowerSliderNodeOpaque.addChild( gaussian );
-    lowerSliderNodeTransparent.addChild( gaussian );
+    this.addChild( filterWavelengthSlider );
+    filterWavelengthSlider.addChild( gaussian );
 
     var filterLeft = new FilterHalfEllipse
     (

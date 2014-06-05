@@ -25,14 +25,14 @@ define( function( require ) {
     CanvasNode.call( this, { canvasBounds: canvasBounds } );
     var thisNode = this;
 
-    // set the number samples wide the gaussian will be
-    this.numSamples = 50;
-    this.canvasWidth = canvasBounds.maxX - canvasBounds.minX;
+    // set the number wavelengths wide the gaussian will be
+    this.gaussianWidth = 50;
     this.canvasHeight = canvasBounds.maxY - canvasBounds.minY;
-    console.log(this.canvasHeight);
+
+    var canvasWidth = canvasBounds.maxX - canvasBounds.minX;
 
     // for converting wavelength to position
-    this.wavelengthToPosition = new LinearFunction( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, this.canvasWidth, true );
+    var wavelengthToPosition = new LinearFunction( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, canvasWidth, true );
 
     // function for a gaussian with mean 0 and standard deviation 0.5
     var constant = 1 / ( 0.5 * Math.sqrt( 2 * Math.PI ) );
@@ -43,20 +43,23 @@ define( function( require ) {
 
     // save the coordinates of the outline of the gaussian in a table to avoid recomputing so much
     this.gaussianLookupTable = [];
-    this.domainLinearFunction = new LinearFunction( 0, this.numSamples, -3, 3, true );
-    for ( var i = 0; i < this.numSamples; i++ ) {
-      var xCoord = this.domainLinearFunction( i );
-      this.gaussianLookupTable.push( { x: xCoord, y: gaussian( xCoord ) * this.canvasHeight * 1.2 } );
+    var domainLinearFunction = new LinearFunction( 0, this.gaussianWidth, -3, 3, true );
+    for ( var i = 0; i < this.gaussianWidth; i++ ) {
+      var xCoord = domainLinearFunction( i );
+      // scale the height of the gaussian by the track height, and a little more to account of the fact that the max of the gaussian is not 1.
+      this.gaussianLookupTable.push( gaussian( xCoord ) * this.canvasHeight * 1.2 );
     }
 
+    // store the colors that match up exactly with the slider track
     this.colorLookup = [];
-    for ( var j = 0; j < this.canvasWidth; j++ ) {
-      var wavelength = this.wavelengthToPosition.inverse( j );
+    for ( var j = 0; j < canvasWidth; j++ ) {
+      var wavelength = wavelengthToPosition.inverse( j );
+      console.log(wavelength);
       this.colorLookup.push( VisibleColor.wavelengthToColor( wavelength ).toCSS() );
     }
 
     filterWavelengthProperty.link( function( wavelength ) {
-      thisNode.gaussianPosition = Math.floor( thisNode.wavelengthToPosition( wavelength ) );
+      thisNode.gaussianPosition = Math.round( wavelengthToPosition( wavelength ) );
       thisNode.invalidatePaint();
     } );
   }
@@ -67,11 +70,23 @@ define( function( require ) {
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
 
-      for ( var i = 0; i < this.numSamples; i++ ) {
-        var colorIndex = i + this.gaussianPosition - this.numSamples / 2;
+      for ( var i = 0; i < this.gaussianWidth; i++ ) {
+        var colorIndex = i + this.gaussianPosition - this.gaussianWidth / 2;
         context.fillStyle = this.colorLookup[colorIndex];
-        context.fillRect( this.gaussianLookupTable[i].x + colorIndex, this.canvasHeight, 2, -this.gaussianLookupTable[i].y );
+
+        context.beginPath();
+        context.moveTo( colorIndex, this.canvasHeight );
+        context.lineTo( colorIndex, this.canvasHeight - this.gaussianLookupTable[i] );
+        context.lineTo( colorIndex + 1, ( i < this.gaussianWidth - 1 ) ? this.canvasHeight - this.gaussianLookupTable[i + 1] : this.canvasHeight );
+        context.lineTo( colorIndex + 1, this.canvasHeight );
+        context.closePath();
+        context.fill();
+
+        // the width of the rectangles must be 2 in order to prevent gaps. Not sure why this is the case,
+        // since the wavelengthSlider uses width 1.
+        // context.fillRect( colorIndex, this.canvasHeight, 2, -this.gaussianLookupTable[i] );
       }
+      console.log('end');
     }
   } );
 } );
