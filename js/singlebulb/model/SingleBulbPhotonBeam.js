@@ -64,6 +64,9 @@ define( function( require ) {
       for ( var i = 0; i < 5; i++ ) {
         var newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
         var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.light.value === 'white' ) );
+
+        // randomly offset the starting location of the photon
+        newPhoton.location.x += ( Math.random() * newPhoton.velocity.x * dt );
         this.photons.push( newPhoton );
       }
     }

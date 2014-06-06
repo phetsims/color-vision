@@ -47,8 +47,11 @@ define( function( require ) {
       if ( intensity >= cycleLength || this.frameCount % spacing === 0 ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
-          // add random offset
-          this.photons.push( RGBPhoton.createFromPool( this.size, intensity ) );
+          var newPhoton = RGBPhoton.createFromPool( this.size, intensity );
+
+          // randomly offset the starting location of the photon
+          newPhoton.location.x += ( Math.random() * newPhoton.velocity.x * dt );
+          this.photons.push( newPhoton );
         }
       }
 
