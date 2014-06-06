@@ -155,12 +155,7 @@ define( function( require ) {
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
-    // Add opaque slider in same place as the transparent one.
-    // This allows the gaussian shape to clip out a section of the opaque slider
-    // to give the effect of the gaussian being opaque and the rest of the slider 50% transparent
-    // ISSUES: re-rendering the Gaussian shape is choppy on iPad
-    //         the transparent slider handle should be opaque
-    //         this lines from the opaque slider still show ontop of the gaussian
+    // Create gaussian wavelength slider
     var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, sliderTrackWidth, sliderTrackHeight );
     gaussianSlider.bottom = this.layoutBounds.bottom - 20;
     gaussianSlider.right = wavelengthSliderDistance;
@@ -171,11 +166,7 @@ define( function( require ) {
       new Vector2( gaussianSlider.left + sliderXOffset, gaussianSlider.centerY - sliderYOffset )
     ) );
 
-    var trackRectangle = new Rectangle( sliderXOffset, -8, sliderTrackWidth, sliderTrackHeight + 7 );
-    // var gaussian = new GaussianNode( model.filterWavelengthProperty, trackRectangle, lowerSliderNodeOpaque );
-
     this.addChild( gaussianSlider );
-    // lowerSliderNodeOpaque.addChild( gaussian );
 
     var filterLeft = new FilterHalfEllipse
     (
