@@ -26,7 +26,7 @@ define( function( require ) {
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
-  var GaussianCanvasNode = require( 'COLOR_VISION/singlebulb/view/GaussianCanvasNode' );
+  var GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
@@ -153,30 +153,18 @@ define( function( require ) {
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
-    // Add lower WavelengthSlider
-    var filterWavelengthSlider = new WavelengthSlider( model.filterWavelengthProperty,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        right: wavelengthSliderDistance,
-        tweakersVisible: false,
-        valueVisible: false,
-        trackWidth: sliderTrackWidth,
-        trackHeight: sliderTrackHeight,
-        trackOpacity: 0.5,
-        cursorVisible: false
-      } );
+    // Create gaussian wavelength slider
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, sliderTrackWidth, sliderTrackHeight );
+    gaussianSlider.bottom = this.layoutBounds.bottom - 20;
+    gaussianSlider.right = wavelengthSliderDistance;
 
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( filterWavelengthSlider.left + sliderXOffset, filterWavelengthSlider.centerY - sliderYOffset )
+      new Vector2( gaussianSlider.left + sliderXOffset, gaussianSlider.centerY - sliderYOffset )
     ) );
 
-    var trackBounds = new Bounds2( 0, 0, sliderTrackWidth, sliderTrackHeight - 1 );
-    var gaussian = new GaussianCanvasNode( model.filterWavelengthProperty, trackBounds );
-
-    this.addChild( filterWavelengthSlider );
-    filterWavelengthSlider.addChild( gaussian );
+    this.addChild( gaussianSlider );
 
     var filterLeft = new FilterHalfEllipse
     (
