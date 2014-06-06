@@ -161,7 +161,7 @@ define( function( require ) {
     // ISSUES: re-rendering the Gaussian shape is choppy on iPad
     //         the transparent slider handle should be opaque
     //         this lines from the opaque slider still show ontop of the gaussian
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, sliderTrackWidth, sliderTrackWidth );
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, sliderTrackWidth, sliderTrackHeight );
     gaussianSlider.bottom = this.layoutBounds.bottom - 20;
     gaussianSlider.right = wavelengthSliderDistance;
 
