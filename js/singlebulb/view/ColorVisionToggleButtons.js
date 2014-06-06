@@ -40,28 +40,27 @@ define( function( require ) {
     }
 
     var scale = 0.6;
-    var selectedStroke = '#3291b8';
+    var selectedStroke = 'yellow';
     var deselectedStroke = null;
     var panelOptions = {
       xMargin: 0,
       yMargin: 0,
       cornerRadius: 4
     };
-    var lineWidth = 1.6;
-    var selectedOptions = _.extend( {stroke: selectedStroke, lineWidth: lineWidth}, panelOptions );
-    var deselectedOptions = _.extend( {stroke: deselectedStroke, lineWidth: lineWidth}, panelOptions );
+    var lineWidth = 1.2;
+    var selectedOptions = _.extend( { stroke: selectedStroke, lineWidth: lineWidth, fill: 'rgba(0,0,0,0)' }, panelOptions );
+    var deselectedOptions = _.extend( { stroke: deselectedStroke, lineWidth: lineWidth, fill: 'rgba(0,0,0,0)', lineDash: [ 4, 5 ] }, panelOptions );
 
-    var attachPanel = new Panel( new Image( iconOne, {scale: scale} ), selectedOptions );
-    var attachButton = new RadioButton( property, valueOne, attachPanel, new Panel( new Image( iconOne, {scale: scale} ), deselectedOptions ) );
+    var attachPanel = new Panel( new Image( iconOne, { scale: scale } ), selectedOptions );
+    var attachButton = new RadioButton( property, valueOne, attachPanel, new Panel( new Image( iconOne, { scale: scale } ), deselectedOptions ) );
 
-    var detachPanel = new Panel( new Image( iconTwo, {scale: scale} ), selectedOptions );
-    var detachButton = new RadioButton( property, valueTwo, detachPanel, new Panel( new Image( iconTwo, {scale: scale} ), deselectedOptions ) );
+    var detachPanel = new Panel( new Image( iconTwo, { scale: scale } ), selectedOptions );
+    var detachButton = new RadioButton( property, valueTwo, detachPanel, new Panel( new Image( iconTwo, { scale: scale } ), deselectedOptions ) );
 
-    var hbox = new HBox( {spacing: 13, children: [attachButton, detachButton]} );
-    Panel.call( this, hbox, {fill: '#dddddd', stroke: null} );
+    HBox.call( this, { spacing: 13, children: [attachButton, detachButton] } );
 
     this.mutate( options );
   }
 
-  return inherit( Panel, ColorVisionToggleButtons );
+  return inherit( HBox, ColorVisionToggleButtons );
 } );

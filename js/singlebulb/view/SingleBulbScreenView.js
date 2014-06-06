@@ -16,7 +16,6 @@ define( function( require ) {
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
   var StepButton = require( 'SCENERY_PHET/StepButton' );
-  var Color = require( 'SCENERY/util/Color' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
