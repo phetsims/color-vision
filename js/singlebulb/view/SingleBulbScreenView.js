@@ -61,7 +61,6 @@ define( function( require ) {
     var sliderTrackWidth = 200;
     var sliderTrackHeight = 30;
     var photonBeamStart = 320;
-    var playStepButtonColor = new Color( 247, 151, 34 );
 
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
@@ -226,7 +225,7 @@ define( function( require ) {
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.pausedProperty,
       {
-        baseColor: playStepButtonColor,
+        baseColor: Constants.PLAY_BUTTON_COLOR,
         bottom: this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20
@@ -237,7 +236,7 @@ define( function( require ) {
     // Add step button
     var stepButton = new StepButton( function() { model.manualStep(); }, model.stepEnabledProperty,
       {
-        baseColor: playStepButtonColor,
+        baseColor: Constants.PLAY_BUTTON_COLOR,
         centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15

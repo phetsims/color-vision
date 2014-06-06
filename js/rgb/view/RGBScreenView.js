@@ -15,6 +15,8 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
+  var StepButton = require( 'SCENERY_PHET/StepButton' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
@@ -128,6 +130,28 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
     this.addChild( new ColorVisionEllipse( model, 62 + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
     this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
+
+    // Add Play/Pause button
+    var playPauseButton = new PlayPauseButton( model.pausedProperty,
+      {
+        baseColor: Constants.PLAY_BUTTON_COLOR,
+        bottom: this.layoutBounds.bottom - 20,
+        centerX: this.layoutBounds.centerX - 25,
+        radius: 20
+      } );
+
+    this.addChild( playPauseButton );
+
+    // Add step button
+    var stepButton = new StepButton( function() { model.manualStep(); }, model.stepEnabledProperty,
+      {
+        baseColor: Constants.PLAY_BUTTON_COLOR,
+        centerY: playPauseButton.centerY,
+        centerX: this.layoutBounds.centerX + 25,
+        radius: 15
+      } );
+
+    this.addChild( stepButton );
 
   }
 

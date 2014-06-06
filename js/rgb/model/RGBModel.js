@@ -37,9 +37,13 @@ define( function( require ) {
         blueIntensity: 0,
         perceivedRedIntensity: 0,
         perceivedGreenIntensity: 0,
-        perceivedBlueIntensity: 0
+        perceivedBlueIntensity: 0,
+        paused: false
       }
     );
+
+    // the step button is enabled only when the sim is paused
+    this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused; } );
 
     this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, Constants.RED_BEAM_LENGTH );
     this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, Constants.GREEN_BEAM_LENGTH );
@@ -50,9 +54,18 @@ define( function( require ) {
   return inherit( PropertySet, RGBModel,
     {
       step: function( dt ) {
-        this.redBeam.updateAnimationFrame( dt );
-        this.greenBeam.updateAnimationFrame( dt );
-        this.blueBeam.updateAnimationFrame( dt );
+        if ( !this.paused ) {
+          this.redBeam.updateAnimationFrame( dt );
+          this.greenBeam.updateAnimationFrame( dt );
+          this.blueBeam.updateAnimationFrame( dt );
+        }
+      },
+
+      // step one frame, assuming 60fps
+      manualStep: function() {
+        this.redBeam.updateAnimationFrame( 1 / 60 );
+        this.greenBeam.updateAnimationFrame( 1 / 60 );
+        this.blueBeam.updateAnimationFrame( 1 / 60 );
       },
 
       reset: function() {

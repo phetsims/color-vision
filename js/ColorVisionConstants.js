@@ -7,6 +7,8 @@
 define( function( require ) {
   'use strict';
 
+  var Color = require( 'SCENERY/util/Color' );
+
   return {
     BEAM_HEIGHT: 130,
     RED_BEAM_LENGTH: 300,
@@ -18,6 +20,7 @@ define( function( require ) {
     HOME_SCREEN_ICON_FILL: '#e7e9cc',
     GAUSSIAN_WIDTH: 50, // in units of wavelengths
     X_VELOCITY: -240,  // x-velocity of photons
-    FAN_FACTOR: 1.05   // amount of fanning of photons
+    FAN_FACTOR: 1.05,   // amount of fanning of photons
+    PLAY_BUTTON_COLOR: new Color( 247, 151, 34 )
   };
 } );
