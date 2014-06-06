@@ -25,8 +25,8 @@ define( function( require ) {
         beam: 'beam',              // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
         flashlightWavelength: 570, // default wavelength is yellow color
         filterWavelength: 570,
-        flashlightOn: true,
-        filterVisible: true,
+        flashlightOn: false,
+        filterVisible: false,
         paused: false,
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color
