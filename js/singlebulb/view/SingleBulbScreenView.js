@@ -238,7 +238,7 @@ define( function( require ) {
     var stepButton = new StepButton( function() { model.manualStep(); }, model.stepEnabledProperty,
       {
         baseColor: playStepButtonColor,
-        bottom: this.layoutBounds.bottom - 20,
+        centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15
       } );
