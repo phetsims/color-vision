@@ -79,7 +79,7 @@ define( function( require ) {
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
         centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
-        right: this.layoutBounds.maxX - 50
+        right: this.layoutBounds.maxX - 40
       } );
 
     // Create upper WavelengthSlider node
@@ -98,7 +98,7 @@ define( function( require ) {
 
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
-      new Vector2( flashlightNode.right - 10, flashlightNode.centerY + 2 ),
+      new Vector2( flashlightNode.right - 15, flashlightNode.centerY + 2 ),
       new Vector2( upperSliderNode.right - sliderXOffset, upperSliderNode.centerY - sliderYOffset ),
       25 );
     model.lightProperty.link( function( light ) {

@@ -26,7 +26,7 @@ define( function( require ) {
 
     var flashlightImage = new Image( flashlight,
       {
-        scale: 0.72
+        scale: 0.85
       } );
 
     var button = new BooleanRoundStickyToggleButton( onProperty,
