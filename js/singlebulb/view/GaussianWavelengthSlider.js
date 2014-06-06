@@ -1,4 +1,10 @@
+// Copyright 2002-2013, University of Colorado Boulder
 
+/**
+ * GaussianWavelengthSlider
+ *
+ * @author Aaron Davis
+ */
 define( function( require ) {
   'use strict';
 
@@ -7,20 +13,16 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Util = require( 'DOT/Util' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var WavelengthTrack = require( 'SCENERY_PHET/WavelengthTrack' );
   var inherit = require( 'PHET_CORE/inherit' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var LinearFunction = require( 'DOT/LinearFunction' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
-   * Slider track that displays the visible spectrum.
-   * @param width
-   * @param height
-   * @param minWavelength
-   * @param maxWavelength
-   * @param opacity 0-1
+   * Wavelength slider with a gaussian
+   * @param {Property} filterWavelengthProperty
+   * @param {Number} width
+   * @param {Number} height
    * @constructor
    */
   function GaussianWavelengthSlider( filterWavelengthProperty, width, height ) {
@@ -39,6 +41,8 @@ define( function( require ) {
       } );
     this.addChild( lowerSliderNodeTransparent );
 
+    // Create an empty node for taking the gaussian clip area. This node will shift the opposite direction as the
+    // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
     var containerNode = new Node();
 
     var wavelengthTrack = new WavelengthTrack( width, height, VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0.8 );
@@ -58,18 +62,20 @@ define( function( require ) {
     }
 
     // constants for determining the shape of the gaussian
-    var numSamples = 40;
-    var xOffset = width / 2 - numSamples / 2;
+    var gaussianWidth = 40;
+    var xOffset = width / 2 - gaussianWidth / 2;
 
-    var domainLinearFunction = new LinearFunction( 0, numSamples, -3, 3 );
+    // use the domain [-3, 3] for calculating the gaussian to avoid long, flat stretches
+    var domainLinearFunction = new LinearFunction( 0, gaussianWidth, -3, 3 );
 
     var gaussianCurve = new Shape().moveTo( wavelengthToPosition( filterWavelengthProperty.value ), wavelengthTrack.bottom );
-    for ( var i = 0; i <= numSamples; i++ ) {
+    for ( var i = 0; i <= gaussianWidth; i++ ) {
       var xCoord = domainLinearFunction( i );
       gaussianCurve.lineTo( i + xOffset, height - gaussian( xCoord ) * height * 1.2 );
     }
     gaussianCurve.close();
 
+    // create a path for drawing the outline of the gaussian
     var gaussianPath = new Path( gaussianCurve, { lineWidth: 1, stroke: 'white' } );
     this.addChild( gaussianPath );
     containerNode.setClipArea( gaussianCurve );
