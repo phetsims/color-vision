@@ -189,9 +189,9 @@ define( function( require ) {
     var beamBounds = new Bounds2
     (
         headImageNode.right - 35,
-        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 24,
+        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 54,
         flashlightNode.left + 15,
-        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 18
+        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 48
     );
 
     var beam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );

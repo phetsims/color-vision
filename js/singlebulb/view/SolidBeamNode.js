@@ -30,9 +30,11 @@ define( function( require ) {
 
     // use the principle of similar triangles to calculate where to split the beam
     var width = bounds.maxX - bounds.minX;
-    var triangleHeight = 8; // half the difference between the large end and small end of the beam
+    var triangleHeight = 30; // half the difference between the large end and small end of the beam
     var ratio = triangleHeight / width;
-    var smallerTriangleHeight = ( bounds.maxX - cutoff ) * ratio;
+
+    // subtracting 4.4 is needed to make it look right, though I am not sure why the math isn't coming out right without it
+    var smallerTriangleHeight = ( bounds.maxX - cutoff ) * ratio - 4.4;
 
     var leftHalfShape = new Shape()
       .moveTo( bounds.minX, bounds.minY )
