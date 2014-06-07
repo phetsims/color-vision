@@ -36,7 +36,7 @@ define( function( require ) {
         valueVisible: false,
         trackWidth: width,
         trackHeight: height,
-        trackOpacity: 0.8,
+        trackOpacity: 0.5,
         cursorVisible: false,
       } );
     this.addChild( lowerSliderNodeTransparent );
@@ -81,8 +81,9 @@ define( function( require ) {
     containerNode.setClipArea( gaussianCurve );
 
     filterWavelengthProperty.link( function( wavelength ) {
-      var distance = containerNode.centerX - wavelengthToPosition( wavelength );
-      containerNode.centerX = wavelengthToPosition( wavelength );
+      var newPosition = wavelengthToPosition( wavelength );
+      var distance = containerNode.centerX - newPosition;
+      containerNode.centerX = newPosition;
       gaussianPath.centerX -= distance;
       wavelengthTrack.centerX += distance;
     } );

@@ -14,6 +14,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var Vector2 = require( 'DOT/Vector2' );
   var Shape = require( 'KITE/Shape' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var OnOffSwitch = require( 'SUN/OnOffSwitch' );
 
   /**
@@ -28,8 +29,9 @@ define( function( require ) {
 
     var holderWidth = 10;
     var radius = 5;
-    var switchDistance = ( start.y - end.y ) / 3;
+    var switchDistance = ( end.y - start.y ) / 3;
     var switchHeight = 17;
+    var switchWidth = 8;
 
     var wire = new Shape()
       .moveTo( start.x, start.y )
@@ -39,28 +41,32 @@ define( function( require ) {
       .lineTo( start.x - holderWidth, start.y )
       .lineTo( start.x - holderWidth, start.y - holderWidth )
       .moveTo( start.x, start.y )
-      .lineTo( start.x, start.y - switchDistance )
-      .moveTo( start.x, start.y - switchDistance - switchHeight )
       .lineTo( start.x, end.y - radius )
       .arc( start.x + radius, end.y - radius, radius, Math.PI, Math.PI / 2, true )
       .lineTo( end.x, end.y );
 
-    var wirePath = new Path( wire,
-      {
-        lineWidth: 5,
-        stroke: '#999999'
-      } );
+    var wirePath = new Path( wire, { lineWidth: 5, stroke: '#999999' } );
+
+    var swtichOutline = new Shape()
+      .arc( start.x + switchWidth, start.y + switchDistance + switchHeight / 2, 10, -Math.PI / 2, Math.PI / 2 )
+      .arc( start.x - switchWidth, start.y + switchDistance + switchHeight / 2, 10, Math.PI / 2, -Math.PI / 2 )
+      .lineTo( start.x + switchWidth, start.y + switchDistance - 1.5 );
+
+    var outlinePath = new Path( swtichOutline, { lineWidth: 8, stroke: '#666666' } );
 
     var onOffSwitch = new OnOffSwitch( onProperty,
       {
         size: new Dimension2( switchHeight * 2, switchHeight ),
-        centerTop: new Vector2( start.x, start.y - switchDistance ),
-        trackOffFill: 'gray',
-        trackOnFill: 'black',
-        trackStroke: 'yellow'
+        centerTop: new Vector2( start.x, start.y + switchDistance ),
+        thumbFill: new LinearGradient( 0, 0, 0, switchHeight ).addColorStop( 0, 'black' ).addColorStop( 1, 'gray' ),
+        trackOffFill: '#eeeeee',
+        trackOnFill: '#eeeeee',
+        trackStroke: 'black',
+        thumbStroke: null
       } );
 
     this.addChild( wirePath );
+    this.addChild( outlinePath );
     this.addChild( onOffSwitch );
 
   }
