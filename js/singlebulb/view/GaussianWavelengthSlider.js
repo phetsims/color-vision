@@ -36,7 +36,7 @@ define( function( require ) {
         valueVisible: false,
         trackWidth: width,
         trackHeight: height,
-        trackOpacity: 0.5,
+        trackOpacity: 0.8,
         cursorVisible: false,
       } );
     this.addChild( lowerSliderNodeTransparent );
@@ -68,17 +68,17 @@ define( function( require ) {
     // use the domain [-3, 3] for calculating the gaussian to avoid long, flat stretches
     var domainLinearFunction = new LinearFunction( 0, gaussianWidth, -3, 3 );
 
-    var gaussianCurve = new Shape().moveTo( wavelengthToPosition( filterWavelengthProperty.value ), wavelengthTrack.bottom );
+    // create a gaussian shaped curve and set it as the clip area of the container node
+    var gaussianCurve = new Shape().moveTo( xOffset, wavelengthTrack.bottom );
     for ( var i = 0; i <= gaussianWidth; i++ ) {
       var xCoord = domainLinearFunction( i );
       gaussianCurve.lineTo( i + xOffset, height - gaussian( xCoord ) * height * 1.2 );
     }
-    gaussianCurve.close();
+    containerNode.setClipArea( gaussianCurve );
 
     // create a path for drawing the outline of the gaussian
     var gaussianPath = new Path( gaussianCurve, { lineWidth: 1, stroke: 'white' } );
     this.addChild( gaussianPath );
-    containerNode.setClipArea( gaussianCurve );
 
     filterWavelengthProperty.link( function( wavelength ) {
       var newPosition = wavelengthToPosition( wavelength );
