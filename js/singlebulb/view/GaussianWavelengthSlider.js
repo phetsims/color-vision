@@ -82,16 +82,7 @@ define( function( require ) {
 
     filterWavelengthProperty.link( function( wavelength ) {
       var newPosition = wavelengthToPosition( wavelength );
-      var oppositePosition = width - newPosition;
-
-      if ( oppositePosition < 20 ) {
-        wavelengthTrack.centerX = 20;
-      } else if ( oppositePosition > 180 ) {
-        wavelengthTrack.centerX = 180;
-      } else {
-        wavelengthTrack.centerX = oppositePosition;
-      }
-
+      wavelengthTrack.centerX = width - newPosition;
       containerNode.centerX = newPosition;
       gaussianPath.centerX = newPosition;
     } );

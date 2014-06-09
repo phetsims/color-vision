@@ -52,8 +52,7 @@ define( function( require ) {
 
     var selectedOptions = _.extend( { stroke: stroke, lineWidth: 1.3, fill: fill }, panelOptions );
 
-    // why is lineDash not working?
-    var deselectedOptions = _.extend( { lineDashOffset: 0, lineDash: [1, 5], stroke: stroke, lineWidth: 0.6, fill: fill }, panelOptions );
+    var deselectedOptions = _.extend( { lineDash: [2, 2], stroke: stroke, lineWidth: 0.6, fill: fill }, panelOptions );
 
     var attachPanel = new Panel( new Image( iconOne, { scale: scale } ), selectedOptions );
     var attachButton = new RadioButton( property, valueOne, attachPanel, new Panel( new Image( iconOne, { scale: scale } ), deselectedOptions ) );

@@ -90,7 +90,8 @@ define( function( require ) {
         tweakersVisible: false,
         valueVisible: false,
         trackWidth: sliderTrackWidth,
-        trackHeight: sliderTrackHeight
+        trackHeight: sliderTrackHeight,
+        cursorStroke: 'white'
       } );
     model.lightProperty.link( function( light ) {
       upperSliderNode.visible = ( light !== 'white' );
