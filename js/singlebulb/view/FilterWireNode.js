@@ -68,7 +68,6 @@ define( function( require ) {
     this.addChild( wirePath );
     this.addChild( outlinePath );
     this.addChild( onOffSwitch );
-
   }
 
   return inherit( Node, FilterWireNode );

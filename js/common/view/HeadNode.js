@@ -12,6 +12,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Image = require( 'SCENERY/nodes/Image' );
 
+  // images
+  var headToggle = require( 'image!COLOR_VISION/color-vision-head-toggle.png' );
+
   /**
    * @param {Image} image the image to display for the head
    * @param {Number} bottom the bottom of the HeadNode (should be layoutBounds.bottom)
@@ -26,6 +29,7 @@ define( function( require ) {
         scale: 0.7
       } );
 
+    this.addChild( new Image( headToggle, { bottom: this.bottom + 50, x: this.x + 12, scale: 0.8 } ) );
   }
 
   return inherit( Image, HeadNode );
