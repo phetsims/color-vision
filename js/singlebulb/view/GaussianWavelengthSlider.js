@@ -36,7 +36,7 @@ define( function( require ) {
         valueVisible: false,
         trackWidth: width,
         trackHeight: height,
-        trackOpacity: 0.8,
+        trackOpacity: 0.5,
         cursorVisible: false,
       } );
     this.addChild( lowerSliderNodeTransparent );
@@ -45,7 +45,7 @@ define( function( require ) {
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
     var containerNode = new Node();
 
-    var wavelengthTrack = new WavelengthTrack( width, height, VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0.8 );
+    var wavelengthTrack = new WavelengthTrack( width, height, VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 1 );
     containerNode.addChild( wavelengthTrack );
     this.addChild( containerNode );
 
@@ -69,7 +69,7 @@ define( function( require ) {
     var domainLinearFunction = new LinearFunction( 0, gaussianWidth, -3, 3 );
 
     // create a gaussian shaped curve and set it as the clip area of the container node
-    var gaussianCurve = new Shape().moveTo( xOffset, wavelengthTrack.bottom );
+    var gaussianCurve = new Shape().moveTo( xOffset, height );
     for ( var i = 0; i <= gaussianWidth; i++ ) {
       var xCoord = domainLinearFunction( i );
       gaussianCurve.lineTo( i + xOffset, height - gaussian( xCoord ) * height * 1.2 );
@@ -82,10 +82,9 @@ define( function( require ) {
 
     filterWavelengthProperty.link( function( wavelength ) {
       var newPosition = wavelengthToPosition( wavelength );
-      var distance = containerNode.centerX - newPosition;
+      wavelengthTrack.centerX = width - newPosition;
       containerNode.centerX = newPosition;
-      gaussianPath.centerX -= distance;
-      wavelengthTrack.centerX += distance;
+      gaussianPath.centerX = newPosition;
     } );
   }
 
