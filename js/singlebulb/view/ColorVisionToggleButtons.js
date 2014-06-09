@@ -39,17 +39,21 @@ define( function( require ) {
       console.error( 'error: ColorVisionToggleButtons must take either "color" or "beam" as second argument' );
     }
 
-    var scale = 0.6;
-    var selectedStroke = 'yellow';
-    var deselectedStroke = null;
     var panelOptions = {
       xMargin: 0,
       yMargin: 0,
       cornerRadius: 4
     };
-    var lineWidth = 1.2;
-    var selectedOptions = _.extend( { stroke: selectedStroke, lineWidth: lineWidth, fill: 'rgba(0,0,0,0)' }, panelOptions );
-    var deselectedOptions = _.extend( { stroke: deselectedStroke, lineWidth: lineWidth, fill: 'rgba(0,0,0,0)', lineDash: [ 4, 5 ] }, panelOptions );
+
+    // values that are the same for both selected and deselected
+    var scale = 0.6;
+    var fill = 'rgba(0,0,0,0)';
+    var stroke = 'yellow';
+
+    var selectedOptions = _.extend( { stroke: stroke, lineWidth: 1.3, fill: fill }, panelOptions );
+
+    // why is lineDash not working?
+    var deselectedOptions = _.extend( { lineDashOffset: 0, lineDash: [1, 5], stroke: stroke, lineWidth: 0.6, fill: fill }, panelOptions );
 
     var attachPanel = new Panel( new Image( iconOne, { scale: scale } ), selectedOptions );
     var attachButton = new RadioButton( property, valueOne, attachPanel, new Panel( new Image( iconOne, { scale: scale } ), deselectedOptions ) );
