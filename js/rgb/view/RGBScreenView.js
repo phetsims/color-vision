@@ -134,7 +134,6 @@ define( function( require ) {
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.pausedProperty,
       {
-        baseColor: Constants.PLAY_BUTTON_COLOR,
         bottom: this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20
@@ -145,7 +144,6 @@ define( function( require ) {
     // Add step button
     var stepButton = new StepButton( function() { model.manualStep(); }, model.stepEnabledProperty,
       {
-        baseColor: Constants.PLAY_BUTTON_COLOR,
         centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15
