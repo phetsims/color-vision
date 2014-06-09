@@ -58,7 +58,7 @@ define( function( require ) {
 
     // this function is almost identical to the one in WavelengthSlider, perhaps it should be refactored out
     function wavelengthToPosition( wavelength ) {
-      return Math.floor( Util.clamp( Util.linear( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, wavelengthTrack.width, wavelength ), 0, wavelengthTrack.width ) );
+      return Math.floor( Util.clamp( Util.linear( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, width, wavelength ), 0, width ) );
     }
 
     // constants for determining the shape of the gaussian
