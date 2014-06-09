@@ -82,7 +82,7 @@ define( function( require ) {
 
     filterWavelengthProperty.link( function( wavelength ) {
       var newPosition = wavelengthToPosition( wavelength );
-      wavelengthTrack.centerX = width - newPosition;
+      wavelengthTrack.x = width / 2 - newPosition;
       containerNode.x = newPosition - width / 2;
       gaussianPath.centerX = newPosition;
     } );
