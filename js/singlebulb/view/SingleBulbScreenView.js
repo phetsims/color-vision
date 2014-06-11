@@ -35,7 +35,15 @@ define( function( require ) {
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
   var headImage = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
-  // var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
+
+  // constants
+  var DISTANCE_FROM_FLASHLIGHT = 15;
+  var FLASHLIGHT_BUTTON_OFFSET = 13;
+  var SLIDER_Y_OFFSET = 24;
+  var SLIDER_X_OFFSET = 18;
+  var SLIDER_TRACK_WIDTH = 200;
+  var SLIDER_TRACK_HEIGHT = 30;
+  var PHOTON_BEAM_START = 320;
 
   /**
    * @constructor
@@ -44,22 +52,8 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
-    // this.addChild( new Image( mockupImage, {
-    //   centerX: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerX - 25,
-    //   centerY: ScreenView.DEFAULT_LAYOUT_BOUNDS.centerY - 25,
-    //   scale: ScreenView.DEFAULT_LAYOUT_BOUNDS.height / mockupImage.height,
-    //   opacity: 0.5
-    // } ) );
-
-    // constants
+    // constants relative to layout bounds
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
-    var distanceFromFlashlight = 15;
-    var buttonOffsetFromFlashlight = 13;
-    var sliderYOffset = 24;
-    var sliderXOffset = 18;
-    var sliderTrackWidth = 200;
-    var sliderTrackHeight = 30;
-    var photonBeamStart = 320;
 
     // for moving the thought bubbles together as a group
     var thoughtBubbleX = -15;
@@ -89,8 +83,8 @@ define( function( require ) {
         right: wavelengthSliderDistance,
         tweakersVisible: false,
         valueVisible: false,
-        trackWidth: sliderTrackWidth,
-        trackHeight: sliderTrackHeight,
+        trackWidth: SLIDER_TRACK_WIDTH,
+        trackHeight: SLIDER_TRACK_HEIGHT,
         cursorStroke: 'white'
       } );
     model.lightProperty.link( function( light ) {
@@ -100,7 +94,7 @@ define( function( require ) {
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
       new Vector2( flashlightNode.right - 15, flashlightNode.centerY + 2 ),
-      new Vector2( upperSliderNode.right - sliderXOffset, upperSliderNode.centerY - sliderYOffset ),
+      new Vector2( upperSliderNode.right - SLIDER_X_OFFSET, upperSliderNode.centerY - SLIDER_Y_OFFSET ),
       25 );
     model.lightProperty.link( function( light ) {
       flashlightWire.visible = ( light !== 'white' );
@@ -112,14 +106,14 @@ define( function( require ) {
     // Add buttons
     var colorWhiteSelectButtons = new ColorVisionToggleButtons( model.lightProperty, 'color',
       {
-        bottom: flashlightNode.top - distanceFromFlashlight,
-        left: flashlightNode.left + buttonOffsetFromFlashlight
+        bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
+        left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET
       } );
 
     var beamPhotonSelectButtons = new ColorVisionToggleButtons( model.beamProperty, 'beam',
       {
-        top: flashlightNode.bottom + distanceFromFlashlight,
-        left: flashlightNode.left + buttonOffsetFromFlashlight
+        top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
+        left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET
       } );
 
     this.addChild( colorWhiteSelectButtons );
@@ -142,25 +136,25 @@ define( function( require ) {
     model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 
     // tell the photon beam where the filter location is
-    model.photonBeam.filterOffset = filterLeftNode.centerX - photonBeamStart;
+    model.photonBeam.filterOffset = filterLeftNode.centerX - PHOTON_BEAM_START;
 
     // Create photonBeam node
     this.photonBeamNode = new SingleBulbPhotonBeamNode( model,
       {
         canvasBounds: new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
-        x: photonBeamStart
+        x: PHOTON_BEAM_START
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, sliderTrackWidth, sliderTrackHeight );
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT );
     gaussianSlider.bottom = this.layoutBounds.bottom - 20;
     gaussianSlider.right = wavelengthSliderDistance;
 
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( gaussianSlider.left + sliderXOffset, gaussianSlider.centerY - sliderYOffset )
+      new Vector2( gaussianSlider.left + SLIDER_X_OFFSET, gaussianSlider.centerY - SLIDER_Y_OFFSET )
     ) );
 
     this.addChild( gaussianSlider );
