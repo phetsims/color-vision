@@ -45,8 +45,7 @@ define( function( require ) {
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 15;
   var FLASHLIGHT_BUTTON_OFFSET = 13;
-  var SLIDER_Y_OFFSET = 24;
-  var SLIDER_X_OFFSET = 18;
+  var SLIDER_Y_OFFSET = 21;
   var SLIDER_TRACK_WIDTH = 200;
   var SLIDER_TRACK_HEIGHT = 30;
   var PHOTON_BEAM_START = 320;
@@ -95,9 +94,6 @@ define( function( require ) {
         thumbWidth: 30,
         thumbHeight: 40
       } );
-    model.lightProperty.link( function( light ) {
-      upperSliderNode.visible = ( light !== 'white' );
-    } );
 
     var bulbColorText = new Text( bulbColor, { fill: 'white', font: new PhetFont( 20 ), bottom: upperSliderNode.top - 3, right: upperSliderNode.right - 18 } );
     this.addChild( bulbColorText );
@@ -105,10 +101,15 @@ define( function( require ) {
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
       new Vector2( flashlightNode.right - 15, flashlightNode.centerY + 2 ),
-      new Vector2( upperSliderNode.right - SLIDER_X_OFFSET, upperSliderNode.centerY - SLIDER_Y_OFFSET ),
+      new Vector2( upperSliderNode.right - 25, upperSliderNode.centerY - SLIDER_Y_OFFSET ),
       25 );
+
+    // make bulb color slider invisible when on white light mode
     model.lightProperty.link( function( light ) {
-      flashlightWire.visible = ( light !== 'white' );
+      var coloredLight = light !== 'white';
+      upperSliderNode.visible = coloredLight;
+      bulbColorText.visible = coloredLight;
+      flashlightWire.visible = coloredLight;
     } );
 
     this.addChild( flashlightWire );
@@ -168,7 +169,7 @@ define( function( require ) {
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( gaussianSlider.left + SLIDER_X_OFFSET, gaussianSlider.centerY - SLIDER_Y_OFFSET )
+      new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET )
     ) );
 
     this.addChild( gaussianSlider );
