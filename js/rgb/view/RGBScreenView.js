@@ -23,6 +23,7 @@ define( function( require ) {
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // images
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
@@ -150,6 +151,21 @@ define( function( require ) {
       } );
 
     this.addChild( stepButton );
+
+    function sleep( millis ) {
+      var date = new Date();
+      var curDate;
+      do {
+        curDate = new Date();
+      } while ( curDate - date < millis );
+    }
+
+    this.addChild( new TextPushButton( 'SLOW', {
+      listener: function() {
+        sleep( 500 );
+      },
+      visible: false
+    } ) );
 
   }
 

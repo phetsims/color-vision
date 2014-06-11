@@ -18,6 +18,10 @@ define( function( require ) {
     HOME_SCREEN_ICON_FILL: '#222222',
     GAUSSIAN_WIDTH: 50, // in units of wavelengths
     X_VELOCITY: -240,   // x-velocity of photons
-    FAN_FACTOR: 1.05    // amount of fanning of photons
+    FAN_FACTOR: 1.05,   // amount of fanning of photons
+
+    // most platforms should be getting more than 10 fps,
+    // if the platform is getting less than 10 fps due to slow hardware, then the phtons will appear slower
+    MAX_DT: 0.1
   };
 } );

@@ -55,6 +55,9 @@ define( function( require ) {
     {
       step: function( dt ) {
         if ( !this.paused ) {
+          if ( dt > Constants.MAX_DT || dt <= 0 ) {
+            dt = 1.0 / 60.0;
+          }
           this.redBeam.updateAnimationFrame( dt );
           this.greenBeam.updateAnimationFrame( dt );
           this.blueBeam.updateAnimationFrame( dt );

@@ -32,6 +32,7 @@ define( function( require ) {
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
+  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
@@ -250,6 +251,21 @@ define( function( require ) {
       } );
 
     this.addChild( stepButton );
+
+    function sleep( millis ) {
+      var date = new Date();
+      var curDate;
+      do {
+        curDate = new Date();
+      } while ( curDate - date < millis );
+    }
+
+    this.addChild( new TextPushButton( 'SLOW', {
+      listener: function() {
+        sleep( 500 );
+      },
+      visible: false
+    } ) );
   }
 
   return inherit( ScreenView, RGBScreenView,

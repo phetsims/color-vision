@@ -43,6 +43,7 @@ define( function( require ) {
 
         // prevent the photons from getting painted outside of the bounds of the canvas
         // if this isn't done, the photons might get stuck on the screen in the wrong places on screen resize
+        // see https://github.com/phetsims/color-vision/issues/18
         if ( this.beamBounds.minimumDistanceToPointSquared( this.photons[i].location ) === 0 ) {
           context.fillStyle = this.photons[i].color.toCSS();
           context.fillRect( this.photons[i].location.x, this.photons[i].location.y, 3, 2 );
