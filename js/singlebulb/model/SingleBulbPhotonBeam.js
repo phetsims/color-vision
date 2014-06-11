@@ -61,7 +61,10 @@ define( function( require ) {
 
     // initialize a contant rate of 5 new photons per animation frame if the flashlight is on
     if ( this.flashlightOn.value ) {
-      for ( var i = 0; i < 5; i++ ) {
+      // var linearFunction = new LinearFunction( 1.0, 0.016, 1, 5, true );
+      var numToCreate = Math.random() * Math.floor( 5 / dt * 0.016 );
+      for ( var i = 0; i < numToCreate; i++ ) {
+        // if ( this.currentTime < 0.3 && numToCreate < MAX_PHOTONS_IN_INTERVAL ) {
         var newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
         var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.light.value === 'white' ) );
 
@@ -109,6 +112,8 @@ define( function( require ) {
       }
 
       // otherwise move the photon unless it goes out of bounds
+      // see related bounds checking code in the view file SingleBulbPhotonBeamNode.js,
+      // since this does not seem to completely keep them inside the canvas bounds (for unknown reasons)
       if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
         photon.updateAnimationFrame( dt );
 
