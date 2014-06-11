@@ -1,5 +1,7 @@
 {
   "color-vision.name": "Color Vision",
   "rgb": "RGB",
-  "singlebulb": "Single Bulb"
+  "singlebulb": "Single Bulb",
+  "bulb-color": "Bulb Color",
+  "filter-color": "Filter Color"
 }

@@ -13,6 +13,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
   var StepButton = require( 'SCENERY_PHET/StepButton' );
@@ -35,6 +37,10 @@ define( function( require ) {
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
   var headImage = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
+
+  // strings
+  var bulbColor = require( 'string!COLOR_VISION/bulb-color' );
+  var filterColor = require( 'string!COLOR_VISION/filter-color' );
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 15;
@@ -79,7 +85,7 @@ define( function( require ) {
     // Create upper WavelengthSlider node
     var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty,
       {
-        top: this.layoutBounds.top + 20,
+        top: this.layoutBounds.top + 40,
         right: wavelengthSliderDistance,
         tweakersVisible: false,
         valueVisible: false,
@@ -92,6 +98,9 @@ define( function( require ) {
     model.lightProperty.link( function( light ) {
       upperSliderNode.visible = ( light !== 'white' );
     } );
+
+    var bulbColorText = new Text( bulbColor, { fill: 'white', font: new PhetFont( 20 ), bottom: upperSliderNode.top - 3, right: upperSliderNode.right - 18 } );
+    this.addChild( bulbColorText );
 
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
@@ -152,6 +161,9 @@ define( function( require ) {
     var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT );
     gaussianSlider.bottom = this.layoutBounds.bottom - 20;
     gaussianSlider.right = wavelengthSliderDistance;
+
+    var filterColorText = new Text( filterColor, { fill: 'white', font: new PhetFont( 20 ), bottom: gaussianSlider.top - 3, right: gaussianSlider.right - 18 } );
+    this.addChild( filterColorText );
 
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
