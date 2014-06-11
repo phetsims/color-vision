@@ -25,11 +25,11 @@ define( function( require ) {
     Image.call( this, image,
       {
         bottom: bottom,
-        left: 60,
+        left: 50,
         scale: 0.7
       } );
 
-    this.addChild( new Image( headToggle, { bottom: this.bottom + 50, x: this.x + 12, scale: 0.8 } ) );
+    this.addChild( new Image( headToggle, { bottom: this.bottom + 35, x: this.x + 35, scale: 0.8 } ) );
   }
 
   return inherit( Image, HeadNode );

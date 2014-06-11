@@ -28,8 +28,8 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
-  var headFront = require( 'image!COLOR_VISION/head-front.png' );
-  var headBack = require( 'image!COLOR_VISION/head.png' );
+  var headBack = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
+  var headFront = require( 'image!COLOR_VISION/head-front-long-neck.png' );
 
   /**
    * @param {RGBModel} model
@@ -40,7 +40,7 @@ define( function( require ) {
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add back head image
-    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
+    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
 
     // Add photon beams
     this.redBeam = new PhotonBeamNode( model.redBeam,
@@ -71,7 +71,7 @@ define( function( require ) {
     this.addChild( this.blueBeam );
 
     // Add front head image (the photons are sandwiched between two head images to get the cutoff point looking right)
-    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET ) );
+    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + 15 ) );
 
     // Add flashlights
     var flashlightScale = 0.72;

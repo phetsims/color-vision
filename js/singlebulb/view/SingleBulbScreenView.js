@@ -32,9 +32,9 @@ define( function( require ) {
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
 
   // images
-  var headBack = require( 'image!COLOR_VISION/head.png' );
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
+  var headImage = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
   // var mockupImage = require ( 'image!COLOR_VISION/mockup.png' );
 
   /**
@@ -72,7 +72,7 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
 
     // Add head image
-    var headImageNode = new HeadNode( headBack, this.layoutBounds.bottom + Constants.CENTER_Y_OFFSET );
+    var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom + 15 );
     this.addChild( headImageNode );
 
     // Create flashlight node

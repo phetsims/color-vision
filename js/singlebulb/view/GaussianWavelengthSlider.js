@@ -13,7 +13,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Util = require( 'DOT/Util' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-  var WavelengthTrack = require( 'SCENERY_PHET/WavelengthTrack' );
+  var SpectrumNode = require( 'SCENERY_PHET/SpectrumNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var LinearFunction = require( 'DOT/LinearFunction' );
@@ -45,7 +45,7 @@ define( function( require ) {
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
     var containerNode = new Node();
 
-    var wavelengthTrack = new WavelengthTrack( width, height, VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 1 );
+    var wavelengthTrack = new SpectrumNode( width, height, VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 1 );
     containerNode.addChild( wavelengthTrack );
     this.addChild( containerNode );
 
