@@ -85,7 +85,9 @@ define( function( require ) {
         valueVisible: false,
         trackWidth: SLIDER_TRACK_WIDTH,
         trackHeight: SLIDER_TRACK_HEIGHT,
-        cursorStroke: 'white'
+        cursorStroke: 'white',
+        thumbWidth: 30,
+        thumbHeight: 40
       } );
     model.lightProperty.link( function( light ) {
       upperSliderNode.visible = ( light !== 'white' );
