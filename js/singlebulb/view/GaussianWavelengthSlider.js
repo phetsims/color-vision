@@ -38,6 +38,8 @@ define( function( require ) {
         trackHeight: height,
         trackOpacity: 0.5,
         cursorVisible: false,
+        thumbWidth: 30,
+        thumbHeight: 40
       } );
     this.addChild( lowerSliderNodeTransparent );
 
