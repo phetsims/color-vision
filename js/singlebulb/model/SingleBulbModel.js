@@ -35,7 +35,7 @@ define( function( require ) {
     );
 
     // the color perceived by the person depends on almost every property
-    this.perceivedColorProperty = this.toDerivedProperty(
+    this.addDerivedProperty( 'perceivedColor',
       [
         'flashlightWavelength',
         'filterWavelength',

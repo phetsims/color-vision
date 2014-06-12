@@ -24,15 +24,14 @@ define( function( require ) {
   function SingleBulbPhotonBeam( model, size ) {
     this.photons = [];
     this.size = size;
+    this.model = model;
 
-    // keep a reference to all the needed properties, would it be better to inherit from SingleBulbModel?
-    this.flashlightWavelength = model.flashlightWavelengthProperty;
-    this.filterWavelength = model.filterWavelengthProperty;
-    this.filterVisible = model.filterVisibleProperty;
-    this.flashlightOn = model.flashlightOnProperty;
-    this.light = model.lightProperty;
-    this.lastPhotonColor = model.lastPhotonColorProperty;
-    this.perceivedColor = model.perceivedColorProperty;
+    var photons = this.photons;
+    var size = this.size;
+
+    this.model.flashlightOnProperty.onValue( false, function() {
+      photons.push( SingleBulbPhoton.createFromPool( size, 1, Color.BLACK.withAlpha( 0 ), false ) );
+    } )
   }
 
   var updateAnimationFrame = function( dt ) {
@@ -47,26 +46,26 @@ define( function( require ) {
     // if the filter is visible, caluculate the percentage of photons to pass
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
     var percent = 1;
-    if ( this.filterVisible.value ) {
+    if ( this.model.filterVisible ) {
 
       // If the flashlightWavelength is outside the transmission width, no photons pass.
-      if ( this.flashlightWavelength.value < this.filterWavelength.value - halfWidth || this.flashlightWavelength.value > this.filterWavelength.value + halfWidth ) {
+      if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
         percent = 0;
       }
       // flashlightWavelength is within the transmission width, pass a linear percentage.
       else {
-        percent = 1 - ( ( Math.abs( this.filterWavelength.value - this.flashlightWavelength.value ) / halfWidth ) );
+        percent = 1 - ( ( Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth ) );
       }
     }
 
     // initialize a contant rate of 5 new photons per animation frame if the flashlight is on
-    if ( this.flashlightOn.value ) {
+    if ( this.model.flashlightOn ) {
       // var linearFunction = new LinearFunction( 1.0, 0.016, 1, 5, true );
       var numToCreate = Math.random() * Math.floor( 5 / dt * 0.016 );
       for ( var i = 0; i < numToCreate; i++ ) {
         // if ( this.currentTime < 0.3 && numToCreate < MAX_PHOTONS_IN_INTERVAL ) {
-        var newColor = ( this.light.value === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.flashlightWavelength.value );
-        var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.light.value === 'white' ) );
+        var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
+        var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.model.light === 'white' ) );
 
         // randomly offset the starting location of the photon
         newPhoton.location.x += ( Math.random() * newPhoton.velocity.x * dt );
@@ -82,7 +81,7 @@ define( function( require ) {
       var photon = this.photons[j];
 
       // check if the photon just passed through the filter location
-      if ( this.filterVisible.value && photon.location.x < this.filterOffset && !photon.passedFilter ) {
+      if ( this.model.filterVisible && photon.location.x < this.filterOffset && !photon.passedFilter ) {
 
         // set the percent to be 30% for white photons
         percent = ( !photon.wasWhite ) ? percent : 0.3;
@@ -94,7 +93,7 @@ define( function( require ) {
         }
         // if the beam is white, make sure it is the color of the filter
         else if ( photon.isWhite ) {
-          photon.color = VisibleColor.wavelengthToColor( this.filterWavelength.value );
+          photon.color = VisibleColor.wavelengthToColor( this.model.filterWavelength );
           photon.isWhite = false;
         }
         // if the photon is not white
@@ -121,14 +120,14 @@ define( function( require ) {
       } else {
         if ( !lastPhotonSet ) {
           if ( photon.isWhite ) {
-            this.lastPhotonColor.value = new Color( 255, 255, 255, 1 );
+            this.model.lastPhotonColor = new Color( 255, 255, 255, 1 );
           } else {
             // set the intensity of the plast photon to leave so we know to adjust the intensity of the perceived color
             var colorWithIntensity = photon.color.copy();
             if ( !photon.wasWhite ) {
               colorWithIntensity.setAlpha( photon.intensity );
             }
-            this.lastPhotonColor.value = colorWithIntensity;
+            this.model.lastPhotonColor = colorWithIntensity;
           }
           lastPhotonSet = true;
         }
@@ -138,7 +137,7 @@ define( function( require ) {
     }
 
     // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
-    if ( percent === 0 && this.filterVisible.value && !this.perceivedColor.value.equals( Color.BLACK ) ) {
+    if ( percent === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
       var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, Color.BLACK.withAlpha( 0 ), false );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
