@@ -68,7 +68,7 @@ define( function( require ) {
           return photon;
         }
         else {
-          return new SingleBulbPhoton( new Vector2( size, yLocation ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity, color );
+          return new SingleBulbPhoton( new Vector2( size, yLocation ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity, color, isWhite );
         }
       };
     }
