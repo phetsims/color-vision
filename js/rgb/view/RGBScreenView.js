@@ -133,7 +133,7 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
 
     // Add Play/Pause button
-    var playPauseButton = new PlayPauseButton( model.pausedProperty,
+    var playPauseButton = new PlayPauseButton( model.playProperty,
       {
         bottom: this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
@@ -143,7 +143,7 @@ define( function( require ) {
     this.addChild( playPauseButton );
 
     // Add step button
-    var stepButton = new StepButton( function() { model.manualStep(); }, model.stepEnabledProperty,
+    var stepButton = new StepButton( function() { model.manualStep(); }, model.playProperty,
       {
         centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,

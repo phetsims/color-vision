@@ -27,15 +27,12 @@ define( function( require ) {
         filterWavelength: 570,
         flashlightOn: false,
         filterVisible: false,
-        paused: false,
+        play: true,
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color
         lastPhotonColor: new Color( 0, 0, 0, 0 )
       }
     );
-
-    // the step button is enabled only when the sim is paused
-    this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused; } );
 
     // the color perceived by the person depends on almost every property
     this.perceivedColorProperty = this.toDerivedProperty(
@@ -98,7 +95,7 @@ define( function( require ) {
   return inherit( PropertySet, SingleBulbModel,
     {
       step: function( dt ) {
-        if ( !this.paused ) {
+        if ( this.play ) {
           if ( dt > Constants.MAX_DT || dt <= 0 ) {
             dt = 1.0 / 60.0;
           }

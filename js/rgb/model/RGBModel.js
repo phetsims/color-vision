@@ -38,12 +38,9 @@ define( function( require ) {
         perceivedRedIntensity: 0,
         perceivedGreenIntensity: 0,
         perceivedBlueIntensity: 0,
-        paused: false
+        play: true
       }
     );
-
-    // the step button is enabled only when the sim is paused
-    this.stepEnabledProperty = this.toDerivedProperty( ['paused'], function( paused ) { return !paused; } );
 
     this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, Constants.RED_BEAM_LENGTH );
     this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, Constants.GREEN_BEAM_LENGTH );
@@ -54,7 +51,7 @@ define( function( require ) {
   return inherit( PropertySet, RGBModel,
     {
       step: function( dt ) {
-        if ( !this.paused ) {
+        if ( this.play ) {
           if ( dt > Constants.MAX_DT || dt <= 0 ) {
             dt = 1.0 / 60.0;
           }
