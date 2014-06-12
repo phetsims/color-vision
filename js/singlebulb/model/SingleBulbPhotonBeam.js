@@ -50,7 +50,9 @@ define( function( require ) {
 
       // If the flashlightWavelength is outside the transmission width, no photons pass.
       if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
-        percent = 0;
+        if ( this.model.light !== 'white' ) {
+          percent = 0;
+        }
       }
       // flashlightWavelength is within the transmission width, pass a linear percentage.
       else {
@@ -60,7 +62,6 @@ define( function( require ) {
 
     // initialize a contant rate of 5 new photons per animation frame if the flashlight is on
     if ( this.model.flashlightOn ) {
-      // var linearFunction = new LinearFunction( 1.0, 0.016, 1, 5, true );
       var numToCreate = Math.random() * Math.floor( 5 / dt * 0.016 );
       for ( var i = 0; i < numToCreate; i++ ) {
         // if ( this.currentTime < 0.3 && numToCreate < MAX_PHOTONS_IN_INTERVAL ) {
