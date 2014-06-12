@@ -117,12 +117,14 @@ define( function( require ) {
       if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
         photon.updateAnimationFrame( dt );
 
-      // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
-      } else {
+        // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
+      }
+      else {
         if ( !lastPhotonSet ) {
           if ( photon.isWhite ) {
             this.model.lastPhotonColor = new Color( 255, 255, 255, 1 );
-          } else {
+          }
+          else {
             // set the intensity of the plast photon to leave so we know to adjust the intensity of the perceived color
             var colorWithIntensity = photon.color.copy();
             if ( !photon.wasWhite ) {
