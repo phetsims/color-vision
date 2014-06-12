@@ -62,7 +62,7 @@ define( function( require ) {
         trackOffFill: '#eeeeee',
         trackOnFill: '#eeeeee',
         trackStroke: 'black',
-        thumbStroke: null
+        thumbStroke: new LinearGradient( 0, 0, 0, switchHeight ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' )
       } );
 
     this.addChild( wirePath );
