@@ -43,22 +43,8 @@ define( function( require ) {
       return new Color( r, g, b, 1 );
     }
 
-    // if the filter is visible, caluculate the percentage of photons to pass
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
-    var percent = 1;
-    if ( this.model.filterVisible ) {
-
-      // If the flashlightWavelength is outside the transmission width, no photons pass.
-      if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
-        if ( this.model.light !== 'white' ) {
-          percent = 0;
-        }
-      }
-      // flashlightWavelength is within the transmission width, pass a linear percentage.
-      else {
-        percent = 1 - ( ( Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth ) );
-      }
-    }
+    var percent;
 
     // if the flashlight is on, create new photons this animation frame
     if ( this.model.flashlightOn ) {
@@ -83,6 +69,15 @@ define( function( require ) {
 
       // check if the photon just passed through the filter location
       if ( this.model.filterVisible && photon.location.x < this.filterOffset && !photon.passedFilter ) {
+
+        // If the flashlightWavelength is outside the transmission width, no photons pass.
+        if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
+          percent = 0;
+        }
+        // flashlightWavelength is within the transmission width, pass a linear percentage.
+        else {
+          percent = 1 - ( ( Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth ) );
+        }
 
         // set the percent to be 30% for white photons
         percent = ( !photon.wasWhite ) ? percent : 0.3;
