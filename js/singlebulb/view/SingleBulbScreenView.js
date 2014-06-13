@@ -22,6 +22,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
+  var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
@@ -38,7 +39,7 @@ define( function( require ) {
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
   var headImage = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
-
+  var headNoBrainImage = require( 'image!COLOR_VISION/head-no-brain.png' );
   var whiteLightIcon = require( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
   var singleColorLightIcon = require( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
   var beamViewIcon = require( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
@@ -79,6 +80,19 @@ define( function( require ) {
     // Add head image
     var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom + 15 );
     this.addChild( headImageNode );
+
+    // Add head image with no brain
+    var headNoBrainImageNode = new HeadNode( headNoBrainImage, this.layoutBounds.bottom + 15 );
+    this.addChild( headNoBrainImageNode );
+
+    // Make sure only one image is visible at at time, depending on the user's selection
+    model.headModeProperty.link( function( mode ) {
+      headImageNode.visible = ( mode === 'brain' );
+      headNoBrainImageNode.visible = ( mode === 'no-brain' );
+    } );
+
+    // Add head toggle buttons
+    this.addChild( new HeadToggleNode( model.headModeProperty, { bottom: this.layoutBounds.bottom - 22, centerX: headImageNode.centerX - 40 } ) );
 
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,

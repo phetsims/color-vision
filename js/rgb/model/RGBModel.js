@@ -38,7 +38,8 @@ define( function( require ) {
         perceivedRedIntensity: 0,
         perceivedGreenIntensity: 0,
         perceivedBlueIntensity: 0,
-        play: true
+        play: true,
+        headMode: 'brain' // takes values 'brain' or 'no-brain'
       }
     );
 

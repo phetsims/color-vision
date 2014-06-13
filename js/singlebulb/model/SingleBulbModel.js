@@ -28,6 +28,7 @@ define( function( require ) {
         flashlightOn: false,
         filterVisible: false,
         play: true,
+        headMode: 'brain',         // takes values 'brain' and 'no-brain'
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color
         lastPhotonColor: new Color( 0, 0, 0, 0 )

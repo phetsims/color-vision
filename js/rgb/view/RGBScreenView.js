@@ -22,6 +22,7 @@ define( function( require ) {
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
   var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
+  var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
@@ -31,6 +32,9 @@ define( function( require ) {
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
   var headBack = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
   var headFront = require( 'image!COLOR_VISION/head-front-long-neck.png' );
+  var headNoBrain = require( 'image!COLOR_VISION/head-no-brain.png' );
+  var headFrontNoBrain = require( 'image!COLOR_VISION/head-front-no-brain.png' );
+
 
   /**
    * @param {RGBModel} model
@@ -41,7 +45,11 @@ define( function( require ) {
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add back head image
-    this.addChild( new HeadNode( headBack, this.layoutBounds.bottom + 15 ) );
+    var headBackNode = new HeadNode( headBack, this.layoutBounds.bottom + 15 );
+    this.addChild( headBackNode );
+
+    var headBackNoBrainNode = new HeadNode( headNoBrain, this.layoutBounds.bottom + 15 );
+    this.addChild( headBackNoBrainNode );
 
     // Add photon beams
     this.redBeam = new PhotonBeamNode( model.redBeam,
@@ -72,7 +80,23 @@ define( function( require ) {
     this.addChild( this.blueBeam );
 
     // Add front head image (the photons are sandwiched between two head images to get the cutoff point looking right)
-    this.addChild( new HeadNode( headFront, this.layoutBounds.bottom + 15 ) );
+    var headFrontNode = new HeadNode( headFront, this.layoutBounds.bottom + 15 );
+    this.addChild( headFrontNode );
+
+    var headFrontNoBrainNode = new HeadNode( headFrontNoBrain, this.layoutBounds.bottom + 15 );
+    this.addChild( headFrontNoBrainNode );
+
+    // Make sure only one image is visible at at time, depending on the user's selection
+    model.headModeProperty.link( function( mode ) {
+      headBackNode.visible = ( mode === 'brain' );
+      headBackNoBrainNode.visible = ( mode === 'no-brain' );
+      headFrontNode.visible = ( mode === 'brain' );
+      headFrontNoBrainNode.visible = ( mode === 'no-brain' );
+    } );
+
+    // Add head mode toggle
+    this.addChild( new HeadToggleNode( model.headModeProperty, { bottom: this.layoutBounds.bottom - 22, centerX: headBackNode.centerX - 40 } ) );
+
 
     // Add flashlights
     var flashlightScale = 0.72;
