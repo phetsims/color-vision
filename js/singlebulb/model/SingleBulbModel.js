@@ -111,7 +111,6 @@ define( function( require ) {
 
       reset: function() {
         PropertySet.prototype.reset.call( this );
-
         this.photonBeam.reset();
       }
 

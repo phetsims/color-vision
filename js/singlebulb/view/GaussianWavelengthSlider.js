@@ -17,6 +17,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var LinearFunction = require( 'DOT/LinearFunction' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * Wavelength slider with a gaussian
@@ -65,7 +66,7 @@ define( function( require ) {
     }
 
     // constants for determining the shape of the gaussian
-    var gaussianWidth = 40;
+    var gaussianWidth = Constants.GAUSSIAN_WIDTH;
     var xOffset = width / 2 - gaussianWidth / 2;
 
     // use the domain [-3, 3] for calculating the gaussian to avoid long, flat stretches

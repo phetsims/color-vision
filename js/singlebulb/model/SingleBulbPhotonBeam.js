@@ -60,11 +60,11 @@ define( function( require ) {
       }
     }
 
-    // initialize a contant rate of 5 new photons per animation frame if the flashlight is on
+    // if the flashlight is on, create new photons this animation frame
     if ( this.model.flashlightOn ) {
+      // create a number of photon proportional to dt
       var numToCreate = Math.random() * Math.floor( 5 / dt * 0.016 );
       for ( var i = 0; i < numToCreate; i++ ) {
-        // if ( this.currentTime < 0.3 && numToCreate < MAX_PHOTONS_IN_INTERVAL ) {
         var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
         var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.model.light === 'white' ) );
 
