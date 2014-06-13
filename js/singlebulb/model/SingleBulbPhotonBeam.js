@@ -44,7 +44,7 @@ define( function( require ) {
     }
 
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
-    var percent;
+    var probability; // probability for a given photon to pass the filter
 
     // if the flashlight is on, create new photons this animation frame
     if ( this.model.flashlightOn ) {
@@ -69,18 +69,18 @@ define( function( require ) {
 
         // If the flashlightWavelength is outside the transmission width, no photons pass.
         if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
-          percent = 0;
+          probability = 0;
         }
         // flashlightWavelength is within the transmission width, pass a linear percentage.
         else {
-          percent = 1 - ( ( Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth ) );
+          probability = 1 - ( ( Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth ) );
         }
 
-        // set the percent to be 30% for white photons
-        percent = ( !photon.wasWhite ) ? percent : 0.3;
+        // set the probability to be 0.3 for white photons
+        probability = ( !photon.wasWhite ) ? probability : 0.3;
 
         // remove a percentage of photons from the beam
-        if ( Math.random() >= percent ) {
+        if ( Math.random() >= probability ) {
           photon.freeToPool();
           this.photons.splice( j, 1 ); // remove jth photon from list
         }
@@ -94,7 +94,7 @@ define( function( require ) {
           // set the photonIntensity to be the same as the percentage passing through the filter,
           // for use when setting the perceived color when the photon hits the eye.
           // make sure the intensity is at least 0.2, otherwise it looks too black in the view
-          photon.intensity = ( percent < 0.2 ) ? 0.2 : percent;
+          photon.intensity = ( probability < 0.2 ) ? 0.2 : probability;
         }
       }
 
@@ -103,13 +103,13 @@ define( function( require ) {
         photon.passedFilter = true;
       }
 
-      // otherwise move the photon unless it goes out of bounds
+      // move the photon unless it goes out of bounds
       // see related bounds checking code in the view file SingleBulbPhotonBeamNode.js,
       // since this does not seem to completely keep them inside the canvas bounds (for unknown reasons)
       if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
         photon.updateAnimationFrame( dt );
 
-        // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
+      // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       }
       else {
         if ( photon.isWhite ) {
@@ -129,7 +129,7 @@ define( function( require ) {
     }
 
     // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
-    if ( percent === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
+    if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
       var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, Color.BLACK.withAlpha( 0 ), false );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
