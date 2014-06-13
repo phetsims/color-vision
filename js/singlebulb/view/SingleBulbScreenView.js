@@ -23,6 +23,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
+  var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
@@ -30,7 +31,6 @@ define( function( require ) {
   var GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
-  var ColorVisionToggleButtons = require( 'COLOR_VISION/singlebulb/view/ColorVisionToggleButtons' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
@@ -38,6 +38,11 @@ define( function( require ) {
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
   var headImage = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
+
+  var whiteLightIcon = require( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
+  var singleColorLightIcon = require( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
+  var beamViewIcon = require( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
+  var photonViewIcon = require( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
 
   // strings
   var bulbColor = require( 'string!COLOR_VISION/bulb-color' );
@@ -117,13 +122,23 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // Add buttons
-    var colorWhiteSelectButtons = new ColorVisionToggleButtons( model.lightProperty, 'color',
+    var colorWhiteSelectButtons = new IconToggleNode(
+      model.lightProperty,
+      whiteLightIcon,
+      singleColorLightIcon,
+      'white',
+      'colored',
       {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET
       } );
 
-    var beamPhotonSelectButtons = new ColorVisionToggleButtons( model.beamProperty, 'beam',
+    var beamPhotonSelectButtons = new IconToggleNode(
+      model.beamProperty,
+      beamViewIcon,
+      photonViewIcon,
+      'beam',
+      'photon',
       {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET

@@ -27,11 +27,11 @@ define( function( require ) {
     this.model = model;
 
     var photons = this.photons;
-    var size = this.size;
+    var startingX = this.size;
 
     this.model.flashlightOnProperty.onValue( false, function() {
-      photons.push( SingleBulbPhoton.createFromPool( size, 1, Color.BLACK.withAlpha( 0 ), false ) );
-    } )
+      photons.push( SingleBulbPhoton.createFromPool( startingX, 1, Color.BLACK.withAlpha( 0 ), false ) );
+    } );
   }
 
   var updateAnimationFrame = function( dt ) {
