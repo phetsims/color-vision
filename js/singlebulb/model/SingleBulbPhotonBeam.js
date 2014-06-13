@@ -60,9 +60,6 @@ define( function( require ) {
       }
     }
 
-    // keep track of whether or not we have set the last photon to cross out of bounds during this animation frame
-    var lastPhotonSet = false;
-
     // move all photons that are currently active
     for ( var j = 0; j < this.photons.length; j++ ) {
       var photon = this.photons[j];
@@ -115,19 +112,16 @@ define( function( require ) {
         // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       }
       else {
-        if ( !lastPhotonSet ) {
-          if ( photon.isWhite ) {
-            this.model.lastPhotonColor = new Color( 255, 255, 255, 1 );
+        if ( photon.isWhite ) {
+          this.model.lastPhotonColor = new Color( 255, 255, 255, 1 );
+        }
+        else {
+          // set the intensity of the plast photon to leave so we know to adjust the intensity of the perceived color
+          var colorWithIntensity = photon.color.copy();
+          if ( !photon.wasWhite ) {
+            colorWithIntensity.setAlpha( photon.intensity );
           }
-          else {
-            // set the intensity of the plast photon to leave so we know to adjust the intensity of the perceived color
-            var colorWithIntensity = photon.color.copy();
-            if ( !photon.wasWhite ) {
-              colorWithIntensity.setAlpha( photon.intensity );
-            }
-            this.model.lastPhotonColor = colorWithIntensity;
-          }
-          lastPhotonSet = true;
+          this.model.lastPhotonColor = colorWithIntensity;
         }
         photon.freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
