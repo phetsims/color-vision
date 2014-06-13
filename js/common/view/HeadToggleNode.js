@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Panel containing a set of toggle buttons.
+ * Panel containing a set of toggle buttons that determine which head view to display.
  *
  * @author Aaron Davis
  */

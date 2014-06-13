@@ -45,10 +45,10 @@ define( function( require ) {
     ScreenView.call( this, { renderer: 'svg' } );
 
     // Add back head image
-    var headBackNode = new HeadNode( headBack, this.layoutBounds.bottom + 15 );
+    var headBackNode = new HeadNode( headBack, this.layoutBounds.bottom );
     this.addChild( headBackNode );
 
-    var headBackNoBrainNode = new HeadNode( headNoBrain, this.layoutBounds.bottom + 15 );
+    var headBackNoBrainNode = new HeadNode( headNoBrain, this.layoutBounds.bottom );
     this.addChild( headBackNoBrainNode );
 
     // Add photon beams
@@ -80,10 +80,10 @@ define( function( require ) {
     this.addChild( this.blueBeam );
 
     // Add front head image (the photons are sandwiched between two head images to get the cutoff point looking right)
-    var headFrontNode = new HeadNode( headFront, this.layoutBounds.bottom + 15 );
+    var headFrontNode = new HeadNode( headFront, this.layoutBounds.bottom );
     this.addChild( headFrontNode );
 
-    var headFrontNoBrainNode = new HeadNode( headFrontNoBrain, this.layoutBounds.bottom + 15 );
+    var headFrontNoBrainNode = new HeadNode( headFrontNoBrain, this.layoutBounds.bottom );
     this.addChild( headFrontNoBrainNode );
 
     // Make sure only one image is visible at at time, depending on the user's selection

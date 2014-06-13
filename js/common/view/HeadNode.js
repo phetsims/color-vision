@@ -21,7 +21,7 @@ define( function( require ) {
 
     Image.call( this, image,
       {
-        bottom: bottom,
+        bottom: bottom + 15,
         left: 50,
         scale: 0.7
       } );

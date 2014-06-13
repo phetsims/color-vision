@@ -78,11 +78,11 @@ define( function( require ) {
     this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
 
     // Add head image
-    var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom + 15 );
+    var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom );
     this.addChild( headImageNode );
 
     // Add head image with no brain
-    var headNoBrainImageNode = new HeadNode( headNoBrainImage, this.layoutBounds.bottom + 15 );
+    var headNoBrainImageNode = new HeadNode( headNoBrainImage, this.layoutBounds.bottom );
     this.addChild( headNoBrainImageNode );
 
     // Make sure only one image is visible at at time, depending on the user's selection
