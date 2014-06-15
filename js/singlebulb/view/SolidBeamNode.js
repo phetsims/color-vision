@@ -1,6 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
+ * SolidBeamNode shows the light beam when in beam mode, not as individual photons
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */

@@ -1,6 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
+ * FilterHalfEllipse is used to form the actual filter image. It is cut in half so
+ * it can be layered with the beam above one half and below the other.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -21,7 +23,7 @@ define( function( require ) {
    * @param {Number} centerY
    * @param {Number} radiusX
    * @param {Number} radiusY
-   * @param {Number} left
+   * @param {boolean} left is true to draw the left half of the filter, false to draw the right
    * @constructor
    */
   function FilterHalfEllipse( filterWavelengthProperty, filterVisibleProperty, centerX, centerY, radiusX, radiusY, left ) {

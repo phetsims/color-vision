@@ -1,6 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
+ * FlashlightWireNode forms the wire from the flashlight to the bulb color slider.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -15,7 +16,7 @@ define( function( require ) {
   /**
    * @param {Vector2} start
    * @param {Vector2} end
-   * @param {Number} width
+   * @param {Number} width the distance the wire extends beyond the flashlight before turning up to the slider
    * @constructor
    */
   function FlashlightWireNode( start, end, width ) {

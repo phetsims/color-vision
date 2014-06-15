@@ -1,7 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * GaussianWavelengthSlider
+ * GaussianWavelengthSlider acts the like WavelengthSlider from scenery-phet,
+ * but with a Gaussian shape instead of the usual cursor.
  *
  * @author Aaron Davis
  */
@@ -22,8 +23,8 @@ define( function( require ) {
   /**
    * Wavelength slider with a gaussian
    * @param {Property} filterWavelengthProperty
-   * @param {Number} width
-   * @param {Number} height
+   * @param {Number} width the width of the track
+   * @param {Number} height the height of the track
    * @constructor
    */
   function GaussianWavelengthSlider( filterWavelengthProperty, width, height ) {

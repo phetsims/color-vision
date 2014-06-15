@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model for ColorVision sim
+ * Model for RGB screen
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -20,7 +20,7 @@ define( function( require ) {
   function RGBModel() {
 
     /**
-     * RGGModel contains 6 intensity properties, all of which range between 0-100.
+     * RGBModel contains 6 intensity properties, all of which range between 0-100.
      *
      * The values of the properties redIntensity, greenIntensity, and blueIntensity are determined
      * from the sliders, and indicate the density of the photons coming out of the flashlights.

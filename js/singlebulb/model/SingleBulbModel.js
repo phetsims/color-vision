@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model for ColorVision sim
+ * Model for single bulb screen
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -113,6 +113,5 @@ define( function( require ) {
         PropertySet.prototype.reset.call( this );
         this.photonBeam.reset();
       }
-
     } );
 } );

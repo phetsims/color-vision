@@ -3,6 +3,7 @@
 /**
  * Model of a photon. Pooling is used in this class to reduce the number of heap
  * allocations that occur every second, and the overhead of the extra garbage collection.
+ * SingleBulbPhoton inherits from RGBPhoton, and add a few new attributes.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -30,6 +31,10 @@ define( function( require ) {
     RGBPhoton.call( this, location, velocity, intensity );
 
     this.passedFilter = false;
+
+    // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
+    // White photons passing through must be changed to match the filter color, but keep full intensity.
+    // Colored photons must loose intensity when passing through the filter.
     this.isWhite = this.wasWhite = isWhite;
     this.color = color;
   }
