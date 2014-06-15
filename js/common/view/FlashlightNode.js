@@ -55,7 +55,6 @@ define( function( require ) {
     rectangle.addChild( beamNode );
     rectangle.addChild( flashlightImage );
     this.addChild( rectangle );
-
   }
 
   return inherit( Node, FlashlightNode );

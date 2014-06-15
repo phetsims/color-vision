@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Shows the head/brain/eyeball for both screens.
+ * Shows the head image, positioned and scaled correctly for both screens
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */

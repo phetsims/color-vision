@@ -18,10 +18,10 @@ define( function( require ) {
    * @param {String} color an rgb string
    * @param {Property} intensityProperty the intensity property for this color from the model
    * @param {Property} perceivedIntensityProperty the perceived intensity property for this color from the model
-   * @param {Number} size the length of the beam
+   * @param {Number} size the length of the beam, used to calculate the starting x coordinate
    # @constructor
    */
-  function PhotonBeam( color, intensityProperty, perceivedIntensityProperty, size ) {
+  function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, size ) {
     this.photons = [];
 
     this.color = color;
@@ -89,5 +89,5 @@ define( function( require ) {
     }
   };
 
-  return inherit( PropertySet, PhotonBeam, { updateAnimationFrame: updateAnimationFrame, reset: reset } );
+  return inherit( PropertySet, RGBPhotonBeam, { updateAnimationFrame: updateAnimationFrame, reset: reset } );
 } );

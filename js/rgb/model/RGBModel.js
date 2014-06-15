@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
-  var PhotonBeam = require( 'COLOR_VISION/rgb/model/PhotonBeam' );
+  var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
@@ -43,9 +43,9 @@ define( function( require ) {
       }
     );
 
-    this.redBeam = new PhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, Constants.RED_BEAM_LENGTH );
-    this.greenBeam = new PhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, Constants.GREEN_BEAM_LENGTH );
-    this.blueBeam = new PhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, Constants.BLUE_BEAM_LENGTH );
+    this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, Constants.RED_BEAM_LENGTH );
+    this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, Constants.GREEN_BEAM_LENGTH );
+    this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, Constants.BLUE_BEAM_LENGTH );
 
   }
 

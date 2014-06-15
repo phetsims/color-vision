@@ -25,7 +25,7 @@ define( function( require ) {
 
     Node.call( this );
 
-    var strokeColor = '#c0b9b9'; // TODO: move to constants file
+    var strokeColor = '#c0b9b9';
     var scaleFactor = 2.55;
 
     var ellipse = new Shape().ellipse( 0, 0, yRadius * 2, yRadius, 0 );

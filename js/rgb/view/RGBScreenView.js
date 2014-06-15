@@ -21,7 +21,7 @@ define( function( require ) {
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
-  var PhotonBeamNode = require( 'COLOR_VISION/rgb/view/PhotonBeamNode' );
+  var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
@@ -52,7 +52,7 @@ define( function( require ) {
     this.addChild( headBackNoBrainNode );
 
     // Add photon beams
-    this.redBeam = new PhotonBeamNode( model.redBeam,
+    this.redBeam = new RGBPhotonBeamNode( model.redBeam,
       {
         canvasBounds: new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 280,
@@ -60,14 +60,14 @@ define( function( require ) {
         rotation: -Constants.FLASHLIGHT_ANGLE
       } );
 
-    this.greenBeam = new PhotonBeamNode( model.greenBeam,
+    this.greenBeam = new RGBPhotonBeamNode( model.greenBeam,
       {
         canvasBounds: new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320
       } );
     this.greenBeam.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
-    this.blueBeam = new PhotonBeamNode( model.blueBeam,
+    this.blueBeam = new RGBPhotonBeamNode( model.blueBeam,
       {
         canvasBounds: new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320,

@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Photon beam
+ * Photon beam for RGB screen
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {Object} options (must contain a field canvasBounds to indicate the bounds of the beam)
    * @constructor
    */
-  function PhotonBeamNode( photonBeam, options ) {
+  function RGBPhotonBeamNode( photonBeam, options ) {
 
     this.beamBounds = options.canvasBounds;
     this.photons = photonBeam.photons;
@@ -33,7 +33,7 @@ define( function( require ) {
     this.invalidatePaint();
   }
 
-  return inherit( CanvasNode, PhotonBeamNode, {
+  return inherit( CanvasNode, RGBPhotonBeamNode, {
 
     // @param {CanvasContextWrapper} wrapper
     paintCanvas: function( wrapper ) {
