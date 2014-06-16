@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * View for ColorVisionEllipse objects (thought bubbles)
+ * View for ThoughtBubble objects (thought bubbles)
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -22,7 +22,7 @@ define( function( require ) {
    * @param {Number} yRadius
    * @constructor
    */
-  function ColorVisionEllipse( model, centerX, centerY, yRadius ) {
+  function ThoughtBubble( model, centerX, centerY, yRadius ) {
 
     Node.call( this );
 
@@ -62,5 +62,5 @@ define( function( require ) {
     this.addChild( path );
   }
 
-  return inherit( Node, ColorVisionEllipse );
+  return inherit( Node, ThoughtBubble );
 } );

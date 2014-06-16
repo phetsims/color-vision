@@ -23,7 +23,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
-  var ColorVisionEllipse = require( 'COLOR_VISION/common/view/ColorVisionEllipse' );
+  var ThoughtBubble = require( 'COLOR_VISION/common/view/ThoughtBubble' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
@@ -72,10 +72,10 @@ define( function( require ) {
     var thoughtBubbleY = -10;
 
     // Add thought bubbles
-    this.addChild( new ColorVisionEllipse( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
-    this.addChild( new ColorVisionEllipse( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
-    this.addChild( new ColorVisionEllipse( model, 62 + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
-    this.addChild( new ColorVisionEllipse( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
+    this.addChild( new ThoughtBubble( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
+    this.addChild( new ThoughtBubble( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
+    this.addChild( new ThoughtBubble( model, 62 + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
+    this.addChild( new ThoughtBubble( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
 
     // Add head image
     var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom );
@@ -142,7 +142,7 @@ define( function( require ) {
     var colorWhiteSelectButtons = new IconToggleNode(
       model.lightProperty,
       new Image( whiteLightIcon, iconOptions ),
-      new Image( singleColorLightIcon, iconOptions) ,
+      new Image( singleColorLightIcon, iconOptions ),
       'white',
       'colored',
       {
