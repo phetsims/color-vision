@@ -60,7 +60,7 @@ define( function( require ) {
   /**
    * @constructor
    */
-  function RGBScreenView( model ) {
+  function SingleBulbScreenView( model ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
@@ -300,7 +300,7 @@ define( function( require ) {
     } ) );
   }
 
-  return inherit( ScreenView, RGBScreenView,
+  return inherit( ScreenView, SingleBulbScreenView,
     {
       step: function( dt ) {
         this.photonBeamNode.step( dt );
