@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var HBox = require( 'SCENERY/nodes/HBox' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var Panel = require( 'SUN/Panel' );
   var RadioButton = require( 'SUN/RadioButton' );
 
