@@ -151,10 +151,10 @@ define( function( require ) {
     var thoughtBubbleY = -10;
 
     // Add thought bubbles
-    this.addChild( new ThoughtBubble( model, 220 + thoughtBubbleX, 60 + thoughtBubbleY, 45 ) );
-    this.addChild( new ThoughtBubble( model, 90 + thoughtBubbleX, 105 + thoughtBubbleY, 15 ) );
-    this.addChild( new ThoughtBubble( model, 62 + thoughtBubbleX, 165 + thoughtBubbleY, 12 ) );
-    this.addChild( new ThoughtBubble( model, 50 + thoughtBubbleX, 220 + thoughtBubbleY, 7 ) );
+    this.addChild( new ThoughtBubble( model, 45, { centerX: 220 + thoughtBubbleX, centerY: 60 + thoughtBubbleY } ) );
+    this.addChild( new ThoughtBubble( model, 15, { centerX: 90 + thoughtBubbleX, centerY: 105 + thoughtBubbleY } ) );
+    this.addChild( new ThoughtBubble( model, 12, { centerX: 62 + thoughtBubbleX, centerY: 165 + thoughtBubbleY } ) );
+    this.addChild( new ThoughtBubble( model,  7, { centerX: 50 + thoughtBubbleX, centerY: 220 + thoughtBubbleY } ) );
 
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,
