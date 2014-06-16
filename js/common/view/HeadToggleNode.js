@@ -14,7 +14,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
 
   // images
-  var headIcon = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
+  var headIcon = require( 'image!COLOR_VISION/head-with-brain.png' );
   var headNoBrainIcon = require( 'image!COLOR_VISION/head-no-brain.png' );
 
   // constants

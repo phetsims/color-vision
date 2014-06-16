@@ -38,12 +38,12 @@ define( function( require ) {
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
-  var headImage = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
+  var headImage = require( 'image!COLOR_VISION/head-with-brain.png' );
   var headNoBrainImage = require( 'image!COLOR_VISION/head-no-brain.png' );
-  var whiteLightIcon = require( 'image!COLOR_VISION/color-vision-white-light-icon.png' );
-  var singleColorLightIcon = require( 'image!COLOR_VISION/color-vision-single-color-light-icon.png' );
-  var beamViewIcon = require( 'image!COLOR_VISION/color-vision-beam-view-icon.png' );
-  var photonViewIcon = require( 'image!COLOR_VISION/color-vision-photon-view-icon.png' );
+  var whiteLightIcon = require( 'image!COLOR_VISION/white-light-icon.png' );
+  var singleColorLightIcon = require( 'image!COLOR_VISION/single-color-light-icon.png' );
+  var beamViewIcon = require( 'image!COLOR_VISION/beam-view-icon.png' );
+  var photonViewIcon = require( 'image!COLOR_VISION/photon-view-icon.png' );
 
   // strings
   var bulbColor = require( 'string!COLOR_VISION/bulb-color' );

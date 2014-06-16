@@ -30,8 +30,8 @@ define( function( require ) {
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
   var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
-  var headBack = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
-  var headFront = require( 'image!COLOR_VISION/head-front-long-neck.png' );
+  var headBack = require( 'image!COLOR_VISION/head-with-brain.png' );
+  var headFront = require( 'image!COLOR_VISION/head-front-with-brain.png' );
   var headNoBrain = require( 'image!COLOR_VISION/head-no-brain.png' );
   var headFrontNoBrain = require( 'image!COLOR_VISION/head-front-no-brain.png' );
 
