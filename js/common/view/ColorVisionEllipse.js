@@ -13,6 +13,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
 
   /**
    * @param {PropertySet} model the model being used, either RGBModel or SingleBulbModel
@@ -38,7 +39,8 @@ define( function( require ) {
       } );
 
     // if using RGB model
-    if ( model.redIntensityProperty ) {
+    if ( model instanceof RGBModel ) {
+
       // add listeners
       var rgbProperty = model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
         function( redIntensity, greenIntensity, blueIntensity ) {
