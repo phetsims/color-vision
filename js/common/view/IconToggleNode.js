@@ -15,29 +15,36 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var RadioButton = require( 'SUN/RadioButton' );
 
+  /**
+   * @param {Property} property
+   * @param {Image} iconOne
+   * @param {Image} iconTwo
+   * @param {*} valueOne
+   * @param {*} valueTwo
+   * @param {Object} options
+   * @constructor
+   */
   function IconToggleNode( property, iconOne, iconTwo, valueOne, valueTwo, options ) {
 
     options = _.extend( {
-      scale: 0.8,
-      innerFill: 'rgba(0,0,0,0)',
-      outerFill: 'rgba(0,0,0,0)',
-      innerStroke: 'yellow',
-      outerStroke: null,
+      iconFill: null,
+      iconStroke: 'yellow',
       selectedLineWidth: 1.3,
       deselectedLineWidth: 0.6,
-      spacing: 13
+      spacing: 13,
+      iconXMargin: 0,
+      iconYMargin: 0
     }, options );
 
     var panelOptions = {
-      xMargin: 0,
-      yMargin: 0,
+      xMargin: options.iconXMargin,
+      yMargin: options.iconYMargin,
       cornerRadius: 4,
-      fill: options.innerFill,
-      stroke: options.innerStroke
+      fill: options.iconFill,
+      stroke: options.iconStroke
     };
 
     var selectedOptions = _.extend( { lineWidth: options.selectedLineWidth }, panelOptions );
-
     var deselectedOptions = _.extend( { lineDash: [2, 2], lineWidth: options.deselectedLineWidth }, panelOptions );
 
     var panelOne = new Panel( iconOne, selectedOptions );
@@ -46,12 +53,10 @@ define( function( require ) {
     var panelTwo = new Panel( iconTwo, selectedOptions );
     var buttonTwo = new RadioButton( property, valueTwo, panelTwo, new Panel( iconTwo, deselectedOptions ) );
 
-    var hbox = new HBox( { spacing: options.spacing, children: [buttonOne, buttonTwo] } );
-
-    Panel.call( this, hbox, { fill: options.outerFill, stroke: options.outerStroke } );
+    HBox.call( this, { spacing: options.spacing, children: [buttonOne, buttonTwo] } );
 
     this.mutate( options );
   }
 
-  return inherit( Panel, IconToggleNode );
+  return inherit( HBox, IconToggleNode );
 } );

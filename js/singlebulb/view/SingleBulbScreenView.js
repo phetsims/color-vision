@@ -135,11 +135,14 @@ define( function( require ) {
     this.addChild( flashlightWire );
     this.addChild( upperSliderNode );
 
+    // options common to all icon images
+    var iconOptions = { scale: 0.63 };
+
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
       model.lightProperty,
-      new Image( whiteLightIcon ),
-      new Image( singleColorLightIcon) ,
+      new Image( whiteLightIcon, iconOptions ),
+      new Image( singleColorLightIcon, iconOptions) ,
       'white',
       'colored',
       {
@@ -149,8 +152,8 @@ define( function( require ) {
 
     var beamPhotonSelectButtons = new IconToggleNode(
       model.beamProperty,
-      new Image( beamViewIcon ),
-      new Image( photonViewIcon ),
+      new Image( beamViewIcon, iconOptions ),
+      new Image( photonViewIcon, iconOptions ),
       'beam',
       'photon',
       {

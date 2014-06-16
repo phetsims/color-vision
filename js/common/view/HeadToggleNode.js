@@ -14,22 +14,25 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
 
   // images
-  var headIcon = require( 'image!COLOR_VISION/head-icon.png' );
-  var headNoBrainIcon = require( 'image!COLOR_VISION/head-no-brain-icon.png' );
+  var headIcon = require( 'image!COLOR_VISION/color-vision-head-long-neck.png' );
+  var headNoBrainIcon = require( 'image!COLOR_VISION/head-no-brain.png' );
+
+  // constants
+  var IMAGE_SCALE = 0.05;
 
   function HeadToggleNode( property, options ) {
 
     options = _.extend( {
-      scale: 0.8,
-      spacing: 30,
-      outerFill: '#dddddd',
-      outerStroke: 'white',
+      spacing: 20,
+      iconFill: 'black',
       selectedLineWidth: 2,
-      deselectedLineWidth: 1.5
+      deselectedLineWidth: 1.5,
+      iconXMargin: 4,
+      iconYMargin: 4
     }, options );
 
-    var headWithBrainImage = new Image( headIcon );
-    var headNoBrainImage = new Image( headNoBrainIcon );
+    var headWithBrainImage = new Image( headIcon, { scale: IMAGE_SCALE } );
+    var headNoBrainImage = new Image( headNoBrainIcon, { scale: IMAGE_SCALE } );
 
     IconToggleNode.call( this, property, headWithBrainImage, headNoBrainImage, 'brain', 'no-brain', options );
 
