@@ -22,10 +22,12 @@ define( function( require ) {
    * @param {Number} yRadius
    * @constructor
    */
+    //TODO: Move centerX, centerY into options?
   function ThoughtBubble( model, centerX, centerY, yRadius ) {
 
     Node.call( this );
 
+    // TODO: Document this color: is it gray?
     var strokeColor = '#c0b9b9';
     var scaleFactor = 2.55;
 
@@ -38,26 +40,19 @@ define( function( require ) {
         centerY: centerY
       } );
 
-    // if using RGB model
-    if ( model instanceof RGBModel ) {
+    //If using the RGBModel link to a combination of the RGB colors
+    //If using SingleBulbModel, it already has a perceived color property that should be used instead.
+    var colorProperty = (model instanceof RGBModel) ?
+                        model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
+                          function( redIntensity, greenIntensity, blueIntensity ) {
+                            return 'rgb(' + [
+                              Math.floor( redIntensity * scaleFactor ),
+                              Math.floor( greenIntensity * scaleFactor ),
+                              Math.floor( blueIntensity * scaleFactor ) ].join() + ')';
+                          } ) :
+                        model.perceivedColorProperty;
 
-      // add listeners
-      var rgbProperty = model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
-        function( redIntensity, greenIntensity, blueIntensity ) {
-          return 'rgb(' + [
-            Math.floor( redIntensity * scaleFactor ),
-            Math.floor( greenIntensity * scaleFactor ),
-            Math.floor( blueIntensity * scaleFactor ) ].join() + ')';
-        } );
-
-      rgbProperty.linkAttribute( path, 'fill' );
-
-    }
-
-    // if using singlebulb model
-    else {
-      model.perceivedColorProperty.linkAttribute( path, 'fill' );
-    }
+    colorProperty.linkAttribute( path, 'fill' );
 
     this.addChild( path );
   }
