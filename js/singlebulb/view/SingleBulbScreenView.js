@@ -136,7 +136,7 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // options common to all icon images
-    var iconOptions = { scale: 0.63 };
+    var iconOptions = { scale: 0.64 };
 
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
