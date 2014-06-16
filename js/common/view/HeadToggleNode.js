@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
+  var Image = require( 'SCENERY/nodes/Image' );
 
   // images
   var headIcon = require( 'image!COLOR_VISION/head-icon.png' );
@@ -27,7 +28,10 @@ define( function( require ) {
       deselectedLineWidth: 1.5
     }, options );
 
-    IconToggleNode.call( this, property, headIcon, headNoBrainIcon, 'brain', 'no-brain', options );
+    var headWithBrainImage = new Image( headIcon );
+    var headNoBrainImage = new Image( headNoBrainIcon );
+
+    IconToggleNode.call( this, property, headWithBrainImage, headNoBrainImage, 'brain', 'no-brain', options );
 
     this.mutate( options );
   }

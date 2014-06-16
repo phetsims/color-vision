@@ -40,11 +40,11 @@ define( function( require ) {
 
     var deselectedOptions = _.extend( { lineDash: [2, 2], lineWidth: options.deselectedLineWidth }, panelOptions );
 
-    var panelOne = new Panel( new Image( iconOne, { scale: options.scale } ), selectedOptions );
-    var buttonOne = new RadioButton( property, valueOne, panelOne, new Panel( new Image( iconOne, { scale: options.scale } ), deselectedOptions ) );
+    var panelOne = new Panel( iconOne, selectedOptions );
+    var buttonOne = new RadioButton( property, valueOne, panelOne, new Panel( iconOne, deselectedOptions ) );
 
-    var panelTwo = new Panel( new Image( iconTwo, { scale: options.scale } ), selectedOptions );
-    var buttonTwo = new RadioButton( property, valueTwo, panelTwo, new Panel( new Image( iconTwo, { scale: options.scale } ), deselectedOptions ) );
+    var panelTwo = new Panel( iconTwo, selectedOptions );
+    var buttonTwo = new RadioButton( property, valueTwo, panelTwo, new Panel( iconTwo, deselectedOptions ) );
 
     var hbox = new HBox( { spacing: options.spacing, children: [buttonOne, buttonTwo] } );
 

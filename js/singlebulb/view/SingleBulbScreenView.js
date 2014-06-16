@@ -138,8 +138,8 @@ define( function( require ) {
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
       model.lightProperty,
-      whiteLightIcon,
-      singleColorLightIcon,
+      new Image( whiteLightIcon ),
+      new Image( singleColorLightIcon) ,
       'white',
       'colored',
       {
@@ -149,8 +149,8 @@ define( function( require ) {
 
     var beamPhotonSelectButtons = new IconToggleNode(
       model.beamProperty,
-      beamViewIcon,
-      photonViewIcon,
+      new Image( beamViewIcon ),
+      new Image( photonViewIcon ),
       'beam',
       'photon',
       {
