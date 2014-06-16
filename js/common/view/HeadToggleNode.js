@@ -20,13 +20,15 @@ define( function( require ) {
   // constants
   var IMAGE_SCALE = 0.05;
 
+  /**
+   * @param {Property} property
+   * @param {Object} options
+   * @constructor
+   */
   function HeadToggleNode( property, options ) {
 
     options = _.extend( {
-      spacing: 20,
       iconFill: 'black',
-      selectedLineWidth: 2,
-      deselectedLineWidth: 1.5,
       iconXMargin: 4,
       iconYMargin: 4
     }, options );
