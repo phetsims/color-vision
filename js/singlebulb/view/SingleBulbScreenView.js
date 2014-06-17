@@ -138,6 +138,9 @@ define( function( require ) {
     // options common to all icon images
     var iconOptions = { scale: 0.64 };
 
+    // options common to all IconToggleNodes
+    var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 3, iconYMargin: 3 };
+
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
       model.lightProperty,
@@ -145,10 +148,8 @@ define( function( require ) {
       new Image( singleColorLightIcon, iconOptions ),
       'white',
       'colored',
-      {
-        bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
-        left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET
-      } );
+      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+    );
 
     var beamPhotonSelectButtons = new IconToggleNode(
       model.beamProperty,
@@ -156,10 +157,8 @@ define( function( require ) {
       new Image( photonViewIcon, iconOptions ),
       'beam',
       'photon',
-      {
-        top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
-        left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET
-      } );
+      _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+    );
 
     this.addChild( colorWhiteSelectButtons );
     this.addChild( beamPhotonSelectButtons );
