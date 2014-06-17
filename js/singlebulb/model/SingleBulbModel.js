@@ -56,7 +56,7 @@ define( function( require ) {
         }
         // if flashlight is not on, the perceived color is black
         else if ( !flashlightOn ) {
-          return 'black';
+          return Color.BLACK;
         }
         // if the filter is visible, and the beam is colored, calculate the percentage of color to pass
         else if ( filterVisible && light === 'colored' ) {
@@ -82,7 +82,7 @@ define( function( require ) {
         }
         // if the beam is white and the filter is not visible, return white
         else if ( !filterVisible && light === 'white' ) {
-          return 'white';
+          return Color.WHITE;
         }
         // if the filter is not visible, return the flashlight wavelength's color
         else {

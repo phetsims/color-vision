@@ -25,13 +25,6 @@ define( function( require ) {
     this.photons = [];
     this.size = size;
     this.model = model;
-
-    var photons = this.photons;
-    var startingX = this.size;
-
-    this.model.flashlightOnProperty.onValue( false, function() {
-      photons.push( SingleBulbPhoton.createFromPool( startingX, 1, Color.BLACK.withAlpha( 0 ), false ) );
-    } );
   }
 
   var updateAnimationFrame = function( dt ) {
@@ -44,7 +37,7 @@ define( function( require ) {
     }
 
     var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
-    var probability; // probability for a given photon to pass the filter
+    var probability = 1; // probability for a given photon to pass the filter
 
     // if the flashlight is on, create new photons this animation frame
     if ( this.model.flashlightOn ) {
@@ -58,6 +51,10 @@ define( function( require ) {
         newPhoton.location.x += ( Math.random() * newPhoton.velocity.x * dt );
         this.photons.push( newPhoton );
       }
+    }
+    // emit a black photon for reseting the perceived color to black if the flashlight is off
+    else if ( !this.model.perceivedColor.equals( Color.BLACK ) ) {
+      this.photons.push( SingleBulbPhoton.createFromPool( this.size, 1, Color.BLACK.withAlpha( 0 ), false ) );
     }
 
     // move all photons that are currently active
@@ -129,7 +126,7 @@ define( function( require ) {
     }
 
     // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
-    if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
+    if ( probability === 0 && this.model.filterVisible && this.model.perceivedColor.equals( Color.BLACK ) ) {
       var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, Color.BLACK.withAlpha( 0 ), false );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
