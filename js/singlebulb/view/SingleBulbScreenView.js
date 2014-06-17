@@ -139,7 +139,7 @@ define( function( require ) {
     var iconOptions = { scale: 0.64 };
 
     // options common to all IconToggleNodes
-    var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 3, iconYMargin: 3 };
+    var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 2, iconYMargin: 2 };
 
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
