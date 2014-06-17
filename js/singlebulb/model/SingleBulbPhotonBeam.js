@@ -126,7 +126,7 @@ define( function( require ) {
     }
 
     // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
-    if ( probability === 0 && this.model.filterVisible && this.model.perceivedColor.equals( Color.BLACK ) ) {
+    if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
       var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, Color.BLACK.withAlpha( 0 ), false );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
