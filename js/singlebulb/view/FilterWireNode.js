@@ -34,7 +34,6 @@ define( function( require ) {
 
     Node.call( this );
 
-
     var switchDistance = ( end.y - start.y ) / 3;
 
     // draw the wire from the filter to the slider

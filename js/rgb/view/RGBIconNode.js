@@ -10,7 +10,6 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
@@ -21,9 +20,7 @@ define( function( require ) {
    */
   function RGBIconNode( fill ) {
 
-    Node.call( this );
-
-    var rectangle = new Rectangle( 0, 0, 548, 373, { fill: fill } );
+    Rectangle.call( this, 0, 0, 548, 373, { fill: fill } );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
@@ -36,13 +33,12 @@ define( function( require ) {
           greenFlashlight,
           blueFlashlight ],
         spacing: -4,
-        centerX: rectangle.centerX,
-        centerY: rectangle.centerY
+        centerX: this.centerX,
+        centerY: this.centerY
       } );
 
-    rectangle.addChild( flashlightVBox );
-    this.addChild( rectangle );
+    this.addChild( flashlightVBox );
   }
 
-  return inherit( Node, RGBIconNode );
+  return inherit( Rectangle, RGBIconNode );
 } );
