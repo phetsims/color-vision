@@ -73,7 +73,7 @@ define( function( require ) {
         }
         // flashlightWavelength is within the transmission width, pass a linear percentage.
         else {
-          probability = 1 - ( ( Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth ) );
+          probability = 1 - Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth;
         }
 
         // set the probability to be 0.3 for white photons
