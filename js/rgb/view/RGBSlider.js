@@ -14,7 +14,6 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var Node = require( 'SCENERY/nodes/Node' );
 
   /**
    * @param {Property} intensityProperty the intensity property for this color from the model
@@ -23,8 +22,6 @@ define( function( require ) {
    */
   function RGBSlider( intensityProperty, color ) {
 
-    Node.call( this );
-
     var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
@@ -32,25 +29,20 @@ define( function( require ) {
       } );
     hSlider.rotation = -Math.PI / 2;
 
-    var rectHeight = hSlider.height + 30;
     var rectWidth = hSlider.width + 8;
+    var rectHeight = hSlider.height + 30;
 
-    var sliderGradient = new LinearGradient( 0, 0, 0, rectHeight ).
-      addColorStop( 0, color ).
-      addColorStop( 1, 'black' );
-
-    var rectangle = new Rectangle( 0, 0, rectWidth, rectHeight, 5, 5,
+    Rectangle.call( this, 0, 0, rectWidth, rectHeight, 5, 5,
       {
-        fill: sliderGradient,
-        stroke: '#c0b9b9'
+        fill: new LinearGradient( 0, 0, 0, rectHeight ).addColorStop( 0, color ).addColorStop( 1, 'black' ),
+        stroke: '#c0b9b9' // gray
       } );
-    hSlider.centerX = rectangle.centerX;
-    hSlider.centerY = rectangle.centerY;
 
-    rectangle.addChild( hSlider );
+    hSlider.centerX = this.centerX;
+    hSlider.centerY = this.centerY;
 
-    this.addChild( rectangle );
+    this.addChild( hSlider );
   }
 
-  return inherit( Node, RGBSlider );
+  return inherit( Rectangle, RGBSlider );
 } );
