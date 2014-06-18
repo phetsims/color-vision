@@ -23,12 +23,12 @@ define( function( require ) {
    * @param {String} color - an rgb string or other legitimate color string
    # @constructor
    */
-  function FlashlightNode( rotation, color ) {
+  function FlashlightNode( rotation, color, options ) {
 
     Node.call( this );
 
     var scale = 0.8;
-    var rectangle = new Node( { rotation: rotation} );
+    var rectangle = new Node( { rotation: rotation } );
     var flashlightImage = new Image( flashlight,
       {
         scale: scale,
@@ -55,6 +55,8 @@ define( function( require ) {
     rectangle.addChild( beamNode );
     rectangle.addChild( flashlightImage );
     this.addChild( rectangle );
+
+    this.mutate( options );
   }
 
   return inherit( Node, FlashlightNode );
