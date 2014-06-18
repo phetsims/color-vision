@@ -44,11 +44,10 @@ define( function( require ) {
 
   /* jshint -W064 */
   Poolable( SingleBulbPhoton, {
-    // Use a pool size of 50. This number was chosen because logging the size of the pool
-    // revealed that with all the photon beams going at full blast, there are usually somewhere
-    // between 10 and 35 photons in the pool at a time, so 50 seemed like a reasonable upper bound.
-    maxPoolSize: 50, // 50 is the default value, show explicitly here for clarity
-    initialSize: 50, // fill the pool to start, so photons are ready to go when the beams turn on
+    // Use a pool size of 150. This number is greater than that in RGBPhoton, because many
+    // more photons end up in the pool when the filter is on
+    maxPoolSize: 150,
+    initialSize: 150, // fill the pool to start, so photons are ready to go when the beams turn on
     defaultFactory: function() {
       return new SingleBulbPhoton( new Vector2(), new Vector2( Constants.X_VELOCITY, 0 ), 0, new Color( 0, 0, 0, 1 ) );
     },
