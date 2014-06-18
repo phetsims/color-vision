@@ -42,17 +42,20 @@ define( function( require ) {
     // if the flashlight is on, create new photons this animation frame
     if ( this.model.flashlightOn ) {
       // create a number of photon proportional to dt
-      var numToCreate = Math.random() * Math.floor( 5 / dt * 0.016 );
+      // 5 photons will be created if dt is the expected 0.016
+      // if dt is greater, a greater number of photons will be created to compensate for the slower frame rate
+      var numToCreate = Math.random() * Math.floor( 5 * dt / 0.016 );
       for ( var i = 0; i < numToCreate; i++ ) {
         var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
         var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.model.light === 'white' ) );
 
         // randomly offset the starting location of the photon
-        newPhoton.location.x += ( Math.random() * newPhoton.velocity.x * dt );
+        newPhoton.location.x += Math.random() * newPhoton.velocity.x * dt;
         this.photons.push( newPhoton );
       }
     }
     // emit a black photon for reseting the perceived color to black if the flashlight is off
+    // black photons will keep being emitted until the perceived color becomes black
     else if ( !this.model.perceivedColor.equals( Color.BLACK ) ) {
       this.photons.push( SingleBulbPhoton.createFromPool( this.size, 1, Color.BLACK.withAlpha( 0 ), false ) );
     }
@@ -110,15 +113,9 @@ define( function( require ) {
       }
       else {
         if ( photon.isWhite ) {
-          this.model.lastPhotonColor = new Color( 255, 255, 255, 1 );
-        }
-        else {
-          // set the intensity of the plast photon to leave so we know to adjust the intensity of the perceived color
-          var colorWithIntensity = photon.color.copy();
-          if ( !photon.wasWhite ) {
-            colorWithIntensity.setAlpha( photon.intensity );
-          }
-          this.model.lastPhotonColor = colorWithIntensity;
+          this.model.lastPhotonColor = Color.WHITE;
+        } else {
+          this.model.lastPhotonColor = ( photon.wasWhite ) ? photon.color.copy() : photon.color.copy().withAlpha( photon.intensity );
         }
         photon.freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
