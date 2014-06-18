@@ -25,15 +25,14 @@ define( function( require ) {
    */
   function FlashlightNode( rotation, color, options ) {
 
-    Node.call( this );
+    Node.call( this, { rotation: rotation } );
 
     var scale = 0.8;
-    var rectangle = new Node( { rotation: rotation } );
     var flashlightImage = new Image( flashlight,
       {
         scale: scale,
-        left: rectangle.centerX,
-        centerY: rectangle.centerY
+        left: this.centerX,
+        centerY: this.centerY
       } );
 
     var startX = flashlightImage.left + 15;
@@ -52,9 +51,8 @@ define( function( require ) {
         fill: color
       } );
 
-    rectangle.addChild( beamNode );
-    rectangle.addChild( flashlightImage );
-    this.addChild( rectangle );
+    this.addChild( beamNode );
+    this.addChild( flashlightImage );
 
     this.mutate( options );
   }
