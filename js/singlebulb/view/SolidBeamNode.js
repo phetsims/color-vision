@@ -15,6 +15,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
+  var Property = require( 'AXON/Property' );
 
   /**
    * @param {SingleBulbModel} model
@@ -103,7 +104,11 @@ define( function( require ) {
       } );
     visibleProperty.linkAttribute( this, 'visible' );
 
-    model.perceivedColorProperty.linkAttribute( leftHalf, 'fill' );
+    Property.multilink( [model.perceivedColorProperty, visibleProperty], function( perceivedColor, visible ) {
+      if ( visible ) {
+        leftHalf.fill = perceivedColor;
+      }
+    } );
 
     this.addChild( leftHalf );
     this.addChild( rightHalf );
