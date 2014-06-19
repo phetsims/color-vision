@@ -115,7 +115,7 @@ define( function( require ) {
         if ( photon.isWhite ) {
           this.model.lastPhotonColor = Color.WHITE;
         } else {
-          this.model.lastPhotonColor = ( photon.wasWhite ) ? photon.color.copy() : photon.color.copy().withAlpha( photon.intensity );
+          this.model.lastPhotonColor = ( photon.wasWhite ) ? photon.color.copy() : photon.color.withAlpha( photon.intensity );
         }
         photon.freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
