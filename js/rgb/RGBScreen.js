@@ -20,7 +20,6 @@ define( function( require ) {
   var rgbString = require( 'string!COLOR_VISION/rgb' );
 
   /**
-   * @param {String} fill the color of the background of the icon
    * @constructor
    */
   function RGBScreen() {
@@ -31,5 +30,8 @@ define( function( require ) {
     );
   }
 
-  return inherit( Screen, RGBScreen );
+  return inherit( Screen, RGBScreen, {},
+    {
+
+    } );
 } );
