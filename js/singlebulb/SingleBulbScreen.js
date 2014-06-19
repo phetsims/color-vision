@@ -20,7 +20,6 @@ define( function( require ) {
   var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
 
   /**
-   * @param {String} fill the color of the background of the icon
    * @constructor
    */
   function SingleBulbScreen() {
