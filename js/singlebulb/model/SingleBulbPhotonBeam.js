@@ -116,15 +116,12 @@ define( function( require ) {
       // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       }
       else {
-        var newPerceivedColor;
-        if ( photon.isWhite ) {
-          newPerceivedColor = Color.WHITE;
-        } else {
-          newPerceivedColor = ( photon.wasWhite ) ? photon.color.copy() : photon.color.withAlpha( photon.intensity );
-        }
+        var newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color;
         // don't update the lastPhotonColor unless it is different than before, for performance reasons
         if ( !this.model.lastPhotonColor.equals( newPerceivedColor ) ) {
-          this.model.lastPhotonColor = newPerceivedColor;
+          // if the photon was white, the perceived color keeps full intensity even when it passes the filter,
+          // otherwise it takes the intensity of the photon, which may have been partially filtered
+          this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.copy() : newPerceivedColor.withAlpha( photon.intensity );
         }
         photon.freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
