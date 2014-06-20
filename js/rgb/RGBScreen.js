@@ -30,8 +30,5 @@ define( function( require ) {
     );
   }
 
-  return inherit( Screen, RGBScreen, {},
-    {
-
-    } );
+  return inherit( Screen, RGBScreen );
 } );

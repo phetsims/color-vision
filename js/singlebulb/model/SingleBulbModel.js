@@ -13,8 +13,9 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
+  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
 
   /**
    * @constructor
@@ -61,18 +62,18 @@ define( function( require ) {
         // if the filter is visible, and the beam is colored, calculate the percentage of color to pass
         else if ( filterVisible && light === 'colored' ) {
           var percent;
-          var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
+          var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the flashlightWavelength is outside the transmission width, no color passes.
           if ( flashlightWavelength < filterWavelength - halfWidth || flashlightWavelength > filterWavelength + halfWidth ) {
-            percent = 0;
+            percent = 100;
           }
           // flashlightWavelength is within the transmission width, pass a linear percentage.
           else {
-            percent = 1 - ( ( Math.abs( filterWavelength - flashlightWavelength ) / halfWidth ) );
+            percent = 100 - Math.abs( filterWavelength - flashlightWavelength ) / halfWidth * 100;
           }
           var newColor = VisibleColor.wavelengthToColor( flashlightWavelength ).copy();
-          newColor.setAlpha( percent );
+          newColor.setAlpha( percent / 100 );
           return newColor;
 
         }
@@ -90,7 +91,7 @@ define( function( require ) {
         }
       } );
 
-    this.photonBeam = new SingleBulbPhotonBeam( this, Constants.SINGLE_BEAM_LENGTH );
+    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH );
   }
 
   return inherit( PropertySet, SingleBulbModel,

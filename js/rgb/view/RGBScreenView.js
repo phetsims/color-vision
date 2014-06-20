@@ -24,6 +24,7 @@ define( function( require ) {
   var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // images
@@ -35,6 +36,8 @@ define( function( require ) {
   var headNoBrain = require( 'image!COLOR_VISION/head-no-brain.png' );
   var headFrontNoBrain = require( 'image!COLOR_VISION/head-front-no-brain.png' );
 
+  // constants
+  var BEAM_ANGLE = Math.PI / 6;
 
   /**
    * @param {RGBModel} model
@@ -54,25 +57,25 @@ define( function( require ) {
     // Add photon beams
     this.redBeam = new RGBPhotonBeamNode( model.redBeam,
       {
-        canvasBounds: new Bounds2( 0, 0, Constants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 280,
         y: 190,
-        rotation: -Constants.FLASHLIGHT_ANGLE
+        rotation: -BEAM_ANGLE
       } );
 
     this.greenBeam = new RGBPhotonBeamNode( model.greenBeam,
       {
-        canvasBounds: new Bounds2( 0, 0, Constants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320
       } );
     this.greenBeam.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     this.blueBeam = new RGBPhotonBeamNode( model.blueBeam,
       {
-        canvasBounds: new Bounds2( 0, 0, Constants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: 320,
         y: 145,
-        rotation: Constants.FLASHLIGHT_ANGLE
+        rotation: BEAM_ANGLE
       } );
 
     this.addChild( this.redBeam );

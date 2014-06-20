@@ -15,6 +15,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
 
   /**
    * @param {SingleBulbModel} model
@@ -36,7 +37,7 @@ define( function( require ) {
       return new Color( r, g, b, 1 );
     }
 
-    var halfWidth = Constants.GAUSSIAN_WIDTH / 2;
+    var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
     var probability = 1; // probability for a given photon to pass the filter
 
     // if the flashlight is on, create new photons this animation frame

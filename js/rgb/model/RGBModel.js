@@ -13,6 +13,7 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
 
   /**
    * @constructor
@@ -43,9 +44,9 @@ define( function( require ) {
       }
     );
 
-    this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, Constants.RED_BEAM_LENGTH );
-    this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, Constants.GREEN_BEAM_LENGTH );
-    this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, Constants.BLUE_BEAM_LENGTH );
+    this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, RGBConstants.RED_BEAM_LENGTH );
+    this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, RGBConstants.GREEN_BEAM_LENGTH );
+    this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH );
 
   }
 

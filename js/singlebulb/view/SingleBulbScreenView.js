@@ -33,6 +33,7 @@ define( function( require ) {
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
+  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // images
@@ -185,7 +186,7 @@ define( function( require ) {
     // Create photonBeam node
     this.photonBeamNode = new SingleBulbPhotonBeamNode( model,
       {
-        canvasBounds: new Bounds2( 0, 0, Constants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, SingleBulbConstants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
         x: PHOTON_BEAM_START
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
