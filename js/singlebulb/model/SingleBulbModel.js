@@ -61,21 +61,18 @@ define( function( require ) {
         }
         // if the filter is visible, and the beam is colored, calculate the percentage of color to pass
         else if ( filterVisible && light === 'colored' ) {
-          var percent;
+          var alpha; // the new alpha value for the color, porportional to the percentage of light to pass through the filter
           var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the flashlightWavelength is outside the transmission width, no color passes.
           if ( flashlightWavelength < filterWavelength - halfWidth || flashlightWavelength > filterWavelength + halfWidth ) {
-            percent = 100;
+            alpha = 0;
           }
           // flashlightWavelength is within the transmission width, pass a linear percentage.
           else {
-            percent = 100 - Math.abs( filterWavelength - flashlightWavelength ) / halfWidth * 100;
+            alpha = 1 - Math.abs( filterWavelength - flashlightWavelength ) / halfWidth;
           }
-          var newColor = VisibleColor.wavelengthToColor( flashlightWavelength ).copy();
-          newColor.setAlpha( percent / 100 );
-          return newColor;
-
+          return VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( alpha );
         }
         // if the filter is visible, and the beam is white, return the filter wavelength's color
         else if ( filterVisible && light === 'white' ) {

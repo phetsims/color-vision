@@ -9,6 +9,6 @@ define( function( require ) {
 
   return {
     SINGLE_BEAM_LENGTH: 280,
-    GAUSSIAN_WIDTH: 60 // width of the gaussian for the filter slider in units of wavelengths
+    GAUSSIAN_WIDTH: 70 // width of the gaussian for the filter slider in units of wavelengths
   };
 } );
