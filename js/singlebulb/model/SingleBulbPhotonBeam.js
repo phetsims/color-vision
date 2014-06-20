@@ -17,6 +17,9 @@ define( function( require ) {
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
 
+  // constants
+  var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
+
   /**
    * @param {SingleBulbModel} model
    * @param {Number} size the length of the beam. This is used to determine what location to restart the photons.
@@ -58,7 +61,7 @@ define( function( require ) {
     // emit a black photon for reseting the perceived color to black if the flashlight is off
     // black photons will keep being emitted until the perceived color becomes black
     else if ( !this.model.perceivedColor.equals( Color.BLACK ) ) {
-      this.photons.push( SingleBulbPhoton.createFromPool( this.size, 1, Color.BLACK.withAlpha( 0 ), false ) );
+      this.photons.push( SingleBulbPhoton.createFromPool( this.size, 1, BLACK_ALPHA_0, false ) );
     }
 
     // move all photons that are currently active
@@ -113,14 +116,15 @@ define( function( require ) {
       // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       }
       else {
+        var newPerceivedColor;
         if ( photon.isWhite ) {
-          this.model.lastPhotonColor = Color.WHITE;
+          newPerceivedColor = Color.WHITE;
         } else {
-          var newColor = ( photon.wasWhite ) ? photon.color.copy() : photon.color.withAlpha( photon.intensity );
-          // don't change the color unless it is different than before, for performance reasons
-          if ( !this.model.lastPhotonColor.equals( newColor ) ) {
-            this.model.lastPhotonColor = newColor;
-          }
+          newPerceivedColor = ( photon.wasWhite ) ? photon.color.copy() : photon.color.withAlpha( photon.intensity );
+        }
+        // don't update the lastPhotonColor unless it is different than before, for performance reasons
+        if ( !this.model.lastPhotonColor.equals( newPerceivedColor ) ) {
+          this.model.lastPhotonColor = newPerceivedColor;
         }
         photon.freeToPool();
         this.photons.splice( j, 1 ); // remove jth photon from list
@@ -129,7 +133,7 @@ define( function( require ) {
 
     // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
     if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
-      var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, Color.BLACK.withAlpha( 0 ), false );
+      var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, BLACK_ALPHA_0, false );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
     }
