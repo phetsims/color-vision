@@ -17,6 +17,10 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var Property = require( 'AXON/Property' );
 
+  // constants
+  var DEFAULT_BEAM_ALPHA = 0.8;
+  var UNFILTERED_WHITE_COLOR = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
+
   /**
    * @param {SingleBulbModel} model
    * @param {Bounds2} bounds
@@ -27,27 +31,22 @@ define( function( require ) {
 
     Node.call( this );
 
-    // constant
-    var defaultBeamAlpha = 0.8;
-
     // use the principle of similar triangles to calculate where to split the beam
     var width = bounds.maxX - bounds.minX;
-    var triangleHeight = 30; // half the difference between the large end and small end of the beam
-    var ratio = triangleHeight / width;
-
-    // subtracting 4.4 is needed to make it look right, though I am not sure why the math isn't coming out right without it
-    var smallerTriangleHeight = ( bounds.maxX - cutoff ) * ratio - 4.4;
+    var triangleHeight = 30; // height of right triangle the overlaps with the beam fanning
+    var smallTriangleWidth = cutoff - bounds.minX;
+    var smallTriangleHeight = smallTriangleWidth * triangleHeight / width;
 
     var leftHalfShape = new Shape()
       .moveTo( bounds.minX, bounds.minY )
       .lineTo( bounds.minX, bounds.maxY )
-      .lineTo( cutoff, bounds.maxY + smallerTriangleHeight )
-      .lineTo( cutoff, bounds.minY - smallerTriangleHeight )
+      .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
+      .lineTo( cutoff, bounds.minY - smallTriangleHeight )
       .close();
 
     var rightHalfShape = new Shape()
-      .moveTo( cutoff, bounds.minY - smallerTriangleHeight )
-      .lineTo( cutoff, bounds.maxY + smallerTriangleHeight )
+      .moveTo( cutoff, bounds.minY - smallTriangleHeight )
+      .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
       .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
       .lineTo( bounds.maxX, bounds.minY - triangleHeight )
       .close();
@@ -77,24 +76,26 @@ define( function( require ) {
       rightHalf.visible = visible;
 
       if ( wholeBeam.visible ) {
-        wholeBeam.fill = rightHalf.fill.copy();
-        wholeBeam.fill.setAlpha( defaultBeamAlpha );
+        wholeBeam.fill = rightHalf.fill.withAlpha( DEFAULT_BEAM_ALPHA );
       }
     } );
 
     // This derived property listens for any changes to the model that condition when the beam should be white.
     // It is not assigned to a var, since it would never be used.
-    model.toDerivedProperty( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible' ],
-      function( flashlightWavelength, filterWavelength, light, filterVisible ) {
-        if ( light === 'white' && filterVisible ) {
-          leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
-          rightHalf.fill = new Color( 255, 255, 255, 1 );
-        }
-        else if ( light === 'white' && !filterVisible ) {
-          wholeBeam.fill = new Color( 255, 255, 255, defaultBeamAlpha );
-        }
-        else if ( light === 'colored' && filterVisible ) {
-          rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+    model.toDerivedProperty( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible', 'beam' ],
+      function( flashlightWavelength, filterWavelength, light, filterVisible, beamMode ) {
+        // update the beam only if it is visible
+        if ( beamMode === 'beam' ) {
+          if ( light === 'white' && filterVisible ) {
+            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
+            rightHalf.fill = Color.WHITE;
+          }
+          else if ( light === 'white' && !filterVisible ) {
+            wholeBeam.fill = UNFILTERED_WHITE_COLOR;
+          }
+          else if ( light === 'colored' && filterVisible ) {
+            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+          }
         }
       } );
 
