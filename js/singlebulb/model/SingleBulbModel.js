@@ -24,11 +24,11 @@ define( function( require ) {
     PropertySet.call( this, {
         light: 'colored',          // takes values 'white' and 'colored', to indicate what kind of light in the beam
         beam: 'beam',              // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
-        flashlightWavelength: 570, // default wavelength is yellow color
-        filterWavelength: 570,
+        flashlightWavelength: 570, // in units of wavelengths, default wavelength is yellow color
+        filterWavelength: 570,     // in units of wavelengths, default wavelength is yellow color
         flashlightOn: false,
         filterVisible: false,
-        play: true,
+        play: true,                // is the sim running or paused
         headMode: 'brain',         // takes values 'brain' and 'no-brain'
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color

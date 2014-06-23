@@ -39,7 +39,7 @@ define( function( require ) {
         perceivedRedIntensity: 0,
         perceivedGreenIntensity: 0,
         perceivedBlueIntensity: 0,
-        play: true,
+        play: true,       // is the sim running or paused
         headMode: 'brain' // takes values 'brain' or 'no-brain'
       }
     );
