@@ -58,11 +58,6 @@ define( function( require ) {
         this.photons.push( newPhoton );
       }
     }
-    // emit a black photon for reseting the perceived color to black if the flashlight is off
-    // black photons will keep being emitted until the perceived color becomes black
-    else if ( !this.model.perceivedColor.equals( Color.BLACK ) ) {
-      this.photons.push( SingleBulbPhoton.createFromPool( this.size, 1, BLACK_ALPHA_0, false ) );
-    }
 
     // move all photons that are currently active
     for ( var j = 0; j < this.photons.length; j++ ) {
@@ -130,10 +125,17 @@ define( function( require ) {
     }
 
     // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
+    // this takes care of the case when no photons pass through the filter
     if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
       var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, BLACK_ALPHA_0, false );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
+    }
+
+    // if no photons exist, make sure the perceived color is black. This prevents the percieved color from
+    // getting stuck on when no photons are hitting the eye
+    if ( this.photons.length === 0 && !this.model.lastPhotonColor.equals( Color.BLACK ) ) {
+      this.model.lastPhotonColor = Color.BLACK;
     }
   };
 
