@@ -52,15 +52,15 @@ define( function( require ) {
       return new SingleBulbPhoton( new Vector2(), new Vector2( Constants.X_VELOCITY, 0 ), 0, new Color( 0, 0, 0, 1 ) );
     },
     constructorDuplicateFactory: function( pool ) {
-      return function( size, intensity, color, isWhite ) {
+      return function( x, intensity, color, isWhite ) {
         var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
-        var yLocation = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
+        var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
 
         if ( pool.length ) {
           var photon = pool.pop();
           photon.intensity = intensity;
-          photon.location.y = yLocation;
-          photon.location.x = size;
+          photon.location.x = x;
+          photon.location.y = y;
 
           // attributes not present in RGBPhoton
           photon.isWhite = photon.wasWhite = isWhite;
@@ -72,7 +72,7 @@ define( function( require ) {
           return photon;
         }
         else {
-          return new SingleBulbPhoton( new Vector2( size, yLocation ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity, color, isWhite );
+          return new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity, color, isWhite );
         }
       };
     }

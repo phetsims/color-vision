@@ -51,10 +51,9 @@ define( function( require ) {
       var numToCreate = Math.random() * Math.floor( 5 * dt / 0.016 );
       for ( var i = 0; i < numToCreate; i++ ) {
         var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
-        var newPhoton = SingleBulbPhoton.createFromPool( this.beamLength, 1, newColor, ( this.model.light === 'white' ) );
+        var newPhoton = SingleBulbPhoton.createFromPool( this.beamLength + Math.random() * Constants.X_VELOCITY * dt, 1, newColor, ( this.model.light === 'white' ) );
 
         // randomly offset the starting location of the photon
-        newPhoton.location.x += Math.random() * newPhoton.velocity.x * dt;
         this.photons.push( newPhoton );
       }
     }
