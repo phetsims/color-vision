@@ -22,12 +22,12 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
-   * @param {Number} size the length of the beam. This is used to determine what location to restart the photons.
+   * @param {Number} beamLength the length of the beam. This is used to determine what location to restart the photons.
    # @constructor
    */
-  function SingleBulbPhotonBeam( model, size ) {
+  function SingleBulbPhotonBeam( model, beamLength ) {
     this.photons = [];
-    this.size = size;
+    this.beamLength = beamLength;
     this.model = model;
   }
 
@@ -51,7 +51,7 @@ define( function( require ) {
       var numToCreate = Math.random() * Math.floor( 5 * dt / 0.016 );
       for ( var i = 0; i < numToCreate; i++ ) {
         var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
-        var newPhoton = SingleBulbPhoton.createFromPool( this.size, 1, newColor, ( this.model.light === 'white' ) );
+        var newPhoton = SingleBulbPhoton.createFromPool( this.beamLength, 1, newColor, ( this.model.light === 'white' ) );
 
         // randomly offset the starting location of the photon
         newPhoton.location.x += Math.random() * newPhoton.velocity.x * dt;
@@ -124,7 +124,7 @@ define( function( require ) {
       }
     }
 
-    // emit a black photon for reseting the perceived color to black if no more photons passing through the filter
+    // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
     // this takes care of the case when no photons pass through the filter
     if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
       var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, BLACK_ALPHA_0, false );
@@ -132,7 +132,7 @@ define( function( require ) {
       this.photons.push( blackPhoton );
     }
 
-    // if no photons exist, make sure the perceived color is black. This prevents the percieved color from
+    // if no photons exist, make sure the perceived color is black. This prevents the perceived color from
     // getting stuck on when no photons are hitting the eye
     if ( this.photons.length === 0 && !this.model.lastPhotonColor.equals( Color.BLACK ) ) {
       this.model.lastPhotonColor = Color.BLACK;
