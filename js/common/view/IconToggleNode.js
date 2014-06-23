@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Panel containing a set of toggle buttons. Should this be move to common code?
+ * Panel containing a set of toggle buttons. Should this be moved to common code?
  *
  * @author Aaron Davis
  */

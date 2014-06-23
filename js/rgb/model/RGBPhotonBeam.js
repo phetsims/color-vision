@@ -14,49 +14,54 @@ define( function( require ) {
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
 
+  // constants
+  var CYCLE_LENGTH = 20; // how many animation frames to keep track of before starting over
+
   /**
    * @param {String} color an rgb string
    * @param {Property} intensityProperty the intensity property for this color from the model
    * @param {Property} perceivedIntensityProperty the perceived intensity property for this color from the model
-   * @param {Number} size the length of the beam, used to calculate the starting x coordinate
+   * @param {Number} beamLength the length of the beam, used to calculate the starting x coordinate
    # @constructor
    */
-  function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, size ) {
+  function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, beamLength ) {
     this.photons = [];
 
     this.color = color;
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
-    this.size = size;
+    this.beamLength = beamLength;
     this.frameCount = 0;
   }
 
   var updateAnimationFrame = function( dt ) {
 
-    // cycle length and spacing are using to keep track of how many animation frames
-    // to skip between photons when the intesity level is low
-    var cycleLength = 20;
     var intensity = this.intensityProperty.value;
-    var spacing = Math.floor( cycleLength / intensity );
+
+    // spacing keeps track of how many animations frames to skip between creating new photons when the intensity is low.
+    // this feature wasn't in the Java code, but I thought that creating a photon every frame looked too intense when the
+    // intensity was set as low as it could go.
+    var spacing = Math.floor( CYCLE_LENGTH / intensity );
 
     // create number of new photons proportional to intensity (between 1 and 5)
-    var numToCreate = ( intensity < cycleLength ) ? 1 : Math.floor( 0.05 * intensity );
+    var numToCreate = ( intensity < CYCLE_LENGTH ) ? 1 : Math.floor( 0.05 * intensity );
 
     // only create new photons if intensity is greater than 0
     if ( intensity > 0 ) {
-      if ( intensity >= cycleLength || this.frameCount % spacing === 0 ) {
+      // if the intensity is low, don't create photons on every frame
+      if ( intensity >= CYCLE_LENGTH || this.frameCount % spacing === 0 ) {
 
         for ( var i = 0; i < numToCreate; i++ ) {
-          var newPhoton = RGBPhoton.createFromPool( this.size, intensity );
+          var newPhoton = RGBPhoton.createFromPool( this.beamLength, intensity );
 
           // randomly offset the starting location of the photon
-          newPhoton.location.x += ( Math.random() * newPhoton.velocity.x * dt );
+          newPhoton.location.x += Math.random() * newPhoton.velocity.x * dt;
           this.photons.push( newPhoton );
         }
       }
 
       this.frameCount++;
-      if ( this.frameCount >= cycleLength ) {
+      if ( this.frameCount >= CYCLE_LENGTH ) {
         this.frameCount = 0;
       }
     }

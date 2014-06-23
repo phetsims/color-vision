@@ -21,6 +21,7 @@ define( function( require ) {
   /**
    * @param {Number} rotation
    * @param {String} color - an rgb string or other legitimate color string
+   * @param {Object} options
    # @constructor
    */
   function FlashlightNode( rotation, color, options ) {
@@ -46,12 +47,7 @@ define( function( require ) {
       lineTo( startX, centerY - dy ).
       close();
 
-    var beamNode = new Path( beamShape,
-      {
-        fill: color
-      } );
-
-    this.addChild( beamNode );
+    this.addChild( new Path( beamShape, { fill: color } ) );
     this.addChild( flashlightImage );
 
     this.mutate( options );
