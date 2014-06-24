@@ -157,7 +157,7 @@ define( function( require ) {
     this.addChild( new ThoughtBubble( model, 45, { centerX: 220 + thoughtBubbleX, centerY: 60 + thoughtBubbleY } ) );
     this.addChild( new ThoughtBubble( model, 15, { centerX: 90 + thoughtBubbleX, centerY: 105 + thoughtBubbleY } ) );
     this.addChild( new ThoughtBubble( model, 12, { centerX: 62 + thoughtBubbleX, centerY: 165 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model,  7, { centerX: 50 + thoughtBubbleX, centerY: 220 + thoughtBubbleY } ) );
+    this.addChild( new ThoughtBubble( model, 7, { centerX: 50 + thoughtBubbleX, centerY: 220 + thoughtBubbleY } ) );
 
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,
