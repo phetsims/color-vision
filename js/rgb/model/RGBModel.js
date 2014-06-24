@@ -50,29 +50,32 @@ define( function( require ) {
 
   }
 
-  return inherit( PropertySet, RGBModel,
-    {
+  return inherit( PropertySet, RGBModel, {
+
+      // @private
+      // convenience method for stepping all of the beams at once, used in step and manualStep
+      stepBeams: function( dt ) {
+        this.redBeam.updateAnimationFrame( dt );
+        this.greenBeam.updateAnimationFrame( dt );
+        this.blueBeam.updateAnimationFrame( dt );
+      },
+
       step: function( dt ) {
         if ( this.play ) {
           if ( dt > Constants.MAX_DT || dt <= 0 ) {
             dt = 1.0 / 60.0;
           }
-          this.redBeam.updateAnimationFrame( dt );
-          this.greenBeam.updateAnimationFrame( dt );
-          this.blueBeam.updateAnimationFrame( dt );
+          this.stepBeams( dt );
         }
       },
 
       // step one frame, assuming 60fps
       manualStep: function() {
-        this.redBeam.updateAnimationFrame( 1 / 60 );
-        this.greenBeam.updateAnimationFrame( 1 / 60 );
-        this.blueBeam.updateAnimationFrame( 1 / 60 );
+        this.stepBeams( 1 / 60 );
       },
 
       reset: function() {
         PropertySet.prototype.reset.call( this );
-
         this.redBeam.reset();
         this.greenBeam.reset();
         this.blueBeam.reset();
