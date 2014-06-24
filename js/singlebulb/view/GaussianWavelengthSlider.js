@@ -93,7 +93,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, GaussianWavelengthSlider );
-
-  return GaussianWavelengthSlider;
+  return inherit( Node, GaussianWavelengthSlider );
 } );
