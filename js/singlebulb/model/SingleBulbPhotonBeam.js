@@ -45,6 +45,7 @@ define( function( require ) {
 
     // if the flashlight is on, create new photons this animation frame
     if ( this.model.flashlightOn ) {
+
       // create a number of photon proportional to dt
       // 5 photons will be created if dt is the expected 0.016
       // if dt is greater, a greater number of photons will be created to compensate for the slower frame rate
@@ -89,6 +90,7 @@ define( function( require ) {
         }
         // if the photon is not white
         else {
+
           // set the photonIntensity to be the same as the percentage passing through the filter,
           // for use when setting the perceived color when the photon hits the eye.
           // make sure the intensity is at least 0.2, otherwise it looks too black in the view
@@ -107,7 +109,7 @@ define( function( require ) {
       if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
         photon.updateAnimationFrame( dt );
 
-      // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
+        // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       }
       else {
         var newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color;
@@ -139,6 +141,7 @@ define( function( require ) {
   };
 
   var reset = function() {
+
     // set all photons to be out of bounds to trigger empty redraw
     for ( var i = 0; i < this.photons.length; i++ ) {
       this.photons[i].location.x = 0;
