@@ -18,6 +18,9 @@ define( function( require ) {
   // images
   var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
 
+  // constants
+  var SCALE = 0.8;
+
   /**
    * @param {Number} rotation
    * @param {String} color - an rgb string or other legitimate color string
@@ -28,18 +31,12 @@ define( function( require ) {
 
     Node.call( this, { rotation: rotation } );
 
-    var scale = 0.8;
-    var flashlightImage = new Image( flashlight,
-      {
-        scale: scale,
-        left: this.centerX,
-        centerY: this.centerY
-      } );
+    var flashlightImage = new Image( flashlight, { scale: SCALE } );
 
     var startX = flashlightImage.left + 15;
     var centerY = flashlightImage.centerY + 0.5;
-    var dx = 20 / 0.12 * scale;
-    var dy = 3 / 0.12 * scale;
+    var dx = 20 / 0.12 * SCALE;
+    var dy = 3 / 0.12 * SCALE;
     var beamShape = new Shape().
       moveTo( startX, centerY + dy ).
       lineTo( startX - dx, centerY + dy * 2 ).
