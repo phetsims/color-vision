@@ -31,12 +31,16 @@ define( function( require ) {
 
     Node.call( this, { rotation: rotation } );
 
+    // draw the flashlight image, with the bulb pointed toward the left
     var flashlightImage = new Image( flashlight, { scale: SCALE } );
 
-    var startX = flashlightImage.left + 15;
-    var centerY = flashlightImage.centerY + 0.5;
-    var dx = 20 / 0.12 * SCALE;
-    var dy = 3 / 0.12 * SCALE;
+    // values used for drawing the beam shape
+    var startX = flashlightImage.left + 15;      // start drawing the beam to the left of the flashlight
+    var centerY = flashlightImage.centerY + 0.5; // centerY of beam and flashlight
+    var dx = 170 * SCALE;                        // length of the beam in the x direction
+    var dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
+
+    // draw a trapeziodal beam shape, just to the left of the flashlight image
     var beamShape = new Shape().
       moveTo( startX, centerY + dy ).
       lineTo( startX - dx, centerY + dy * 2 ).
