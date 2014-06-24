@@ -16,8 +16,8 @@ define( function( require ) {
 
   /**
    * @param {Property} property
-   * @param {Image} iconOne
-   * @param {Image} iconTwo
+   * @param {Node} iconOne
+   * @param {Node} iconTwo
    * @param {*} valueOne
    * @param {*} valueTwo
    * @param {Object} options
