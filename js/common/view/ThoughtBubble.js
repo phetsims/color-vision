@@ -35,14 +35,14 @@ define( function( require ) {
     // If using the RGBModel link to a combination of the RGB colors
     // If using SingleBulbModel, it already has a perceived color property that should be used instead.
     var colorProperty = ( model instanceof RGBModel ) ?
-      model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
-        function( redIntensity, greenIntensity, blueIntensity ) {
-          return 'rgb(' + [
-            Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
-            Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
-            Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ].join() + ')';
-        } ) :
-      model.perceivedColorProperty;
+                        model.toDerivedProperty( ['perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity'],
+                          function( redIntensity, greenIntensity, blueIntensity ) {
+                            return 'rgb(' + [
+                              Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
+                              Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
+                              Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ].join() + ')';
+                          } ) :
+                        model.perceivedColorProperty;
 
     colorProperty.linkAttribute( this, 'fill' );
 
