@@ -25,9 +25,10 @@ define( function( require ) {
    * @param {Property} filterWavelengthProperty
    * @param {Number} width the width of the track
    * @param {Number} height the height of the track
+   * @param {Object} options
    * @constructor
    */
-  function GaussianWavelengthSlider( filterWavelengthProperty, width, height ) {
+  function GaussianWavelengthSlider( filterWavelengthProperty, width, height, options ) {
 
     Node.call( this );
 
@@ -91,6 +92,8 @@ define( function( require ) {
       containerNode.x = newPosition - width / 2;
       gaussianPath.centerX = newPosition;
     } );
+
+    this.mutate( options );
   }
 
   return inherit( Node, GaussianWavelengthSlider );

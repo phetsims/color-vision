@@ -192,9 +192,11 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT );
-    gaussianSlider.bottom = this.layoutBounds.bottom - 20;
-    gaussianSlider.right = wavelengthSliderDistance;
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
+      {
+        bottom: this.layoutBounds.bottom - 20,
+        right: wavelengthSliderDistance
+      } );
 
     var filterColorText = new Text( filterColor, { fill: 'white', font: new PhetFont( 20 ), bottom: gaussianSlider.top - 3, right: gaussianSlider.right - 18 } );
     this.addChild( filterColorText );
