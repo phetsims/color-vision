@@ -108,9 +108,9 @@ define( function( require ) {
       // since this does not seem to completely keep them inside the canvas bounds (for unknown reasons)
       if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
         photon.updateAnimationFrame( dt );
-
-        // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       }
+
+      // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
       else {
         var newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color;
         // don't update the lastPhotonColor unless it is different than before, for performance reasons
