@@ -21,7 +21,7 @@ define( function( require ) {
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
-   * @param {Number} value between 0-1 for color alpha value
+   * @param {Number} intensity between 0-1 for color alpha value
    * @param {Color} color
    * @param {boolean} isWhite
    # @constructor
