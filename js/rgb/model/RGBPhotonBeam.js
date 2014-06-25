@@ -13,9 +13,12 @@ define( function( require ) {
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var CYCLE_LENGTH = 20; // how many animation frames to keep track of before starting over
+
+  var POOLING_ENABLED = false;
 
   /**
    * @param {String} color an rgb string
@@ -54,10 +57,18 @@ define( function( require ) {
         if ( intensity >= CYCLE_LENGTH || this.frameCount % spacing === 0 ) {
 
           for ( var i = 0; i < numToCreate; i++ ) {
-            var newPhoton = RGBPhoton.createFromPool( this.beamLength, intensity );
+            // randomly offset the starting location of the photon, and the y-velocity
+            var x = this.beamLength + Math.random() * Constants.X_VELOCITY * dt;
+            var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
+            var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
 
-            // randomly offset the starting location of the photon
-            newPhoton.location.x += Math.random() * newPhoton.velocity.x * dt;
+            var newPhoton;
+            if ( POOLING_ENABLED ) {
+              newPhoton = RGBPhoton.createFromPool( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity );
+            }
+            else {
+              newPhoton = new RGBPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity );
+            }
             this.photons.push( newPhoton );
           }
         }
@@ -77,7 +88,7 @@ define( function( require ) {
         }
         else {
           this.perceivedIntensityProperty.value = this.photons[j].intensity;
-          this.photons[j].freeToPool();
+          if ( POOLING_ENABLED ) { this.photons[j].freeToPool(); }
           this.photons.splice( j, 1 ); // remove jth RGBPhoton from list
         }
 

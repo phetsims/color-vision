@@ -59,7 +59,7 @@ define( function( require ) {
           var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
 
           // randomly offset the starting location of the photon and the y-velocity
-          var x = this.beamLength + Math.random();
+          var x = this.beamLength + Math.random() * Constants.X_VELOCITY * dt;
           var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
           var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
 

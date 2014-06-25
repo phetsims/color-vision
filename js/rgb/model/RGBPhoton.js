@@ -48,21 +48,16 @@ define( function( require ) {
     },
 
     constructorDuplicateFactory: function( pool ) {
-      return function( size, intensity ) {
-        var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
-        var yLocation = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
+      return function( location, velocity, intensity ) {
         if ( pool.length ) {
           var photon = pool.pop();
+          photon.location = location;
+          photon.velocity = velocity;
           photon.intensity = intensity;
-          photon.location.y = yLocation;
-          photon.location.x = size;
-
-          // set y velocity to determine how much fanning, x velocity is constant
-          photon.velocity.y = yVelocity;
           return photon;
         }
         else {
-          return new RGBPhoton( new Vector2( size, yLocation ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity );
+          return new RGBPhoton( location, velocity, intensity );
         }
       };
     }
