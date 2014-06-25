@@ -18,8 +18,6 @@ define( function( require ) {
   // constants
   var CYCLE_LENGTH = 20; // how many animation frames to keep track of before starting over
 
-  var POOLING_ENABLED = false;
-
   /**
    * @param {String} color an rgb string
    * @param {Property} intensityProperty the intensity property for this color from the model
@@ -62,14 +60,7 @@ define( function( require ) {
             var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
             var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
 
-            var newPhoton;
-            if ( POOLING_ENABLED ) {
-              newPhoton = RGBPhoton.createFromPool( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity );
-            }
-            else {
-              newPhoton = new RGBPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity );
-            }
-            this.photons.push( newPhoton );
+            this.photons.push( new RGBPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity ) );
           }
         }
 
@@ -88,7 +79,6 @@ define( function( require ) {
         }
         else {
           this.perceivedIntensityProperty.value = this.photons[j].intensity;
-          if ( POOLING_ENABLED ) { this.photons[j].freeToPool(); }
           this.photons.splice( j, 1 ); // remove jth RGBPhoton from list
         }
 

@@ -1,18 +1,12 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model of a photon. Pooling is used in this class to reduce the number of heap
- * allocations that occur every second, and the overhead of the extra garbage collection.
+ * Model of a photon for RGB screen.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 define( function( require ) {
   'use strict';
-
-  // modules
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
-  var Poolable = require( 'PHET_CORE/Poolable' );
-  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {Vector2} location
@@ -32,36 +26,6 @@ define( function( require ) {
       this.location.y = this.location.y + dt * this.velocity.y;
     }
   };
-
-  /* jshint -W064 */
-  Poolable( RGBPhoton, {
-
-    // Use a pool size of 50. This number was chosen because logging the size of the pool
-    // revealed that with all the photon beams going at full blast, there are usually somewhere
-    // between 10 and 35 photons in the pool at a time, so 50 seemed like a reasonable upper bound.
-    maxPoolSize: 50, // 50 is the default value, show explicitly here for clarity
-
-    initialSize: 50, // fill the pool to start, so photons are ready to go when the beams turn on
-
-    defaultFactory: function() {
-      return new RGBPhoton( new Vector2(), new Vector2( Constants.X_VELOCITY, 0 ), 0 );
-    },
-
-    constructorDuplicateFactory: function( pool ) {
-      return function( location, velocity, intensity ) {
-        if ( pool.length ) {
-          var photon = pool.pop();
-          photon.location = location;
-          photon.velocity = velocity;
-          photon.intensity = intensity;
-          return photon;
-        }
-        else {
-          return new RGBPhoton( location, velocity, intensity );
-        }
-      };
-    }
-  } );
 
   return RGBPhoton;
 } );

@@ -21,9 +21,6 @@ define( function( require ) {
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
 
-  // set this to true to use pooling on the photons
-  var POOLING_ENABLED = false;
-
   /**
    * @param {SingleBulbModel} model
    * @param {Number} beamLength the length of the beam. This is used to determine what location to restart the photons.
@@ -63,14 +60,7 @@ define( function( require ) {
           var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
           var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
 
-          var newPhoton;
-          if ( POOLING_ENABLED ) {
-            newPhoton = SingleBulbPhoton.createFromPool( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) );
-          }
-          else {
-            newPhoton = new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) );
-          }
-          this.photons.push( newPhoton );
+          this.photons.push( new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) ) );
         }
       }
 
@@ -96,7 +86,6 @@ define( function( require ) {
 
           // remove a percentage of photons from the beam
           if ( Math.random() >= probability ) {
-            if ( POOLING_ENABLED ) { photon.freeToPool(); }
             this.photons.splice( j, 1 ); // remove jth photon from list
           }
           // if the beam is white, make sure it is the color of the filter
@@ -138,7 +127,6 @@ define( function( require ) {
             // otherwise it takes the intensity of the photon, which may have been partially filtered
             this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.copy() : newPerceivedColor.withAlpha( photon.intensity );
           }
-          if ( POOLING_ENABLED ) { photon.freeToPool(); }
           this.photons.splice( j, 1 ); // remove jth photon from list
         }
       }
@@ -146,13 +134,7 @@ define( function( require ) {
       // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
-        var blackPhoton;
-        if ( POOLING_ENABLED ) {
-          blackPhoton = SingleBulbPhoton.createFromPool( new Vector2( this.filterOffset, Constants.BEAM_HEIGHT / 2 ), new Vector2( Constants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
-        }
-        else {
-          blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, Constants.BEAM_HEIGHT / 2 ), new Vector2( Constants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
-        }
+        var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, Constants.BEAM_HEIGHT / 2 ), new Vector2( Constants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }
