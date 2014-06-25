@@ -16,9 +16,13 @@ define( function( require ) {
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  var Vector2 = require ( 'DOT/Vector2' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
+
+  // set this to true to use pooling on the photons
+  var POOLING_ENABLED = false;
 
   /**
    * @param {SingleBulbModel} model
@@ -42,7 +46,6 @@ define( function( require ) {
         return new Color( r, g, b, 1 );
       }
 
-      var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
       var probability = 1; // probability for a given photon to pass the filter
 
       // if the flashlight is on, create new photons this animation frame
@@ -54,9 +57,19 @@ define( function( require ) {
         var numToCreate = Math.random() * Math.floor( 5 * dt / 0.016 );
         for ( var i = 0; i < numToCreate; i++ ) {
           var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
-          var newPhoton = SingleBulbPhoton.createFromPool( this.beamLength + Math.random() * Constants.X_VELOCITY * dt, 1, newColor, ( this.model.light === 'white' ) );
 
-          // randomly offset the starting location of the photon
+          // randomly offset the starting location of the photon and the y-velocity
+          var x = this.beamLength + Math.random();
+          var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
+          var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
+
+          var newPhoton;
+          if ( POOLING_ENABLED ) {
+            newPhoton = SingleBulbPhoton.createFromPool( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) );
+          }
+          else {
+            newPhoton = new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) );
+          }
           this.photons.push( newPhoton );
         }
       }
@@ -67,6 +80,7 @@ define( function( require ) {
 
         // check if the photon just passed through the filter location
         if ( this.model.filterVisible && photon.location.x < this.filterOffset && !photon.passedFilter ) {
+          var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the flashlightWavelength is outside the transmission width, no photons pass.
           if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
@@ -82,7 +96,7 @@ define( function( require ) {
 
           // remove a percentage of photons from the beam
           if ( Math.random() >= probability ) {
-            photon.freeToPool();
+            if ( POOLING_ENABLED ) { photon.freeToPool(); }
             this.photons.splice( j, 1 ); // remove jth photon from list
           }
           // if the beam is white, make sure it is the color of the filter
@@ -124,7 +138,7 @@ define( function( require ) {
             // otherwise it takes the intensity of the photon, which may have been partially filtered
             this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.copy() : newPerceivedColor.withAlpha( photon.intensity );
           }
-          photon.freeToPool();
+          if ( POOLING_ENABLED ) { photon.freeToPool(); }
           this.photons.splice( j, 1 ); // remove jth photon from list
         }
       }
@@ -132,7 +146,13 @@ define( function( require ) {
       // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
-        var blackPhoton = SingleBulbPhoton.createFromPool( this.filterOffset, 1, BLACK_ALPHA_0, false );
+        var blackPhoton;
+        if ( POOLING_ENABLED ) {
+          blackPhoton = SingleBulbPhoton.createFromPool( new Vector2( this.filterOffset, Constants.BEAM_HEIGHT / 2 ), new Vector2( Constants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
+        }
+        else {
+          blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, Constants.BEAM_HEIGHT / 2 ), new Vector2( Constants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
+        }
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }

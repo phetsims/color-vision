@@ -52,27 +52,19 @@ define( function( require ) {
       return new SingleBulbPhoton( new Vector2(), new Vector2( Constants.X_VELOCITY, 0 ), 0, new Color( 0, 0, 0, 1 ) );
     },
     constructorDuplicateFactory: function( pool ) {
-      return function( x, intensity, color, isWhite ) {
-        var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
-        var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
-
+      return function( location, velocity, intensity, color, isWhite ) {
         if ( pool.length ) {
           var photon = pool.pop();
+          photon.location = location;
+          photon.velocity = velocity;
           photon.intensity = intensity;
-          photon.location.x = x;
-          photon.location.y = y;
-
-          // attributes not present in RGBPhoton
+          photon.color = color;
           photon.isWhite = photon.wasWhite = isWhite;
           photon.passedFilter = false;
-          photon.color = color;
-
-          // set y velocity to determine how much fanning, x velocity is constant
-          photon.velocity.y = yVelocity;
           return photon;
         }
         else {
-          return new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity, color, isWhite );
+          return new SingleBulbPhoton( location, velocity, intensity, color, isWhite );
         }
       };
     }
