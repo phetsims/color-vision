@@ -20,7 +20,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var ThoughtBubble = require( 'COLOR_VISION/common/view/ThoughtBubble' );
+  var ThoughtBubblesNode = require( 'COLOR_VISION/common/view/ThoughtBubblesNode' );
   var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
@@ -149,15 +149,8 @@ define( function( require ) {
 
     this.addChild( resetAllButton );
 
-    // for moving the thought bubbles together as a group
-    var thoughtBubbleX = -15;
-    var thoughtBubbleY = -10;
-
     // Add thought bubbles
-    this.addChild( new ThoughtBubble( model, 45, { centerX: 220 + thoughtBubbleX, centerY: 60 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model, 15, { centerX: 90 + thoughtBubbleX, centerY: 105 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model, 12, { centerX: 62 + thoughtBubbleX, centerY: 165 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model, 7, { centerX: 50 + thoughtBubbleX, centerY: 220 + thoughtBubbleY } ) );
+    this.addChild( new ThoughtBubblesNode( model ) );
 
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,

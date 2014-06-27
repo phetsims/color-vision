@@ -23,7 +23,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
-  var ThoughtBubble = require( 'COLOR_VISION/common/view/ThoughtBubble' );
+  var ThoughtBubblesNode = require( 'COLOR_VISION/common/view/ThoughtBubblesNode' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
@@ -68,15 +68,8 @@ define( function( require ) {
     // constants relative to layout bounds
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
-    // for moving the thought bubbles together as a group
-    var thoughtBubbleX = -15;
-    var thoughtBubbleY = -10;
-
     // Add thought bubbles
-    this.addChild( new ThoughtBubble( model, 45, { centerX: 220 + thoughtBubbleX, centerY: 60 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model, 15, { centerX: 90 + thoughtBubbleX, centerY: 105 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model, 12, { centerX: 62 + thoughtBubbleX, centerY: 165 + thoughtBubbleY } ) );
-    this.addChild( new ThoughtBubble( model, 7, { centerX: 50 + thoughtBubbleX, centerY: 220 + thoughtBubbleY } ) );
+    this.addChild( new ThoughtBubblesNode( model ) );
 
     // Add head image
     var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom );
