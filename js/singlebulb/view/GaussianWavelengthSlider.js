@@ -42,7 +42,8 @@ define( function( require ) {
         trackOpacity: 0.5,
         cursorVisible: false,
         thumbWidth: 30,
-        thumbHeight: 40
+        thumbHeight: 40,
+        thumbTouchAreaExpandY: 10
       } );
     this.addChild( lowerSliderNodeTransparent );
 

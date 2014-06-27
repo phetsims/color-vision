@@ -106,7 +106,8 @@ define( function( require ) {
         trackHeight: SLIDER_TRACK_HEIGHT,
         cursorStroke: 'white',
         thumbWidth: 30,
-        thumbHeight: 40
+        thumbHeight: 40,
+        thumbTouchAreaExpandY: 10
       } );
 
     // add text above the upper slider
