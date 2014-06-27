@@ -23,7 +23,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
-  var ThoughtBubblesNode = require( 'COLOR_VISION/common/view/ThoughtBubblesNode' );
+  var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
@@ -57,6 +57,7 @@ define( function( require ) {
   var SLIDER_TRACK_WIDTH = 200;
   var SLIDER_TRACK_HEIGHT = 30;
   var PHOTON_BEAM_START = 320;
+  var ICON_OPTIONS = { scale: 0.64 }; // options common to all icon images
 
   /**
    * @constructor
@@ -65,11 +66,11 @@ define( function( require ) {
 
     ScreenView.call( this, { renderer: 'svg' } );
 
-    // constants relative to layout bounds
+    // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
     // Add thought bubbles
-    this.addChild( new ThoughtBubblesNode( model ) );
+    addThoughtBubbles( model, this );
 
     // Add head image
     var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom );
@@ -109,6 +110,7 @@ define( function( require ) {
         thumbHeight: 40
       } );
 
+    // add text above the upper slider
     var bulbColorText = new Text( bulbColor, { fill: 'white', font: new PhetFont( 20 ), bottom: upperSliderNode.top - 3, right: upperSliderNode.right - 18 } );
     this.addChild( bulbColorText );
 
@@ -129,17 +131,14 @@ define( function( require ) {
     this.addChild( flashlightWire );
     this.addChild( upperSliderNode );
 
-    // options common to all icon images
-    var iconOptions = { scale: 0.64 };
-
     // options common to all IconToggleNodes
     var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 2, iconYMargin: 2 };
 
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
       model.lightProperty,
-      new Image( whiteLightIcon, iconOptions ),
-      new Image( singleColorLightIcon, iconOptions ),
+      new Image( whiteLightIcon, ICON_OPTIONS ),
+      new Image( singleColorLightIcon, ICON_OPTIONS ),
       'white',
       'colored',
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
@@ -147,8 +146,8 @@ define( function( require ) {
 
     var beamPhotonSelectButtons = new IconToggleNode(
       model.beamProperty,
-      new Image( beamViewIcon, iconOptions ),
-      new Image( photonViewIcon, iconOptions ),
+      new Image( beamViewIcon, ICON_OPTIONS ),
+      new Image( photonViewIcon, ICON_OPTIONS ),
       'beam',
       'photon',
       _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
@@ -158,7 +157,7 @@ define( function( require ) {
     this.addChild( beamPhotonSelectButtons );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
-    // so can be positioned the same location and will match up perfectly
+    // so both can use the same option parameters and can be positioned the same location and will match up perfectly
     var filterOptions = {
       centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
       scale: 0.7,
@@ -173,7 +172,7 @@ define( function( require ) {
     model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
     model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 
-    // tell the photon beam where the filter location is
+    // tell the photon beam model where the filter location is
     model.photonBeam.filterOffset = filterLeftNode.centerX - PHOTON_BEAM_START;
 
     // Create photonBeam node
@@ -184,16 +183,18 @@ define( function( require ) {
       } );
     this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
 
-    // Create gaussian wavelength slider
+    // Create gaussian wavelength slider for controlling the filter color
     var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
       {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance
       } );
 
+    // Add the text above the gaussian wavelength slider
     var filterColorText = new Text( filterColor, { fill: 'white', font: new PhetFont( 20 ), bottom: gaussianSlider.top - 3, right: gaussianSlider.right - 18 } );
     this.addChild( filterColorText );
 
+    // Add the wire from the slider to the filter
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
@@ -202,53 +203,57 @@ define( function( require ) {
 
     this.addChild( gaussianSlider );
 
+    // Left half of the filter
     var filterLeft = new FilterHalfEllipse
     (
       model.filterWavelengthProperty,
       model.filterVisibleProperty,
-        filterLeftNode.centerX + 1,
+      filterLeftNode.centerX + 1,
       filterLeftNode.centerY,
-        filterLeftNode.width / 2 - 13,
-        filterLeftNode.height / 2 - 12,
+      filterLeftNode.width / 2 - 13,
+      filterLeftNode.height / 2 - 12,
       true
     );
 
+    // Right half of the filter
     var filterRight = new FilterHalfEllipse
     (
       model.filterWavelengthProperty,
       model.filterVisibleProperty,
-        filterLeftNode.centerX - 1,
+      filterLeftNode.centerX - 1,
       filterLeftNode.centerY,
-        filterLeftNode.width / 2 - 13,
-        filterLeftNode.height / 2 - 12,
+      filterLeftNode.width / 2 - 13,
+      filterLeftNode.height / 2 - 12,
       false
     );
 
+    // bounds for the solid beam view
     var beamBounds = new Bounds2
     (
-        headImageNode.right - 35,
-        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 54,
-        flashlightNode.left + 15,
-        this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 48
+      headImageNode.right - 35,
+      this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 54,
+      flashlightNode.left + 15,
+      this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 48
     );
 
-    var beam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
+    var solidBeam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
 
-    // Add right side of filter to below the beam and the left side
+    // Add right side of filter before the solid beam and the left side
     this.addChild( filterRightNode );
     this.addChild( filterRight );
 
-    // Add beam before the left side of the filter so it shows up
-    this.addChild( beam );
+    // Add the solid and photon beams above the right side of the filter so they show up on top
+    this.addChild( solidBeam );
     this.addChild( this.photonBeamNode );
 
+    // Add the left side of the filter above the beams so it appears to pass behind
     this.addChild( filterLeftNode );
     this.addChild( filterLeft );
 
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
 
-    // Add 'Reset All' button, resets the sim to its initial state
+    // Add reset all button
     var resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
@@ -259,7 +264,7 @@ define( function( require ) {
 
     this.addChild( resetAllButton );
 
-    // Add Play/Pause button
+    // Add play/pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,
       {
         bottom: this.layoutBounds.bottom - 20,
@@ -278,21 +283,6 @@ define( function( require ) {
       } );
 
     this.addChild( stepButton );
-
-    function sleep( millis ) {
-      var date = new Date();
-      var curDate;
-      do {
-        curDate = new Date();
-      } while ( curDate - date < millis );
-    }
-
-    this.addChild( new TextPushButton( 'SLOW', {
-      listener: function() {
-        sleep( 500 );
-      },
-      visible: false
-    } ) );
   }
 
   return inherit( ScreenView, SingleBulbScreenView,

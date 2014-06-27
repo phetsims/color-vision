@@ -20,7 +20,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var ThoughtBubblesNode = require( 'COLOR_VISION/common/view/ThoughtBubblesNode' );
+  var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
@@ -150,7 +150,7 @@ define( function( require ) {
     this.addChild( resetAllButton );
 
     // Add thought bubbles
-    this.addChild( new ThoughtBubblesNode( model ) );
+    addThoughtBubbles( model, this );
 
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,
