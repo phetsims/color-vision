@@ -34,7 +34,6 @@ define( function( require ) {
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );

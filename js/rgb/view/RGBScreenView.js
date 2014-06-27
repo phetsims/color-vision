@@ -25,7 +25,6 @@ define( function( require ) {
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
-  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // images
   var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
@@ -38,6 +37,7 @@ define( function( require ) {
 
   // constants
   var BEAM_ANGLE = Math.PI / 6;
+  var FLASHLIGHT_SCALE = 0.72;
 
   /**
    * @param {RGBModel} model
@@ -100,12 +100,10 @@ define( function( require ) {
     // Add head mode toggle
     this.addChild( new HeadToggleNode( model.headModeProperty, { bottom: this.layoutBounds.bottom - 22, centerX: headBackNode.centerX - 40 } ) );
 
-
     // Add flashlights
-    var flashlightScale = 0.72;
-    var redFlashlight = new Image( flashlightDown, { scale: flashlightScale } );
-    var greenFlashlight = new Image( flashlight, { scale: flashlightScale } );
-    var blueFlashlight = new Image( flashlightUp, { scale: flashlightScale } );
+    var redFlashlight = new Image( flashlightDown, { scale: FLASHLIGHT_SCALE } );
+    var greenFlashlight = new Image( flashlight, { scale: FLASHLIGHT_SCALE } );
+    var blueFlashlight = new Image( flashlightUp, { scale: FLASHLIGHT_SCALE } );
 
     var flashlightVBox = new VBox(
       {
@@ -138,7 +136,7 @@ define( function( require ) {
 
     this.addChild( sliderVBox );
 
-    // Add 'Reset All' button
+    // Add reset all button
     var resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
@@ -171,22 +169,6 @@ define( function( require ) {
       } );
 
     this.addChild( stepButton );
-
-    function sleep( millis ) {
-      var date = new Date();
-      var curDate;
-      do {
-        curDate = new Date();
-      } while ( curDate - date < millis );
-    }
-
-    this.addChild( new TextPushButton( 'SLOW', {
-      listener: function() {
-        sleep( 500 );
-      },
-      visible: false
-    } ) );
-
   }
 
   return inherit( ScreenView, RGBScreenView,
