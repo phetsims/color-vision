@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model of a photon beam, made of individual photon particles.
+ * Model of the photon beam used on the single bulb screen, made of individual photon particles.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
