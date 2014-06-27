@@ -8,6 +8,9 @@
 define( function( require ) {
   'use strict';
 
+  // modules
+  var inherit = require( 'PHET_CORE/inherit' );
+
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
@@ -20,12 +23,10 @@ define( function( require ) {
     this.intensity = intensity;
   }
 
-  RGBPhoton.prototype = {
+  return inherit( Object, RGBPhoton, {
     updateAnimationFrame: function( dt ) {
       this.location.x = this.location.x + dt * this.velocity.x;
       this.location.y = this.location.y + dt * this.velocity.y;
     }
-  };
-
-  return RGBPhoton;
+  } );
 } );
