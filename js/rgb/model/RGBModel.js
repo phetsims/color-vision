@@ -12,7 +12,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
 
