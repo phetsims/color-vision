@@ -14,6 +14,7 @@ define( function( require ) {
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  var EventTimer = require( 'PHET_CORE/EventTimer' );
 
   /**
    * @constructor
@@ -48,24 +49,25 @@ define( function( require ) {
     this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, RGBConstants.GREEN_BEAM_LENGTH );
     this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH );
 
+    var thisModel = this;
+    this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 60 ), function( timeElapsed ) {
+      thisModel.stepBeams( 1 / 60 );
+    } );
   }
 
   return inherit( PropertySet, RGBModel, {
 
       // @private
       // convenience method for stepping all of the beams at once, used in step and manualStep
-      stepBeams: function( dt ) {
-        this.redBeam.updateAnimationFrame( dt );
-        this.greenBeam.updateAnimationFrame( dt );
-        this.blueBeam.updateAnimationFrame( dt );
+      stepBeams: function( timeElapsed ) {
+        this.redBeam.updateAnimationFrame( timeElapsed );
+        this.greenBeam.updateAnimationFrame( timeElapsed );
+        this.blueBeam.updateAnimationFrame( timeElapsed );
       },
 
       step: function( dt ) {
         if ( this.play ) {
-          if ( dt > Constants.MAX_DT || dt <= 0 ) {
-            dt = 1.0 / 60.0;
-          }
-          this.stepBeams( dt );
+          this.eventTimer.step( dt );
         }
       },
 
