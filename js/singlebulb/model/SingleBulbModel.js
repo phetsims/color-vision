@@ -14,8 +14,8 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  var EventTimer = require( 'PHET_CORE/EventTimer' );
 
   /**
    * @constructor
@@ -89,16 +89,18 @@ define( function( require ) {
       } );
 
     this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH );
+
+    var thisModel = this;
+    this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 60 ), function( timeElapsed ) {
+      thisModel.photonBeam.updateAnimationFrame( 1 / 60 );
+    } );
   }
 
   return inherit( PropertySet, SingleBulbModel,
     {
       step: function( dt ) {
         if ( this.play ) {
-          if ( dt > Constants.MAX_DT || dt <= 0 ) {
-            dt = 1.0 / 60.0;
-          }
-          this.photonBeam.updateAnimationFrame( dt );
+          this.eventTimer.step( dt );
         }
       },
 
