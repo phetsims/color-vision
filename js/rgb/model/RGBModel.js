@@ -50,7 +50,7 @@ define( function( require ) {
 
     var thisModel = this;
     this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 60 ), function( timeElapsed ) {
-      thisModel.stepBeams( 1 / 60 );
+      thisModel.stepBeams( timeElapsed );
     } );
   }
 

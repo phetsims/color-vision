@@ -91,8 +91,10 @@ define( function( require ) {
     this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH );
 
     var thisModel = this;
-    this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 60 ), function( timeElapsed ) {
-      thisModel.photonBeam.updateAnimationFrame( 1 / 60 );
+
+    // create a new photon every 1/120 seconds
+    this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 120 ), function( timeElapsed ) {
+      thisModel.photonBeam.createPhoton( timeElapsed );
     } );
   }
 
@@ -100,6 +102,7 @@ define( function( require ) {
     {
       step: function( dt ) {
         if ( this.play ) {
+          this.photonBeam.updateAnimationFrame( dt );
           this.eventTimer.step( dt );
         }
       },

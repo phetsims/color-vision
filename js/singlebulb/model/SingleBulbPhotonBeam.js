@@ -32,37 +32,18 @@ define( function( require ) {
     this.model = model;
   }
 
+  function randomColor() {
+    var r = Math.floor( Math.random() * 256 );
+    var g = Math.floor( Math.random() * 256 );
+    var b = Math.floor( Math.random() * 256 );
+    return new Color( r, g, b, 1 );
+  }
+
   return inherit( PropertySet, SingleBulbPhotonBeam, {
 
     updateAnimationFrame: function( dt ) {
 
-      function randomColor() {
-        var r = Math.floor( Math.random() * 256 );
-        var g = Math.floor( Math.random() * 256 );
-        var b = Math.floor( Math.random() * 256 );
-        return new Color( r, g, b, 1 );
-      }
-
       var probability = 1; // probability for a given photon to pass the filter
-
-      // if the flashlight is on, create new photons this animation frame
-      if ( this.model.flashlightOn ) {
-
-        // create a number of photon proportional to dt
-        // 5 photons will be created if dt is the expected 0.016
-        // if dt is greater, a greater number of photons will be created to compensate for the slower frame rate
-        var numToCreate = Math.random() * Math.floor( 5 * dt / 0.016 );
-        for ( var i = 0; i < numToCreate; i++ ) {
-          var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
-
-          // randomly offset the starting location of the photon and the y-velocity
-          var x = this.beamLength + Math.random() * Constants.X_VELOCITY * dt;
-          var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
-          var y = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
-
-          this.photons.push( new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) ) );
-        }
-      }
 
       // move all photons that are currently active
       for ( var j = 0; j < this.photons.length; j++ ) {
@@ -143,6 +124,22 @@ define( function( require ) {
       // getting stuck on when no photons are hitting the eye
       if ( this.photons.length === 0 && !this.model.lastPhotonColor.equals( Color.BLACK ) ) {
         this.model.lastPhotonColor = Color.BLACK;
+      }
+    },
+
+    createPhoton: function( timeElapsed ) {
+      // if the flashlight is on, create a new photon this animation frame
+      if ( this.model.flashlightOn ) {
+        var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
+
+        var x = this.beamLength + Constants.X_VELOCITY * timeElapsed;
+        var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
+
+        var initialY = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
+        var deltaY = yVelocity * timeElapsed;
+        var y = initialY + deltaY;
+
+        this.photons.push( new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) ) );
       }
     },
 
