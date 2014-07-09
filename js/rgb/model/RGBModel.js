@@ -49,8 +49,37 @@ define( function( require ) {
     this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH );
 
     var thisModel = this;
-    this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 60 ), function( timeElapsed ) {
-      thisModel.stepBeams( timeElapsed );
+
+    // create a ConstantEventModel for each beam
+    this.redConstantEventModel = new EventTimer.ConstantEventModel( 1 );
+    this.greenConstantEventModel = new EventTimer.ConstantEventModel( 1 );
+    this.blueConstantEventModel = new EventTimer.ConstantEventModel( 1 );
+
+    // create an EventTimer for each beam, used to regulate when to create new photons for each beam
+    this.redEventTimer = new EventTimer( this.redConstantEventModel, function( timeElapsed ) {
+      thisModel.redBeam.createPhotons( timeElapsed );
+    } );
+
+    this.greenEventTimer = new EventTimer( this.greenConstantEventModel, function( timeElapsed ) {
+      thisModel.greenBeam.createPhotons( timeElapsed );
+    } );
+
+    this.blueEventTimer = new EventTimer( this.blueConstantEventModel, function( timeElapsed ) {
+      thisModel.blueBeam.createPhotons( timeElapsed );
+    } );
+
+    // link the intensity of each beam to the rate of their event timers
+    // make sure not to set the rate to 0 or there will be a division by 0 in EventTimer
+    this.redIntensityProperty.link( function( intensity ) {
+      thisModel.redConstantEventModel.rate = Math.floor( intensity ) * 2 || 1;
+    } );
+
+    this.greenIntensityProperty.link( function( intensity ) {
+      thisModel.greenConstantEventModel.rate = Math.floor( intensity ) * 2 || 1;
+    } );
+
+    this.blueIntensityProperty.link( function( intensity ) {
+      thisModel.blueConstantEventModel.rate = Math.floor( intensity ) * 2 || 1;
     } );
   }
 
@@ -64,9 +93,18 @@ define( function( require ) {
         this.blueBeam.updateAnimationFrame( timeElapsed );
       },
 
+      // @private
+      // convenience method for stepping all of the timers at once
+      stepTimers: function( dt ) {
+        this.redEventTimer.step( dt );
+        this.greenEventTimer.step( dt );
+        this.blueEventTimer.step( dt );
+      },
+
       step: function( dt ) {
         if ( this.play ) {
-          this.eventTimer.step( dt );
+          this.stepBeams( dt );
+          this.stepTimers( dt );
         }
       },
 
