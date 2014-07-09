@@ -57,15 +57,15 @@ define( function( require ) {
 
     // create an EventTimer for each beam, used to regulate when to create new photons for each beam
     this.redEventTimer = new EventTimer( this.redConstantEventModel, function( timeElapsed ) {
-      thisModel.redBeam.createPhotons( timeElapsed );
+      thisModel.redBeam.createPhoton( timeElapsed );
     } );
 
     this.greenEventTimer = new EventTimer( this.greenConstantEventModel, function( timeElapsed ) {
-      thisModel.greenBeam.createPhotons( timeElapsed );
+      thisModel.greenBeam.createPhoton( timeElapsed );
     } );
 
     this.blueEventTimer = new EventTimer( this.blueConstantEventModel, function( timeElapsed ) {
-      thisModel.blueBeam.createPhotons( timeElapsed );
+      thisModel.blueBeam.createPhoton( timeElapsed );
     } );
 
     // link the intensity of each beam to the rate of their event timers

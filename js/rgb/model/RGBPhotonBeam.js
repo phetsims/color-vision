@@ -56,7 +56,7 @@ define( function( require ) {
       }
     },
 
-    createPhotons: function( timeElapsed ) {
+    createPhoton: function( timeElapsed ) {
       var intensity = this.intensityProperty.value;
 
       // only create a new photon if intensity is greater than 0
