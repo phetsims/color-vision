@@ -52,12 +52,12 @@ define( function( require ) {
     var wirePath = new Path( wire, { lineWidth: 5, stroke: '#999999' } );
 
     // draw the outline of the switch
-    var swtichOutline = new Shape()
+    var switchOutline = new Shape()
       .arc( start.x + SWITCH_WIDTH, start.y + switchDistance + SWITCH_HEIGHT / 2, 10, -Math.PI / 2, Math.PI / 2 )
       .arc( start.x - SWITCH_WIDTH, start.y + switchDistance + SWITCH_HEIGHT / 2, 10, Math.PI / 2, -Math.PI / 2 )
       .lineTo( start.x + SWITCH_WIDTH, start.y + switchDistance - 1.5 );
 
-    var outlinePath = new Path( swtichOutline, { lineWidth: 8, stroke: '#666666' } );
+    var outlinePath = new Path( switchOutline, { lineWidth: 8, stroke: '#666666' } );
 
     // draw the switch inside the outline
     var onOffSwitch = new OnOffSwitch( onProperty,
