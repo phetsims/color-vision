@@ -1,7 +1,7 @@
 //  Copyright 2002-2014, University of Colorado Boulder
 
 /**
- * The 'Color Vision' screen. Conforms to the contract specified in joist/Screen.
+ * The 'Single Bulb' screen. Conforms to the contract specified in joist/Screen.
  *
  * @author Sam Reid
  */
