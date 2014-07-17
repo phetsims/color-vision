@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model for single bulb screen
+ * Model for 'Single Bulb' screen
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
