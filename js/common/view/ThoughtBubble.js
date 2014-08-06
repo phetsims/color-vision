@@ -25,7 +25,7 @@ define( function( require ) {
     Path.call( this, ellipse,
       {
         lineWidth: 0.5,
-        stroke: '#c0b9b9', // gray,
+        stroke: '#c0b9b9' // gray
       } );
 
     perceivedColorProperty.linkAttribute( this, 'fill' );

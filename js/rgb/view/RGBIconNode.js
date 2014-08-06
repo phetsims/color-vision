@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * RGBIconNode - for navbar and homepage icons
+ * Icon for the 'RGB' screen.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */

@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * SingleBulbIconNode - for navbar and homepage icons
+ * Icon for the 'Single Bulb' screen.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
