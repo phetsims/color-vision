@@ -95,6 +95,9 @@ define( function( require ) {
           else if ( light === 'colored' && filterVisible ) {
             rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
           }
+          else if ( light === 'colored' && !filterVisible ) {
+            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+          }
         }
       } );
 
