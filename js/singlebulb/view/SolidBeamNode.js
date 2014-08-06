@@ -80,9 +80,8 @@ define( function( require ) {
       }
     } );
 
-    // This derived property listens for any changes to the model that condition when the beam should be white.
-    // It is not assigned to a var, since it would never be used.
-    model.toDerivedProperty( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible', 'beam' ],
+    // listen for any changes to the model that condition when the beam should be white.
+    model.multilink( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible', 'beam' ],
       function( flashlightWavelength, filterWavelength, light, filterVisible, beamMode ) {
         // update the beam only if it is visible
         if ( beamMode === 'beam' ) {
