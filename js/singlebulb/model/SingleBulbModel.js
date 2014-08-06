@@ -110,6 +110,7 @@ define( function( require ) {
       // step one frame, assuming 60fps
       manualStep: function() {
         this.photonBeam.updateAnimationFrame( 1 / 60 );
+        this.eventTimer.step( 1 / 60 );
       },
 
       reset: function() {
