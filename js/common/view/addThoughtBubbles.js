@@ -17,15 +17,15 @@ define( function( require ) {
   var THOUGHT_BUBBLE_Y = -10;
 
   /**
-   * @param {PropertySet} model the model being used, either RGBModel or SingleBulbModel
+   * @param {Property} perceivedColorProperty
    * @param {ScreenView} view the screen view being used, either RGBScreenView or SingleBulbScreenView
    * @constructor
    */
-  function addThoughtBubbles( model, view ) {
-    view.addChild( new ThoughtBubble( model, 45, { centerX: 220 + THOUGHT_BUBBLE_X, centerY: 60 + THOUGHT_BUBBLE_Y } ) );
-    view.addChild( new ThoughtBubble( model, 15, { centerX: 90 + THOUGHT_BUBBLE_X, centerY: 105 + THOUGHT_BUBBLE_Y } ) );
-    view.addChild( new ThoughtBubble( model, 12, { centerX: 62 + THOUGHT_BUBBLE_X, centerY: 165 + THOUGHT_BUBBLE_Y } ) );
-    view.addChild( new ThoughtBubble( model, 7, { centerX: 50 + THOUGHT_BUBBLE_X, centerY: 220 + THOUGHT_BUBBLE_Y } ) );
+  function addThoughtBubbles( perceivedColorProperty, view ) {
+    view.addChild( new ThoughtBubble( perceivedColorProperty, 45, { centerX: 220 + THOUGHT_BUBBLE_X, centerY: 60 + THOUGHT_BUBBLE_Y } ) );
+    view.addChild( new ThoughtBubble( perceivedColorProperty, 15, { centerX: 90 + THOUGHT_BUBBLE_X, centerY: 105 + THOUGHT_BUBBLE_Y } ) );
+    view.addChild( new ThoughtBubble( perceivedColorProperty, 12, { centerX: 62 + THOUGHT_BUBBLE_X, centerY: 165 + THOUGHT_BUBBLE_Y } ) );
+    view.addChild( new ThoughtBubble( perceivedColorProperty, 7, { centerX: 50 + THOUGHT_BUBBLE_X, centerY: 220 + THOUGHT_BUBBLE_Y } ) );
   }
 
   return addThoughtBubbles;

@@ -15,6 +15,9 @@ define( function( require ) {
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
 
+  // constants
+  var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
+
   /**
    * @constructor
    */
@@ -49,6 +52,16 @@ define( function( require ) {
     this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH );
 
     var thisModel = this;
+
+    // add perceivedColorProperty based on the combination of the three perceived intensities.
+    // this determines the thought bubble color
+    this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
+      function( redIntensity, greenIntensity, blueIntensity ) {
+        return 'rgb(' + [
+          Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
+          Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
+          Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ].join() + ')';
+      } );
 
     // create a ConstantEventModel for each beam
     this.redConstantEventModel = new EventTimer.ConstantEventModel( 1 );

@@ -69,7 +69,7 @@ define( function( require ) {
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
     // Add thought bubbles
-    addThoughtBubbles( model, this );
+    addThoughtBubbles( model.perceivedColorProperty, this );
 
     // Add head image
     var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom );

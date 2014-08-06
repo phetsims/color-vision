@@ -148,7 +148,7 @@ define( function( require ) {
     this.addChild( resetAllButton );
 
     // Add thought bubbles
-    addThoughtBubbles( model, this );
+    addThoughtBubbles( model.perceivedColorProperty, this );
 
     // Add Play/Pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,
