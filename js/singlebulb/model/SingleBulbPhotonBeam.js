@@ -14,7 +14,7 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var Vector2 = require ( 'DOT/Vector2' );
 
@@ -92,7 +92,7 @@ define( function( require ) {
         // move the photon unless it goes out of bounds
         // see related bounds checking code in the view file SingleBulbPhotonBeamNode.js,
         // since this does not seem to completely keep them inside the canvas bounds (for unknown reasons)
-        if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < Constants.BEAM_HEIGHT ) {
+        if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < ColorVisionConstants.BEAM_HEIGHT ) {
           photon.updateAnimationFrame( dt );
         }
 
@@ -115,7 +115,7 @@ define( function( require ) {
       // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
-        var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, Constants.BEAM_HEIGHT / 2 ), new Vector2( Constants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
+        var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ), new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }
@@ -132,14 +132,14 @@ define( function( require ) {
       if ( this.model.flashlightOn ) {
         var newColor = ( this.model.light === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
 
-        var x = this.beamLength + Constants.X_VELOCITY * timeElapsed;
-        var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
+        var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
+        var yVelocity = ( Math.random() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
-        var initialY = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
+        var initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
         var deltaY = yVelocity * timeElapsed;
         var y = initialY + deltaY;
 
-        this.photons.push( new SingleBulbPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) ) );
+        this.photons.push( new SingleBulbPhoton( new Vector2( x, y ), new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) ) );
       }
     },
 

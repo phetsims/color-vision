@@ -25,7 +25,7 @@ define( function( require ) {
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
@@ -91,7 +91,7 @@ define( function( require ) {
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
-        centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
+        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
         right: this.layoutBounds.maxX - 40
       } );
 
@@ -159,7 +159,7 @@ define( function( require ) {
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same location and will match up perfectly
     var filterOptions = {
-      centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
+      centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       scale: 0.7,
       right: flashlightNode.left - 100
     };
@@ -178,10 +178,10 @@ define( function( require ) {
     // Create photonBeam node
     this.photonBeamNode = new SingleBulbPhotonBeamNode( model,
       {
-        canvasBounds: new Bounds2( 0, 0, SingleBulbConstants.SINGLE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, SingleBulbConstants.SINGLE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
         x: PHOTON_BEAM_START
       } );
-    this.photonBeamNode.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
+    this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
     var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
@@ -231,9 +231,9 @@ define( function( require ) {
     var beamBounds = new Bounds2
     (
       headImageNode.right - 35,
-      this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET + 54,
+      this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,
-      this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET - 48
+      this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET - 48
     );
 
     var solidBeam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );

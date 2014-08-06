@@ -14,7 +14,7 @@ define( function( require ) {
   var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
   var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // strings
   var rgbString = require( 'string!COLOR_VISION/rgb' );
@@ -23,7 +23,7 @@ define( function( require ) {
    * @constructor
    */
   function RGBScreen() {
-    Screen.call( this, rgbString, new RGBIconNode( Constants.HOME_SCREEN_ICON_FILL ),
+    Screen.call( this, rgbString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_FILL ),
       function() { return new RGBModel(); },
       function( model ) { return new RGBScreenView( model ); },
       { backgroundColor: 'black', navigationBarIcon: new RGBIconNode( 'black' ) }

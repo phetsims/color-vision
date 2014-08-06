@@ -12,7 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
@@ -39,7 +39,7 @@ define( function( require ) {
       // move all photons that are currently active
       for ( var i = 0; i < this.photons.length; i++ ) {
 
-        if ( this.photons[i].location.x > 0 && this.photons[i].location.y > 0 && this.photons[i].location.y < Constants.BEAM_HEIGHT ) {
+        if ( this.photons[i].location.x > 0 && this.photons[i].location.y > 0 && this.photons[i].location.y < ColorVisionConstants.BEAM_HEIGHT ) {
           this.photons[i].updateAnimationFrame( dt );
 
         }
@@ -61,14 +61,14 @@ define( function( require ) {
 
       // only create a new photon if intensity is greater than 0
       if ( intensity > 0 ) {
-        var x = this.beamLength + Constants.X_VELOCITY * timeElapsed;
-        var yVelocity = ( Math.random() * Constants.FAN_FACTOR - ( Constants.FAN_FACTOR / 2 ) ) * 60;
+        var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
+        var yVelocity = ( Math.random() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
-        var initialY = yVelocity * ( 25 / 60 ) + ( Constants.BEAM_HEIGHT / 2 );
+        var initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
         var deltaY = yVelocity * timeElapsed;
         var y = initialY + deltaY;
 
-        this.photons.push( new RGBPhoton( new Vector2( x, y ), new Vector2( Constants.X_VELOCITY, yVelocity ), intensity ) );
+        this.photons.push( new RGBPhoton( new Vector2( x, y ), new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ), intensity ) );
       }
     },
 

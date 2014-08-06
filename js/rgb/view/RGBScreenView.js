@@ -23,7 +23,7 @@ define( function( require ) {
   var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
 
   // images
@@ -57,7 +57,7 @@ define( function( require ) {
     // Add photon beams
     this.redBeam = new RGBPhotonBeamNode( model.redBeam,
       {
-        canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
         x: 280,
         y: 190,
         rotation: -BEAM_ANGLE
@@ -65,14 +65,14 @@ define( function( require ) {
 
     this.greenBeam = new RGBPhotonBeamNode( model.greenBeam,
       {
-        canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
         x: 320
       } );
-    this.greenBeam.centerY = this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET;
+    this.greenBeam.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     this.blueBeam = new RGBPhotonBeamNode( model.blueBeam,
       {
-        canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, Constants.BEAM_HEIGHT ),
+        canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
         x: 320,
         y: 145,
         rotation: BEAM_ANGLE
@@ -113,7 +113,7 @@ define( function( require ) {
           blueFlashlight ],
         spacing: 70,
         right: this.layoutBounds.maxX - 75,
-        centerY: this.layoutBounds.centerY + Constants.CENTER_Y_OFFSET,
+        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       } );
 
     this.addChild( flashlightVBox );

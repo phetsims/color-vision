@@ -14,7 +14,7 @@ define( function( require ) {
   var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
   var SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
   var SingleBulbModel = require( 'COLOR_VISION/singlebulb/model/SingleBulbModel' );
-  var Constants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // strings
   var singleBulbString = require( 'string!COLOR_VISION/singlebulb' );
@@ -23,7 +23,7 @@ define( function( require ) {
    * @constructor
    */
   function SingleBulbScreen() {
-    Screen.call( this, singleBulbString, new SingleBulbIconNode( Constants.HOME_SCREEN_ICON_FILL ),
+    Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_FILL ),
       function() { return new SingleBulbModel(); },
       function( model ) { return new SingleBulbScreenView( model ); },
       { backgroundColor: 'black', navigationBarIcon: new SingleBulbIconNode( 'black' ) }
