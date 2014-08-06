@@ -17,7 +17,7 @@ define( function( require ) {
   var THOUGHT_BUBBLE_Y = -10;
 
   /**
-   * @param {Property} perceivedColorProperty
+   * @param {Property<Color|String>} perceivedColorProperty
    * @param {ScreenView} view the screen view being used, either RGBScreenView or SingleBulbScreenView
    * @constructor
    */

@@ -22,7 +22,7 @@ define( function( require ) {
 
   /**
    * Wavelength slider with a gaussian
-   * @param {Property} filterWavelengthProperty
+   * @param {Property<Number>} filterWavelengthProperty
    * @param {Number} width the width of the track
    * @param {Number} height the height of the track
    * @param {Object} options

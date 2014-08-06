@@ -14,7 +14,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
 
   /**
-   * @param {Property} perceivedColorProperty
+   * @param {Property<Color|String>} perceivedColorProperty
    * @param {Number} yRadius
    * @param {Object} options
    * @constructor

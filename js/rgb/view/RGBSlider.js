@@ -16,7 +16,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
 
   /**
-   * @param {Property} intensityProperty the intensity property for this color from the model
+   * @param {Property<Number>} intensityProperty the intensity property for this color from the model
    * @param {String} color
    * @constructor
    */

@@ -17,8 +17,8 @@ define( function( require ) {
 
   /**
    * @param {String} color an rgb string
-   * @param {Property} intensityProperty the intensity property for this color from the model
-   * @param {Property} perceivedIntensityProperty the perceived intensity property for this color from the model
+   * @param {Property<Number>} intensityProperty the intensity property for this color from the model
+   * @param {Property<Number>} perceivedIntensityProperty the perceived intensity property for this color from the model
    * @param {Number} beamLength the length of the beam, used to calculate the starting x coordinate
    # @constructor
    */

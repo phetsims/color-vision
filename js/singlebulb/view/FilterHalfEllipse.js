@@ -16,8 +16,8 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
-   * @param {Property} filterWavelengthProperty
-   * @param {Property} filterVisibleProperty
+   * @param {Property<Number>} filterWavelengthProperty
+   * @param {Property<Number>} filterVisibleProperty
    * @param {Number} centerX
    * @param {Number} centerY
    * @param {Number} radiusX

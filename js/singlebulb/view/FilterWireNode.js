@@ -25,7 +25,7 @@ define( function( require ) {
   var SWITCH_WIDTH = 8;
 
   /**
-   * @param {Property} onProperty
+   * @param {Property<Boolean>} onProperty
    * @param {Vector2} start
    * @param {Vector2} end
    * @constructor
