@@ -29,7 +29,6 @@ define( function( require ) {
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
     this.beamLength = beamLength;
-    this.frameCount = 0;
   }
 
   return inherit( PropertySet, RGBPhotonBeam, {
