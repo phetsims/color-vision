@@ -21,7 +21,7 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
+  var SingleBulbHeadNode = require( 'COLOR_VISION/common/view/SingleBulbHeadNode' );
   var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
   var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
@@ -38,8 +38,6 @@ define( function( require ) {
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
-  var headImage = require( 'image!COLOR_VISION/head-with-brain.png' );
-  var headNoBrainImage = require( 'image!COLOR_VISION/head-no-brain.png' );
   var whiteLightIcon = require( 'image!COLOR_VISION/white-light-icon.png' );
   var singleColorLightIcon = require( 'image!COLOR_VISION/single-color-light-icon.png' );
   var beamViewIcon = require( 'image!COLOR_VISION/beam-view-icon.png' );
@@ -71,22 +69,11 @@ define( function( require ) {
     // Add thought bubbles
     addThoughtBubbles( model.perceivedColorProperty, this );
 
-    // Add head image
-    var headImageNode = new HeadNode( headImage, this.layoutBounds.bottom );
-    this.addChild( headImageNode );
-
-    // Add head image with no brain
-    var headNoBrainImageNode = new HeadNode( headNoBrainImage, this.layoutBounds.bottom );
-    this.addChild( headNoBrainImageNode );
-
-    // Make sure only one image is visible at at time, depending on the user's selection
-    model.headModeProperty.link( function( mode ) {
-      headImageNode.visible = ( mode === 'brain' );
-      headNoBrainImageNode.visible = ( mode === 'no-brain' );
-    } );
+    var headNode = new SingleBulbHeadNode( model.headModeProperty, this.layoutBounds.bottom );
+    this.addChild( headNode );
 
     // Add head toggle buttons
-    this.addChild( new HeadToggleNode( model.headModeProperty, { bottom: this.layoutBounds.bottom - 22, centerX: headImageNode.centerX - 40 } ) );
+    this.addChild( new HeadToggleNode( model.headModeProperty, { bottom: this.layoutBounds.bottom - 22, centerX: headNode.centerX - 40 } ) );
 
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
@@ -230,7 +217,7 @@ define( function( require ) {
     // bounds for the solid beam view
     var beamBounds = new Bounds2
     (
-      headImageNode.right - 35,
+      headNode.right - 35,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET - 48
