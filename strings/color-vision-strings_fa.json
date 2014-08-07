@@ -1,0 +1,16 @@
+{
+    "beamType.title": "منطره ی باریکه ی نور",
+    "intensitySlider.wiggleMe.text": "یکی از لغزنده ها را حرکت دهید .",
+    "bulbType.monochromatic": "تک رنگ ",
+    "filterSlider.label": "رنگ فیلتر",
+    "RgbBulbsModule.title": " RGB لامپ های قرمز سبز آبی",
+    "translation.credits": "<html>خليلي بروجني<br> وب سايت www.avang.org <br></html>",
+    "filterSlider.wiggleMe.text": "دکمه ی لغزنده را حرکت دهید.",
+    "bulbType.white": "سفید",
+    "beamType.photons": "فوتونی",
+    "color-vision.name": "دید رنگی",
+    "bulbSlider.label": "رنگ لامپ",
+    "bulbType.title": "نوع لامپ",
+    "SingleBulbModule.title": "تک لامپ",
+    "beamType.solid": "توپر"
+}

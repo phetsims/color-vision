@@ -1,0 +1,16 @@
+{
+    "beamType.title": "ลำแสง",
+    "intensitySlider.wiggleMe.text": "เลื่อน",
+    "bulbType.monochromatic": "หลอดไฟแสงสี",
+    "filterSlider.label": "แผ่นกรองแสง",
+    "RgbBulbsModule.title": "หลอดไฟสี แดง เขียว น้ำเงิน",
+    "translation.credits": "<html>ธรรมรัตน์ พรหมพิงค์<br>emmergv@hotmail.com</html>",
+    "filterSlider.wiggleMe.text": "เลื่อน",
+    "bulbType.white": "หลอดไฟแสงขาว",
+    "beamType.photons": "โฟตอน",
+    "color-vision.name": "การมองแสงสี",
+    "bulbSlider.label": "แสงสี",
+    "bulbType.title": "ชนิดหลอดไฟ",
+    "SingleBulbModule.title": "หลอดไฟหลากสี",
+    "beamType.solid": "แถบแสง"
+}

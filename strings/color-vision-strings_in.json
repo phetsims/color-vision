@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Tampilan Pancaran",
+    "intensitySlider.wiggleMe.text": "Geser tombol",
+    "color-vision.description": "Bagaimana tampilan cahaya dan kerja filter",
+    "bulbType.monochromatic": "Monokromatik",
+    "filterSlider.label": "Filter Cahaya",
+    "RgbBulbsModule.title": "Lampu Merah Hijau Biru",
+    "filterSlider.wiggleMe.text": "Geser tombol",
+    "bulbType.white": "Putih",
+    "beamType.photons": "Partikel",
+    "color-vision.name": "Tampilan Cahaya",
+    "bulbType.title": "Jenis Lampu",
+    "bulbSlider.label": "Warna Lampu",
+    "SingleBulbModule.title": "Lampu Tunggal",
+    "beamType.solid": "Penuh"
+}

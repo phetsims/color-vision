@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Vizualizarea razelor",
+    "intensitySlider.wiggleMe.text": "Mișcarea unui cursor",
+    "bulbType.monochromatic": "Monocromatică",
+    "filterSlider.label": "Culoarea filtrului",
+    "RgbBulbsModule.title": "Becuri RGB ",
+    "translation.credits": "<center>Turcanu Cosmina clasa 8-a <br> Scoala Mastacan<br>Neamt, Romania<br>Prof. Dinu Radu Codrin</center>",
+    "filterSlider.wiggleMe.text": "Mișcarea cursorului",
+    "bulbType.white": "Alb",
+    "beamType.photons": "Fotoni",
+    "color-vision.name": "Vederea în culori",
+    "bulbSlider.label": "Culoarea becului",
+    "bulbType.title": "Tipul becului",
+    "SingleBulbModule.title": "Un singur bec",
+    "beamType.solid": "Solid"
+}

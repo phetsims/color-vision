@@ -1,0 +1,16 @@
+{
+    "beamType.title": "מראה אלומה",
+    "intensitySlider.wiggleMe.text": "הזז מחוון!",
+    "color-vision.description": "כיצד ראיית צבעים ומסננים עובדים",
+    "bulbType.monochromatic": "מונוכרומטי",
+    "filterSlider.label": "צבע מסנן",
+    "RgbBulbsModule.title": "נורות אדום-ירוק-כחול",
+    "filterSlider.wiggleMe.text": "הזז את המחוון!",
+    "bulbType.white": "לבן",
+    "beamType.photons": "פוטונים",
+    "color-vision.name": "ראיית צבעים",
+    "bulbType.title": "סוג נורה",
+    "bulbSlider.label": "צבע נורה",
+    "SingleBulbModule.title": "נורה יחידה",
+    "beamType.solid": "רציף"
+}

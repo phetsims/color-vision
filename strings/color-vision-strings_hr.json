@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Pregled",
+    "intensitySlider.wiggleMe.text": "Pomakni kliznik!",
+    "color-vision.description": "Kako vidimo boje?",
+    "bulbType.monochromatic": "Jednobojno",
+    "filterSlider.label": "Filter boje",
+    "RgbBulbsModule.title": "Slaganje boja",
+    "filterSlider.wiggleMe.text": "Pomakni kliznik!",
+    "bulbType.white": "Bijela",
+    "beamType.photons": "Fotoni",
+    "color-vision.name": "Kako vidimo boje?",
+    "bulbType.title": "Boja izvora",
+    "bulbSlider.label": "Odaberi boju:",
+    "SingleBulbModule.title": "Analiza spektra",
+    "beamType.solid": "Zraka"
+}

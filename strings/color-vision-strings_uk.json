@@ -1,0 +1,15 @@
+{
+    "beamType.title": "Відображення",
+    "intensitySlider.wiggleMe.text": "Перетягуйте ці повзунки!",
+    "bulbType.monochromatic": "Монохроматичний",
+    "filterSlider.label": "Колір фільтра",
+    "RgbBulbsModule.title": "Змішування променів",
+    "filterSlider.wiggleMe.text": "Перетягніть повзунок!",
+    "bulbType.white": "Білий",
+    "beamType.photons": "Фотони",
+    "color-vision.name": "Колір, що його бачить людина",
+    "bulbType.title": "Тип лампи",
+    "bulbSlider.label": "Колір лампи",
+    "SingleBulbModule.title": "Кольоровий фільтр",
+    "beamType.solid": "Промінь"
+}

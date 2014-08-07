@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Type de faisceau",
+    "intensitySlider.wiggleMe.text": "Déplacez un curseur !",
+    "color-vision.description": "Comment voit-on les couleurs et comment fonctionne un filtre ?",
+    "bulbType.monochromatic": "Monochromatique",
+    "filterSlider.label": "Couleur du filtre",
+    "RgbBulbsModule.title": "Lampes RVB",
+    "filterSlider.wiggleMe.text": "Déplacez le curseur !",
+    "bulbType.white": "Blanche",
+    "beamType.photons": "Photons",
+    "color-vision.name": "Visions des couleurs",
+    "bulbType.title": "Type de lumière",
+    "bulbSlider.label": "Couleur de la lumière",
+    "SingleBulbModule.title": "Lampe Simple",
+    "beamType.solid": "Plein"
+}

@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Вид пучка",
+    "intensitySlider.wiggleMe.text": "Переместите один из движков!",
+    "color-vision.description": "Как работает цветовое зрение и светофильтры",
+    "bulbType.monochromatic": "Монохроматическая",
+    "filterSlider.label": "Цвет светофильтра",
+    "RgbBulbsModule.title": "лампы КЗС",
+    "filterSlider.wiggleMe.text": "Переместите движок!",
+    "bulbType.white": "Белая",
+    "beamType.photons": "Фотоны",
+    "color-vision.name": "Цветовое зрение",
+    "bulbType.title": "Тип лампы",
+    "bulbSlider.label": "Цвет лампы",
+    "SingleBulbModule.title": "одна лампа",
+    "beamType.solid": "Сплошной"
+}

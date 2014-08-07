@@ -1,0 +1,15 @@
+{
+    "beamType.title": "Поглед-зрак",
+    "intensitySlider.wiggleMe.text": "Помести го лизгачот!",
+    "bulbType.monochromatic": "Еднобојна",
+    "filterSlider.label": "Филтер на бои",
+    "RgbBulbsModule.title": "Сијалици во боја",
+    "filterSlider.wiggleMe.text": "Помести го лизгачот!",
+    "bulbType.white": "Бела",
+    "beamType.photons": "Фотони",
+    "color-vision.name": "Како ги гледаме боите",
+    "bulbType.title": "Тип на сијалица",
+    "bulbSlider.label": "Боја на сијалица",
+    "SingleBulbModule.title": "Една сијалица",
+    "beamType.solid": "Зрак"
+}

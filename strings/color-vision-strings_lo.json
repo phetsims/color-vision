@@ -1,0 +1,15 @@
+{
+    "beamType.title": "ເບິ່ງລຳແສງ",
+    "intensitySlider.wiggleMe.text": "ຍ້າຍແທບເລື່ອນ!",
+    "bulbType.monochromatic": "ສີດຽວ",
+    "filterSlider.label": "ເຄື່ອງຕ້ອງແສງທີ່ເປັນສີ",
+    "RgbBulbsModule.title": "ດອກໄຟ",
+    "filterSlider.wiggleMe.text": "ຍ້າຍແທບເລື່ອນ!",
+    "bulbType.white": "ຂາວ",
+    "beamType.photons": "ໂຟຕອນ",
+    "color-vision.name": "ການເບິ່ງເຫັນສີ",
+    "bulbType.title": "ປະເພດຂອງດອກໄຟ",
+    "bulbSlider.label": "ດອກໄຟສີ",
+    "SingleBulbModule.title": "ໄຟດອກດຽວ",
+    "beamType.solid": "ລຳແສງທີ່ໜາແໜ້ນ"
+}

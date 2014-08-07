@@ -1,0 +1,15 @@
+{
+    "beamType.title": "Strålevisning",
+    "intensitySlider.wiggleMe.text": "Flytt en glidebryter!",
+    "bulbType.monochromatic": "Monokromatisk",
+    "filterSlider.label": "Filterfarge",
+    "RgbBulbsModule.title": "RGB-pære",
+    "filterSlider.wiggleMe.text": "Flytt glidebryteren!",
+    "bulbType.white": "Hvitt",
+    "beamType.photons": "Fotoner",
+    "color-vision.name": "Fargesyn",
+    "bulbType.title": "Lyspæretype",
+    "bulbSlider.label": "Lyspærefarge",
+    "SingleBulbModule.title": "Ensfarget pære",
+    "beamType.solid": "Bølge"
+}

@@ -1,0 +1,16 @@
+{
+    "beamType.title": "光线类型",
+    "intensitySlider.wiggleMe.text": "移动一个滑块",
+    "bulbType.monochromatic": "单色光",
+    "filterSlider.label": "滤光片颜色",
+    "RgbBulbsModule.title": "三原色混合实验",
+    "translation.credits": "张大红",
+    "filterSlider.wiggleMe.text": "移动滑块",
+    "bulbType.white": "白光",
+    "beamType.photons": "光子",
+    "color-vision.name": "光的混合",
+    "bulbSlider.label": "灯光颜色",
+    "bulbType.title": "灯光类型",
+    "SingleBulbModule.title": "滤光片作用",
+    "beamType.solid": "光束"
+}

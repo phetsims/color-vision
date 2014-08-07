@@ -1,0 +1,15 @@
+{
+    "beamType.title": "Lysets type:",
+    "intensitySlider.wiggleMe.text": "Indstil farverne!",
+    "bulbType.monochromatic": "Enkeltfarve",
+    "filterSlider.label": "Farvefilter",
+    "RgbBulbsModule.title": "RGB-lys",
+    "filterSlider.wiggleMe.text": "Vælg filterfarve!",
+    "bulbType.white": "Hvidt",
+    "beamType.photons": "Fotoner",
+    "color-vision.name": "Farvesyn",
+    "bulbType.title": "Lys som",
+    "bulbSlider.label": "Farvevalg",
+    "SingleBulbModule.title": "Enkelt",
+    "beamType.solid": "Lysstråle"
+}

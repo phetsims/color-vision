@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Svjetlosni snop:",
+    "intensitySlider.wiggleMe.text": "Pomjeri klizač!",
+    "bulbType.monochromatic": "JEDNOBOJNA",
+    "filterSlider.label": "Boja filtera",
+    "RgbBulbsModule.title": "SIJALICE U BOJI",
+    "translation.credits": "<html> Mr.sc. Dino Ćorović, dipl.fizičar <br> dino_corovic@hotmail.com </html>",
+    "filterSlider.wiggleMe.text": "Pomjeri klizač!",
+    "bulbType.white": "BIJELA",
+    "beamType.photons": "Fotoni",
+    "color-vision.name": "KAKO VIDIMO BOJE",
+    "bulbSlider.label": "BOJA SIJALICE",
+    "bulbType.title": "Vrsta sijalice",
+    "SingleBulbModule.title": "JEDNA SIJALICA",
+    "beamType.solid": "Zrake"
+}

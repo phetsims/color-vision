@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Visão de feixe",
+    "intensitySlider.wiggleMe.text": "Mover o controle!",
+    "color-vision.description": "Como funcionam a percepção de cor e os filtros de cores?",
+    "bulbType.monochromatic": "Monocromática",
+    "filterSlider.label": "Filtro de cor",
+    "RgbBulbsModule.title": "Lâmpadas RGB",
+    "filterSlider.wiggleMe.text": "Mover controle!",
+    "bulbType.white": "Branca",
+    "beamType.photons": "Fótons",
+    "color-vision.name": "Percepção de cor",
+    "bulbType.title": "Tipo de Lâmpada",
+    "bulbSlider.label": "Lâmpada de Cor",
+    "SingleBulbModule.title": "Lâmpada única",
+    "beamType.solid": "Solido"
+}

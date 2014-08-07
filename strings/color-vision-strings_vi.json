@@ -1,0 +1,16 @@
+{
+    "beamType.title": "Chùm tia sáng",
+    "intensitySlider.wiggleMe.text": "Di chuyển thanh trượt!",
+    "color-vision.description": "Giải thích về sự nhìn màu sắc và lọc màu. PhET_VN.",
+    "bulbType.monochromatic": "Đơn sắc",
+    "filterSlider.label": "Bộ lọc màu",
+    "RgbBulbsModule.title": "Đèn 3 màu cơ bản RGB",
+    "filterSlider.wiggleMe.text": "Di chuyển thanh trượt!",
+    "bulbType.white": "Ánh sáng trắng",
+    "beamType.photons": "Photon ",
+    "color-vision.name": "Quan sát màu sắc",
+    "bulbType.title": "Loại Đèn",
+    "bulbSlider.label": "Màu của đèn",
+    "SingleBulbModule.title": "Đèn Đơn sắc",
+    "beamType.solid": "Dải sáng"
+}
