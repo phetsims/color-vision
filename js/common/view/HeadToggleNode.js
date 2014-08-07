@@ -37,8 +37,6 @@ define( function( require ) {
     var headNoBrainImage = new Image( headNoBrainIcon, { scale: IMAGE_SCALE } );
 
     IconToggleNode.call( this, property, headWithBrainImage, headNoBrainImage, 'brain', 'no-brain', options );
-
-    this.mutate( options );
   }
 
   return inherit( IconToggleNode, HeadToggleNode );

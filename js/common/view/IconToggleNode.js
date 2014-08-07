@@ -52,9 +52,8 @@ define( function( require ) {
     var panelTwo = new Panel( iconTwo, selectedOptions );
     var buttonTwo = new RadioButton( property, valueTwo, panelTwo, new Panel( iconTwo, deselectedOptions ) );
 
-    HBox.call( this, { spacing: options.spacing, children: [buttonOne, buttonTwo] } );
-
-    this.mutate( options );
+    options.children = [buttonOne, buttonTwo];
+    HBox.call( this, options );
   }
 
   return inherit( HBox, IconToggleNode );
