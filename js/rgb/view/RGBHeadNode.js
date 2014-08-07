@@ -4,7 +4,9 @@
  * Head image for the RGB Screen. The difference between this node and SingleBulbHeadNode is that this
  * this node has two layers. The back layer is the same as in SingleBulbHeadNode, the front layer has the nose
  * cut out, and in between are the photon beams. This is because we want the photons to get cut off at a particular
- * place, and this was easiest to accomplish with layering.
+ * place, and this was easiest to accomplish with layering, as opposed to shaping the end of the photon beams.
+ * This issue doesn't arise in single bulb mode because there is only one beam and it isn't at an angle, so it is easy
+ * just to set it to the right length.
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
