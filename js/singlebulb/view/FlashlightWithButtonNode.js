@@ -1,7 +1,7 @@
 // Copyright 2002-2014, University of Colorado Boulder
 
 /**
- * FlashlightWithButtonNode - for navbar and homepage icons
+ * FlashlightWithButtonNode - for Single Bulb Screen flashlight
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -15,7 +15,7 @@ define( function( require ) {
   var BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
 
   // images
-  var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
+  var flashlightImage = require( 'image!COLOR_VISION/flashlight.png' );
 
   /**
    * @constructor
@@ -24,20 +24,20 @@ define( function( require ) {
 
     Node.call( this );
 
-    var flashlightImage = new Image( flashlight,
+    var flashlightNode = new Image( flashlightImage,
       {
         scale: 0.85
       } );
 
     var button = new BooleanRoundStickyToggleButton( onProperty,
       {
-        centerY: flashlightImage.centerY + 2,
-        centerX: flashlightImage.centerX + 15,
+        centerY: flashlightNode.centerY + 2,
+        centerX: flashlightNode.centerX + 15,
         baseColor: 'red',
         radius: 15
       } );
 
-    this.addChild( flashlightImage );
+    this.addChild( flashlightNode );
     this.addChild( button );
     this.mutate( options );
   }

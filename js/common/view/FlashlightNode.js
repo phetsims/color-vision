@@ -16,7 +16,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   // images
-  var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
+  var flashlightImage = require( 'image!COLOR_VISION/flashlight.png' );
 
   // constants
   var SCALE = 0.8;
@@ -32,11 +32,11 @@ define( function( require ) {
     Node.call( this, { rotation: rotation } );
 
     // draw the flashlight image, with the bulb pointed toward the left
-    var flashlightImage = new Image( flashlight, { scale: SCALE } );
+    var flashlightNode = new Image( flashlightImage, { scale: SCALE } );
 
     // values used for drawing the beam shape
-    var startX = flashlightImage.left + 15;      // start drawing the beam to the left of the flashlight
-    var centerY = flashlightImage.centerY + 0.5; // centerY of beam and flashlight
+    var startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight
+    var centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
     var dx = 170 * SCALE;                        // length of the beam in the x direction
     var dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
 
@@ -49,7 +49,7 @@ define( function( require ) {
       close();
 
     this.addChild( new Path( beamShape, { fill: color } ) );
-    this.addChild( flashlightImage );
+    this.addChild( flashlightNode );
 
     this.mutate( options );
   }
