@@ -17,7 +17,7 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // strings
-  var rgbString = require( 'string!COLOR_VISION/rgb' );
+  var rgbString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
 
   /**
    * @constructor

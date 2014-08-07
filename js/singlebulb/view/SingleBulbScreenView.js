@@ -46,8 +46,8 @@ define( function( require ) {
   var photonViewIcon = require( 'image!COLOR_VISION/photon-view-icon.png' );
 
   // strings
-  var bulbColor = require( 'string!COLOR_VISION/bulb-color' );
-  var filterColor = require( 'string!COLOR_VISION/filter-color' );
+  var bulbColor = require( 'string!COLOR_VISION/bulbSlider.label' );
+  var filterColor = require( 'string!COLOR_VISION/filterSlider.label' );
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 15;
