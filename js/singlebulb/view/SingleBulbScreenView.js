@@ -21,8 +21,7 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var SingleBulbHeadNode = require( 'COLOR_VISION/common/view/SingleBulbHeadNode' );
-  var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
+  var SingleBulbHeadNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbHeadNode' );
   var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
@@ -71,9 +70,6 @@ define( function( require ) {
 
     var headNode = new SingleBulbHeadNode( model.headModeProperty, this.layoutBounds.bottom );
     this.addChild( headNode );
-
-    // Add head toggle buttons
-    this.addChild( new HeadToggleNode( model.headModeProperty, { bottom: this.layoutBounds.bottom - 22, centerX: headNode.centerX - 40 } ) );
 
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,

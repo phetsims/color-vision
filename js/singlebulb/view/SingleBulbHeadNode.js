@@ -12,6 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
 
   // images
   var headWithBrainImage = require( 'image!COLOR_VISION/head-with-brain.png' );
@@ -26,10 +27,10 @@ define( function( require ) {
 
     Node.call( this );
 
-    var headOptions = { bottom: layoutBoundsBottom + 15, left: 50, scale: 0.7 };
+    this.headOptions = { bottom: layoutBoundsBottom + 15, left: 50, scale: 0.7 };
 
-    var headWithBrainNode = new Image( headWithBrainImage, headOptions );
-    var headNoBrainNode = new Image( headNoBrainImage, headOptions );
+    var headWithBrainNode = new Image( headWithBrainImage, this.headOptions );
+    var headNoBrainNode = new Image( headNoBrainImage, this.headOptions );
 
     // Make sure only one image is visible at at time, depending on the user's selection
     headModeProperty.link( function( mode ) {
@@ -39,6 +40,10 @@ define( function( require ) {
 
     this.addChild( headWithBrainNode );
     this.addChild( headNoBrainNode );
+
+    // Add head mode toggle
+    // This ends up getting added twice in the case of RGBHeadNode because it inherits from this and adds layers on top
+    this.addChild( new HeadToggleNode( headModeProperty, { bottom: layoutBoundsBottom - 22, centerX: headWithBrainNode.centerX - 40 } ) );
   }
 
   return inherit( Node, SingleBulbHeadNode );
