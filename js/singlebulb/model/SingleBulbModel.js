@@ -29,7 +29,7 @@ define( function( require ) {
         flashlightOn: false,
         filterVisible: false,
         play: true,                // is the sim running or paused
-        headMode: 'brain',         // takes values 'brain' and 'no-brain'
+        headMode: 'no-brain',      // takes values 'brain' and 'no-brain'
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color
         lastPhotonColor: new Color( 0, 0, 0, 0 )
