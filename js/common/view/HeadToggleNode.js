@@ -33,10 +33,10 @@ define( function( require ) {
       iconYMargin: 4
     }, options );
 
-    var headWithBrainImage = new Image( headIcon, { scale: IMAGE_SCALE } );
     var headNoBrainImage = new Image( headNoBrainIcon, { scale: IMAGE_SCALE } );
+    var headWithBrainImage = new Image( headIcon, { scale: IMAGE_SCALE } );
 
-    IconToggleNode.call( this, property, headWithBrainImage, headNoBrainImage, 'brain', 'no-brain', options );
+    IconToggleNode.call( this, property, headNoBrainImage, headWithBrainImage, 'no-brain', 'brain', options );
   }
 
   return inherit( IconToggleNode, HeadToggleNode );
