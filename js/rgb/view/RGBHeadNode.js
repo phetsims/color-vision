@@ -41,8 +41,8 @@ define( function( require ) {
     }
 
     // add the front head image with the nose cut out so the photons get cut off at the right place (by going under these nodes)
-    var headFrontWithBrainNode = new Image( headFrontWithBrainImage, this.headOptions );
-    var headFrontNoBrainNode = new Image( headFrontNoBrainImage, this.headOptions );
+    var headFrontWithBrainNode = new Image( headFrontWithBrainImage, this.headWithBrainOptions );
+    var headFrontNoBrainNode = new Image( headFrontNoBrainImage, this.headNoBrainOptions );
 
     // Make sure only one image is visible at at time, depending on the user's selection
     headModeProperty.link( function( mode ) {

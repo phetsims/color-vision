@@ -213,7 +213,7 @@ define( function( require ) {
     // bounds for the solid beam view
     var beamBounds = new Bounds2
     (
-      headNode.right - 35,
+      headNode.right - 40,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET - 48

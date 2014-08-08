@@ -18,6 +18,10 @@ define( function( require ) {
   var headWithBrainImage = require( 'image!COLOR_VISION/head-with-brain.png' );
   var headNoBrainImage = require( 'image!COLOR_VISION/head-no-brain.png' );
 
+  // contants
+  var BOTTOM_OFFSET = 15;
+  var SCALE = 0.7;
+
   /**
    * @param {Property<String>} headModeProperty
    * @param {Number} layoutBoundsBottom should be layoutBounds.bottom so the HeadNode can align relative to that
@@ -27,10 +31,11 @@ define( function( require ) {
 
     Node.call( this );
 
-    this.headOptions = { bottom: layoutBoundsBottom + 15, left: 50, scale: 0.7 };
+    this.headWithBrainOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 50, scale: SCALE };
+    this.headNoBrainOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
 
-    var headWithBrainNode = new Image( headWithBrainImage, this.headOptions );
-    var headNoBrainNode = new Image( headNoBrainImage, this.headOptions );
+    var headWithBrainNode = new Image( headWithBrainImage, this.headWithBrainOptions );
+    var headNoBrainNode = new Image( headNoBrainImage, this.headNoBrainOptions );
 
     // Make sure only one image is visible at at time, depending on the user's selection
     headModeProperty.link( function( mode ) {
