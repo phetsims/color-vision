@@ -49,8 +49,12 @@ define( function( require ) {
       for ( var j = 0; j < this.photons.length; j++ ) {
         var photon = this.photons[j];
 
+        // calculate the new location of the photon in order to check whether will still be in bounds
+        var newX = photon.location.x + dt * photon.velocity.x;
+        var newY = photon.location.y + dt * photon.velocity.y;
+
         // check if the photon just passed through the filter location
-        if ( this.model.filterVisible && photon.location.x < this.filterOffset && !photon.passedFilter ) {
+        if ( this.model.filterVisible && newX < this.filterOffset && !photon.passedFilter ) {
           var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the flashlightWavelength is outside the transmission width, no photons pass.
@@ -68,6 +72,7 @@ define( function( require ) {
           // remove a percentage of photons from the beam
           if ( Math.random() >= probability ) {
             this.photons.splice( j, 1 ); // remove jth photon from list
+            continue;
           }
           // if the beam is white, make sure it is the color of the filter
           else if ( photon.isWhite ) {
@@ -90,9 +95,7 @@ define( function( require ) {
         }
 
         // move the photon unless it goes out of bounds
-        // see related bounds checking code in the view file SingleBulbPhotonBeamNode.js,
-        // since this does not seem to completely keep them inside the canvas bounds (for unknown reasons)
-        if ( photon.location.x > 0 && photon.location.y > 0 && photon.location.y < ColorVisionConstants.BEAM_HEIGHT ) {
+        if ( newX > 0 && newY > 0 && newY < ColorVisionConstants.BEAM_HEIGHT ) {
           photon.updateAnimationFrame( dt );
         }
 
@@ -115,7 +118,8 @@ define( function( require ) {
       // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
-        var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ), new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
+        var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
+                                                new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }
