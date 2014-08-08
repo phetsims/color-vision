@@ -11,18 +11,14 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var ScreenView = require( 'JOIST/ScreenView' );
+  var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Text = require( 'SCENERY/nodes/Text' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
-  var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
-  var StepButton = require( 'SCENERY_PHET/StepButton' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var SingleBulbHeadNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbHeadNode' );
-  var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
@@ -56,17 +52,15 @@ define( function( require ) {
   var ICON_OPTIONS = { scale: 0.64 }; // options common to all icon images
 
   /**
+   * @param {SingleBulbModel} model
    * @constructor
    */
   function SingleBulbScreenView( model ) {
 
-    ScreenView.call( this, { renderer: 'svg' } );
+    ColorVisionScreenView.call( this, model );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
-
-    // Add thought bubbles
-    addThoughtBubbles( model.perceivedColorProperty, this );
 
     var headNode = new SingleBulbHeadNode( model.headModeProperty, this.layoutBounds.bottom );
     this.addChild( headNode );
@@ -235,40 +229,9 @@ define( function( require ) {
 
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
-
-    // Add reset all button
-    var resetAllButton = new ResetAllButton(
-      {
-        listener: function() { model.reset(); },
-        bottom: this.layoutBounds.bottom - 5,
-        right: this.layoutBounds.right - 30,
-        radius: 18
-      } );
-
-    this.addChild( resetAllButton );
-
-    // Add play/pause button
-    var playPauseButton = new PlayPauseButton( model.playProperty,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        centerX: this.layoutBounds.centerX - 25,
-        radius: 20
-      } );
-
-    this.addChild( playPauseButton );
-
-    // Add step button
-    var stepButton = new StepButton( function() { model.manualStep(); }, model.playProperty,
-      {
-        centerY: playPauseButton.centerY,
-        centerX: this.layoutBounds.centerX + 25,
-        radius: 15
-      } );
-
-    this.addChild( stepButton );
   }
 
-  return inherit( ScreenView, SingleBulbScreenView,
+  return inherit( ColorVisionScreenView, SingleBulbScreenView,
     {
       step: function( dt ) {
         this.photonBeamNode.step( dt );

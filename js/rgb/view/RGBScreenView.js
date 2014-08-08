@@ -11,16 +11,12 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var ScreenView = require( 'JOIST/ScreenView' );
+  var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var VBox = require( 'SCENERY/nodes/VBox' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
-  var PlayPauseButton = require( 'SCENERY_PHET/PlayPauseButton' );
-  var StepButton = require( 'SCENERY_PHET/StepButton' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
   var RGBHeadNode = require( 'COLOR_VISION/rgb/view/RGBHeadNode' );
-  var addThoughtBubbles = require( 'COLOR_VISION/common/view/addThoughtBubbles' );
   var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
@@ -40,7 +36,7 @@ define( function( require ) {
    */
   function RGBScreenView( model ) {
 
-    ScreenView.call( this, { renderer: 'svg' } );
+    ColorVisionScreenView.call( this, model );
 
     // Add photon beams
     this.redBeam = new RGBPhotonBeamNode( model.redBeam,
@@ -106,43 +102,9 @@ define( function( require ) {
       } );
 
     this.addChild( sliderVBox );
-
-    // Add reset all button
-    var resetAllButton = new ResetAllButton(
-      {
-        listener: function() { model.reset(); },
-        bottom: this.layoutBounds.bottom - 5,
-        right: sliderVBox.right,
-        radius: 18
-      } );
-
-    this.addChild( resetAllButton );
-
-    // Add thought bubbles
-    addThoughtBubbles( model.perceivedColorProperty, this );
-
-    // Add Play/Pause button
-    var playPauseButton = new PlayPauseButton( model.playProperty,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        centerX: this.layoutBounds.centerX - 25,
-        radius: 20
-      } );
-
-    this.addChild( playPauseButton );
-
-    // Add step button
-    var stepButton = new StepButton( function() { model.manualStep(); }, model.playProperty,
-      {
-        centerY: playPauseButton.centerY,
-        centerX: this.layoutBounds.centerX + 25,
-        radius: 15
-      } );
-
-    this.addChild( stepButton );
   }
 
-  return inherit( ScreenView, RGBScreenView,
+  return inherit( ColorVisionScreenView, RGBScreenView,
     {
       step: function( dt ) {
         this.redBeam.step( dt );
