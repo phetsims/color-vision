@@ -84,7 +84,8 @@ define( function( require ) {
         cursorStroke: 'white',
         thumbWidth: 30,
         thumbHeight: 40,
-        thumbTouchAreaExpandY: 10
+        thumbTouchAreaExpandY: 10,
+        pointerAreasOverTrack: true
       } );
 
     // add text above the upper slider

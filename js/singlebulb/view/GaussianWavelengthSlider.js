@@ -43,7 +43,8 @@ define( function( require ) {
         cursorVisible: false,
         thumbWidth: 30,
         thumbHeight: 40,
-        thumbTouchAreaExpandY: 10
+        thumbTouchAreaExpandY: 10,
+        pointerAreasOverTrack: true
       } );
     this.addChild( lowerSliderNodeTransparent );
 
