@@ -24,9 +24,9 @@ define( function( require ) {
   }
 
   return inherit( Object, RGBPhoton, {
-    updateAnimationFrame: function( dt ) {
-      this.location.x = this.location.x + dt * this.velocity.x;
-      this.location.y = this.location.y + dt * this.velocity.y;
+    updateAnimationFrame: function( newX, newY ) {
+      this.location.x = newX;
+      this.location.y = newY;
     }
   } );
 } );

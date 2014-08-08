@@ -38,15 +38,17 @@ define( function( require ) {
       // move all photons that are currently active
       for ( var i = 0; i < this.photons.length; i++ ) {
 
-        if ( this.photons[i].location.x > 0 && this.photons[i].location.y > 0 && this.photons[i].location.y < ColorVisionConstants.BEAM_HEIGHT ) {
-          this.photons[i].updateAnimationFrame( dt );
+        // calculate the new location of the photon in order to check whether will still be in bounds
+        var newX = this.photons[i].location.x + dt * this.photons[i].velocity.x;
+        var newY = this.photons[i].location.y + dt * this.photons[i].velocity.y;
 
+        if ( newX > 0 && newY > 0 && newY < ColorVisionConstants.BEAM_HEIGHT ) {
+          this.photons[i].updateAnimationFrame( newX, newY );
         }
         else {
           this.perceivedIntensityProperty.value = this.photons[i].intensity;
           this.photons.splice( i, 1 ); // remove jth RGBPhoton from list
         }
-
       }
 
       // make sure that the intensity is 0 if there are no more photons

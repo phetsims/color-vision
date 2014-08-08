@@ -96,7 +96,7 @@ define( function( require ) {
 
         // move the photon unless it goes out of bounds
         if ( newX > 0 && newY > 0 && newY < ColorVisionConstants.BEAM_HEIGHT ) {
-          photon.updateAnimationFrame( dt );
+          photon.updateAnimationFrame( newX, newY );
         }
 
         // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
