@@ -66,8 +66,8 @@ define( function( require ) {
             probability = 1 - Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth;
           }
 
-          // set the probability to be 0.3 for white photons
-          probability = ( !photon.wasWhite ) ? probability : 0.3;
+          // set the probability to be 0.5 for white photons, this is just based on the observation of what looks good
+          probability = ( !photon.wasWhite ) ? probability : 0.5;
 
           // remove a percentage of photons from the beam
           if ( Math.random() >= probability ) {
