@@ -16,7 +16,7 @@ define( function( require ) {
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
-  var RGBHeadNode = require( 'COLOR_VISION/rgb/view/RGBHeadNode' );
+  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
@@ -64,7 +64,7 @@ define( function( require ) {
 
     // add head node
     var beamArray = [this.redBeam, this.blueBeam, this.greenBeam];
-    var headNode = new RGBHeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray );
     this.addChild( headNode );
 
     // Add flashlights

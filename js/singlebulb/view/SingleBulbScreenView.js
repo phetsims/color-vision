@@ -18,7 +18,7 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var SingleBulbHeadNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbHeadNode' );
+  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
@@ -62,7 +62,7 @@ define( function( require ) {
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
-    var headNode = new SingleBulbHeadNode( model.headModeProperty, this.layoutBounds.bottom );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom );
     this.addChild( headNode );
 
     // Create flashlight node
