@@ -12,6 +12,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
+  var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
 
@@ -64,36 +65,29 @@ define( function( require ) {
       } );
 
     // create a ConstantEventModel for each beam
-    this.redConstantEventModel = new EventTimer.ConstantEventModel( 1 );
-    this.greenConstantEventModel = new EventTimer.ConstantEventModel( 1 );
-    this.blueConstantEventModel = new EventTimer.ConstantEventModel( 1 );
+    this.redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
+    this.greenEventModel = new RGBPhotonEventModel( this.greenIntensityProperty );
+    this.blueEventModel = new RGBPhotonEventModel( this.blueIntensityProperty );
 
     // create an EventTimer for each beam, used to regulate when to create new photons for each beam
-    this.redEventTimer = new EventTimer( this.redConstantEventModel, function( timeElapsed ) {
+    this.redEventTimer = new EventTimer( this.redEventModel, function( timeElapsed ) {
       thisModel.redBeam.createPhoton( timeElapsed );
     } );
 
-    this.greenEventTimer = new EventTimer( this.greenConstantEventModel, function( timeElapsed ) {
+    this.greenEventTimer = new EventTimer( this.greenEventModel, function( timeElapsed ) {
       thisModel.greenBeam.createPhoton( timeElapsed );
     } );
 
-    this.blueEventTimer = new EventTimer( this.blueConstantEventModel, function( timeElapsed ) {
+    this.blueEventTimer = new EventTimer( this.blueEventModel, function( timeElapsed ) {
       thisModel.blueBeam.createPhoton( timeElapsed );
     } );
 
     // link the intensity of each beam to the rate of their event timers
-    // make sure not to set the rate to 0 or there will be a division by 0 in EventTimer
-    this.redIntensityProperty.link( function( intensity ) {
-      thisModel.redConstantEventModel.rate = Math.floor( intensity ) * 2 || 1;
-    } );
-
-    this.greenIntensityProperty.link( function( intensity ) {
-      thisModel.greenConstantEventModel.rate = Math.floor( intensity ) * 2 || 1;
-    } );
-
-    this.blueIntensityProperty.link( function( intensity ) {
-      thisModel.blueConstantEventModel.rate = Math.floor( intensity ) * 2 || 1;
-    } );
+    // we need to 0 out the timeBeforeNextEvent, otherwise there is a long delay in seeing the first photon from
+    // the time when the slider is initially moved.
+    this.redIntensityProperty.link( function() { thisModel.redEventTimer.timeBeforeNextEvent = 0; } );
+    this.greenIntensityProperty.link( function() { thisModel.greenEventTimer.timeBeforeNextEvent = 0; } );
+    this.blueIntensityProperty.link( function() { thisModel.blueEventTimer.timeBeforeNextEvent = 0; } );
   }
 
   return inherit( PropertySet, RGBModel, {
