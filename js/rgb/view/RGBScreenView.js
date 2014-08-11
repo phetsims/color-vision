@@ -22,9 +22,9 @@ define( function( require ) {
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
 
   // images
-  var flashlightDown = require( 'image!COLOR_VISION/flashlight-down.png' );
-  var flashlight = require( 'image!COLOR_VISION/flashlight.png' );
-  var flashlightUp = require( 'image!COLOR_VISION/flashlight-up.png' );
+  var flashlightDownImage = require( 'image!COLOR_VISION/flashlight-down.png' );
+  var flashlightImage = require( 'image!COLOR_VISION/flashlight.png' );
+  var flashlightUpImage = require( 'image!COLOR_VISION/flashlight-up.png' );
 
   // constants
   var BEAM_ANGLE = Math.PI / 6;
@@ -68,16 +68,16 @@ define( function( require ) {
     this.addChild( headNode );
 
     // Add flashlights
-    var redFlashlight = new Image( flashlightDown, { scale: FLASHLIGHT_SCALE } );
-    var greenFlashlight = new Image( flashlight, { scale: FLASHLIGHT_SCALE } );
-    var blueFlashlight = new Image( flashlightUp, { scale: FLASHLIGHT_SCALE } );
+    var redFlashlightNode = new Image( flashlightDownImage, { scale: FLASHLIGHT_SCALE } );
+    var greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
+    var blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
 
     var flashlightVBox = new VBox(
       {
         children: [
-          redFlashlight,
-          greenFlashlight,
-          blueFlashlight ],
+          redFlashlightNode,
+          greenFlashlightNode,
+          blueFlashlightNode ],
         spacing: 70,
         right: this.layoutBounds.maxX - 75,
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
