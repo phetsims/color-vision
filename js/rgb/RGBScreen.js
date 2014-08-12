@@ -23,10 +23,10 @@ define( function( require ) {
    * @constructor
    */
   function RGBScreen() {
-    Screen.call( this, rgbString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_FILL ),
+    Screen.call( this, rgbString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new RGBModel(); },
       function( model ) { return new RGBScreenView( model ); },
-      { backgroundColor: 'black', navigationBarIcon: new RGBIconNode( 'black' ) }
+      { backgroundColor: 'black', navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ) }
     );
   }
 

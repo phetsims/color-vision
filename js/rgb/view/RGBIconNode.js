@@ -15,12 +15,12 @@ define( function( require ) {
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
 
   /**
-   * @param {String|Color} fill the fill for the background rectangle
+   * @param {Object} options
    * @constructor
    */
-  function RGBIconNode( fill ) {
+  function RGBIconNode( options ) {
 
-    Rectangle.call( this, 0, 0, 548, 373, { fill: fill } );
+    Rectangle.call( this, options.lineWidth / 2, options.lineWidth / 2, 548 - options.lineWidth, 373 - options.lineWidth, options );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );

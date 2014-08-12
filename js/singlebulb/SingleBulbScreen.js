@@ -23,10 +23,10 @@ define( function( require ) {
    * @constructor
    */
   function SingleBulbScreen() {
-    Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_FILL ),
+    Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new SingleBulbModel(); },
       function( model ) { return new SingleBulbScreenView( model ); },
-      { backgroundColor: 'black', navigationBarIcon: new SingleBulbIconNode( 'black' ) }
+      { backgroundColor: 'black', navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ) }
     );
   }
 

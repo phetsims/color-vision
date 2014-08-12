@@ -14,11 +14,11 @@ define( function( require ) {
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
 
   /**
-   * @param {String|Color} fill the fill for the background rectangle
+   * @param {Object} options
    * @constructor
    */
-  function SingleBulbIconNode( fill ) {
-    Rectangle.call( this, 0, 0, 548, 373, { fill: fill } );
+  function SingleBulbIconNode( options ) {
+    Rectangle.call( this, options.lineWidth / 2, options.lineWidth / 2, 548 - options.lineWidth, 373 - options.lineWidth, options );
     this.addChild( new FlashlightNode( 0, 'yellow', { centerX: this.centerX, centerY: this.centerY } ) );
   }
 
