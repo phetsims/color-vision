@@ -11,6 +11,9 @@ define( function( require ) {
     BEAM_HEIGHT: 130,     // height of all photonBeamNodes from both screens
     CENTER_Y_OFFSET: -20, // many nodes are positioned with this offset from layoutBounds.centerY
     X_VELOCITY: -240,     // x-velocity of photons, in screenview pixels / second
+                          // Note: The photons in color vision move at a constant x-velocity, not a constant speed.
+                          // The y-velocity varies only slightly to accommodate the fanning of the photons,
+                          // so it is not really discernible when looking at the simulation.
     FAN_FACTOR: 1.05,     // amount of fanning of photons
     HOME_SCREEN_ICON_OPTIONS: { fill: '#222222', stroke: 'rgb(220,220,200)', lineWidth: 5 },
     NAVBAR_ICON_OPTIONS: { fill: 'black', stroke: null, lineWidth: 0 }
