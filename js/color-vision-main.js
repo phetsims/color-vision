@@ -24,7 +24,8 @@ define( function( require ) {
       softwareDevelopment: 'Aaron Davis (lead developer), Sam Reid',
       designTeam: 'Ariel Paul, Kathy Perkins',
       interviews: 'Bryce Gruneich'
-    }
+    },
+    showSmallHomeScreenIconFrame: true
   };
 
   SimLauncher.launch( function() {
