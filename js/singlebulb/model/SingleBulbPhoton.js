@@ -18,9 +18,10 @@ define( function( require ) {
    * @param {Number} intensity between 0-1 for color alpha value
    * @param {Color} color
    * @param {boolean} isWhite
+   * @param {Number} wavelength
    # @constructor
    */
-  function SingleBulbPhoton( location, velocity, intensity, color, isWhite ) {
+  function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength ) {
 
     RGBPhoton.call( this, location, velocity, intensity );
 
@@ -31,6 +32,7 @@ define( function( require ) {
     // Colored photons must loose intensity when passing through the filter.
     this.isWhite = this.wasWhite = isWhite;
     this.color = color;
+    this.wavelength = wavelength;
   }
 
   return inherit( RGBPhoton, SingleBulbPhoton );

@@ -57,13 +57,14 @@ define( function( require ) {
         if ( this.model.filterVisible && newX < this.filterOffset && !photon.passedFilter ) {
           var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
-          // If the flashlightWavelength is outside the transmission width, no photons pass.
-          if ( this.model.flashlightWavelength < this.model.filterWavelength - halfWidth || this.model.flashlightWavelength > this.model.filterWavelength + halfWidth ) {
+          // If the photon's wavelength is outside the transmission width, it doesn't pass.
+          if ( photon.wavelength < this.model.filterWavelength - halfWidth ||
+               photon.wavelength > this.model.filterWavelength + halfWidth ) {
             probability = 0;
           }
           // flashlightWavelength is within the transmission width, pass a linear percentage.
           else {
-            probability = 1 - Math.abs( this.model.filterWavelength - this.model.flashlightWavelength ) / halfWidth;
+            probability = 1 - Math.abs( this.model.filterWavelength - photon.wavelength ) / halfWidth;
           }
 
           // set the probability to be 0.5 for white photons, this is just based on the observation of what looks good
@@ -143,7 +144,10 @@ define( function( require ) {
         var deltaY = yVelocity * timeElapsed;
         var y = initialY + deltaY;
 
-        this.photons.push( new SingleBulbPhoton( new Vector2( x, y ), new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ), 1, newColor, ( this.model.light === 'white' ) ) );
+        this.photons.push( new SingleBulbPhoton( new Vector2( x, y ),
+                                                 new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ),
+                                                 1, newColor, ( this.model.light === 'white' ),
+                                                 this.model.flashlightWavelength ) );
       }
     },
 
