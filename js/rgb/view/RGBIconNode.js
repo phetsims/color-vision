@@ -20,7 +20,7 @@ define( function( require ) {
    */
   function RGBIconNode( options ) {
 
-    Rectangle.call( this, options.lineWidth / 2, options.lineWidth / 2, 548 - options.lineWidth, 373 - options.lineWidth, options );
+    Rectangle.call( this, 0, 0, 548, 373, options );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
