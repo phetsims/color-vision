@@ -113,21 +113,6 @@ define( function( require ) {
       }
     } );
 
-    // when beam mode is enabled and the filter is not visible, change all of the photons to the color of the beam
-    // this prevents a possible flickering of the thought bubble when switching from beam view to photon view
-    // as the last remaining photons of a previous color hit the eye. The case when the filter is enabled is not handled
-    // because you'd have to switch between the views remarkably fast to get the effect since there is less distance
-    // the photons need to travel.
-    var photons = model.photonBeam.photons;
-    model.multilink( [ 'beam', 'flashlightWavelength', 'filterVisible' ],
-      function( beamMode, flashlightWavelength, filterVisible ) {
-        if ( beamMode === 'beam' && !filterVisible ) {
-          for ( var i = 0; i < photons.length; i++ ) {
-            photons[i].color = VisibleColor.wavelengthToColor( flashlightWavelength );
-          }
-        }
-      } );
-
     this.addChild( leftHalf );
     this.addChild( rightHalf );
     this.addChild( wholeBeam );
