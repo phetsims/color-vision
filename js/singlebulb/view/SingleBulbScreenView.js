@@ -49,7 +49,7 @@ define( function( require ) {
   var SLIDER_TRACK_WIDTH = 200;
   var SLIDER_TRACK_HEIGHT = 30;
   var PHOTON_BEAM_START = 320;
-  var ICON_OPTIONS = { scale: 0.64 }; // options common to all icon images
+  var ICON_OPTIONS = { scale: 0.74 }; // options common to all icon images
 
   /**
    * @param {SingleBulbModel} model
