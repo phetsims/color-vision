@@ -64,7 +64,7 @@ define( function( require ) {
     var wholeBeam = new Path( wholeBeamShape );
 
     model.flashlightWavelengthProperty.link( function( wavelength ) {
-      var newColor = VisibleColor.wavelengthToColor( wavelength );
+      var newColor = VisibleColor.wavelengthToColor( wavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
       rightHalf.fill = newColor;
       wholeBeam.fill = newColor;
     } );
@@ -86,17 +86,17 @@ define( function( require ) {
         // update the beam only if it is visible
         if ( beamMode === 'beam' ) {
           if ( light === 'white' && filterVisible ) {
-            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
+            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
             rightHalf.fill = Color.WHITE;
           }
           else if ( light === 'white' && !filterVisible ) {
             wholeBeam.fill = UNFILTERED_WHITE_COLOR;
           }
           else if ( light === 'colored' && filterVisible ) {
-            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
           }
           else if ( light === 'colored' && !filterVisible ) {
-            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
           }
         }
       } );
