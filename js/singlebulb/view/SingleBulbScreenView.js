@@ -119,7 +119,7 @@ define( function( require ) {
       new Image( singleColorLightIcon, ICON_OPTIONS ),
       'white',
       'colored',
-      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT + 5 }, iconToggleOptions )
     );
 
     var beamPhotonSelectButtons = new IconToggleNode(
