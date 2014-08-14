@@ -86,17 +86,17 @@ define( function( require ) {
         // update the beam only if it is visible
         if ( beamMode === 'beam' ) {
           if ( light === 'white' && filterVisible ) {
-            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
+            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
             rightHalf.fill = WHITE_WITH_ALPHA;
           }
           else if ( light === 'white' && !filterVisible ) {
             wholeBeam.fill = WHITE_WITH_ALPHA;
           }
           else if ( light === 'colored' && filterVisible ) {
-            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
+            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
           }
           else if ( light === 'colored' && !filterVisible ) {
-            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
+            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
           }
         }
       } );
@@ -109,7 +109,7 @@ define( function( require ) {
 
     Property.multilink( [model.perceivedColorProperty, visibleProperty], function( perceivedColor, visible ) {
       if ( visible ) {
-        leftHalf.fill = perceivedColor;
+        leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA );
       }
     } );
 
