@@ -73,7 +73,7 @@ define( function( require ) {
     this.addChild( headFrontNoBrainNode );
 
     // Add head mode toggle
-    this.addChild( new HeadToggleNode( headModeProperty, { bottom: layoutBoundsBottom - 22, centerX: headWithBrainNode.centerX - 40 } ) );
+    this.addChild( new HeadToggleNode( headModeProperty, { bottom: layoutBoundsBottom - 22, centerX: headWithBrainNode.centerX - 31 } ) );
   }
 
   return inherit( Node, HeadNode );
