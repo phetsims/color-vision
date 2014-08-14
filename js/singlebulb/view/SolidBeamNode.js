@@ -19,7 +19,7 @@ define( function( require ) {
 
   // constants
   var DEFAULT_BEAM_ALPHA = 0.8;
-  var UNFILTERED_WHITE_COLOR = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
+  var WHITE_WITH_ALPHA = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
 
   /**
    * @param {SingleBulbModel} model
@@ -87,10 +87,10 @@ define( function( require ) {
         if ( beamMode === 'beam' ) {
           if ( light === 'white' && filterVisible ) {
             leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
-            rightHalf.fill = Color.WHITE;
+            rightHalf.fill = WHITE_WITH_ALPHA;
           }
           else if ( light === 'white' && !filterVisible ) {
-            wholeBeam.fill = UNFILTERED_WHITE_COLOR;
+            wholeBeam.fill = WHITE_WITH_ALPHA;
           }
           else if ( light === 'colored' && filterVisible ) {
             rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha ( DEFAULT_BEAM_ALPHA );
