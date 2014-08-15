@@ -19,7 +19,6 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var WavelengthSliderRect = require( 'COLOR_VISION/singlebulb/view/WavelengthSliderRect' );
 
   /**
    * Wavelength slider with a gaussian
@@ -31,7 +30,7 @@ define( function( require ) {
    */
   function GaussianWavelengthSlider( filterWavelengthProperty, width, height, options ) {
 
-    WavelengthSliderRect.call( this, width, height );
+    Node.call( this );
 
     // Add lower WavelengthSlider
     var lowerSliderNodeTransparent = new WavelengthSlider( filterWavelengthProperty,
@@ -99,5 +98,5 @@ define( function( require ) {
     this.mutate( options );
   }
 
-  return inherit( WavelengthSliderRect, GaussianWavelengthSlider );
+  return inherit( Node, GaussianWavelengthSlider );
 } );

@@ -15,6 +15,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var Text = require( 'SCENERY/nodes/Text' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
@@ -27,7 +28,6 @@ define( function( require ) {
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
-  var BulbWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/BulbWavelengthSlider' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
 
   // images
@@ -72,30 +72,42 @@ define( function( require ) {
         right: this.layoutBounds.maxX - 40
       } );
 
-    // Create bulb wavelength slider node
-    var bulbSliderNode = new BulbWavelengthSlider( SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT, model.flashlightWavelengthProperty,
-      { top: this.layoutBounds.top + 40, right: wavelengthSliderDistance } );
+    // Create upper WavelengthSlider node
+    var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty,
+      {
+        top: this.layoutBounds.top + 40,
+        right: wavelengthSliderDistance,
+        tweakersVisible: false,
+        valueVisible: false,
+        trackWidth: SLIDER_TRACK_WIDTH,
+        trackHeight: SLIDER_TRACK_HEIGHT,
+        cursorStroke: 'white',
+        thumbWidth: 30,
+        thumbHeight: 40,
+        thumbTouchAreaExpandY: 10,
+        pointerAreasOverTrack: true
+      } );
 
     // add text above the upper slider
-    var bulbColorText = new Text( bulbColor, { fill: 'white', font: new PhetFont( 20 ), bottom: bulbSliderNode.top - 3, right: bulbSliderNode.right - 18 } );
+    var bulbColorText = new Text( bulbColor, { fill: 'white', font: new PhetFont( 20 ), bottom: upperSliderNode.top - 3, right: upperSliderNode.right - 18 } );
     this.addChild( bulbColorText );
 
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
       new Vector2( flashlightNode.right - 15, flashlightNode.centerY + 2 ),
-      new Vector2( bulbSliderNode.right - 25, bulbSliderNode.centerY - SLIDER_Y_OFFSET ),
+      new Vector2( upperSliderNode.right - 25, upperSliderNode.centerY - SLIDER_Y_OFFSET ),
       25 );
 
     // make bulb color slider invisible when on white light mode
     model.lightProperty.link( function( light ) {
       var coloredLight = light !== 'white';
-      bulbSliderNode.visible = coloredLight;
+      upperSliderNode.visible = coloredLight;
       bulbColorText.visible = coloredLight;
       flashlightWire.visible = coloredLight;
     } );
 
     this.addChild( flashlightWire );
-    this.addChild( bulbSliderNode );
+    this.addChild( upperSliderNode );
 
     // options common to all IconToggleNodes
     var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 2, iconYMargin: 2 };
