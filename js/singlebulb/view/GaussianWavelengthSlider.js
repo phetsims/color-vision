@@ -19,6 +19,7 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var LinearFunction = require( 'DOT/LinearFunction' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * Wavelength slider with a gaussian
@@ -44,7 +45,8 @@ define( function( require ) {
         thumbWidth: 30,
         thumbHeight: 40,
         thumbTouchAreaExpandY: 10,
-        pointerAreasOverTrack: true
+        pointerAreasOverTrack: true,
+        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
     this.addChild( lowerSliderNodeTransparent );
 

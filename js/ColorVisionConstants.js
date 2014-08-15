@@ -15,6 +15,7 @@ define( function( require ) {
                           // The y-velocity varies only slightly to accommodate the fanning of the photons,
                           // so it is not really discernible when looking at the simulation.
     FAN_FACTOR: 1.05,     // amount of fanning of photons
+    SLIDER_BORDER_STROKE: '#c0b9b9', // gray
     HOME_SCREEN_ICON_OPTIONS: { fill: 'rgb(20,20,20)' },
     NAVBAR_ICON_OPTIONS: { fill: 'black' }
   };
