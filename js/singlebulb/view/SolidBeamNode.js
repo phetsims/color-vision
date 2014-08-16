@@ -109,7 +109,8 @@ define( function( require ) {
 
     Property.multilink( [ model.perceivedColorProperty, visibleProperty ], function( perceivedColor, visible ) {
       if ( visible ) {
-        leftHalf.fill = ( perceivedColor.a > 0.8 ) ? perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA ) : perceivedColor;
+        // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
+        leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA * perceivedColor.a );
       }
     } );
 
