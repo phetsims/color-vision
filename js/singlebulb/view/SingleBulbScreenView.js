@@ -62,9 +62,6 @@ define( function( require ) {
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom );
-    this.addChild( headNode );
-
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
@@ -209,7 +206,7 @@ define( function( require ) {
     // bounds for the solid beam view
     var beamBounds = new Bounds2
     (
-      headNode.right - 40,
+      filterLeft.left - 130,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET - 48
@@ -221,9 +218,9 @@ define( function( require ) {
     this.addChild( filterRightNode );
     this.addChild( filterRight );
 
-    // Add the solid and photon beams above the right side of the filter so they show up on top
-    this.addChild( solidBeam );
-    this.addChild( this.photonBeamNode );
+    // Add the head node and solid and photon beams above the right side of the filter so they show up on top
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ] );
+    this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind
     this.addChild( filterLeftNode );

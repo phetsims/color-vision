@@ -107,9 +107,9 @@ define( function( require ) {
       } );
     visibleProperty.linkAttribute( this, 'visible' );
 
-    Property.multilink( [model.perceivedColorProperty, visibleProperty], function( perceivedColor, visible ) {
+    Property.multilink( [ model.perceivedColorProperty, visibleProperty ], function( perceivedColor, visible ) {
       if ( visible ) {
-        leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA );
+        leftHalf.fill = ( perceivedColor.a > 0.8 ) ? perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA ) : perceivedColor;
       }
     } );
 
