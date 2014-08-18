@@ -25,7 +25,7 @@ define( function( require ) {
   var headFrontWithBrainImage = require( 'image!COLOR_VISION/head-front-with-brain.png' );
   var headFrontNoBrainImage = require( 'image!COLOR_VISION/head-front-no-brain.png' );
 
-  // contants
+  // constants
   var BOTTOM_OFFSET = 15;
   var SCALE = 0.7;
 
