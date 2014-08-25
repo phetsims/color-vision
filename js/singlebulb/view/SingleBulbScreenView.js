@@ -43,8 +43,7 @@ define( function( require ) {
   var filterColor = require( 'string!COLOR_VISION/filterSlider.label' );
 
   // constants
-  var DISTANCE_FROM_FLASHLIGHT = 15;
-  var FLASHLIGHT_BUTTON_OFFSET = 13;
+  var DISTANCE_FROM_FLASHLIGHT = 20;
   var SLIDER_Y_OFFSET = 21;
   var SLIDER_TRACK_WIDTH = 200;
   var SLIDER_TRACK_HEIGHT = 30;
@@ -65,7 +64,7 @@ define( function( require ) {
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
-        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
+        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
         right: this.layoutBounds.maxX - 40
       } );
 
@@ -108,7 +107,7 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // options common to all IconToggleNodes
-    var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 2, iconYMargin: 2 };
+    var iconToggleOptions = { left: flashlightNode.left, iconXMargin: 2, iconYMargin: 2 };
 
     // Add buttons
     var colorWhiteSelectButtons = new IconToggleNode(
@@ -117,7 +116,7 @@ define( function( require ) {
       new Image( singleColorLightIcon, ICON_OPTIONS ),
       'white',
       'colored',
-      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT + 5 }, iconToggleOptions )
+      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
     var beamPhotonSelectButtons = new IconToggleNode(

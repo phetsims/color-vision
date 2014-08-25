@@ -16,7 +16,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   // images
-  var flashlightImage = require( 'image!COLOR_VISION/flashlight.png' );
+  var flashlightImage = require( 'image!COLOR_VISION/flashlight-icon.png' );
 
   // constants
   var SCALE = 0.8;
