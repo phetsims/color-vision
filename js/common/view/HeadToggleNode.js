@@ -18,7 +18,7 @@ define( function( require ) {
   var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
 
   // constants
-  var IMAGE_SCALE = 0.05;
+  var IMAGE_SCALE = 0.12;
 
   /**
    * @param {Property} property
