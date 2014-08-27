@@ -23,7 +23,9 @@ define( function( require ) {
       leadDesign: 'Bryce Gruneich',
       softwareDevelopment: 'Aaron Davis (lead developer), Sam Reid',
       designTeam: 'Ariel Paul, Kathy Perkins',
-      interviews: 'Bryce Gruneich'
+      interviews: 'Bryce Gruneich',
+      graphicArts: 'Mike Fowler',
+      qualityAssurance: 'Amy Rouinfar, Oliver Orejola, Bryan Yoelin'
     },
     showSmallHomeScreenIconFrame: true
   };
