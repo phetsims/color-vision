@@ -14,8 +14,8 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
 
   // images
-  var headIcon = require( 'image!COLOR_VISION/head-with-brain.png' );
-  var headNoBrainIcon = require( 'image!COLOR_VISION/head-no-brain.png' );
+  var headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
+  var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
 
   // constants
   var IMAGE_SCALE = 0.05;
@@ -33,10 +33,10 @@ define( function( require ) {
       iconYMargin: 4
     }, options );
 
-    var headNoBrainImage = new Image( headNoBrainIcon, { scale: IMAGE_SCALE } );
-    var headWithBrainImage = new Image( headIcon, { scale: IMAGE_SCALE } );
+    var headNode = new Image( silhouetteIcon, { scale: IMAGE_SCALE } );
+    var silhouetteNode = new Image( headIcon, { scale: IMAGE_SCALE } );
 
-    IconToggleNode.call( this, property, headNoBrainImage, headWithBrainImage, 'no-brain', 'brain', options );
+    IconToggleNode.call( this, property, headNode, silhouetteNode, 'no-brain', 'brain', options );
   }
 
   return inherit( IconToggleNode, HeadToggleNode );
