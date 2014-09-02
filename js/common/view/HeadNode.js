@@ -28,7 +28,7 @@ define( function( require ) {
 
   // constants
   var BOTTOM_OFFSET = 15;
-  var SCALE = 0.1765;
+  var SCALE = 0.97;
 
   /**
    * @param {Property<String>} headModeProperty
