@@ -76,9 +76,9 @@ define( function( require ) {
     },
 
     reset: function() {
-      // set all photons to be out of bounds to trigger empty redraw
-      for ( var i = 0; i < this.photons.length; i++ ) {
-        this.photons[i].location.x = 0;
+      // empty photon array
+      while ( this.photons.length ) {
+        this.photons.pop();
       }
     }
 
