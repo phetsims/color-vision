@@ -28,7 +28,7 @@ define( function( require ) {
 
   // constants
   var BEAM_ANGLE = Math.PI / 6;
-  var FLASHLIGHT_SCALE = 0.171;
+  var FLASHLIGHT_SCALE = 0.73;
 
   /**
    * @param {RGBModel} model
