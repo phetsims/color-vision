@@ -40,7 +40,7 @@ define( function( require ) {
 
     Node.call( this );
 
-    var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 80, scale: SCALE };
+    var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
     var headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
 
     // create nodes for each head image
