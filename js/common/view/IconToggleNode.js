@@ -44,7 +44,7 @@ define( function( require ) {
     };
 
     var selectedOptions = _.extend( { lineWidth: options.selectedLineWidth }, panelOptions );
-    var deselectedOptions = _.extend( { lineDash: [2, 2], lineWidth: options.deselectedLineWidth, opacity: 0.5 }, panelOptions );
+    var deselectedOptions = _.extend( { lineWidth: options.deselectedLineWidth, opacity: 0.5 }, panelOptions );
 
     var panelOne = new Panel( iconOne, selectedOptions );
     var buttonOne = new RadioButton( property, valueOne, panelOne, new Panel( iconOne, deselectedOptions ) );
