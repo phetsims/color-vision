@@ -24,7 +24,7 @@ define( function( require ) {
   /**
    * @param {Number} rotation
    * @param {String} color - an rgb string or other legitimate color string
-   * @param {Object} options
+   * @param {Object} [options]
    # @constructor
    */
   function FlashlightNode( rotation, color, options ) {

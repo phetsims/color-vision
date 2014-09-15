@@ -20,7 +20,7 @@ define( function( require ) {
 
   /**
    * @param {PhotonBeam} photonBeam
-   * @param {Object} options (must contain a field canvasBounds to indicate the bounds of the beam)
+   * @param {Object} [options] (must contain a field canvasBounds to indicate the bounds of the beam)
    * @constructor
    */
   function RGBPhotonBeamNode( photonBeam, options ) {

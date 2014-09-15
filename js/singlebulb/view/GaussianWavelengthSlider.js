@@ -26,7 +26,7 @@ define( function( require ) {
    * @param {Property<Number>} filterWavelengthProperty
    * @param {Number} width the width of the track
    * @param {Number} height the height of the track
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function GaussianWavelengthSlider( filterWavelengthProperty, width, height, options ) {

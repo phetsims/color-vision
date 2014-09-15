@@ -14,7 +14,7 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
-   * @param {Object} options, must contain a canvasBounds attribute of type Bounds2
+   * @param {Object} [options], must contain a canvasBounds attribute of type Bounds2
    * @constructor
    */
   function SingleBulbPhotonBeamNode( model, options ) {

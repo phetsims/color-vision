@@ -22,7 +22,7 @@ define( function( require ) {
 
   /**
    * @param {Property} property
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function HeadToggleNode( property, options ) {

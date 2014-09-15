@@ -20,7 +20,7 @@ define( function( require ) {
    * @param {Node} iconTwo
    * @param {*} valueOne
    * @param {*} valueTwo
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function IconToggleNode( property, iconOne, iconTwo, valueOne, valueTwo, options ) {
