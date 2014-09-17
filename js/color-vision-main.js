@@ -21,9 +21,8 @@ define( function( require ) {
     credits: {
       // all credits fields are optional
       leadDesign: 'Bryce Gruneich',
-      softwareDevelopment: 'Aaron Davis (lead developer), Sam Reid',
-      designTeam: 'Ariel Paul, Kathy Perkins',
-      interviews: 'Bryce Gruneich',
+      softwareDevelopment: 'Aaron Davis, Sam Reid',
+      designTeam: 'Ariel Paul, Kathy Perkins, Carl Wieman, Wendy Adams, Danielle Harlow',
       graphicArts: 'Mike Fowler',
       qualityAssurance: 'Amy Rouinfar, Oliver Orejola, Bryan Yoelin'
     },
