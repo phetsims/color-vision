@@ -14,6 +14,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Dimension2 = require( 'DOT/Dimension2' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   /**
    * @param {Property<Number>} intensityProperty the intensity property for this color from the model
@@ -35,7 +36,7 @@ define( function( require ) {
     Rectangle.call( this, 0, 0, rectWidth, rectHeight, 5, 5,
       {
         fill: new LinearGradient( 0, 0, 0, rectHeight ).addColorStop( 0, color ).addColorStop( 1, 'black' ),
-        stroke: '#c0b9b9' // gray
+        stroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
 
     hSlider.centerX = this.centerX;

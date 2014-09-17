@@ -15,7 +15,7 @@ define( function( require ) {
   var BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
 
   // images
-  var flashlightImage = require( 'image!COLOR_VISION/flashlight.png' );
+  var flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
 
   /**
    * @constructor
@@ -24,14 +24,11 @@ define( function( require ) {
 
     Node.call( this );
 
-    var flashlightNode = new Image( flashlightImage,
-      {
-        scale: 0.85
-      } );
+    var flashlightNode = new Image( flashlightImage, { scale: 0.85 } );
 
     var button = new BooleanRoundStickyToggleButton( onProperty,
       {
-        centerY: flashlightNode.centerY + 2,
+        centerY: flashlightNode.centerY,
         centerX: flashlightNode.centerX + 15,
         baseColor: 'red',
         radius: 15

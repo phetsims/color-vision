@@ -14,12 +14,12 @@ define( function( require ) {
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
@@ -43,13 +43,12 @@ define( function( require ) {
   var filterColor = require( 'string!COLOR_VISION/filterSlider.label' );
 
   // constants
-  var DISTANCE_FROM_FLASHLIGHT = 15;
-  var FLASHLIGHT_BUTTON_OFFSET = 13;
+  var DISTANCE_FROM_FLASHLIGHT = 20;
   var SLIDER_Y_OFFSET = 21;
   var SLIDER_TRACK_WIDTH = 200;
   var SLIDER_TRACK_HEIGHT = 30;
   var PHOTON_BEAM_START = 320;
-  var ICON_OPTIONS = { scale: 0.64 }; // options common to all icon images
+  var ICON_OPTIONS = { scale: 0.74 }; // options common to all icon images
 
   /**
    * @param {SingleBulbModel} model
@@ -62,13 +61,10 @@ define( function( require ) {
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom );
-    this.addChild( headNode );
-
     // Create flashlight node
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
-        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
+        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
         right: this.layoutBounds.maxX - 40
       } );
 
@@ -85,7 +81,8 @@ define( function( require ) {
         thumbWidth: 30,
         thumbHeight: 40,
         thumbTouchAreaExpandY: 10,
-        pointerAreasOverTrack: true
+        pointerAreasOverTrack: true,
+        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
 
     // add text above the upper slider
@@ -110,24 +107,27 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // options common to all IconToggleNodes
-    var iconToggleOptions = { left: flashlightNode.left + FLASHLIGHT_BUTTON_OFFSET, iconXMargin: 2, iconYMargin: 2 };
+    var iconToggleOptions = _.extend( {
+      left: flashlightNode.left,
+      buttonContentXMargin: 2,
+      buttonContentYMargin: 2
+    }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
 
-    // Add buttons
-    var colorWhiteSelectButtons = new IconToggleNode(
-      model.lightProperty,
-      new Image( whiteLightIcon, ICON_OPTIONS ),
-      new Image( singleColorLightIcon, ICON_OPTIONS ),
-      'white',
-      'colored',
+    var whiteColoredButtonsContent = [
+      { value: 'white', node: new Image( whiteLightIcon, ICON_OPTIONS ) },
+      { value: 'colored', node: new Image( singleColorLightIcon, ICON_OPTIONS ) }
+    ];
+
+    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
-    var beamPhotonSelectButtons = new IconToggleNode(
-      model.beamProperty,
-      new Image( beamViewIcon, ICON_OPTIONS ),
-      new Image( photonViewIcon, ICON_OPTIONS ),
-      'beam',
-      'photon',
+    var beamPhotonButtonsContent = [
+      { value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ) },
+      { value: 'photon', node: new Image( photonViewIcon, ICON_OPTIONS ) }
+    ];
+
+    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent,
       _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
@@ -208,7 +208,7 @@ define( function( require ) {
     // bounds for the solid beam view
     var beamBounds = new Bounds2
     (
-      headNode.right - 40,
+      filterLeft.left - 130,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET - 48
@@ -220,9 +220,9 @@ define( function( require ) {
     this.addChild( filterRightNode );
     this.addChild( filterRight );
 
-    // Add the solid and photon beams above the right side of the filter so they show up on top
-    this.addChild( solidBeam );
-    this.addChild( this.photonBeamNode );
+    // Add the head node and solid and photon beams above the right side of the filter so they show up on top
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ] );
+    this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind
     this.addChild( filterLeftNode );

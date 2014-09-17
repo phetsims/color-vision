@@ -22,13 +22,13 @@ define( function( require ) {
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
 
   // images
-  var flashlightDownImage = require( 'image!COLOR_VISION/flashlight-down.png' );
-  var flashlightImage = require( 'image!COLOR_VISION/flashlight.png' );
-  var flashlightUpImage = require( 'image!COLOR_VISION/flashlight-up.png' );
+  var flashlightDownImage = require( 'image!COLOR_VISION/flashlight-neg-45-deg.png' );
+  var flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
+  var flashlightUpImage = require( 'image!COLOR_VISION/flashlight-pos-45-deg.png' );
 
   // constants
   var BEAM_ANGLE = Math.PI / 6;
-  var FLASHLIGHT_SCALE = 0.72;
+  var FLASHLIGHT_SCALE = 0.73;
 
   /**
    * @param {RGBModel} model
@@ -78,8 +78,8 @@ define( function( require ) {
           redFlashlightNode,
           greenFlashlightNode,
           blueFlashlightNode ],
-        spacing: 70,
-        right: this.layoutBounds.maxX - 75,
+        spacing: 85,
+        right: this.layoutBounds.maxX - 84,
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       } );
 

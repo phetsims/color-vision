@@ -46,19 +46,21 @@ define( function( require ) {
           this.photons[i].updateAnimationFrame( newX, newY );
         }
         else {
-          this.perceivedIntensityProperty.value = this.photons[i].intensity;
+          this.perceivedIntensityProperty.set( this.photons[i].intensity );
           this.photons.splice( i, 1 ); // remove jth RGBPhoton from list
         }
       }
 
-      // make sure that the intensity is 0 if there are no more photons
-      if ( this.photons.length === 0 ) {
-        this.perceivedIntensityProperty.value = 0;
+      // emit a black photon for reseting the perceived color to black if no more photons are emitted this frame
+      if ( this.intensityProperty.get() === 0 ) {
+        var blackPhoton = new RGBPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
+                                         new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 0 );
+        this.photons.push( blackPhoton );
       }
     },
 
     createPhoton: function( timeElapsed ) {
-      var intensity = this.intensityProperty.value;
+      var intensity = this.intensityProperty.get();
 
       // only create a new photon if intensity is greater than 0
       if ( intensity > 0 ) {
@@ -74,9 +76,9 @@ define( function( require ) {
     },
 
     reset: function() {
-      // set all photons to be out of bounds to trigger empty redraw
-      for ( var i = 0; i < this.photons.length; i++ ) {
-        this.photons[i].location.x = 0;
+      // empty photon array
+      while ( this.photons.length ) {
+        this.photons.pop();
       }
     }
 

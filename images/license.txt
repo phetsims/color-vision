@@ -2,9 +2,10 @@ beam-view-icon.png source=PhET author=Bryce Gruneich
 filter-left.png source=PhET author=Bryce Gruneich
 filter-right.png source=PhET author=Bryce Gruneich
 filter.png source=PhET author=Bryce Gruneich
-flashlight-down.png source=PhET author=Bryce Gruneich
-flashlight-up.png source=PhET author=Bryce Gruneich
-flashlight.png source=PhET author=Bryce Gruneich
+flashlight-icon.png source=PhET author=Bryce Gruneich
+flashlight-0-deg.png source=PhET author=Bryce Gruneich
+flashlight-neg-45-deg.png source=PhET author=Bryce Gruneich
+flashlight-pos-45-deg.png source=PhET author=Bryce Gruneich
 head-front-no-brain.png source=PhET author=M Fowler
 head-front-with-brain.png source=PhET author=Bryce Gruneich
 head-no-brain.png source=PhET author=M Fowler

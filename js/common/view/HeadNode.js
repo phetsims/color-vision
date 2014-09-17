@@ -17,17 +17,23 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
+  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // images
-  var headWithBrainImage = require( 'image!COLOR_VISION/head-with-brain.png' );
-  var headNoBrainImage = require( 'image!COLOR_VISION/head-no-brain.png' );
-  var headFrontWithBrainImage = require( 'image!COLOR_VISION/head-front-with-brain.png' );
-  var headFrontNoBrainImage = require( 'image!COLOR_VISION/head-front-no-brain.png' );
+  var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
+  var headImage = require( 'image!COLOR_VISION/head.png' );
 
-  // contants
+  var silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
+  var headFrontImage = require( 'image!COLOR_VISION/head-front.png' );
+
+  var headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
+  var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
+
+  // constants
   var BOTTOM_OFFSET = 15;
-  var SCALE = 0.7;
+  var SCALE = 0.96;
+  var IMAGE_SCALE = 0.6;
 
   /**
    * @param {Property<String>} headModeProperty
@@ -39,26 +45,26 @@ define( function( require ) {
 
     Node.call( this );
 
-    var headWithBrainOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 50, scale: SCALE };
-    var headNoBrainOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
+    var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
+    var headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
 
     // create nodes for each head image
-    var headWithBrainNode = new Image( headWithBrainImage, headWithBrainOptions );
-    var headNoBrainNode = new Image( headNoBrainImage, headNoBrainOptions );
-    var headFrontWithBrainNode = new Image( headFrontWithBrainImage, headWithBrainOptions );
-    var headFrontNoBrainNode = new Image( headFrontNoBrainImage, headNoBrainOptions );
+    var silhouetteNode = new Image( silhouetteImage, silhouetteOptions );
+    var headNode = new Image( headImage, headOptions );
+    var silhouetteFrontNode = new Image( silhouetteFrontImage, silhouetteOptions );
+    var headFrontNode = new Image( headFrontImage, headOptions );
 
     // Make sure only one image is visible at at time, depending on the user's selection
     headModeProperty.link( function( mode ) {
-      headWithBrainNode.visible = ( mode === 'brain' );
-      headNoBrainNode.visible = ( mode === 'no-brain' );
-      headFrontWithBrainNode.visible = ( mode === 'brain' );
-      headFrontNoBrainNode.visible = ( mode === 'no-brain' );
+      silhouetteNode.visible = ( mode === 'brain' );
+      headNode.visible = ( mode === 'no-brain' );
+      silhouetteFrontNode.visible = ( mode === 'brain' );
+      headFrontNode.visible = ( mode === 'no-brain' );
     } );
 
     // add full head images first so they show up in back
-    this.addChild( headWithBrainNode );
-    this.addChild( headNoBrainNode );
+    this.addChild( silhouetteNode );
+    this.addChild( headNode );
 
     // add the photon beams on top of the head images
     // this is only needed in the RGB screen. The single bulb screen takes care of its own layering to account for the filter
@@ -69,11 +75,22 @@ define( function( require ) {
     }
 
     // add the front head image with the nose cut out so the photons get cut off at the right place (by going under these nodes)
-    this.addChild( headFrontWithBrainNode );
-    this.addChild( headFrontNoBrainNode );
+    this.addChild( silhouetteFrontNode );
+    this.addChild( headFrontNode );
 
     // Add head mode toggle
-    this.addChild( new HeadToggleNode( headModeProperty, { bottom: layoutBoundsBottom - 22, centerX: headWithBrainNode.centerX - 40 } ) );
+    var toggleButtonsContent = [
+      { value: 'no-brain', node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ) },
+      { value: 'brain', node: new Image( headIcon, { scale: IMAGE_SCALE } ) }
+    ];
+
+    this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,
+      _.extend( {
+        buttonContentXMargin: 4,
+        buttonContentYMargin: 4,
+        bottom: layoutBoundsBottom - 22,
+        centerX: silhouetteNode.centerX - 42
+      }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) ) );
   }
 
   return inherit( Node, HeadNode );

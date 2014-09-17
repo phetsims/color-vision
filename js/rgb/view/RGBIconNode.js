@@ -15,7 +15,7 @@ define( function( require ) {
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
 
   /**
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function RGBIconNode( options ) {

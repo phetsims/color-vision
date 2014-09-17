@@ -102,7 +102,7 @@ define( function( require ) {
 
         // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
         else {
-          var newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color;
+          var newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color.withAlpha( photon.intensity );
 
           // don't update the lastPhotonColor unless it is different than before, for performance reasons
           // and don't bother to update the color if the view is on beam mode
@@ -110,7 +110,7 @@ define( function( require ) {
 
             // if the photon was white, the perceived color keeps full intensity even when it passes the filter,
             // otherwise it takes the intensity of the photon, which may have been partially filtered
-            this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.copy() : newPerceivedColor.withAlpha( photon.intensity );
+            this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.withAlpha( 1 ) : newPerceivedColor;
           }
           this.photons.splice( j, 1 ); // remove jth photon from list
         }
@@ -118,17 +118,17 @@ define( function( require ) {
 
       // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
-      if ( probability === 0 && this.model.filterVisible && !this.model.perceivedColor.equals( Color.BLACK ) ) {
+      if ( probability === 0 && this.model.filterVisible ) {
         var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
                                                 new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }
 
-      // if no photons exist, make sure the perceived color is black. This prevents the perceived color from
-      // getting stuck on when no photons are hitting the eye
-      if ( this.photons.length === 0 && !this.model.lastPhotonColor.equals( Color.BLACK ) ) {
-        this.model.lastPhotonColor = Color.BLACK;
+      // emit a black photon for reseting the perceived color to black if the flashlight is off
+      if ( !this.model.flashlightOn ) {
+        this.photons.push( new SingleBulbPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
+                                                 new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false ) );
       }
     },
 

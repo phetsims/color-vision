@@ -19,7 +19,7 @@ define( function( require ) {
 
   // constants
   var DEFAULT_BEAM_ALPHA = 0.8;
-  var UNFILTERED_WHITE_COLOR = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
+  var WHITE_WITH_ALPHA = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
 
   /**
    * @param {SingleBulbModel} model
@@ -64,7 +64,7 @@ define( function( require ) {
     var wholeBeam = new Path( wholeBeamShape );
 
     model.flashlightWavelengthProperty.link( function( wavelength ) {
-      var newColor = VisibleColor.wavelengthToColor( wavelength );
+      var newColor = VisibleColor.wavelengthToColor( wavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
       rightHalf.fill = newColor;
       wholeBeam.fill = newColor;
     } );
@@ -86,17 +86,17 @@ define( function( require ) {
         // update the beam only if it is visible
         if ( beamMode === 'beam' ) {
           if ( light === 'white' && filterVisible ) {
-            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength );
-            rightHalf.fill = Color.WHITE;
+            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
+            rightHalf.fill = WHITE_WITH_ALPHA;
           }
           else if ( light === 'white' && !filterVisible ) {
-            wholeBeam.fill = UNFILTERED_WHITE_COLOR;
+            wholeBeam.fill = WHITE_WITH_ALPHA;
           }
           else if ( light === 'colored' && filterVisible ) {
-            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
           }
           else if ( light === 'colored' && !filterVisible ) {
-            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength );
+            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
           }
         }
       } );
@@ -107,9 +107,10 @@ define( function( require ) {
       } );
     visibleProperty.linkAttribute( this, 'visible' );
 
-    Property.multilink( [model.perceivedColorProperty, visibleProperty], function( perceivedColor, visible ) {
+    Property.multilink( [ model.perceivedColorProperty, visibleProperty ], function( perceivedColor, visible ) {
       if ( visible ) {
-        leftHalf.fill = perceivedColor;
+        // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
+        leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA * perceivedColor.a );
       }
     } );
 

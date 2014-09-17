@@ -16,7 +16,7 @@ define( function( require ) {
   /**
    * @param {Property<Color|String>} perceivedColorProperty
    * @param {Number} yRadius
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function ThoughtBubble( perceivedColorProperty, yRadius, options ) {
