@@ -20,11 +20,11 @@ define( function( require ) {
   var simOptions = {
     credits: {
       // all credits fields are optional
-      leadDesign: 'Bryce Gruneich',
-      softwareDevelopment: 'Aaron Davis, Sam Reid',
-      designTeam: 'Ariel Paul, Kathy Perkins, Carl Wieman, Wendy Adams, Danielle Harlow',
+      leadDesign: 'Bryce Gruneich, Kathy Perkins',
+      softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley, Sam Reid',
+      designTeam: 'Wendy Adams, Danielle Harlow, Ariel Paul, Carl Wieman',
       graphicArts: 'Mike Fowler',
-      qualityAssurance: 'Amy Rouinfar, Oliver Orejola, Bryan Yoelin'
+      qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin'
     },
     showSmallHomeScreenIconFrame: true
   };
