@@ -130,24 +130,6 @@ define( function( require ) {
     var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent,
       _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
-    // Add buttons
-    // var colorWhiteSelectButtons = new IconToggleNode(
-    //   model.lightProperty,
-    //   new Image( whiteLightIcon, ICON_OPTIONS ),
-    //   new Image( singleColorLightIcon, ICON_OPTIONS ),
-    //   'white',
-    //   'colored',
-    //   _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
-    // );
-
-    // var beamPhotonSelectButtons = new IconToggleNode(
-    //   model.beamProperty,
-    //   new Image( beamViewIcon, ICON_OPTIONS ),
-    //   new Image( photonViewIcon, ICON_OPTIONS ),
-    //   'beam',
-    //   'photon',
-    //   _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
-    // );
 
     this.addChild( colorWhiteSelectButtons );
     this.addChild( beamPhotonSelectButtons );
