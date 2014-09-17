@@ -107,18 +107,11 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // options common to all IconToggleNodes
-    var iconToggleOptions = {
+    var iconToggleOptions = _.extend( {
       left: flashlightNode.left,
       buttonContentXMargin: 2,
-      buttonContentYMargin: 2,
-      baseColor: 'black',
-      selectedStroke: 'yellow',
-      deselectedStroke: 'yellow',
-      selectedLineWidth: 1.3,
-      deselectedLineWidth: 0.6,
-      spacing: 15,
-      orientation: 'horizontal'
-    };
+      buttonContentYMargin: 2
+    }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
 
     var whiteColoredButtonsContent = [
       { value: 'white', node: new Image( whiteLightIcon, ICON_OPTIONS ) },

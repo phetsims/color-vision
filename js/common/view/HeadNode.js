@@ -17,7 +17,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var HeadToggleNode = require( 'COLOR_VISION/common/view/HeadToggleNode' );
+  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
+  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // images
   var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
@@ -26,9 +27,13 @@ define( function( require ) {
   var silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
   var headFrontImage = require( 'image!COLOR_VISION/head-front.png' );
 
+  var headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
+  var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
+
   // constants
   var BOTTOM_OFFSET = 15;
   var SCALE = 0.96;
+  var IMAGE_SCALE = 0.6;
 
   /**
    * @param {Property<String>} headModeProperty
@@ -74,7 +79,18 @@ define( function( require ) {
     this.addChild( headFrontNode );
 
     // Add head mode toggle
-    this.addChild( new HeadToggleNode( headModeProperty, { bottom: layoutBoundsBottom - 22, centerX: silhouetteNode.centerX - 42 } ) );
+    var toggleButtonsContent = [
+      { value: 'no-brain', node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ) },
+      { value: 'brain', node: new Image( headIcon, { scale: IMAGE_SCALE } ) }
+    ];
+
+    this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,
+      _.extend( {
+        buttonContentXMargin: 4,
+        buttonContentYMargin: 4,
+        bottom: layoutBoundsBottom - 22,
+        centerX: silhouetteNode.centerX - 42
+      }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) ) );
   }
 
   return inherit( Node, HeadNode );
