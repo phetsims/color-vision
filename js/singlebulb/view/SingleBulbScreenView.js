@@ -14,12 +14,12 @@ define( function( require ) {
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Vector2 = require( 'DOT/Vector2' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var IconToggleNode = require( 'COLOR_VISION/common/view/IconToggleNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
@@ -107,26 +107,54 @@ define( function( require ) {
     this.addChild( upperSliderNode );
 
     // options common to all IconToggleNodes
-    var iconToggleOptions = { left: flashlightNode.left, iconXMargin: 2, iconYMargin: 2 };
+    var iconToggleOptions = {
+      left: flashlightNode.left,
+      buttonContentXMargin: 2,
+      buttonContentYMargin: 2,
+      baseColor: 'black',
+      selectedStroke: 'yellow',
+      deselectedStroke: 'yellow',
+      selectedLineWidth: 1.3,
+      deselectedLineWidth: 0.6,
+      spacing: 15,
+      orientation: 'horizontal'
+    };
 
-    // Add buttons
-    var colorWhiteSelectButtons = new IconToggleNode(
-      model.lightProperty,
-      new Image( whiteLightIcon, ICON_OPTIONS ),
-      new Image( singleColorLightIcon, ICON_OPTIONS ),
-      'white',
-      'colored',
+    var whiteColoredButtonsContent = [
+      { value: 'white', node: new Image( whiteLightIcon, ICON_OPTIONS ) },
+      { value: 'colored', node: new Image( singleColorLightIcon, ICON_OPTIONS ) }
+    ];
+
+    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
-    var beamPhotonSelectButtons = new IconToggleNode(
-      model.beamProperty,
-      new Image( beamViewIcon, ICON_OPTIONS ),
-      new Image( photonViewIcon, ICON_OPTIONS ),
-      'beam',
-      'photon',
+    var beamPhotonButtonsContent = [
+      { value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ) },
+      { value: 'photon', node: new Image( photonViewIcon, ICON_OPTIONS ) }
+    ];
+
+    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent,
       _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
+    // Add buttons
+    // var colorWhiteSelectButtons = new IconToggleNode(
+    //   model.lightProperty,
+    //   new Image( whiteLightIcon, ICON_OPTIONS ),
+    //   new Image( singleColorLightIcon, ICON_OPTIONS ),
+    //   'white',
+    //   'colored',
+    //   _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+    // );
+
+    // var beamPhotonSelectButtons = new IconToggleNode(
+    //   model.beamProperty,
+    //   new Image( beamViewIcon, ICON_OPTIONS ),
+    //   new Image( photonViewIcon, ICON_OPTIONS ),
+    //   'beam',
+    //   'photon',
+    //   _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+    // );
 
     this.addChild( colorWhiteSelectButtons );
     this.addChild( beamPhotonSelectButtons );
