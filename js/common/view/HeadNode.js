@@ -84,13 +84,15 @@ define( function( require ) {
       { value: 'brain', node: new Image( headIcon, { scale: IMAGE_SCALE } ) }
     ];
 
-    this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,
+    var radioButtons = new RadioButtonGroup( headModeProperty, toggleButtonsContent,
       _.extend( {
         buttonContentXMargin: 4,
         buttonContentYMargin: 4,
-        bottom: layoutBoundsBottom - 22,
-        centerX: silhouetteNode.centerX - 42
-      }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) ) );
+      }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
+    radioButtons.bottom = layoutBoundsBottom - 22;
+    radioButtons.centerX = silhouetteNode.centerX - 42;
+
+    this.addChild( radioButtons );
   }
 
   return inherit( Node, HeadNode );
