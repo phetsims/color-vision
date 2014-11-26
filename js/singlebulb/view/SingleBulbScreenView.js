@@ -108,6 +108,7 @@ define( function( require ) {
 
     // options common to all IconToggleNodes
     var iconToggleOptions = _.extend( {
+      left: flashlightNode.left,
       buttonContentXMargin: 2,
       buttonContentYMargin: 2
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
@@ -117,18 +118,18 @@ define( function( require ) {
       { value: 'colored', node: new Image( singleColorLightIcon, ICON_OPTIONS ) }
     ];
 
-    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent, iconToggleOptions );
-    colorWhiteSelectButtons.left = flashlightNode.left;
-    colorWhiteSelectButtons.bottom = flashlightNode.top - DISTANCE_FROM_FLASHLIGHT;
+    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
+      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+    );
 
     var beamPhotonButtonsContent = [
       { value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ) },
       { value: 'photon', node: new Image( photonViewIcon, ICON_OPTIONS ) }
     ];
 
-    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent, iconToggleOptions );
-    beamPhotonSelectButtons.left = flashlightNode.left;
-    beamPhotonSelectButtons.top = flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT;
+    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent,
+      _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+    );
 
     this.addChild( colorWhiteSelectButtons );
     this.addChild( beamPhotonSelectButtons );
