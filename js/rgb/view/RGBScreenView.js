@@ -63,7 +63,7 @@ define( function( require ) {
       } );
 
     // add head node
-    var beamArray = [this.redBeam, this.blueBeam, this.greenBeam];
+    var beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
     var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray );
     this.addChild( headNode );
 
@@ -79,7 +79,7 @@ define( function( require ) {
           greenFlashlightNode,
           blueFlashlightNode ],
         spacing: 85,
-        right: this.layoutBounds.maxX - 84,
+        right:   this.layoutBounds.maxX - 84,
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       } );
 

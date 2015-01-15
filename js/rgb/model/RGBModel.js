@@ -59,9 +59,9 @@ define( function( require ) {
     this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
       function( redIntensity, greenIntensity, blueIntensity ) {
         return 'rgb(' + [
-          Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
-          Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
-          Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ].join() + ')';
+            Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
+            Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
+            Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ].join() + ')';
       } );
 
     // create a ConstantEventModel for each beam
@@ -92,41 +92,41 @@ define( function( require ) {
 
   return inherit( PropertySet, RGBModel, {
 
-      // @private
-      // convenience method for stepping all of the beams at once, used in step and manualStep
-      stepBeams: function( timeElapsed ) {
-        this.redBeam.updateAnimationFrame( timeElapsed );
-        this.greenBeam.updateAnimationFrame( timeElapsed );
-        this.blueBeam.updateAnimationFrame( timeElapsed );
-      },
+    // @private
+    // convenience method for stepping all of the beams at once, used in step and manualStep
+    stepBeams: function( timeElapsed ) {
+      this.redBeam.updateAnimationFrame( timeElapsed );
+      this.greenBeam.updateAnimationFrame( timeElapsed );
+      this.blueBeam.updateAnimationFrame( timeElapsed );
+    },
 
-      // @private
-      // convenience method for stepping all of the timers at once
-      stepTimers: function( dt ) {
-        this.redEventTimer.step( dt );
-        this.greenEventTimer.step( dt );
-        this.blueEventTimer.step( dt );
-      },
+    // @private
+    // convenience method for stepping all of the timers at once
+    stepTimers: function( dt ) {
+      this.redEventTimer.step( dt );
+      this.greenEventTimer.step( dt );
+      this.blueEventTimer.step( dt );
+    },
 
-      step: function( dt ) {
-        if ( this.play ) {
-          this.stepBeams( dt );
-          this.stepTimers( dt );
-        }
-      },
-
-      // step one frame, assuming 60fps
-      manualStep: function() {
-        this.stepBeams( 1 / 60 );
-        this.stepTimers( 1 / 60 );
-      },
-
-      reset: function() {
-        PropertySet.prototype.reset.call( this );
-        this.redBeam.reset();
-        this.greenBeam.reset();
-        this.blueBeam.reset();
+    step: function( dt ) {
+      if ( this.play ) {
+        this.stepBeams( dt );
+        this.stepTimers( dt );
       }
+    },
 
-    } );
+    // step one frame, assuming 60fps
+    manualStep: function() {
+      this.stepBeams( 1 / 60 );
+      this.stepTimers( 1 / 60 );
+    },
+
+    reset: function() {
+      PropertySet.prototype.reset.call( this );
+      this.redBeam.reset();
+      this.greenBeam.reset();
+      this.blueBeam.reset();
+    }
+
+  } );
 } );

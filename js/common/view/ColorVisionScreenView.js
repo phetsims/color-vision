@@ -41,7 +41,7 @@ define( function( require ) {
       {
         listener: function() { model.reset(); },
         bottom: this.layoutBounds.bottom - 5,
-        right: this.layoutBounds.right - 30,
+        right:  this.layoutBounds.right - 30,
         radius: 18
       } );
 
@@ -50,7 +50,7 @@ define( function( require ) {
     // Add play/pause button
     var playPauseButton = new PlayPauseButton( model.playProperty,
       {
-        bottom: this.layoutBounds.bottom - 20,
+        bottom:  this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20
       } );

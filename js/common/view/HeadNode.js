@@ -70,7 +70,7 @@ define( function( require ) {
     // this is only needed in the RGB screen. The single bulb screen takes care of its own layering to account for the filter
     if ( photonBeams ) {
       for ( var i = 0; i < photonBeams.length; i++ ) {
-        this.addChild( photonBeams[i] );
+        this.addChild( photonBeams[ i ] );
       }
     }
 
@@ -88,7 +88,7 @@ define( function( require ) {
       _.extend( {
         buttonContentXMargin: 4,
         buttonContentYMargin: 4,
-        bottom: layoutBoundsBottom - 22,
+        bottom:  layoutBoundsBottom - 22,
         centerX: silhouetteNode.centerX - 42
       }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) ) );
   }

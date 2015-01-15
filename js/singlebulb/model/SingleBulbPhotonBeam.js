@@ -16,7 +16,7 @@ define( function( require ) {
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var Vector2 = require ( 'DOT/Vector2' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
@@ -47,7 +47,7 @@ define( function( require ) {
 
       // move all photons that are currently active
       for ( var j = 0; j < this.photons.length; j++ ) {
-        var photon = this.photons[j];
+        var photon = this.photons[ j ];
 
         // calculate the new location of the photon in order to check whether will still be in bounds
         var newX = photon.location.x + dt * photon.velocity.x;
@@ -120,7 +120,7 @@ define( function( require ) {
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible ) {
         var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
-                                                new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
+          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }
@@ -128,7 +128,7 @@ define( function( require ) {
       // emit a black photon for reseting the perceived color to black if the flashlight is off
       if ( !this.model.flashlightOn ) {
         this.photons.push( new SingleBulbPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
-                                                 new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false ) );
+          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false ) );
       }
     },
 
@@ -145,16 +145,16 @@ define( function( require ) {
         var y = initialY + deltaY;
 
         this.photons.push( new SingleBulbPhoton( new Vector2( x, y ),
-                                                 new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ),
-                                                 1, newColor, ( this.model.light === 'white' ),
-                                                 this.model.flashlightWavelength ) );
+          new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ),
+          1, newColor, ( this.model.light === 'white' ),
+          this.model.flashlightWavelength ) );
       }
     },
 
     reset: function() {
       // set all photons to be out of bounds to trigger empty redraw
       for ( var i = 0; i < this.photons.length; i++ ) {
-        this.photons[i].location.x = 0;
+        this.photons[ i ].location.x = 0;
       }
     }
 

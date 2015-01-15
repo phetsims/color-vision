@@ -39,14 +39,14 @@ define( function( require ) {
       for ( var i = 0; i < this.photons.length; i++ ) {
 
         // calculate the new location of the photon in order to check whether will still be in bounds
-        var newX = this.photons[i].location.x + dt * this.photons[i].velocity.x;
-        var newY = this.photons[i].location.y + dt * this.photons[i].velocity.y;
+        var newX = this.photons[ i ].location.x + dt * this.photons[ i ].velocity.x;
+        var newY = this.photons[ i ].location.y + dt * this.photons[ i ].velocity.y;
 
         if ( newX > 0 && newY > 0 && newY < ColorVisionConstants.BEAM_HEIGHT ) {
-          this.photons[i].updateAnimationFrame( newX, newY );
+          this.photons[ i ].updateAnimationFrame( newX, newY );
         }
         else {
-          this.perceivedIntensityProperty.set( this.photons[i].intensity );
+          this.perceivedIntensityProperty.set( this.photons[ i ].intensity );
           this.photons.splice( i, 1 ); // remove jth RGBPhoton from list
         }
       }
@@ -54,7 +54,7 @@ define( function( require ) {
       // emit a black photon for reseting the perceived color to black if no more photons are emitted this frame
       if ( this.intensityProperty.get() === 0 ) {
         var blackPhoton = new RGBPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
-                                         new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 0 );
+          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 0 );
         this.photons.push( blackPhoton );
       }
     },

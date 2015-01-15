@@ -65,7 +65,7 @@ define( function( require ) {
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
-        right: this.layoutBounds.maxX - 40
+        right:   this.layoutBounds.maxX - 40
       } );
 
     // Create upper WavelengthSlider node
@@ -86,7 +86,12 @@ define( function( require ) {
       } );
 
     // add text above the upper slider
-    var bulbColorText = new Text( bulbColor, { fill: 'white', font: new PhetFont( 20 ), bottom: upperSliderNode.top - 3, right: upperSliderNode.right - 18 } );
+    var bulbColorText = new Text( bulbColor, {
+      fill: 'white',
+      font: new PhetFont( 20 ),
+      bottom: upperSliderNode.top - 3,
+      right:  upperSliderNode.right - 18
+    } );
     this.addChild( bulbColorText );
 
     // Add wire from flashlight to WavelengthSlider
@@ -139,7 +144,7 @@ define( function( require ) {
     var filterOptions = {
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       scale: 0.7,
-      right: flashlightNode.left - 100
+      right:   flashlightNode.left - 100
     };
 
     // Add the circular filter images into the scene
@@ -169,7 +174,12 @@ define( function( require ) {
       } );
 
     // Add the text above the gaussian wavelength slider
-    var filterColorText = new Text( filterColor, { fill: 'white', font: new PhetFont( 20 ), bottom: gaussianSlider.top - 3, right: gaussianSlider.right - 18 } );
+    var filterColorText = new Text( filterColor, {
+      fill: 'white',
+      font: new PhetFont( 20 ),
+      bottom: gaussianSlider.top - 3,
+      right:  gaussianSlider.right - 18
+    } );
     this.addChild( filterColorText );
 
     // Add the wire from the slider to the filter

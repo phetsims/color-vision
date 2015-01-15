@@ -48,8 +48,8 @@ define( function( require ) {
       context.fillStyle = this.color;
       for ( var i = 0; i < this.photons.length; i++ ) {
         // don't draw photons with intensity 0, since these are just used for ensuring the perceived color is black
-        if ( this.photons[i].intensity !== 0 ) {
-          context.fillRect( this.photons[i].location.x, this.photons[i].location.y, 3, 2 );
+        if ( this.photons[ i ].intensity !== 0 ) {
+          context.fillRect( this.photons[ i ].location.x, this.photons[ i ].location.y, 3, 2 );
         }
       }
     },

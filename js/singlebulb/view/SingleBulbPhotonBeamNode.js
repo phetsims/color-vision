@@ -38,8 +38,8 @@ define( function( require ) {
       var context = wrapper.context;
 
       for ( var i = 0; i < this.photons.length; i++ ) {
-        context.fillStyle = this.photons[i].color.toCSS();
-        context.fillRect( this.photons[i].location.x, this.photons[i].location.y, 3, 2 );
+        context.fillStyle = this.photons[ i ].color.toCSS();
+        context.fillRect( this.photons[ i ].location.x, this.photons[ i ].location.y, 3, 2 );
       }
     },
 
