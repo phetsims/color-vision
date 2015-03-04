@@ -28,7 +28,7 @@ define( function( require ) {
    */
   function ColorVisionScreenView( model ) {
 
-    ScreenView.call( this, { renderer: 'svg', layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
+    ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
 
     // Add thought bubbles
     this.addChild( new ThoughtBubble( model.perceivedColorProperty, 45, { centerX: 220 + THOUGHT_BUBBLE_X, centerY: 60 + THOUGHT_BUBBLE_Y } ) );
