@@ -3,8 +3,31 @@
   "version": "1.0.0-dev.13",
   "simTitleStringKey": "COLOR_VISION/color-vision.name",
   "license": "GPLv3",
-  "phetLibs": "color-vision assert axon brand chipper dot joist kite phet-core phetcommon scenery scenery-phet sherpa sun",
-  "preload": "../assert/js/assert.js ../sherpa/jquery-2.1.0.js ../sherpa/lodash-2.4.1.js ../sherpa/has.js ../sherpa/FileSaver.js ../chipper/js/initialize-globals.js ../phetcommon/js/analytics/google-analytics.js",
+  "phetLibs": [
+    "color-vision",
+    "assert",
+    "axon",
+    "brand",
+    "chipper",
+    "dot",
+    "joist",
+    "kite",
+    "phet-core",
+    "phetcommon",
+    "scenery",
+    "scenery-phet",
+    "sherpa",
+    "sun"
+  ],
+  "preload": [
+    "../assert/js/assert.js",
+    "../sherpa/jquery-2.1.0.js",
+    "../sherpa/lodash-2.4.1.js",
+    "../sherpa/has.js",
+    "../sherpa/FileSaver.js",
+    "../chipper/js/initialize-globals.js",
+    "../phetcommon/js/analytics/google-analytics.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/phetsims/color-vision.git"
