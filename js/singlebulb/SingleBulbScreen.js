@@ -26,7 +26,12 @@ define( function( require ) {
     Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new SingleBulbModel(); },
       function( model ) { return new SingleBulbScreenView( model ); },
-      { backgroundColor: 'black', navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ) }
+      {
+        backgroundColor: 'black',
+        navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
+        homeScreenButtonComponentID: 'homeScreen.singleBulbScreenButton',
+        navigationBarScreenButtonComponentID: 'navigationBar.singleBulbScreenButton'
+      }
     );
   }
 
