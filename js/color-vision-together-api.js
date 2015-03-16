@@ -19,6 +19,8 @@ define( function( require ) {
 
   // Convenience imports to make the API read more clearly below.
   var Button = togetherTypes.Button;
+  var Number = togetherTypes.Number;
+  var String = togetherTypes.String;
   var property = togetherTypes.property;
   var Vector2 = togetherTypes.Vector2;
   var Slider = togetherTypes.Slider;
@@ -42,11 +44,25 @@ define( function( require ) {
       'homeScreen.singleBulbScreenButton': { type: Button },
       'homeScreen.rgbScreenButton': { type: Button }
     },
+
     // Shared Screen items
     {
       'navigationBar.rgbScreenButton': { type: Button },
       'navigationBar.singleBulbScreenButton': { type: Button }
     },
-    {}
+
+    // Single bulb screen
+    {
+      'singleBulbScreen.bulbColorSlider': { type: Slider },
+      'singleBulbScreen.filterColorSlider': { type: Slider },
+      'singleBulbScreen.flashlightWavelength': { type: property( Number ), units: 'nm' },
+      'singleBulbScreen.lightType': { type: property( String ) },
+      'singleBulbScreen.beamType': { type: property( String ) },
+      'singleBulbScreen.filterWavelength': { type: property( Number ), units: 'nm' },
+      'singleBulbScreen.flashlightOn': { type: property( Boolean ) },
+      'singleBulbScreen.filterVisible': { type: property( Boolean ) },
+      'singleBulbScreen.playing': { type: property( Boolean ) },
+      'singleBulbScreen.headMode': { type: property( String ) }
+    }
   ] );
 } );

@@ -33,6 +33,17 @@ define( function( require ) {
 
         // keep track of the last photon to hit the eye for use in calculating the perceived color
         lastPhotonColor: new Color( 0, 0, 0, 0 )
+      }, {
+        componentIDMap: {
+          flashlightWavelength: 'singleBulbScreen.flashlightWavelength',
+          light: 'singleBulbScreen.lightType',
+          beam: 'singleBulbScreen.beamType',
+          filterWavelength: 'singleBulbScreen.filterWavelength',
+          flashlightOn: 'singleBulbScreen.flashlightOn',
+          filterVisible: 'singleBulbScreen.filterVisible',
+          playing: 'singleBulbScreen.playing',
+          headMode: 'singleBulbScreen.headMode'
+        }
       }
     );
 

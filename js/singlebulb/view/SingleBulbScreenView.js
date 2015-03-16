@@ -82,7 +82,8 @@ define( function( require ) {
         thumbHeight: 40,
         thumbTouchAreaExpandY: 10,
         pointerAreasOverTrack: true,
-        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
+        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
+        componentID: 'singleBulbScreen.bulbColorSlider'
       } );
 
     // add text above the upper slider
@@ -170,7 +171,8 @@ define( function( require ) {
     var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
       {
         bottom: this.layoutBounds.bottom - 20,
-        right: wavelengthSliderDistance
+        right: wavelengthSliderDistance,
+        componentID: 'singleBulbScreen.filterColorSlider'
       } );
 
     // Add the text above the gaussian wavelength slider
