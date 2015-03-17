@@ -20,6 +20,7 @@ define( function( require ) {
   // Convenience imports to make the API read more clearly below.
   var Button = togetherTypes.Button;
   var Number = togetherTypes.Number;
+  var PlayPauseButton = togetherTypes.PlayPauseButton;
   var String = togetherTypes.String;
   var property = togetherTypes.property;
   var Vector2 = togetherTypes.Vector2;
@@ -27,6 +28,7 @@ define( function( require ) {
   var Faucet = togetherTypes.Faucet;
   var ResetAllButton = togetherTypes.ResetAllButton;
   var RadioButton = togetherTypes.RadioButton;
+  var OnOffSwitch = togetherTypes.OnOffSwitch;
   var ComboBox = togetherTypes.ComboBox;
   var ComboBoxListItem = togetherTypes.ComboBoxListItem;
   var Color = togetherTypes.Color;
@@ -62,7 +64,34 @@ define( function( require ) {
       'singleBulbScreen.flashlightOn': { type: property( Boolean ) },
       'singleBulbScreen.filterVisible': { type: property( Boolean ) },
       'singleBulbScreen.playing': { type: property( Boolean ) },
-      'singleBulbScreen.headMode': { type: property( String ) }
+      'singleBulbScreen.headMode': { type: property( String ) },
+      'singleBulbScreen.whiteLightRadioButton': { type: RadioButton },
+      'singleBulbScreen.coloredLightRadioButton': { type: RadioButton },
+      'singleBulbScreen.beamRadioButton': { type: RadioButton },
+      'singleBulbScreen.photonRadioButton': { type: RadioButton },
+      'singleBulbScreen.flashlightButton': { type: Button },
+      'singleBulbScreen.hideBrainRadioButton': { type: RadioButton },
+      'singleBulbScreen.showBrainRadioButton': { type: RadioButton },
+      'singleBulbScreen.filterOnOffSwitch': { type: OnOffSwitch },
+      'singleBulbScreen.resetAllButton': { type: ResetAllButton },
+      'singleBulbScreen.playPauseButton': { type: PlayPauseButton },
+      'singleBulbScreen.stepButton': { type: Button }
+    },
+
+    {
+      'rgbBulbsScreen.resetAllButton': { type: ResetAllButton },
+      'rgbBulbsScreen.playPauseButton': { type: PlayPauseButton },
+      'rgbBulbsScreen.stepButton': { type: Button },
+      'rgbBulbsScreen.showBrainRadioButton': { type: RadioButton },
+      'rgbBulbsScreen.hideBrainRadioButton': { type: RadioButton },
+      'rgbBulbsScreen.redSlider': { type: Slider },
+      'rgbBulbsScreen.greenSlider': { type: Slider },
+      'rgbBulbsScreen.blueSlider': { type: Slider },
+      'rgbBulbsScreen.redIntensity': { type: property( Number ) },
+      'rgbBulbsScreen.greenIntensity': { type: property( Number ) },
+      'rgbBulbsScreen.blueIntensity': { type: property( Number ) },
+      'rgbBulbsScreen.playing': { type: property( Boolean ) },
+      'rgbBulbsScreen.headMode': { type: property( String ) }
     }
   ] );
 } );

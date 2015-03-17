@@ -19,14 +19,18 @@ define( function( require ) {
   /**
    * @param {Property<Number>} intensityProperty the intensity property for this color from the model
    * @param {String} color
+   * @param {object} [options]
    * @constructor
    */
-  function RGBSlider( intensityProperty, color ) {
+  function RGBSlider( intensityProperty, color, options ) {
+
+    options = _.extend( { componentID: null }, options );
 
     var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
-        trackSize: new Dimension2( 100, 2 )
+        trackSize: new Dimension2( 100, 2 ),
+        componentID: options.componentID
       } );
     hSlider.rotation = -Math.PI / 2;
 

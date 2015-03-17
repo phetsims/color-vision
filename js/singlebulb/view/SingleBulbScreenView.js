@@ -56,7 +56,11 @@ define( function( require ) {
    */
   function SingleBulbScreenView( model ) {
 
-    ColorVisionScreenView.call( this, model );
+    ColorVisionScreenView.call( this, model, {
+      resetAllButtonComponentID: 'singleBulbScreen.resetAllButton',
+      playPauseButtonComponentID: 'singleBulbScreen.playPauseButton',
+      stepButtonComponentID: 'singleBulbScreen.stepButton'
+    } );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
@@ -119,18 +123,30 @@ define( function( require ) {
       buttonContentYMargin: 2
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
 
-    var whiteColoredButtonsContent = [
-      { value: 'white', node: new Image( whiteLightIcon, ICON_OPTIONS ) },
-      { value: 'colored', node: new Image( singleColorLightIcon, ICON_OPTIONS ) }
-    ];
+    var whiteColoredButtonsContent = [ {
+      value: 'white',
+      node: new Image( whiteLightIcon, ICON_OPTIONS ),
+      componentID: 'singleBulbScreen.whiteLightRadioButton'
+    }, {
+      value: 'colored',
+      node: new Image( singleColorLightIcon, ICON_OPTIONS ),
+      componentID: 'singleBulbScreen.coloredLightRadioButton'
+    } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
     var beamPhotonButtonsContent = [
-      { value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ) },
-      { value: 'photon', node: new Image( photonViewIcon, ICON_OPTIONS ) }
+      {
+        value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ),
+        componentID: 'singleBulbScreen.beamRadioButton'
+      },
+      {
+        value: 'photon',
+        node: new Image( photonViewIcon, ICON_OPTIONS ),
+        componentID: 'singleBulbScreen.photonRadioButton'
+      }
     ];
 
     var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent,
@@ -233,7 +249,10 @@ define( function( require ) {
     this.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ] );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], {
+      hideBrainRadioButtonComponentID: 'singleBulbScreen.hideBrainRadioButton',
+      showBrainRadioButtonComponentID: 'singleBulbScreen.showBrainRadioButton'
+    } );
     this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind

@@ -36,7 +36,11 @@ define( function( require ) {
    */
   function RGBScreenView( model ) {
 
-    ColorVisionScreenView.call( this, model );
+    ColorVisionScreenView.call( this, model, {
+      resetAllButtonComponentID: 'rgbBulbsScreen.resetAllButton',
+      playPauseButtonComponentID: 'rgbBulbsScreen.playPauseButton',
+      stepButtonComponentID: 'rgbBulbsScreen.stepButton'
+    } );
 
     // Add photon beams
     this.redBeam = new RGBPhotonBeamNode( model.redBeam,
@@ -64,7 +68,10 @@ define( function( require ) {
 
     // add head node
     var beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, {
+      hideBrainRadioButtonComponentID: 'rgbBulbsScreen.hideBrainRadioButton',
+      showBrainRadioButtonComponentID: 'rgbBulbsScreen.showBrainRadioButton'
+    } );
     this.addChild( headNode );
 
     // Add flashlights
@@ -86,9 +93,9 @@ define( function( require ) {
     this.addChild( flashlightVBox );
 
     // Add sliders
-    var redSlider = new RGBSlider( model.redIntensityProperty, 'red' );
-    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green' );
-    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue' );
+    var redSlider = new RGBSlider( model.redIntensityProperty, 'red', { componentID: 'rgbBulbsScreen.redSlider' } );
+    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', { componentID: 'rgbBulbsScreen.greenSlider' } );
+    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', { componentID: 'rgbBulbsScreen.blueSlider' } );
 
     var sliderVBox = new VBox(
       {

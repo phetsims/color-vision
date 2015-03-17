@@ -39,11 +39,16 @@ define( function( require ) {
    * @param {Property<String>} headModeProperty
    * @param {Number} layoutBoundsBottom should be layoutBounds.bottom so the HeadNode can align relative to that
    * @param {Array<RGBPhotonBeamNode>} photonBeams for layering properly, only used in RGBScreenView
+   * @param {object} [options]
    * @constructor
    */
-  function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams ) {
+  function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams, options ) {
 
     Node.call( this );
+    options = _.extend( {
+      hideBrainRadioButtonComponentID: null,
+      showBrainRadioButtonComponentID: null
+    }, options );
 
     var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
     var headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
@@ -79,10 +84,15 @@ define( function( require ) {
     this.addChild( headFrontNode );
 
     // Add head mode toggle
-    var toggleButtonsContent = [
-      { value: 'no-brain', node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ) },
-      { value: 'brain', node: new Image( headIcon, { scale: IMAGE_SCALE } ) }
-    ];
+    var toggleButtonsContent = [ {
+      value: 'no-brain',
+      node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
+      componentID: options.hideBrainRadioButtonComponentID
+    }, {
+      value: 'brain',
+      node: new Image( headIcon, { scale: IMAGE_SCALE } ),
+      componentID: options.showBrainRadioButtonComponentID
+    } ];
 
     this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,
       _.extend( {

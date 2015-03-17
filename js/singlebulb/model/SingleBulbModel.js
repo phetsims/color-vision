@@ -41,7 +41,7 @@ define( function( require ) {
           filterWavelength: 'singleBulbScreen.filterWavelength',
           flashlightOn: 'singleBulbScreen.flashlightOn',
           filterVisible: 'singleBulbScreen.filterVisible',
-          playing: 'singleBulbScreen.playing',
+          play: 'singleBulbScreen.playing',
           headMode: 'singleBulbScreen.headMode'
         }
       }

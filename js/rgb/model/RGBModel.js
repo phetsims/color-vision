@@ -45,6 +45,15 @@ define( function( require ) {
         perceivedBlueIntensity: 0,
         play: true,          // is the sim running or paused
         headMode: 'no-brain' // takes values 'brain' or 'no-brain'
+      },
+      {
+        componentIDMap: {
+          redIntensity: 'rgbBulbsScreen.redIntensity',
+          greenIntensity: 'rgbBulbsScreen.greenIntensity',
+          blueIntensity: 'rgbBulbsScreen.blueIntensity',
+          play: 'rgbBulbsScreen.playing',
+          headMode: 'rgbBulbsScreen.headMode'
+        }
       }
     );
 
