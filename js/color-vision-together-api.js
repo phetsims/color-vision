@@ -23,17 +23,10 @@ define( function( require ) {
   var PlayPauseButton = togetherTypes.PlayPauseButton;
   var String = togetherTypes.String;
   var property = togetherTypes.property;
-  var Vector2 = togetherTypes.Vector2;
   var Slider = togetherTypes.Slider;
-  var Faucet = togetherTypes.Faucet;
   var ResetAllButton = togetherTypes.ResetAllButton;
   var RadioButton = togetherTypes.RadioButton;
   var OnOffSwitch = togetherTypes.OnOffSwitch;
-  var ComboBox = togetherTypes.ComboBox;
-  var ComboBoxListItem = togetherTypes.ComboBoxListItem;
-  var Color = togetherTypes.Color;
-  var Node = togetherTypes.Node;
-  var CheckBox = togetherTypes.CheckBox;
   var Boolean = togetherTypes.Boolean;
 
   // Use explicit names for id keys so they will match what researchers see in data files
