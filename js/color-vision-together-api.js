@@ -28,6 +28,7 @@ define( function( require ) {
   var RadioButton = togetherTypes.RadioButton;
   var OnOffSwitch = togetherTypes.OnOffSwitch;
   var Boolean = togetherTypes.Boolean;
+  var ToggleButton = togetherTypes.ToggleButton;
 
   // Use explicit names for id keys so they will match what researchers see in data files
   // Use id and type instead of componentID and typeID to simplify things for researchers
@@ -62,7 +63,7 @@ define( function( require ) {
       'singleBulbScreen.coloredLightRadioButton': { type: RadioButton },
       'singleBulbScreen.beamRadioButton': { type: RadioButton },
       'singleBulbScreen.photonRadioButton': { type: RadioButton },
-      'singleBulbScreen.flashlightButton': { type: Button },
+      'singleBulbScreen.flashlightButton': { type: ToggleButton },
       'singleBulbScreen.hideBrainRadioButton': { type: RadioButton },
       'singleBulbScreen.showBrainRadioButton': { type: RadioButton },
       'singleBulbScreen.filterOnOffSwitch': { type: OnOffSwitch },
