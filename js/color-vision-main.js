@@ -13,7 +13,6 @@ define( function( require ) {
   var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
-  var colorVisionTogetherAPI = require( 'COLOR_VISION/color-vision-together-api' );
 
   // strings
   var simTitle = require( 'string!COLOR_VISION/color-vision.name' );
@@ -26,8 +25,7 @@ define( function( require ) {
       qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
       graphicArts: 'Mike Fowler'
     },
-    showSmallHomeScreenIconFrame: true,
-    togetherAPI: colorVisionTogetherAPI
+    showSmallHomeScreenIconFrame: true
   };
 
   SimLauncher.launch( function() {
