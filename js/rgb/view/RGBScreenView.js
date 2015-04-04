@@ -37,9 +37,9 @@ define( function( require ) {
   function RGBScreenView( model ) {
 
     ColorVisionScreenView.call( this, model, {
-      resetAllButtonComponentID: 'rgbBulbsScreen.resetAllButton',
-      playPauseButtonComponentID: 'rgbBulbsScreen.playPauseButton',
-      stepButtonComponentID: 'rgbBulbsScreen.stepButton'
+      resetAllButtonTogetherID: 'rgbBulbsScreen.resetAllButton',
+      playPauseButtonTogetherID: 'rgbBulbsScreen.playPauseButton',
+      stepButtonTogetherID: 'rgbBulbsScreen.stepButton'
     } );
 
     // Add photon beams
@@ -69,8 +69,8 @@ define( function( require ) {
     // add head node
     var beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
     var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, {
-      hideBrainRadioButtonComponentID: 'rgbBulbsScreen.hideBrainRadioButton',
-      showBrainRadioButtonComponentID: 'rgbBulbsScreen.showBrainRadioButton'
+      hideBrainRadioButtonTogetherID: 'rgbBulbsScreen.hideBrainRadioButton',
+      showBrainRadioButtonTogetherID: 'rgbBulbsScreen.showBrainRadioButton'
     } );
     this.addChild( headNode );
 

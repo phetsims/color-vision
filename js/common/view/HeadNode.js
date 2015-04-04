@@ -46,8 +46,8 @@ define( function( require ) {
 
     Node.call( this );
     options = _.extend( {
-      hideBrainRadioButtonComponentID: null,
-      showBrainRadioButtonComponentID: null
+      hideBrainRadioButtonTogetherID: null,
+      showBrainRadioButtonTogetherID: null
     }, options );
 
     var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
@@ -87,11 +87,11 @@ define( function( require ) {
     var toggleButtonsContent = [ {
       value: 'no-brain',
       node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
-      togetherID: options.hideBrainRadioButtonComponentID
+      togetherID: options.hideBrainRadioButtonTogetherID
     }, {
       value: 'brain',
       node: new Image( headIcon, { scale: IMAGE_SCALE } ),
-      togetherID: options.showBrainRadioButtonComponentID
+      togetherID: options.showBrainRadioButtonTogetherID
     } ];
 
     this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,

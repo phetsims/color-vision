@@ -29,8 +29,8 @@ define( function( require ) {
       {
         backgroundColor: 'black',
         navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        homeScreenButtonComponentID: 'homeScreen.rgbScreenButton',
-        navigationBarScreenButtonComponentID: 'navigationBar.rgbScreenButton'
+        homeScreenButtonTogetherID: 'homeScreen.rgbScreenButton',
+        navigationBarScreenButtonTogetherID: 'navigationBar.rgbScreenButton'
       }
     );
   }

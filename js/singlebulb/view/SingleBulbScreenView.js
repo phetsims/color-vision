@@ -57,9 +57,9 @@ define( function( require ) {
   function SingleBulbScreenView( model ) {
 
     ColorVisionScreenView.call( this, model, {
-      resetAllButtonComponentID: 'singleBulbScreen.resetAllButton',
-      playPauseButtonComponentID: 'singleBulbScreen.playPauseButton',
-      stepButtonComponentID: 'singleBulbScreen.stepButton'
+      resetAllButtonTogetherID: 'singleBulbScreen.resetAllButton',
+      playPauseButtonTogetherID: 'singleBulbScreen.playPauseButton',
+      stepButtonTogetherID: 'singleBulbScreen.stepButton'
     } );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
@@ -250,8 +250,8 @@ define( function( require ) {
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
     var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], {
-      hideBrainRadioButtonComponentID: 'singleBulbScreen.hideBrainRadioButton',
-      showBrainRadioButtonComponentID: 'singleBulbScreen.showBrainRadioButton'
+      hideBrainRadioButtonTogetherID: 'singleBulbScreen.hideBrainRadioButton',
+      showBrainRadioButtonTogetherID: 'singleBulbScreen.showBrainRadioButton'
     } );
     this.addChild( headNode );
 

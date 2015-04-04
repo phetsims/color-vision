@@ -30,8 +30,8 @@ define( function( require ) {
   function ColorVisionScreenView( model, options ) {
 
     options = _.extend( {
-      resetAllButtonComponentID: null,
-      playPauseButtonComponentID: null
+      resetAllButtonTogetherID: null,
+      playPauseButtonTogetherID: null
     }, options );
 
     ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
@@ -61,7 +61,7 @@ define( function( require ) {
         bottom: this.layoutBounds.bottom - 5,
         right:  this.layoutBounds.right - 30,
         radius: 18,
-        togetherID: options.resetAllButtonComponentID
+        togetherID: options.resetAllButtonTogetherID
       } );
 
     this.addChild( resetAllButton );
@@ -72,7 +72,7 @@ define( function( require ) {
         bottom:  this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20,
-        togetherID: options.playPauseButtonComponentID
+        togetherID: options.playPauseButtonTogetherID
       } );
 
     this.addChild( playPauseButton );
@@ -86,7 +86,7 @@ define( function( require ) {
         centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15,
-        togetherID: options.stepButtonComponentID
+        togetherID: options.stepButtonTogetherID
       }
     );
 

@@ -29,8 +29,8 @@ define( function( require ) {
       {
         backgroundColor: 'black',
         navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        homeScreenButtonComponentID: 'homeScreen.singleBulbScreenButton',
-        navigationBarScreenButtonComponentID: 'navigationBar.singleBulbScreenButton'
+        homeScreenButtonTogetherID: 'homeScreen.singleBulbScreenButton',
+        navigationBarScreenButtonTogetherID: 'navigationBar.singleBulbScreenButton'
       }
     );
   }

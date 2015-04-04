@@ -47,7 +47,7 @@ define( function( require ) {
         headMode: 'no-brain' // takes values 'brain' or 'no-brain'
       },
       {
-        componentIDMap: {
+        togetherIDMap: {
           redIntensity: 'rgbBulbsScreen.redIntensity',
           greenIntensity: 'rgbBulbsScreen.greenIntensity',
           blueIntensity: 'rgbBulbsScreen.blueIntensity',
