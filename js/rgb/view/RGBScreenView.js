@@ -93,9 +93,9 @@ define( function( require ) {
     this.addChild( flashlightVBox );
 
     // Add sliders
-    var redSlider = new RGBSlider( model.redIntensityProperty, 'red', { componentID: 'rgbBulbsScreen.redSlider' } );
-    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', { componentID: 'rgbBulbsScreen.greenSlider' } );
-    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', { componentID: 'rgbBulbsScreen.blueSlider' } );
+    var redSlider = new RGBSlider( model.redIntensityProperty, 'red', { togetherID: 'rgbBulbsScreen.redSlider' } );
+    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', { togetherID: 'rgbBulbsScreen.greenSlider' } );
+    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', { togetherID: 'rgbBulbsScreen.blueSlider' } );
 
     var sliderVBox = new VBox(
       {

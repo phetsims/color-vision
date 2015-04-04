@@ -47,7 +47,7 @@ define( function( require ) {
         thumbTouchAreaExpandY: 10,
         pointerAreasOverTrack: true,
         trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-        componentID: options && options.componentID
+        togetherID: options && options.togetherID
       } );
     this.addChild( lowerSliderNodeTransparent );
 

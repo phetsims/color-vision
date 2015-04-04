@@ -87,11 +87,11 @@ define( function( require ) {
     var toggleButtonsContent = [ {
       value: 'no-brain',
       node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
-      componentID: options.hideBrainRadioButtonComponentID
+      togetherID: options.hideBrainRadioButtonComponentID
     }, {
       value: 'brain',
       node: new Image( headIcon, { scale: IMAGE_SCALE } ),
-      componentID: options.showBrainRadioButtonComponentID
+      togetherID: options.showBrainRadioButtonComponentID
     } ];
 
     this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,

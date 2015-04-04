@@ -61,7 +61,7 @@ define( function( require ) {
         bottom: this.layoutBounds.bottom - 5,
         right:  this.layoutBounds.right - 30,
         radius: 18,
-        componentID: options.resetAllButtonComponentID
+        togetherID: options.resetAllButtonComponentID
       } );
 
     this.addChild( resetAllButton );
@@ -72,7 +72,7 @@ define( function( require ) {
         bottom:  this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20,
-        componentID: options.playPauseButtonComponentID
+        togetherID: options.playPauseButtonComponentID
       } );
 
     this.addChild( playPauseButton );
@@ -86,7 +86,7 @@ define( function( require ) {
         centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15,
-        componentID: options.stepButtonComponentID
+        togetherID: options.stepButtonComponentID
       }
     );
 

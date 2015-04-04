@@ -32,7 +32,7 @@ define( function( require ) {
         centerX: flashlightNode.centerX + 15,
         baseColor: 'red',
         radius: 15,
-        componentID: 'singleBulbScreen.flashlightButton'
+        togetherID: 'singleBulbScreen.flashlightButton'
       } );
 
     this.addChild( flashlightNode );

@@ -24,13 +24,13 @@ define( function( require ) {
    */
   function RGBSlider( intensityProperty, color, options ) {
 
-    options = _.extend( { componentID: null }, options );
+    options = _.extend( { togetherID: null }, options );
 
     var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
         trackSize: new Dimension2( 100, 2 ),
-        componentID: options.componentID
+        togetherID: options.togetherID
       } );
     hSlider.rotation = -Math.PI / 2;
 

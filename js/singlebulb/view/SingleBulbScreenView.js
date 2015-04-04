@@ -87,7 +87,7 @@ define( function( require ) {
         thumbTouchAreaExpandY: 10,
         pointerAreasOverTrack: true,
         trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-        componentID: 'singleBulbScreen.bulbColorSlider'
+        togetherID: 'singleBulbScreen.bulbColorSlider'
       } );
 
     // add text above the upper slider
@@ -126,11 +126,11 @@ define( function( require ) {
     var whiteColoredButtonsContent = [ {
       value: 'white',
       node: new Image( whiteLightIcon, ICON_OPTIONS ),
-      componentID: 'singleBulbScreen.whiteLightRadioButton'
+      togetherID: 'singleBulbScreen.whiteLightRadioButton'
     }, {
       value: 'colored',
       node: new Image( singleColorLightIcon, ICON_OPTIONS ),
-      componentID: 'singleBulbScreen.coloredLightRadioButton'
+      togetherID: 'singleBulbScreen.coloredLightRadioButton'
     } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
@@ -140,12 +140,12 @@ define( function( require ) {
     var beamPhotonButtonsContent = [
       {
         value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ),
-        componentID: 'singleBulbScreen.beamRadioButton'
+        togetherID: 'singleBulbScreen.beamRadioButton'
       },
       {
         value: 'photon',
         node: new Image( photonViewIcon, ICON_OPTIONS ),
-        componentID: 'singleBulbScreen.photonRadioButton'
+        togetherID: 'singleBulbScreen.photonRadioButton'
       }
     ];
 
@@ -188,7 +188,7 @@ define( function( require ) {
       {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance,
-        componentID: 'singleBulbScreen.filterColorSlider'
+        togetherID: 'singleBulbScreen.filterColorSlider'
       } );
 
     // Add the text above the gaussian wavelength slider
