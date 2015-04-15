@@ -22,30 +22,18 @@ define( function( require ) {
    */
   function SingleBulbModel() {
     PropertySet.call( this, {
-        light: 'colored',          // takes values 'white' and 'colored', to indicate what kind of light in the beam
-        beam: 'beam',              // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
-        flashlightWavelength: 570, // in units of wavelengths, default wavelength is yellow color
-        filterWavelength: 570,     // in units of wavelengths, default wavelength is yellow color
-        flashlightOn: false,
-        filterVisible: false,
-        play: true,                // is the sim running or paused
-        headMode: 'no-brain',      // takes values 'brain' and 'no-brain'
+      light: 'colored',          // takes values 'white' and 'colored', to indicate what kind of light in the beam
+      beam: 'beam',              // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
+      flashlightWavelength: 570, // in units of wavelengths, default wavelength is yellow color
+      filterWavelength: 570,     // in units of wavelengths, default wavelength is yellow color
+      flashlightOn: false,
+      filterVisible: false,
+      play: true,                // is the sim running or paused
+      headMode: 'no-brain',      // takes values 'brain' and 'no-brain'
 
-        // keep track of the last photon to hit the eye for use in calculating the perceived color
-        lastPhotonColor: new Color( 0, 0, 0, 0 )
-      }, {
-        togetherIDMap: {
-          flashlightWavelength: 'singleBulbScreen.flashlightWavelength',
-          light: 'singleBulbScreen.lightType',
-          beam: 'singleBulbScreen.beamType',
-          filterWavelength: 'singleBulbScreen.filterWavelength',
-          flashlightOn: 'singleBulbScreen.flashlightOn',
-          filterVisible: 'singleBulbScreen.filterVisible',
-          play: 'singleBulbScreen.playing',
-          headMode: 'singleBulbScreen.headMode'
-        }
-      }
-    );
+      // keep track of the last photon to hit the eye for use in calculating the perceived color
+      lastPhotonColor: new Color( 0, 0, 0, 0 )
+    } );
 
     // the color perceived by the person depends on almost every property
     this.addDerivedProperty( 'perceivedColor',
@@ -107,6 +95,16 @@ define( function( require ) {
     this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 120 ), function( timeElapsed ) {
       thisModel.photonBeam.createPhoton( timeElapsed );
     } );
+
+    // Together support
+    together && together.addComponent( this.flashlightWavelengthProperty, 'singleBulbScreen.flashlightWavelength' );
+    together && together.addComponent( this.lightProperty, 'singleBulbScreen.lightType' );
+    together && together.addComponent( this.beamProperty, 'singleBulbScreen.beamType' );
+    together && together.addComponent( this.filterWavelengthProperty, 'singleBulbScreen.filterWavelength' );
+    together && together.addComponent( this.flashlightOnProperty, 'singleBulbScreen.flashlightOn' );
+    together && together.addComponent( this.filterVisibleProperty, 'singleBulbScreen.filterVisible' );
+    together && together.addComponent( this.playProperty, 'singleBulbScreen.playing' );
+    together && together.addComponent( this.headModeProperty, 'singleBulbScreen.headMode' );
   }
 
   return inherit( PropertySet, SingleBulbModel,

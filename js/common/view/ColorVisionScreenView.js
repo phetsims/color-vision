@@ -29,11 +29,6 @@ define( function( require ) {
    */
   function ColorVisionScreenView( model, options ) {
 
-    options = _.extend( {
-      resetAllButtonTogetherID: null,
-      playPauseButtonTogetherID: null
-    }, options );
-
     ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
 
     // Add thought bubbles
@@ -55,27 +50,25 @@ define( function( require ) {
     } ) );
 
     // Add reset all button
-    var resetAllButton = new ResetAllButton(
+    this.resetAllButton = new ResetAllButton(
       {
         listener: function() { model.reset(); },
         bottom: this.layoutBounds.bottom - 5,
         right:  this.layoutBounds.right - 30,
-        radius: 18,
-        togetherID: options.resetAllButtonTogetherID
+        radius: 18
       } );
 
-    this.addChild( resetAllButton );
+    this.addChild( this.resetAllButton );
 
     // Add play/pause button
-    var playPauseButton = new PlayPauseButton( model.playProperty,
+    this.playPauseButton = new PlayPauseButton( model.playProperty,
       {
         bottom:  this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
-        radius: 20,
-        togetherID: options.playPauseButtonTogetherID
+        radius: 20
       } );
 
-    this.addChild( playPauseButton );
+    this.addChild( this.playPauseButton );
 
     // Add step button
     var stepButton = new StepButton(
@@ -83,7 +76,7 @@ define( function( require ) {
         model.manualStep();
       },
       model.playProperty, {
-        centerY: playPauseButton.centerY,
+        centerY: this.playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15,
         togetherID: options.stepButtonTogetherID

@@ -57,8 +57,6 @@ define( function( require ) {
   function SingleBulbScreenView( model ) {
 
     ColorVisionScreenView.call( this, model, {
-      resetAllButtonTogetherID: 'singleBulbScreen.resetAllButton',
-      playPauseButtonTogetherID: 'singleBulbScreen.playPauseButton',
       stepButtonTogetherID: 'singleBulbScreen.stepButton'
     } );
 
@@ -69,7 +67,7 @@ define( function( require ) {
     var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
       {
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
-        right:   this.layoutBounds.maxX - 40
+        right: this.layoutBounds.maxX - 40
       } );
 
     // Create upper WavelengthSlider node
@@ -95,7 +93,7 @@ define( function( require ) {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: upperSliderNode.top - 3,
-      right:  upperSliderNode.right - 18
+      right: upperSliderNode.right - 18
     } );
     this.addChild( bulbColorText );
 
@@ -161,7 +159,7 @@ define( function( require ) {
     var filterOptions = {
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       scale: 0.7,
-      right:   flashlightNode.left - 100
+      right: flashlightNode.left - 100
     };
 
     // Add the circular filter images into the scene
@@ -196,7 +194,7 @@ define( function( require ) {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
-      right:  gaussianSlider.right - 18
+      right: gaussianSlider.right - 18
     } );
     this.addChild( filterColorText );
 
@@ -261,6 +259,10 @@ define( function( require ) {
 
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
+
+    // Together support
+    together && together.addComponent( this.resetAllButton, 'singleBulbScreen.resetAllButton' );
+    together && together.addComponent( this.playPauseButton, 'singleBulbScreen.playPauseButton' );
   }
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,

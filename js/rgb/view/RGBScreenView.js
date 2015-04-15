@@ -37,8 +37,6 @@ define( function( require ) {
   function RGBScreenView( model ) {
 
     ColorVisionScreenView.call( this, model, {
-      resetAllButtonTogetherID: 'rgbBulbsScreen.resetAllButton',
-      playPauseButtonTogetherID: 'rgbBulbsScreen.playPauseButton',
       stepButtonTogetherID: 'rgbBulbsScreen.stepButton'
     } );
 
@@ -86,7 +84,7 @@ define( function( require ) {
           greenFlashlightNode,
           blueFlashlightNode ],
         spacing: 85,
-        right:   this.layoutBounds.maxX - 84,
+        right: this.layoutBounds.maxX - 84,
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       } );
 
@@ -109,6 +107,10 @@ define( function( require ) {
       } );
 
     this.addChild( sliderVBox );
+
+    // Together support
+    together && together.addComponent( this.resetAllButton, 'rgbBulbsScreen.resetAllButton' );
+    together && together.addComponent( this.playPauseButton, 'rgbBulbsScreen.playPauseButton' );
   }
 
   return inherit( ColorVisionScreenView, RGBScreenView,
