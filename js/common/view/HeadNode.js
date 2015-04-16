@@ -45,10 +45,6 @@ define( function( require ) {
   function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams, options ) {
 
     Node.call( this );
-    options = _.extend( {
-      hideBrainRadioButtonTogetherID: null,
-      showBrainRadioButtonTogetherID: null
-    }, options );
 
     var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
     var headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
@@ -86,21 +82,23 @@ define( function( require ) {
     // Add head mode toggle
     var toggleButtonsContent = [ {
       value: 'no-brain',
-      node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
-      togetherID: options.hideBrainRadioButtonTogetherID
+      node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } )
     }, {
       value: 'brain',
-      node: new Image( headIcon, { scale: IMAGE_SCALE } ),
-      togetherID: options.showBrainRadioButtonTogetherID
+      node: new Image( headIcon, { scale: IMAGE_SCALE } )
     } ];
 
-    this.addChild( new RadioButtonGroup( headModeProperty, toggleButtonsContent,
-      _.extend( {
-        buttonContentXMargin: 4,
-        buttonContentYMargin: 4,
-        bottom:  layoutBoundsBottom - 22,
-        centerX: silhouetteNode.centerX - 42
-      }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) ) );
+    var radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {
+      buttonContentXMargin: 4,
+      buttonContentYMargin: 4,
+      bottom: layoutBoundsBottom - 22,
+      centerX: silhouetteNode.centerX - 42
+    }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
+
+    this.hideBrainRadioButton = radioButtonGroup.getRadioButtonGroupMember( 'no-brain' );
+    this.showBrainRadioButton = radioButtonGroup.getRadioButtonGroupMember( 'brain' );
+
+    this.addChild( radioButtonGroup );
   }
 
   return inherit( Node, HeadNode );

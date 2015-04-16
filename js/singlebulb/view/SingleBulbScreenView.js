@@ -247,10 +247,7 @@ define( function( require ) {
     this.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], {
-      hideBrainRadioButtonTogetherID: 'singleBulbScreen.hideBrainRadioButton',
-      showBrainRadioButtonTogetherID: 'singleBulbScreen.showBrainRadioButton'
-    } );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ] );
     this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind
@@ -263,6 +260,8 @@ define( function( require ) {
     // Together support
     together && together.addComponent( this.resetAllButton, 'singleBulbScreen.resetAllButton' );
     together && together.addComponent( this.playPauseButton, 'singleBulbScreen.playPauseButton' );
+    together && together.addComponent( headNode.hideBrainRadioButton, 'singleBulbScreen.hideBrainRadioButton' );
+    together && together.addComponent( headNode.showBrainRadioButton, 'singleBulbScreen.showBrainRadioButton' );
   }
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,
