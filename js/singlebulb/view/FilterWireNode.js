@@ -60,16 +60,15 @@ define( function( require ) {
     var outlinePath = new Path( switchOutline, { lineWidth: 8, stroke: '#666666' } );
 
     // draw the switch inside the outline
-    var onOffSwitch = new OnOffSwitch( onProperty,
-      {
-        size: new Dimension2( SWITCH_HEIGHT * 2, SWITCH_HEIGHT ),
-        centerTop: new Vector2( start.x, start.y + switchDistance ),
-        thumbFill: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, 'black' ).addColorStop( 1, 'gray' ),
-        trackOffFill: '#eeeeee',
-        trackOnFill: '#eeeeee',
-        trackStroke: 'black',
-        thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' )
-      } );
+    var onOffSwitch = new OnOffSwitch( onProperty, {
+      size: new Dimension2( SWITCH_HEIGHT * 2, SWITCH_HEIGHT ),
+      centerTop: new Vector2( start.x, start.y + switchDistance ),
+      thumbFill: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, 'black' ).addColorStop( 1, 'gray' ),
+      trackOffFill: '#eeeeee',
+      trackOnFill: '#eeeeee',
+      trackStroke: 'black',
+      thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' )
+    } );
 
     this.addChild( wirePath );
     this.addChild( outlinePath );
