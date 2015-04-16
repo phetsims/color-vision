@@ -24,13 +24,10 @@ define( function( require ) {
    */
   function RGBSlider( intensityProperty, color, options ) {
 
-    options = _.extend( { togetherID: null }, options );
-
     var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
       {
         thumbSize: new Dimension2( 14, 28 ),
-        trackSize: new Dimension2( 100, 2 ),
-        togetherID: options.togetherID
+        trackSize: new Dimension2( 100, 2 )
       } );
     hSlider.rotation = -Math.PI / 2;
 
@@ -47,6 +44,9 @@ define( function( require ) {
     hSlider.centerY = this.centerY;
 
     this.addChild( hSlider );
+
+    // @public but only for together.js
+    this.slider = hSlider;
   }
 
   return inherit( Rectangle, RGBSlider );

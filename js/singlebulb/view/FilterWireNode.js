@@ -68,13 +68,15 @@ define( function( require ) {
         trackOffFill: '#eeeeee',
         trackOnFill: '#eeeeee',
         trackStroke: 'black',
-        thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' ),
-        togetherID: 'singleBulbScreen.filterOnOffSwitch'
+        thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' )
       } );
 
     this.addChild( wirePath );
     this.addChild( outlinePath );
     this.addChild( onOffSwitch );
+
+    // Together support
+    together && together.addComponent( onOffSwitch, 'singleBulbScreen.filterOnOffSwitch' );
   }
 
   return inherit( Node, FilterWireNode );

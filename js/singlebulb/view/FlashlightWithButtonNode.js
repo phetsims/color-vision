@@ -31,13 +31,15 @@ define( function( require ) {
         centerY: flashlightNode.centerY,
         centerX: flashlightNode.centerX + 15,
         baseColor: 'red',
-        radius: 15,
-        togetherID: 'singleBulbScreen.flashlightButton'
+        radius: 15
       } );
 
     this.addChild( flashlightNode );
     this.addChild( button );
     this.mutate( options );
+
+    // Together support
+    together && together.addComponent( button, 'singleBulbScreen.flashlightButton' );
   }
 
   return inherit( Node, FlashlightWithButtonNode );

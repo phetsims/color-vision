@@ -56,9 +56,7 @@ define( function( require ) {
    */
   function SingleBulbScreenView( model ) {
 
-    ColorVisionScreenView.call( this, model, {
-      stepButtonTogetherID: 'singleBulbScreen.stepButton'
-    } );
+    ColorVisionScreenView.call( this, model );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
@@ -84,8 +82,7 @@ define( function( require ) {
         thumbHeight: 40,
         thumbTouchAreaExpandY: 10,
         pointerAreasOverTrack: true,
-        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-        togetherID: 'singleBulbScreen.bulbColorSlider'
+        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
 
     // add text above the upper slider
@@ -123,12 +120,10 @@ define( function( require ) {
 
     var whiteColoredButtonsContent = [ {
       value: 'white',
-      node: new Image( whiteLightIcon, ICON_OPTIONS ),
-      togetherID: 'singleBulbScreen.whiteLightRadioButton'
+      node: new Image( whiteLightIcon, ICON_OPTIONS )
     }, {
       value: 'colored',
-      node: new Image( singleColorLightIcon, ICON_OPTIONS ),
-      togetherID: 'singleBulbScreen.coloredLightRadioButton'
+      node: new Image( singleColorLightIcon, ICON_OPTIONS )
     } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
@@ -137,13 +132,11 @@ define( function( require ) {
 
     var beamPhotonButtonsContent = [
       {
-        value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS ),
-        togetherID: 'singleBulbScreen.beamRadioButton'
+        value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS )
       },
       {
         value: 'photon',
-        node: new Image( photonViewIcon, ICON_OPTIONS ),
-        togetherID: 'singleBulbScreen.photonRadioButton'
+        node: new Image( photonViewIcon, ICON_OPTIONS )
       }
     ];
 
@@ -182,12 +175,10 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        right: wavelengthSliderDistance,
-        togetherID: 'singleBulbScreen.filterColorSlider'
-      } );
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT, {
+      bottom: this.layoutBounds.bottom - 20,
+      right: wavelengthSliderDistance
+    } );
 
     // Add the text above the gaussian wavelength slider
     var filterColorText = new Text( filterColor, {
@@ -257,11 +248,24 @@ define( function( require ) {
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
 
+    var beamRadioButton = beamPhotonSelectButtons.getRadioButtonGroupMember( 'beam' );
+    var photonRadioButton = beamPhotonSelectButtons.getRadioButtonGroupMember( 'photon' );
+
+    var whiteRadioButton = colorWhiteSelectButtons.getRadioButtonGroupMember( 'white' );
+    var colorRadioButton = colorWhiteSelectButtons.getRadioButtonGroupMember( 'colored' );
+    
     // Together support
     together && together.addComponent( this.resetAllButton, 'singleBulbScreen.resetAllButton' );
     together && together.addComponent( this.playPauseButton, 'singleBulbScreen.playPauseButton' );
     together && together.addComponent( headNode.hideBrainRadioButton, 'singleBulbScreen.hideBrainRadioButton' );
     together && together.addComponent( headNode.showBrainRadioButton, 'singleBulbScreen.showBrainRadioButton' );
+    together && together.addComponent( this.stepButton, 'singleBulbScreen.stepButton' );
+    together && together.addComponent( upperSliderNode, 'singleBulbScreen.bulbColorSlider' );
+    together && together.addComponent( whiteRadioButton, 'singleBulbScreen.whiteLightRadioButton' );
+    together && together.addComponent( colorRadioButton, 'singleBulbScreen.coloredLightRadioButton' );
+    together && together.addComponent( beamRadioButton, 'singleBulbScreen.beamRadioButton' );
+    together && together.addComponent( photonRadioButton, 'singleBulbScreen.photonRadioButton' );
+    together && together.addComponent( gaussianSlider, 'singleBulbScreen.filterColorSlider' );
   }
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,

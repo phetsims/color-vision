@@ -54,7 +54,7 @@ define( function( require ) {
       {
         listener: function() { model.reset(); },
         bottom: this.layoutBounds.bottom - 5,
-        right:  this.layoutBounds.right - 30,
+        right: this.layoutBounds.right - 30,
         radius: 18
       } );
 
@@ -63,7 +63,7 @@ define( function( require ) {
     // Add play/pause button
     this.playPauseButton = new PlayPauseButton( model.playProperty,
       {
-        bottom:  this.layoutBounds.bottom - 20,
+        bottom: this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20
       } );
@@ -71,19 +71,18 @@ define( function( require ) {
     this.addChild( this.playPauseButton );
 
     // Add step button
-    var stepButton = new StepButton(
+    this.stepButton = new StepButton(
       function() {
         model.manualStep();
       },
       model.playProperty, {
         centerY: this.playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
-        radius: 15,
-        togetherID: options.stepButtonTogetherID
+        radius: 15
       }
     );
 
-    this.addChild( stepButton );
+    this.addChild( this.stepButton );
   }
 
   return inherit( ScreenView, ColorVisionScreenView );
