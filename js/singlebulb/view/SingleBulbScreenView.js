@@ -260,12 +260,12 @@ define( function( require ) {
     together && together.addComponent( headNode.hideBrainRadioButton, 'singleBulbScreen.hideBrainRadioButton' );
     together && together.addComponent( headNode.showBrainRadioButton, 'singleBulbScreen.showBrainRadioButton' );
     together && together.addComponent( this.stepButton, 'singleBulbScreen.stepButton' );
-    together && together.addComponent( upperSliderNode, 'singleBulbScreen.bulbColorSlider' );
     together && together.addComponent( whiteRadioButton, 'singleBulbScreen.whiteLightRadioButton' );
     together && together.addComponent( colorRadioButton, 'singleBulbScreen.coloredLightRadioButton' );
     together && together.addComponent( beamRadioButton, 'singleBulbScreen.beamRadioButton' );
     together && together.addComponent( photonRadioButton, 'singleBulbScreen.photonRadioButton' );
-    together && together.addComponent( gaussianSlider, 'singleBulbScreen.filterColorSlider' );
+    together && together.addComponent( upperSliderNode, 'singleBulbScreen.bulbColorSlider' );
+    together && together.addComponent( gaussianSlider.slider, 'singleBulbScreen.filterColorSlider' );
   }
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,

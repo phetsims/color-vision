@@ -34,7 +34,7 @@ define( function( require ) {
     Node.call( this );
 
     // Add lower WavelengthSlider
-    var lowerSliderNodeTransparent = new WavelengthSlider( filterWavelengthProperty,
+    this.slider = new WavelengthSlider( filterWavelengthProperty,
       {
         tweakersVisible: false,
         valueVisible: false,
@@ -48,7 +48,7 @@ define( function( require ) {
         pointerAreasOverTrack: true,
         trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
-    this.addChild( lowerSliderNodeTransparent );
+    this.addChild( this.slider );
 
     // Create an empty node for taking the gaussian clip area. This node will shift the opposite direction as the
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
