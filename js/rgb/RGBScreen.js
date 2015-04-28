@@ -20,9 +20,10 @@ define( function( require ) {
   var rgbString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
 
   /**
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
-  function RGBScreen() {
+  function RGBScreen( tandem ) {
     Screen.call( this, rgbString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new RGBModel(); },
       function( model ) { return new RGBScreenView( model ); },

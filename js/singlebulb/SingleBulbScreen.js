@@ -21,8 +21,9 @@ define( function( require ) {
 
   /**
    * @constructor
+   * @param tandem
    */
-  function SingleBulbScreen() {
+  function SingleBulbScreen( tandem ) {
     Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new SingleBulbModel(); },
       function( model ) { return new SingleBulbScreenView( model ); },

@@ -13,6 +13,7 @@ define( function( require ) {
   var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   var simTitle = require( 'string!COLOR_VISION/color-vision.name' );
@@ -29,7 +30,8 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( simTitle, [ new SingleBulbScreen(), new RGBScreen() ], simOptions );
+    var tandem = new Tandem( 'colorVision' );
+    var sim = new Sim( simTitle, [ new SingleBulbScreen( tandem ), new RGBScreen( tandem ) ], simOptions );
     sim.start();
   } );
 } );
