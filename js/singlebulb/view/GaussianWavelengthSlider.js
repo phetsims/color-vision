@@ -35,20 +35,20 @@ define( function( require ) {
     Node.call( this );
 
     // Add lower WavelengthSlider
-    this.slider = new WavelengthSlider( filterWavelengthProperty, tandem,
-      {
-        tweakersVisible: false,
-        valueVisible: false,
-        trackWidth: width,
-        trackHeight: height,
-        trackOpacity: 0.5,
-        cursorVisible: false,
-        thumbWidth: 30,
-        thumbHeight: 40,
-        thumbTouchAreaExpandY: 10,
-        pointerAreasOverTrack: true,
-        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
-      } );
+    this.slider = new WavelengthSlider( filterWavelengthProperty, {
+      tandem: tandem,
+      tweakersVisible: false,
+      valueVisible: false,
+      trackWidth: width,
+      trackHeight: height,
+      trackOpacity: 0.5,
+      cursorVisible: false,
+      thumbWidth: 30,
+      thumbHeight: 40,
+      thumbTouchAreaExpandY: 10,
+      pointerAreasOverTrack: true,
+      trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
+    } );
     this.addChild( this.slider );
 
     // Create an empty node for taking the gaussian clip area. This node will shift the opposite direction as the
