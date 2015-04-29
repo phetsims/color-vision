@@ -72,7 +72,7 @@ define( function( require ) {
         return Color.BLACK;
       }
       // if the filter is visible, and the beam type is colored, calculate the percentage of color to pass
-      else if ( filterVisible && light === 'colored' ) {
+      else if ( filterVisible && lightType === 'colored' ) {
         var alpha; // the new alpha value for the color, porportional to the percentage of light to pass through the filter
         var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
@@ -87,7 +87,7 @@ define( function( require ) {
         return VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( alpha );
       }
       // if the filter is visible, and the beam is white, return the filter wavelength's color
-      else if ( filterVisible && light === 'white' ) {
+      else if ( filterVisible && lightType === 'white' ) {
         return VisibleColor.wavelengthToColor( filterWavelength );
       }
       // if the beam is white and the filter is not visible, return white
