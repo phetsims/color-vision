@@ -29,14 +29,13 @@ define( function( require ) {
 
     var flashlightNode = new Image( flashlightImage, { scale: 0.85 } );
 
-    var button = new BooleanRoundStickyToggleButton( onProperty,
-      {
-        centerY: flashlightNode.centerY,
-        centerX: flashlightNode.centerX + 15,
-        baseColor: 'red',
-        radius: 15,
-        tandem: tandem.createTandem( 'flashlightButton' )
-      } );
+    var button = new BooleanRoundStickyToggleButton( onProperty, {
+      centerY: flashlightNode.centerY,
+      centerX: flashlightNode.centerX + 15,
+      baseColor: 'red',
+      radius: 15,
+      tandem: tandem.createTandem( 'button' )
+    } );
 
     this.addChild( flashlightNode );
     this.addChild( button );

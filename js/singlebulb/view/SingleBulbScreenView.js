@@ -63,28 +63,27 @@ define( function( require ) {
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
     // Create flashlight node
-    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem,
-      {
-        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
-        right: this.layoutBounds.maxX - 40
-      } );
+    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem.createTandem( 'flashlight' ), {
+      centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
+      right: this.layoutBounds.maxX - 40
+    } );
 
     // Create upper WavelengthSlider node
-    var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty,
-      {
-        top: this.layoutBounds.top + 40,
-        right: wavelengthSliderDistance,
-        tweakersVisible: false,
-        valueVisible: false,
-        trackWidth: SLIDER_TRACK_WIDTH,
-        trackHeight: SLIDER_TRACK_HEIGHT,
-        cursorStroke: 'white',
-        thumbWidth: 30,
-        thumbHeight: 40,
-        thumbTouchAreaExpandY: 10,
-        pointerAreasOverTrack: true,
-        trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
-      } );
+    var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty, {
+      top: this.layoutBounds.top + 40,
+      right: wavelengthSliderDistance,
+      tweakersVisible: false,
+      valueVisible: false,
+      trackWidth: SLIDER_TRACK_WIDTH,
+      trackHeight: SLIDER_TRACK_HEIGHT,
+      cursorStroke: 'white',
+      thumbWidth: 30,
+      thumbHeight: 40,
+      thumbTouchAreaExpandY: 10,
+      pointerAreasOverTrack: true,
+      trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
+      tandem: tandem.createTandem( 'bulbColorSlider' )
+    } );
 
     // add text above the upper slider
     var bulbColorText = new Text( bulbColor, {
@@ -119,15 +118,18 @@ define( function( require ) {
       buttonContentYMargin: 2
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
 
-    var whiteColoredButtonsContent = [ {
-      value: 'white',
-      node: new Image( whiteLightIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'whiteLightRadioButton' )
-    }, {
-      value: 'colored',
-      node: new Image( singleColorLightIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'coloredLightRadioButton' )
-    } ];
+    var whiteColoredButtonsContent = [
+      {
+        value: 'white',
+        node: new Image( whiteLightIcon, ICON_OPTIONS ),
+        tandem: tandem.createTandem( 'whiteLightRadioButton' )
+      },
+      {
+        value: 'colored',
+        node: new Image( singleColorLightIcon, ICON_OPTIONS ),
+        tandem: tandem.createTandem( 'coloredLightRadioButton' )
+      }
+    ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
@@ -181,10 +183,11 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT, tandem, {
-      bottom: this.layoutBounds.bottom - 20,
-      right: wavelengthSliderDistance
-    } );
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
+      tandem.createTandem( 'filter.colorSlider' ), {
+        bottom: this.layoutBounds.bottom - 20,
+        right: wavelengthSliderDistance
+      } );
 
     // Add the text above the gaussian wavelength slider
     var filterColorText = new Text( filterColor, {
@@ -200,7 +203,7 @@ define( function( require ) {
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
       new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
-      tandem
+      tandem.createTandem( 'filter' )
     ) );
 
     this.addChild( gaussianSlider );
@@ -254,16 +257,6 @@ define( function( require ) {
 
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
-
-    var beamRadioButton = beamPhotonSelectButtons.getRadioButtonGroupMember( 'beam' );
-    var photonRadioButton = beamPhotonSelectButtons.getRadioButtonGroupMember( 'photon' );
-
-    var whiteRadioButton = colorWhiteSelectButtons.getRadioButtonGroupMember( 'white' );
-    var colorRadioButton = colorWhiteSelectButtons.getRadioButtonGroupMember( 'colored' );
-    
-    // Together support
-    //together && together.addComponent( upperSliderNode, 'singleBulbScreen.bulbColorSlider' );
-    //together && together.addComponent( gaussianSlider.slider, 'singleBulbScreen.filterColorSlider' );
   }
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,

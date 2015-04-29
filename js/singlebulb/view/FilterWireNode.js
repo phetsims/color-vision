@@ -69,7 +69,7 @@ define( function( require ) {
       trackOnFill: '#eeeeee',
       trackStroke: 'black',
       thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' ),
-      tandem: tandem.createTandem( 'filterOnOffSwitch' )
+      tandem: tandem.createTandem( 'onOffSwitch' )
     } );
 
     this.addChild( wirePath );
