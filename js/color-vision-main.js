@@ -18,6 +18,8 @@ define( function( require ) {
   // strings
   var simTitle = require( 'string!COLOR_VISION/color-vision.name' );
 
+  var tandem = new Tandem();
+
   var simOptions = {
     credits: {
       leadDesign: 'Bryce Gruneich, Kathy Perkins',
@@ -26,12 +28,13 @@ define( function( require ) {
       qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
       graphicArts: 'Mike Fowler'
     },
-    showSmallHomeScreenIconFrame: true
+    showSmallHomeScreenIconFrame: true,
+    tandem: tandem
   };
 
   SimLauncher.launch( function() {
-    var tandem = new Tandem( 'colorVision' );
-    var sim = new Sim( simTitle, [ new SingleBulbScreen( tandem ), new RGBScreen( tandem ) ], simOptions );
+    tandem = tandem.createTandem( 'colorVision' );
+    var sim = new Sim( simTitle, [ new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ), new RGBScreen( tandem.createTandem( 'rgbScreen' ) ) ], simOptions );
     sim.start();
   } );
 } );
