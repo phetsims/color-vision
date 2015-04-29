@@ -81,29 +81,29 @@ define( function( require ) {
     } );
 
     // listen for any changes to the model that condition when the beam should be white.
-    model.multilink( [ 'flashlightWavelength', 'filterWavelength', 'light', 'filterVisible', 'beam' ],
-      function( flashlightWavelength, filterWavelength, light, filterVisible, beamMode ) {
+    model.multilink( [ 'flashlightWavelength', 'filterWavelength', 'lightType', 'filterVisible', 'beamType' ],
+      function( flashlightWavelength, filterWavelength, lightType, filterVisible, beamMode ) {
         // update the beam only if it is visible
         if ( beamMode === 'beam' ) {
-          if ( light === 'white' && filterVisible ) {
+          if ( lightType === 'white' && filterVisible ) {
             leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
             rightHalf.fill = WHITE_WITH_ALPHA;
           }
-          else if ( light === 'white' && !filterVisible ) {
+          else if ( lightType === 'white' && !filterVisible ) {
             wholeBeam.fill = WHITE_WITH_ALPHA;
           }
-          else if ( light === 'colored' && filterVisible ) {
+          else if ( lightType === 'colored' && filterVisible ) {
             rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
           }
-          else if ( light === 'colored' && !filterVisible ) {
+          else if ( lightType === 'colored' && !filterVisible ) {
             wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
           }
         }
       } );
 
-    var visibleProperty = model.toDerivedProperty( [ 'flashlightOn', 'beam' ],
-      function( flashlightOn, beamProperty ) {
-        return ( flashlightOn && beamProperty === 'beam' );
+    var visibleProperty = model.toDerivedProperty( [ 'flashlightOn', 'beamType' ],
+      function( flashlightOn, beamType ) {
+        return ( flashlightOn && beamType === 'beam' );
       } );
     visibleProperty.linkAttribute( this, 'visible' );
 

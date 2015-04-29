@@ -25,9 +25,10 @@ define( function( require ) {
   /**
    * @param {PropertySet} model
    * @param {object} options
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
-  function ColorVisionScreenView( model, options ) {
+  function ColorVisionScreenView( model, tandem, options ) {
 
     ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
 
@@ -50,22 +51,23 @@ define( function( require ) {
     } ) );
 
     // Add reset all button
-    this.resetAllButton = new ResetAllButton(
-      {
-        listener: function() { model.reset(); },
-        bottom: this.layoutBounds.bottom - 5,
-        right: this.layoutBounds.right - 30,
-        radius: 18
-      } );
+    this.resetAllButton = new ResetAllButton( {
+      listener: function() { model.reset(); },
+      bottom: this.layoutBounds.bottom - 5,
+      right:  this.layoutBounds.right - 30,
+      radius: 18,
+      tandem: tandem.createTandem( 'resetAllButton' )
+    } );
 
     this.addChild( this.resetAllButton );
 
     // Add play/pause button
-    this.playPauseButton = new PlayPauseButton( model.playProperty,
+    this.playPauseButton = new PlayPauseButton( model.playingProperty,
       {
-        bottom: this.layoutBounds.bottom - 20,
+        bottom:  this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
-        radius: 20
+        radius: 20,
+        tandem: tandem.createTandem( 'playPauseButton' )
       } );
 
     this.addChild( this.playPauseButton );
@@ -75,10 +77,12 @@ define( function( require ) {
       function() {
         model.manualStep();
       },
-      model.playProperty, {
+      model.playingProperty,
+      {
         centerY: this.playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
-        radius: 15
+        radius: 15,
+        tandem: tandem.createTandem( 'stepButton' )
       }
     );
 

@@ -25,12 +25,13 @@ define( function( require ) {
   var SWITCH_WIDTH = 8;
 
   /**
-   * @param {Property<Boolean>} onProperty
+   * @param {Property.<boolean>} onProperty
    * @param {Vector2} start
    * @param {Vector2} end
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
-  function FilterWireNode( onProperty, start, end ) {
+  function FilterWireNode( onProperty, start, end, tandem ) {
 
     Node.call( this );
 
@@ -67,15 +68,13 @@ define( function( require ) {
       trackOffFill: '#eeeeee',
       trackOnFill: '#eeeeee',
       trackStroke: 'black',
-      thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' )
+      thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' ),
+      tandem: tandem.createTandem( 'filterOnOffSwitch' )
     } );
 
     this.addChild( wirePath );
     this.addChild( outlinePath );
     this.addChild( onOffSwitch );
-
-    // Together support
-    together && together.addComponent( onOffSwitch, 'singleBulbScreen.filterOnOffSwitch' );
   }
 
   return inherit( Node, FilterWireNode );

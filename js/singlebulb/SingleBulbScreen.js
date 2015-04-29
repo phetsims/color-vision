@@ -21,12 +21,12 @@ define( function( require ) {
 
   /**
    * @constructor
-   * @param tandem
+   * @param {Tandem} tandem - support for exporting instances from the sim
    */
   function SingleBulbScreen( tandem ) {
     Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
-      function() { return new SingleBulbModel(); },
-      function( model ) { return new SingleBulbScreenView( model ); },
+      function() { return new SingleBulbModel( tandem ); },
+      function( model ) { return new SingleBulbScreenView( model, tandem ); },
       {
         backgroundColor: 'black',
         navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),

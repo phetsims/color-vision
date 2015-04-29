@@ -52,17 +52,18 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
-  function SingleBulbScreenView( model ) {
+  function SingleBulbScreenView( model, tandem ) {
 
-    ColorVisionScreenView.call( this, model );
+    ColorVisionScreenView.call( this, model, tandem );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
     // Create flashlight node
-    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty,
+    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem,
       {
         centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
         right: this.layoutBounds.maxX - 40
@@ -101,8 +102,8 @@ define( function( require ) {
       25 );
 
     // make bulb color slider invisible when on white light mode
-    model.lightProperty.link( function( light ) {
-      var coloredLight = light !== 'white';
+    model.lightTypeProperty.link( function( lightType ) {
+      var coloredLight = lightType !== 'white';
       upperSliderNode.visible = coloredLight;
       bulbColorText.visible = coloredLight;
       flashlightWire.visible = coloredLight;
@@ -126,7 +127,7 @@ define( function( require ) {
       node: new Image( singleColorLightIcon, ICON_OPTIONS )
     } ];
 
-    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightProperty, whiteColoredButtonsContent,
+    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
@@ -140,7 +141,7 @@ define( function( require ) {
       }
     ];
 
-    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamProperty, beamPhotonButtonsContent,
+    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
@@ -193,7 +194,8 @@ define( function( require ) {
     this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET )
+      new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
+      tandem
     ) );
 
     this.addChild( gaussianSlider );
@@ -255,11 +257,8 @@ define( function( require ) {
     var colorRadioButton = colorWhiteSelectButtons.getRadioButtonGroupMember( 'colored' );
     
     // Together support
-    together && together.addComponent( this.resetAllButton, 'singleBulbScreen.resetAllButton' );
-    together && together.addComponent( this.playPauseButton, 'singleBulbScreen.playPauseButton' );
     together && together.addComponent( headNode.hideBrainRadioButton, 'singleBulbScreen.hideBrainRadioButton' );
     together && together.addComponent( headNode.showBrainRadioButton, 'singleBulbScreen.showBrainRadioButton' );
-    together && together.addComponent( this.stepButton, 'singleBulbScreen.stepButton' );
     together && together.addComponent( whiteRadioButton, 'singleBulbScreen.whiteLightRadioButton' );
     together && together.addComponent( colorRadioButton, 'singleBulbScreen.coloredLightRadioButton' );
     together && together.addComponent( beamRadioButton, 'singleBulbScreen.beamRadioButton' );

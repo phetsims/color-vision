@@ -18,9 +18,12 @@ define( function( require ) {
   var flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
 
   /**
+   * @param {Property.<boolean>} onProperty
+   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Object} options
    * @constructor
    */
-  function FlashlightWithButtonNode( onProperty, options ) {
+  function FlashlightWithButtonNode( onProperty, tandem, options ) {
 
     Node.call( this );
 
@@ -31,15 +34,13 @@ define( function( require ) {
         centerY: flashlightNode.centerY,
         centerX: flashlightNode.centerX + 15,
         baseColor: 'red',
-        radius: 15
+        radius: 15,
+        tandem: tandem.createTandem( 'flashlightButton' )
       } );
 
     this.addChild( flashlightNode );
     this.addChild( button );
     this.mutate( options );
-
-    // Together support
-    together && together.addComponent( button, 'singleBulbScreen.flashlightButton' );
   }
 
   return inherit( Node, FlashlightWithButtonNode );
