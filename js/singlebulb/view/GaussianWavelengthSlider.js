@@ -26,15 +26,16 @@ define( function( require ) {
    * @param {Property<Number>} filterWavelengthProperty
    * @param {Number} width the width of the track
    * @param {Number} height the height of the track
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @param {Object} [options]
    * @constructor
    */
-  function GaussianWavelengthSlider( filterWavelengthProperty, width, height, options ) {
+  function GaussianWavelengthSlider( filterWavelengthProperty, width, height, tandem, options ) {
 
     Node.call( this );
 
     // Add lower WavelengthSlider
-    this.slider = new WavelengthSlider( filterWavelengthProperty,
+    this.slider = new WavelengthSlider( filterWavelengthProperty, tandem,
       {
         tweakersVisible: false,
         valueVisible: false,

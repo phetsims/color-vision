@@ -39,10 +39,11 @@ define( function( require ) {
    * @param {Property<String>} headModeProperty
    * @param {Number} layoutBoundsBottom should be layoutBounds.bottom so the HeadNode can align relative to that
    * @param {Array<RGBPhotonBeamNode>} photonBeams for layering properly, only used in RGBScreenView
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @param {object} [options]
    * @constructor
    */
-  function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams, options ) {
+  function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams, tandem, options ) {
 
     Node.call( this );
 
@@ -82,10 +83,12 @@ define( function( require ) {
     // Add head mode toggle
     var toggleButtonsContent = [ {
       value: 'no-brain',
-      node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } )
+      node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
+      tandem: tandem.createTandem( 'hideBrainRadioButton')
     }, {
       value: 'brain',
-      node: new Image( headIcon, { scale: IMAGE_SCALE } )
+      node: new Image( headIcon, { scale: IMAGE_SCALE } ),
+      tandem: tandem.createTandem( 'showBrainRadioButton')
     } ];
 
     var radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {

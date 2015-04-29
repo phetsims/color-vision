@@ -121,10 +121,12 @@ define( function( require ) {
 
     var whiteColoredButtonsContent = [ {
       value: 'white',
-      node: new Image( whiteLightIcon, ICON_OPTIONS )
+      node: new Image( whiteLightIcon, ICON_OPTIONS ),
+      tandem: tandem.createTandem( 'whiteLightRadioButton' )
     }, {
       value: 'colored',
-      node: new Image( singleColorLightIcon, ICON_OPTIONS )
+      node: new Image( singleColorLightIcon, ICON_OPTIONS ),
+      tandem: tandem.createTandem( 'coloredLightRadioButton' )
     } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
@@ -133,11 +135,14 @@ define( function( require ) {
 
     var beamPhotonButtonsContent = [
       {
-        value: 'beam', node: new Image( beamViewIcon, ICON_OPTIONS )
+        value: 'beam',
+        node: new Image( beamViewIcon, ICON_OPTIONS ),
+        tandem: tandem.createTandem( 'beamRadioButton' )
       },
       {
         value: 'photon',
-        node: new Image( photonViewIcon, ICON_OPTIONS )
+        node: new Image( photonViewIcon, ICON_OPTIONS ),
+        tandem: tandem.createTandem( 'photonRadioButton' )
       }
     ];
 
@@ -176,7 +181,7 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT, {
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT, tandem, {
       bottom: this.layoutBounds.bottom - 20,
       right: wavelengthSliderDistance
     } );
@@ -240,7 +245,7 @@ define( function( require ) {
     this.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ] );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], tandem );
     this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind
@@ -257,14 +262,8 @@ define( function( require ) {
     var colorRadioButton = colorWhiteSelectButtons.getRadioButtonGroupMember( 'colored' );
     
     // Together support
-    together && together.addComponent( headNode.hideBrainRadioButton, 'singleBulbScreen.hideBrainRadioButton' );
-    together && together.addComponent( headNode.showBrainRadioButton, 'singleBulbScreen.showBrainRadioButton' );
-    together && together.addComponent( whiteRadioButton, 'singleBulbScreen.whiteLightRadioButton' );
-    together && together.addComponent( colorRadioButton, 'singleBulbScreen.coloredLightRadioButton' );
-    together && together.addComponent( beamRadioButton, 'singleBulbScreen.beamRadioButton' );
-    together && together.addComponent( photonRadioButton, 'singleBulbScreen.photonRadioButton' );
-    together && together.addComponent( upperSliderNode, 'singleBulbScreen.bulbColorSlider' );
-    together && together.addComponent( gaussianSlider.slider, 'singleBulbScreen.filterColorSlider' );
+    //together && together.addComponent( upperSliderNode, 'singleBulbScreen.bulbColorSlider' );
+    //together && together.addComponent( gaussianSlider.slider, 'singleBulbScreen.filterColorSlider' );
   }
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,

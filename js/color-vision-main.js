@@ -34,7 +34,8 @@ define( function( require ) {
 
   SimLauncher.launch( function() {
     tandem = tandem.createTandem( 'colorVision' );
-    var sim = new Sim( simTitle, [ new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ), new RGBScreen( tandem.createTandem( 'rgbScreen' ) ) ], simOptions );
+    var sim = new Sim( simTitle, [ new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
+      new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) ) ], simOptions );
     sim.start();
   } );
 } );

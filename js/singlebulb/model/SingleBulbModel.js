@@ -90,7 +90,7 @@ define( function( require ) {
           return VisibleColor.wavelengthToColor( filterWavelength );
         }
         // if the beam is white and the filter is not visible, return white
-        else if ( !filterVisible && light === 'white' ) {
+        else if ( !filterVisible && lightType === 'white' ) {
           return Color.WHITE;
         }
         // if the filter is not visible, return the flashlight wavelength's color

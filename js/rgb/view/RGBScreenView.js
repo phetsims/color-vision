@@ -32,11 +32,12 @@ define( function( require ) {
 
   /**
    * @param {RGBModel} model
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
-  function RGBScreenView( model ) {
+  function RGBScreenView( model, tandem ) {
 
-    ColorVisionScreenView.call( this, model );
+    ColorVisionScreenView.call( this, model, tandem );
 
     // Add photon beams
     this.redBeam = new RGBPhotonBeamNode( model.redBeam,
@@ -64,7 +65,7 @@ define( function( require ) {
 
     // add head node
     var beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, tandem );
     this.addChild( headNode );
 
     // Add flashlights
@@ -104,14 +105,14 @@ define( function( require ) {
     this.addChild( sliderVBox );
 
     // Together support
-    together && together.addComponent( this.resetAllButton, 'rgbBulbsScreen.resetAllButton' );
-    together && together.addComponent( this.playPauseButton, 'rgbBulbsScreen.playPauseButton' );
-    together && together.addComponent( this.stepButton, 'rgbBulbsScreen.stepButton' );
-    together && together.addComponent( headNode.hideBrainRadioButton, 'rgbBulbsScreen.hideBrainRadioButton' );
-    together && together.addComponent( headNode.showBrainRadioButton, 'rgbBulbsScreen.showBrainRadioButton' );
-    together && together.addComponent( redSlider.slider, 'rgbBulbsScreen.redSlider' );
-    together && together.addComponent( greenSlider.slider, 'rgbBulbsScreen.greenSlider' );
-    together && together.addComponent( blueSlider.slider, 'rgbBulbsScreen.blueSlider' );
+    //together && together.addComponent( this.resetAllButton, 'rgbBulbsScreen.resetAllButton' );
+    //together && together.addComponent( this.playPauseButton, 'rgbBulbsScreen.playPauseButton' );
+    //together && together.addComponent( this.stepButton, 'rgbBulbsScreen.stepButton' );
+    //together && together.addComponent( headNode.hideBrainRadioButton, 'rgbBulbsScreen.hideBrainRadioButton' );
+    //together && together.addComponent( headNode.showBrainRadioButton, 'rgbBulbsScreen.showBrainRadioButton' );
+    //together && together.addComponent( redSlider.slider, 'rgbBulbsScreen.redSlider' );
+    //together && together.addComponent( greenSlider.slider, 'rgbBulbsScreen.greenSlider' );
+    //together && together.addComponent( blueSlider.slider, 'rgbBulbsScreen.blueSlider' );
   }
 
   return inherit( ColorVisionScreenView, RGBScreenView,

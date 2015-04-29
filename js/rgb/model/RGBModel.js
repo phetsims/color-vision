@@ -43,7 +43,7 @@ define( function( require ) {
         perceivedRedIntensity: 0,
         perceivedGreenIntensity: 0,
         perceivedBlueIntensity: 0,
-        play: true,          // is the sim running or paused
+        playing: true,       // is the sim running or paused?
         headMode: 'no-brain' // takes values 'brain' or 'no-brain'
       }
     );
@@ -89,11 +89,11 @@ define( function( require ) {
     this.greenIntensityProperty.link( function() { thisModel.greenEventTimer.timeBeforeNextEvent = 0; } );
     this.blueIntensityProperty.link( function() { thisModel.blueEventTimer.timeBeforeNextEvent = 0; } );
 
-    together && together.addComponent( this.redIntensityProperty, 'rgbBulbsScreen.redIntensity' );
-    together && together.addComponent( this.greenIntensityProperty, 'rgbBulbsScreen.greenIntensity' );
-    together && together.addComponent( this.blueIntensityProperty, 'rgbBulbsScreen.blueIntensity' );
-    together && together.addComponent( this.playProperty, 'rgbBulbsScreen.playing' );
-    together && together.addComponent( this.headModeProperty, 'rgbBulbsScreen.headMode' );
+    //together && together.addComponent( this.redIntensityProperty, 'rgbBulbsScreen.redIntensity' );
+    //together && together.addComponent( this.greenIntensityProperty, 'rgbBulbsScreen.greenIntensity' );
+    //together && together.addComponent( this.blueIntensityProperty, 'rgbBulbsScreen.blueIntensity' );
+    //together && together.addComponent( this.playProperty, 'rgbBulbsScreen.playing' );
+    //together && together.addComponent( this.headModeProperty, 'rgbBulbsScreen.headMode' );
   }
 
   return inherit( PropertySet, RGBModel, {
