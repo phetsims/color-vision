@@ -113,7 +113,7 @@ define( function( require ) {
   return inherit( PropertySet, SingleBulbModel,
     {
       step: function( dt ) {
-        if ( this.play ) {
+        if ( this.playing ) {
           this.photonBeam.updateAnimationFrame( dt );
           this.eventTimer.step( dt );
         }

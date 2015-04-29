@@ -22,7 +22,7 @@ define( function( require ) {
   /**
    * @constructor
    */
-  function RGBModel() {
+  function RGBModel( tandem ) {
 
     /**
      * RGBModel contains 6 intensity properties, all of which range between 0-100.
@@ -45,6 +45,14 @@ define( function( require ) {
         perceivedBlueIntensity: 0,
         playing: true,       // is the sim running or paused?
         headMode: 'no-brain' // takes values 'brain' or 'no-brain'
+      }, {
+        tandemSet: {
+          redIntensity: tandem.createTandem( 'redIntensity' ),
+          greenIntensity: tandem.createTandem( 'greenIntensity' ),
+          blueIntensity: tandem.createTandem( 'blueIntensity' ),
+          playing: tandem.createTandem( 'playing' ),
+          headMode: tandem.createTandem( 'headMode' )
+        }
       }
     );
 
@@ -115,7 +123,7 @@ define( function( require ) {
     },
 
     step: function( dt ) {
-      if ( this.play ) {
+      if ( this.playing ) {
         this.stepBeams( dt );
         this.stepTimers( dt );
       }

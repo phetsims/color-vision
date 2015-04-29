@@ -209,8 +209,7 @@ define( function( require ) {
     this.addChild( gaussianSlider );
 
     // Left half of the filter
-    var filterLeft = new FilterHalfEllipse
-    (
+    var filterLeft = new FilterHalfEllipse(
       model.filterWavelengthProperty,
       model.filterVisibleProperty,
       filterLeftNode.centerX + 1,
@@ -221,8 +220,7 @@ define( function( require ) {
     );
 
     // Right half of the filter
-    var filterRight = new FilterHalfEllipse
-    (
+    var filterRight = new FilterHalfEllipse(
       model.filterWavelengthProperty,
       model.filterVisibleProperty,
       filterLeftNode.centerX - 1,
@@ -233,8 +231,7 @@ define( function( require ) {
     );
 
     // bounds for the solid beam view
-    var beamBounds = new Bounds2
-    (
+    var beamBounds = new Bounds2(
       filterLeft.left - 130,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,

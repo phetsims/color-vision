@@ -19,16 +19,16 @@ define( function( require ) {
   /**
    * @param {Property<Number>} intensityProperty the intensity property for this color from the model
    * @param {String} color
-   * @param {object} [options]
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
-  function RGBSlider( intensityProperty, color, options ) {
+  function RGBSlider( intensityProperty, color, tandem ) {
 
-    var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 },
-      {
-        thumbSize: new Dimension2( 14, 28 ),
-        trackSize: new Dimension2( 100, 2 )
-      } );
+    var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 }, {
+      thumbSize: new Dimension2( 14, 28 ),
+      trackSize: new Dimension2( 100, 2 ),
+      tandem: tandem
+    } );
     hSlider.rotation = -Math.PI / 2;
 
     var rectWidth = hSlider.width + 8;

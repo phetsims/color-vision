@@ -51,7 +51,7 @@ define( function( require ) {
         }
       }
 
-      // emit a black photon for reseting the perceived color to black if no more photons are emitted this frame
+      // emit a black photon for resetting the perceived color to black if no more photons are emitted this frame
       if ( this.intensityProperty.get() === 0 ) {
         var blackPhoton = new RGBPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
           new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 0 );

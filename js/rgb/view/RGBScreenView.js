@@ -40,28 +40,25 @@ define( function( require ) {
     ColorVisionScreenView.call( this, model, tandem );
 
     // Add photon beams
-    this.redBeam = new RGBPhotonBeamNode( model.redBeam,
-      {
-        canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
-        x: 280,
-        y: 190,
-        rotation: -BEAM_ANGLE
-      } );
+    this.redBeam = new RGBPhotonBeamNode( model.redBeam, {
+      canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
+      x: 280,
+      y: 190,
+      rotation: -BEAM_ANGLE
+    } );
 
-    this.greenBeam = new RGBPhotonBeamNode( model.greenBeam,
-      {
-        canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
-        x: 320
-      } );
+    this.greenBeam = new RGBPhotonBeamNode( model.greenBeam, {
+      canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
+      x: 320
+    } );
     this.greenBeam.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
-    this.blueBeam = new RGBPhotonBeamNode( model.blueBeam,
-      {
-        canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
-        x: 320,
-        y: 145,
-        rotation: BEAM_ANGLE
-      } );
+    this.blueBeam = new RGBPhotonBeamNode( model.blueBeam, {
+      canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
+      x: 320,
+      y: 145,
+      rotation: BEAM_ANGLE
+    } );
 
     // add head node
     var beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
@@ -73,46 +70,34 @@ define( function( require ) {
     var greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
     var blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
 
-    var flashlightVBox = new VBox(
-      {
-        children: [
-          redFlashlightNode,
-          greenFlashlightNode,
-          blueFlashlightNode ],
-        spacing: 85,
-        right: this.layoutBounds.maxX - 84,
-        centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
-      } );
+    var flashlightVBox = new VBox( {
+      children: [
+        redFlashlightNode,
+        greenFlashlightNode,
+        blueFlashlightNode ],
+      spacing: 85,
+      right:   this.layoutBounds.maxX - 84,
+      centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET
+    } );
 
     this.addChild( flashlightVBox );
 
     // Add sliders
-    var redSlider = new RGBSlider( model.redIntensityProperty, 'red' );
-    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green' );
-    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue' );
+    var redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
+    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
+    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
 
-    var sliderVBox = new VBox(
-      {
-        children: [
-          redSlider,
-          greenSlider,
-          blueSlider ],
-        spacing: 15,
-        right: this.layoutBounds.maxX - 30,
-        centerY: flashlightVBox.centerY
-      } );
+    var sliderVBox = new VBox( {
+      children: [
+        redSlider,
+        greenSlider,
+        blueSlider ],
+      spacing: 15,
+      right: this.layoutBounds.maxX - 30,
+      centerY: flashlightVBox.centerY
+    } );
 
     this.addChild( sliderVBox );
-
-    // Together support
-    //together && together.addComponent( this.resetAllButton, 'rgbBulbsScreen.resetAllButton' );
-    //together && together.addComponent( this.playPauseButton, 'rgbBulbsScreen.playPauseButton' );
-    //together && together.addComponent( this.stepButton, 'rgbBulbsScreen.stepButton' );
-    //together && together.addComponent( headNode.hideBrainRadioButton, 'rgbBulbsScreen.hideBrainRadioButton' );
-    //together && together.addComponent( headNode.showBrainRadioButton, 'rgbBulbsScreen.showBrainRadioButton' );
-    //together && together.addComponent( redSlider.slider, 'rgbBulbsScreen.redSlider' );
-    //together && together.addComponent( greenSlider.slider, 'rgbBulbsScreen.greenSlider' );
-    //together && together.addComponent( blueSlider.slider, 'rgbBulbsScreen.blueSlider' );
   }
 
   return inherit( ColorVisionScreenView, RGBScreenView,
