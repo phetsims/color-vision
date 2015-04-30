@@ -9,8 +9,10 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {Vector2} location
@@ -35,5 +37,21 @@ define( function( require ) {
     this.wavelength = wavelength;
   }
 
-  return inherit( RGBPhoton, SingleBulbPhoton );
+  return inherit( RGBPhoton, SingleBulbPhoton, {
+      toJSON: function() {
+        return _.extend( {
+          isWhite: this.isWhite,
+          color: this.color.toJSON(),
+          wavelength: this.wavelength
+        }, RGBPhoton.prototype.toJSON.call( this ) );
+      }
+    },
+    // statics
+    {
+      fromJSON: function( json ) {
+        return new SingleBulbPhoton( Vector2.fromJSON( json.location ), Vector2.fromJSON( json.velocity ),
+          json.intensity, Color.fromJSON( json.color ), json.isWhite, json.wavelength );
+      }
+    }
+  );
 } );

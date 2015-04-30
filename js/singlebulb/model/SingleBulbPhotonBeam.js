@@ -116,7 +116,7 @@ define( function( require ) {
         }
       }
 
-      // emit a black photon for reseting the perceived color to black if no more photons passing through the filter.
+      // emit a black photon for resetting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible ) {
         var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
@@ -125,7 +125,7 @@ define( function( require ) {
         this.photons.push( blackPhoton );
       }
 
-      // emit a black photon for reseting the perceived color to black if the flashlight is off
+      // emit a black photon for resetting the perceived color to black if the flashlight is off
       if ( !this.model.flashlightOn ) {
         this.photons.push( new SingleBulbPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
           new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false ) );

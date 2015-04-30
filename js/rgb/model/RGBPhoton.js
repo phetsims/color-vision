@@ -27,6 +27,15 @@ define( function( require ) {
     updateAnimationFrame: function( newX, newY ) {
       this.location.x = newX;
       this.location.y = newY;
+    },
+
+    toJSON: function() {
+      return {
+        location: this.location.toJSON(),
+        velocity: this.velocity.toJSON(),
+        intensity: this.intensity
+      };
     }
+
   } );
 } );
