@@ -15,6 +15,7 @@ define( function( require ) {
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
+  var Color = require( 'SCENERY/util/Color' );
 
   // constants
   var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
@@ -50,6 +51,9 @@ define( function( require ) {
           redIntensity: tandem.createTandem( 'redIntensity' ),
           greenIntensity: tandem.createTandem( 'greenIntensity' ),
           blueIntensity: tandem.createTandem( 'blueIntensity' ),
+          perceivedRedIntensity: tandem.createTandem( 'perceivedRedIntensity' ),
+          perceivedGreenIntensity: tandem.createTandem( 'perceivedGreenIntensity' ),
+          perceivedBlueIntensity: tandem.createTandem( 'perceivedBlueIntensity' ),
           playing: tandem.createTandem( 'playing' ),
           headMode: tandem.createTandem( 'headMode' )
         }
@@ -66,10 +70,12 @@ define( function( require ) {
     // this determines the thought bubble color
     this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
       function( redIntensity, greenIntensity, blueIntensity ) {
-        return 'rgb(' + [
-            Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
-            Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
-            Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ].join() + ')';
+        return new Color(
+          Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
+          Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
+          Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
+      }, {
+        tandem: tandem.createTandem( 'perceivedColor' )
       } );
 
     // create a ConstantEventModel for each beam
@@ -96,12 +102,6 @@ define( function( require ) {
     this.redIntensityProperty.link( function() { thisModel.redEventTimer.timeBeforeNextEvent = 0; } );
     this.greenIntensityProperty.link( function() { thisModel.greenEventTimer.timeBeforeNextEvent = 0; } );
     this.blueIntensityProperty.link( function() { thisModel.blueEventTimer.timeBeforeNextEvent = 0; } );
-
-    //together && together.addComponent( this.redIntensityProperty, 'rgbBulbsScreen.redIntensity' );
-    //together && together.addComponent( this.greenIntensityProperty, 'rgbBulbsScreen.greenIntensity' );
-    //together && together.addComponent( this.blueIntensityProperty, 'rgbBulbsScreen.blueIntensity' );
-    //together && together.addComponent( this.playProperty, 'rgbBulbsScreen.playing' );
-    //together && together.addComponent( this.headModeProperty, 'rgbBulbsScreen.headMode' );
   }
 
   return inherit( PropertySet, RGBModel, {
