@@ -30,8 +30,7 @@ define( function( require ) {
       {
         backgroundColor: 'black',
         navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        homeScreenButtonTogetherID: 'homeScreen.singleBulbScreenButton',
-        navigationBarScreenButtonTogetherID: 'navigationBar.singleBulbScreenButton'
+        tandemScreenName: 'singleBulbScreen'
       }
     );
   }

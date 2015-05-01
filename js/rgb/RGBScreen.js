@@ -30,8 +30,7 @@ define( function( require ) {
       {
         backgroundColor: 'black',
         navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        homeScreenButtonTogetherID: 'homeScreen.rgbScreenButton',
-        navigationBarScreenButtonTogetherID: 'navigationBar.rgbScreenButton'
+        tandemScreenName: 'rgbScreen'
       }
     );
   }
