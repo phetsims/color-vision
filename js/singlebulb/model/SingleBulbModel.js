@@ -100,7 +100,7 @@ define( function( require ) {
       }
     } );
 
-    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH );
+    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem );
 
     var thisModel = this;
 

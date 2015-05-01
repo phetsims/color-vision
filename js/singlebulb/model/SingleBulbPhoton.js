@@ -37,6 +37,10 @@ define( function( require ) {
     this.wavelength = wavelength;
   }
 
+  window.phet = window.phet || {};
+  window.phet.colorVision = window.phet.colorVision || {};
+  window.phet.colorVision.SingleBulbPhoton = SingleBulbPhoton;
+
   return inherit( RGBPhoton, SingleBulbPhoton, {
       toJSON: function() {
         return _.extend( {

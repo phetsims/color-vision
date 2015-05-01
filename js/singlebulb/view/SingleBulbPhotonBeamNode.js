@@ -14,21 +14,25 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @param {Object} [options], must contain a canvasBounds attribute of type Bounds2
    * @constructor
    */
-  function SingleBulbPhotonBeamNode( model, options ) {
+  function SingleBulbPhotonBeamNode( model, tandem, options ) {
 
     this.photons = model.photonBeam.photons;
 
     CanvasNode.call( this, options );
 
     var thisNode = this;
-    model.beamTypeProperty.link( function( beam ) {
-      thisNode.visible = ( beam === 'photon' );
+    model.beamTypeProperty.link( function( beamType ) {
+      thisNode.visible = ( beamType === 'photon' );
     } );
 
     this.invalidatePaint();
+
+    // Export for the sole purpose of having together.js call invalidatePaint() after load complete
+    tandem.addInstance( this );
   }
 
   return inherit( CanvasNode, SingleBulbPhotonBeamNode, {

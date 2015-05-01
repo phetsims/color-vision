@@ -24,12 +24,14 @@ define( function( require ) {
   /**
    * @param {SingleBulbModel} model
    * @param {Number} beamLength the length of the beam. This is used to determine what location to restart the photons.
+   * @param {Tandem} tandem - support for exporting instances from the sim
    # @constructor
    */
-  function SingleBulbPhotonBeam( model, beamLength ) {
+  function SingleBulbPhotonBeam( model, beamLength, tandem ) {
     this.photons = [];
     this.beamLength = beamLength;
     this.model = model;
+    tandem.createTandem( 'photons' ).addInstance( this.photons );
   }
 
   function randomColor() {
