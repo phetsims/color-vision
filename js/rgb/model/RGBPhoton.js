@@ -29,10 +29,10 @@ define( function( require ) {
       this.location.y = newY;
     },
 
-    toJSON: function() {
+    toStateObject: function() {
       return {
-        location: this.location.toJSON(),
-        velocity: this.velocity.toJSON(),
+        location: this.location.toStateObject(),
+        velocity: this.velocity.toStateObject(),
         intensity: this.intensity
       };
     }

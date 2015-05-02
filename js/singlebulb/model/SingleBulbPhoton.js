@@ -42,19 +42,19 @@ define( function( require ) {
   window.phet.colorVision.SingleBulbPhoton = SingleBulbPhoton;
 
   return inherit( RGBPhoton, SingleBulbPhoton, {
-      toJSON: function() {
+      toStateObject: function() {
         return _.extend( {
           isWhite: this.isWhite,
-          color: this.color.toJSON(),
+          color: this.color.toStateObject(),
           wavelength: this.wavelength
-        }, RGBPhoton.prototype.toJSON.call( this ) );
+        }, RGBPhoton.prototype.toStateObject.call( this ) );
       }
     },
     // statics
     {
-      fromJSON: function( json ) {
-        return new SingleBulbPhoton( Vector2.fromJSON( json.location ), Vector2.fromJSON( json.velocity ),
-          json.intensity, Color.fromJSON( json.color ), json.isWhite, json.wavelength );
+      fromStateObject: function( json ) {
+        return new SingleBulbPhoton( Vector2.fromStateObject( json.location ), Vector2.fromStateObject( json.velocity ),
+          json.intensity, Color.fromStateObject( json.color ), json.isWhite, json.wavelength );
       }
     }
   );
