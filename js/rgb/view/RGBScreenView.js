@@ -40,20 +40,20 @@ define( function( require ) {
     ColorVisionScreenView.call( this, model, tandem );
 
     // Add photon beams
-    this.redBeam = new RGBPhotonBeamNode( model.redBeam, {
+    this.redBeam = new RGBPhotonBeamNode( model.redBeam, tandem.createTandem( 'redBeamView' ), {
       canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
       x: 280,
       y: 190,
       rotation: -BEAM_ANGLE
     } );
 
-    this.greenBeam = new RGBPhotonBeamNode( model.greenBeam, {
+    this.greenBeam = new RGBPhotonBeamNode( model.greenBeam, tandem.createTandem( 'greenBeamView' ), {
       canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
       x: 320
     } );
     this.greenBeam.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
-    this.blueBeam = new RGBPhotonBeamNode( model.blueBeam, {
+    this.blueBeam = new RGBPhotonBeamNode( model.blueBeam, tandem.createTandem( 'blueBeamView' ), {
       canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
       x: 320,
       y: 145,

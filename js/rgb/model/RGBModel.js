@@ -21,6 +21,7 @@ define( function( require ) {
   var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
 
   /**
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function RGBModel( tandem ) {
@@ -60,9 +61,9 @@ define( function( require ) {
       }
     );
 
-    this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, RGBConstants.RED_BEAM_LENGTH );
-    this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, RGBConstants.GREEN_BEAM_LENGTH );
-    this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH );
+    this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, RGBConstants.RED_BEAM_LENGTH, tandem.createTandem( 'redBeam' ) );
+    this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, RGBConstants.GREEN_BEAM_LENGTH, tandem.createTandem( 'greenBeam' ) );
+    this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH, tandem.createTandem( 'blueBeam' ) );
 
     var thisModel = this;
 

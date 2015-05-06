@@ -20,10 +20,11 @@ define( function( require ) {
 
   /**
    * @param {PhotonBeam} photonBeam
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @param {Object} [options] (must contain a field canvasBounds to indicate the bounds of the beam)
    * @constructor
    */
-  function RGBPhotonBeamNode( photonBeam, options ) {
+  function RGBPhotonBeamNode( photonBeam, tandem, options ) {
 
     this.beamBounds = options.canvasBounds;
     this.photons = photonBeam.photons;
@@ -31,6 +32,9 @@ define( function( require ) {
 
     CanvasNode.call( this, options );
     this.invalidatePaint();
+
+    // Export for the sole purpose of having together.js call invalidatePaint() after load complete
+    tandem.addInstance( this );
   }
 
   return inherit( CanvasNode, RGBPhotonBeamNode, {

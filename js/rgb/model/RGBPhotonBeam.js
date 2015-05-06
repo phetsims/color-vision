@@ -20,15 +20,17 @@ define( function( require ) {
    * @param {Property<Number>} intensityProperty the intensity property for this color from the model
    * @param {Property<Number>} perceivedIntensityProperty the perceived intensity property for this color from the model
    * @param {Number} beamLength the length of the beam, used to calculate the starting x coordinate
+   * @param {Tandem} tandem - support for exporting instances from the sim
    # @constructor
    */
-  function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, beamLength ) {
+  function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, beamLength, tandem ) {
     this.photons = [];
 
     this.color = color;
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
     this.beamLength = beamLength;
+    tandem.createTandem( 'photons' ).addInstance( this.photons );
   }
 
   return inherit( PropertySet, RGBPhotonBeam, {

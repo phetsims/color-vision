@@ -37,6 +37,7 @@ define( function( require ) {
     this.wavelength = wavelength;
   }
 
+  // make this object globally accessible in support of together.js
   window.phet = window.phet || {};
   window.phet.colorVision = window.phet.colorVision || {};
   window.phet.colorVision.SingleBulbPhoton = SingleBulbPhoton;
