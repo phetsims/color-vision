@@ -4,21 +4,7 @@
   "simTitleStringKey": "COLOR_VISION/color-vision.name",
   "license": "GPLv3",
   "phetLibs": [
-    "color-vision",
-    "assert",
-    "axon",
-    "babel",
-    "brand",
-    "chipper",
-    "dot",
-    "joist",
-    "kite",
-    "phet-core",
-    "phetcommon",
-    "scenery",
-    "scenery-phet",
-    "sherpa",
-    "sun"
+    "color-vision"
   ],
   "repository": {
     "type": "git",
