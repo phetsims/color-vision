@@ -75,9 +75,8 @@ define( function( require ) {
           Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
           Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
           Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
-      }, {
-        tandem: tandem.createTandem( 'perceivedColor' )
-      } );
+      },
+      tandem.createTandem( 'perceivedColor' ) );
 
     // create a ConstantEventModel for each beam
     this.redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
