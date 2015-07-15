@@ -19,7 +19,7 @@ define( function( require ) {
   var flashlightImage = require( 'image!COLOR_VISION/flashlight-icon.png' );
 
   // constants
-  var SCALE = 0.8;
+  var SCALE = 0.75;
 
   /**
    * @param {Number} rotation

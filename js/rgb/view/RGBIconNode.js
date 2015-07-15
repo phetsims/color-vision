@@ -13,6 +13,7 @@ define( function( require ) {
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
+  var Screen = require( 'JOIST/Screen' );
 
   /**
    * @param {Object} [options]
@@ -20,7 +21,7 @@ define( function( require ) {
    */
   function RGBIconNode( options ) {
 
-    Rectangle.call( this, 0, 0, 548, 373, options );
+    Rectangle.call( this, 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, options );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
