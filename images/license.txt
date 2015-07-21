@@ -1,15 +1,19 @@
 beam-view-icon.png source=PhET author=Bryce Gruneich
+filter.png source=PhET author=Bryce Gruneich
 filter-left.png source=PhET author=Bryce Gruneich
 filter-right.png source=PhET author=Bryce Gruneich
-filter.png source=PhET author=Bryce Gruneich
 flashlight-icon.png source=PhET author=Bryce Gruneich
 flashlight-0-deg.png source=PhET author=Bryce Gruneich
 flashlight-neg-45-deg.png source=PhET author=Bryce Gruneich
 flashlight-pos-45-deg.png source=PhET author=Bryce Gruneich
-head-front-no-brain.png source=PhET author=M Fowler
-head-front-with-brain.png source=PhET author=Bryce Gruneich
+head.png source=PhET author=M Fowler
+head-front.png source=PhET author=M Fowler
+head-icon.png source=PhET author=Bryce Gruneich
 head-no-brain.png source=PhET author=M Fowler
 head-with-brain.png source=PhET author=Bryce Gruneich
 photon-view-icon.png source=PhET author=Bryce Gruneich
 single-color-light-icon.png source=PhET author=Bryce Gruneich
+silhouette.png source=PhET notes=modified from the colorized versions
+silhouette-front.png source=PhET notes=modified from the colorized versions
+silhouette-icon.png source=PhET notes=modified from the colorized versions
 white-light-icon.png source=PhET author=Bryce Gruneich
