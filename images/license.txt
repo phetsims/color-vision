@@ -1,19 +1,154 @@
-beam-view-icon.png source=PhET author=Bryce Gruneich
-filter.png source=PhET author=Bryce Gruneich
-filter-left.png source=PhET author=Bryce Gruneich
-filter-right.png source=PhET author=Bryce Gruneich
-flashlight-icon.png source=PhET author=Bryce Gruneich
-flashlight-0-deg.png source=PhET author=Bryce Gruneich
-flashlight-neg-45-deg.png source=PhET author=Bryce Gruneich
-flashlight-pos-45-deg.png source=PhET author=Bryce Gruneich
-head.png source=PhET author=M Fowler
-head-front.png source=PhET author=M Fowler
-head-icon.png source=PhET author=Bryce Gruneich
-head-no-brain.png source=PhET author=M Fowler
-head-with-brain.png source=PhET author=Bryce Gruneich
-photon-view-icon.png source=PhET author=Bryce Gruneich
-single-color-light-icon.png source=PhET author=Bryce Gruneich
-silhouette.png source=PhET notes=modified from the colorized versions
-silhouette-front.png source=PhET notes=modified from the colorized versions
-silhouette-icon.png source=PhET notes=modified from the colorized versions
-white-light-icon.png source=PhET author=Bryce Gruneich
+{
+  "beam-view-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "filter.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "filter-left.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "filter-right.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "flashlight-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "flashlight-0-deg.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "flashlight-neg-45-deg.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "flashlight-pos-45-deg.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "head.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by M Fowler"
+  },
+  "head-front.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by M Fowler"
+  },
+  "head-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "head-no-brain.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by M Fowler"
+  },
+  "head-with-brain.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "photon-view-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "single-color-light-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  },
+  "silhouette.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "Modified from the colorized versions"
+  },
+  "silhouette-front.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "Modified from the colorized versions"
+  },
+  "silhouette-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "Modified from the colorized versions"
+  },
+  "white-light-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich"
+  }
+}
