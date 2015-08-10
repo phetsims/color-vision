@@ -1,6 +1,7 @@
 {
   "name": "color-vision",
   "version": "1.1.0-dev.2",
+  "requirejsNamespace": "COLOR_VISION",
   "simTitleStringKey": "COLOR_VISION/color-vision.name",
   "license": "GPLv3",
   "phetLibs": [
