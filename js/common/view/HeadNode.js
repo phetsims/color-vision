@@ -40,7 +40,7 @@ define( function( require ) {
    * @param {Number} layoutBoundsBottom should be layoutBounds.bottom so the HeadNode can align relative to that
    * @param {Array<RGBPhotonBeamNode>} photonBeams for layering properly, only used in RGBScreenView
    * @param {Tandem} tandem - support for exporting instances from the sim
-   * @param {object} [options]
+   * @param {Object} [options]
    * @constructor
    */
   function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams, tandem, options ) {

@@ -24,7 +24,7 @@ define( function( require ) {
 
   /**
    * @param {PropertySet} model
-   * @param {object} options
+   * @param {Object} options
    * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
