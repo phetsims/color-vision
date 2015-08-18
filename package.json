@@ -15,9 +15,6 @@
   },
   "phet": {
     "requirejsNamespace": "COLOR_VISION",
-    "simTitleStringKey": "COLOR_VISION/color-vision.name",
-    "phetLibs": [
-      "color-vision"
-    ]
+    "simTitleStringKey": "COLOR_VISION/color-vision.name"
   }
 }
