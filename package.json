@@ -14,7 +14,6 @@
     "requirejs": "~2.1.8"
   },
   "phet": {
-    "requirejsNamespace": "COLOR_VISION",
-    "simTitleStringKey": "COLOR_VISION/color-vision.name"
+    "requirejsNamespace": "COLOR_VISION"
   }
 }
