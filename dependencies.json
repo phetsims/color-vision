@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.0-dev.2 Fri Aug 28 2015 08:32:04 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.1.0-dev.3 Fri Aug 28 2015 08:37:52 GMT-0600 (MDT)",
   "assert": {
     "sha": "858e65ac477bf1861883ce06eed56d9fdefa5027",
     "branch": "master"
@@ -13,11 +13,11 @@
     "branch": "master"
   },
   "chipper": {
-    "sha": "0e1e22bac08a9f8343475f97a3ea30b5f4f0de0f",
+    "sha": "1c859930d3b12fa6c51a88a9ccdef55e506b69c0",
     "branch": "master"
   },
   "color-vision": {
-    "sha": "b85d1168531967b6e57927a063a1c9b67aeeff33",
+    "sha": "cfd2929cc6214db5df78049ce2ac74aeb994c9fa",
     "branch": "master"
   },
   "dot": {
