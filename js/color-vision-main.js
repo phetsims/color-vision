@@ -16,7 +16,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var simTitle = require( 'string!COLOR_VISION/color-vision.name' );
+  var simTitle = require( 'string!COLOR_VISION/color-vision.title' );
 
   var tandem = new Tandem();
 
