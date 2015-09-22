@@ -45,9 +45,9 @@ define( function( require ) {
     },
     // statics
     {
-      fromStateObject: function( json ) {
-        return new RGBPhoton( Vector2.fromStateObject( json.location ), Vector2.fromStateObject( json.velocity ),
-          json.intensity );
+      fromStateObject: function( stateObject ) {
+        return new RGBPhoton( Vector2.fromStateObject( stateObject.location ), Vector2.fromStateObject( stateObject.velocity ),
+          stateObject.intensity );
       }
     }
   );

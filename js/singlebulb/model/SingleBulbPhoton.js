@@ -53,9 +53,9 @@ define( function( require ) {
     },
     // statics
     {
-      fromStateObject: function( json ) {
-        return new SingleBulbPhoton( Vector2.fromStateObject( json.location ), Vector2.fromStateObject( json.velocity ),
-          json.intensity, Color.fromStateObject( json.color ), json.isWhite, json.wavelength );
+      fromStateObject: function( stateObject ) {
+        return new SingleBulbPhoton( Vector2.fromStateObject( stateObject.location ), Vector2.fromStateObject( stateObject.velocity ),
+          stateObject.intensity, Color.fromStateObject( stateObject.color ), stateObject.isWhite, stateObject.wavelength );
       }
     }
   );
