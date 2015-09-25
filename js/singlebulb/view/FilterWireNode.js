@@ -28,7 +28,7 @@ define( function( require ) {
    * @param {Property.<boolean>} onProperty
    * @param {Vector2} start
    * @param {Vector2} end
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function FilterWireNode( onProperty, start, end, tandem ) {

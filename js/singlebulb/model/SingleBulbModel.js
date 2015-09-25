@@ -18,7 +18,7 @@ define( function( require ) {
   var EventTimer = require( 'PHET_CORE/EventTimer' );
 
   /**
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function SingleBulbModel( tandem ) {

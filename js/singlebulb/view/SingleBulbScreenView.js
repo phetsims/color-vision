@@ -52,7 +52,7 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function SingleBulbScreenView( model, tandem ) {

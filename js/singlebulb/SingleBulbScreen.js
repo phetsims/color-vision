@@ -21,7 +21,7 @@ define( function( require ) {
 
   /**
    * @constructor
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    */
   function SingleBulbScreen( tandem ) {
     Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),

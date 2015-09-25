@@ -25,7 +25,7 @@ define( function( require ) {
   /**
    * @param {PropertySet} model
    * @param {Object} options
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function ColorVisionScreenView( model, tandem, options ) {

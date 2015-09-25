@@ -19,7 +19,7 @@ define( function( require ) {
   /**
    * @param {Property<Number>} intensityProperty the intensity property for this color from the model
    * @param {String} color
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function RGBSlider( intensityProperty, color, tandem ) {

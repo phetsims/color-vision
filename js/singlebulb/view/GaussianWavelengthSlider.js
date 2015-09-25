@@ -26,7 +26,7 @@ define( function( require ) {
    * @param {Property<Number>} filterWavelengthProperty
    * @param {Number} width the width of the track
    * @param {Number} height the height of the track
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */

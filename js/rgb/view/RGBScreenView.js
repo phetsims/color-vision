@@ -32,7 +32,7 @@ define( function( require ) {
 
   /**
    * @param {RGBModel} model
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function RGBScreenView( model, tandem ) {

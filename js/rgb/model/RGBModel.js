@@ -21,7 +21,7 @@ define( function( require ) {
   var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
 
   /**
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function RGBModel( tandem ) {

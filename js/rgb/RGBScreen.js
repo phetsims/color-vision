@@ -20,7 +20,7 @@ define( function( require ) {
   var rgbString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
 
   /**
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function RGBScreen( tandem ) {

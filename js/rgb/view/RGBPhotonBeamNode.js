@@ -20,7 +20,7 @@ define( function( require ) {
 
   /**
    * @param {PhotonBeam} photonBeam
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @param {Object} [options] (must contain a field canvasBounds to indicate the bounds of the beam)
    * @constructor
    */

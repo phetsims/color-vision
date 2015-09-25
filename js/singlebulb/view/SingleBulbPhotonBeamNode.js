@@ -14,7 +14,7 @@ define( function( require ) {
 
   /**
    * @param {SingleBulbModel} model
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @param {Object} [options], must contain a canvasBounds attribute of type Bounds2
    * @constructor
    */

@@ -19,7 +19,7 @@ define( function( require ) {
 
   /**
    * @param {Property.<boolean>} onProperty
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @param {Object} options
    * @constructor
    */
