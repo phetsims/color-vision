@@ -18,7 +18,7 @@ define( function( require ) {
   // strings
   var simTitle = require( 'string!COLOR_VISION/color-vision.title' );
 
-  var tandem = new Tandem();
+  var tandem = new Tandem( 'colorVision' );
 
   var simOptions = {
     credits: {
@@ -33,9 +33,10 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
-    tandem = tandem.createTandem( 'colorVision' );
-    var sim = new Sim( simTitle, [ new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
-      new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) ) ], simOptions );
+    var sim = new Sim( simTitle, [
+      new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
+      new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
+    ], simOptions );
     sim.start();
   } );
 } );
