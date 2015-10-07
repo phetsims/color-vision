@@ -26,8 +26,7 @@ define( function( require ) {
   function SingleBulbScreen( tandem ) {
     Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new SingleBulbModel( tandem ); },
-      function( model ) { return new SingleBulbScreenView( model, tandem ); },
-      {
+      function( model ) { return new SingleBulbScreenView( model, tandem ); }, {
         backgroundColor: 'black',
         navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
         tandemScreenName: 'singleBulbScreen'
