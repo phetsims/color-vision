@@ -14,9 +14,6 @@
     "requirejs": "~2.1.8"
   },
   "phet": {
-    "requirejsNamespace": "COLOR_VISION",
-    "phetLibs": [
-      "tandem"
-    ]
+    "requirejsNamespace": "COLOR_VISION"
   }
 }
