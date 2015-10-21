@@ -39,9 +39,8 @@ define( function( require ) {
 
   return inherit( CanvasNode, RGBPhotonBeamNode, {
 
-    // @param {CanvasContextWrapper} wrapper
-    paintCanvas: function( wrapper ) {
-      var context = wrapper.context;
+    // @param {CanvasRenderingContext2D} context
+    paintCanvas: function( context ) {
 
       //If the debug flag is enabled, it will show the bounds of the canvas
       if ( debug ) {

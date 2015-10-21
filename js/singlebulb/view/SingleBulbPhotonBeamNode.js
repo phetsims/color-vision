@@ -37,9 +37,8 @@ define( function( require ) {
 
   return inherit( CanvasNode, SingleBulbPhotonBeamNode, {
 
-    // @param {CanvasContextWrapper} wrapper
-    paintCanvas: function( wrapper ) {
-      var context = wrapper.context;
+    // @param {CanvasRenderingContext2D} context
+    paintCanvas: function( context ) {
 
       for ( var i = 0; i < this.photons.length; i++ ) {
         context.fillStyle = this.photons[ i ].color.toCSS();
