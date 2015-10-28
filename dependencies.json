@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.0-phet-io.3 Wed Oct 28 2015 14:10:09 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.1.0-phet-io.3 Wed Oct 28 2015 14:18:12 GMT-0600 (MDT)",
   "assert": {
     "sha": "11bc6a6d0344ba1a8b95982bad3552bffbdfdfd6",
     "branch": "master"
@@ -17,7 +17,7 @@
     "branch": "master"
   },
   "color-vision": {
-    "sha": "d9ed8594e364f84b694b1511d9de0e0e3709bc92",
+    "sha": "a834a5559bc04a108d12f621a2c72d07ac0bd871",
     "branch": "master"
   },
   "dot": {
