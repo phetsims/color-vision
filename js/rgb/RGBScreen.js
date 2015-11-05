@@ -17,14 +17,14 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // strings
-  var rgbString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
+  var rgbBulbsModuleTitleString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
 
   /**
    * @param {Tandem} tandem
    * @constructor
    */
   function RGBScreen( tandem ) {
-    Screen.call( this, rgbString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+    Screen.call( this, rgbBulbsModuleTitleString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new RGBModel( tandem ); },
       function( model ) { return new RGBScreenView( model, tandem ); },
       {

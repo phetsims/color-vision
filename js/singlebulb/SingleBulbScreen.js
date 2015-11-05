@@ -17,14 +17,14 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
 
   // strings
-  var singleBulbString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
+  var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
 
   /**
    * @constructor
    * @param {Tandem} tandem
    */
   function SingleBulbScreen( tandem ) {
-    Screen.call( this, singleBulbString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+    Screen.call( this, singleBulbModuleTitleString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       function() { return new SingleBulbModel( tandem ); },
       function( model ) { return new SingleBulbScreenView( model, tandem ); }, {
         backgroundColor: 'black',

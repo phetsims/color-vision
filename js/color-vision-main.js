@@ -16,7 +16,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var simTitle = require( 'string!COLOR_VISION/color-vision.title' );
+  var colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
 
   var tandem = new Tandem( 'colorVision' );
 
@@ -33,7 +33,7 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( simTitle, [
+    var sim = new Sim( colorVisionTitleString, [
       new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
       new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
     ], simOptions );

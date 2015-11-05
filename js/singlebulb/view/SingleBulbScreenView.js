@@ -39,8 +39,8 @@ define( function( require ) {
   var photonViewIcon = require( 'image!COLOR_VISION/photon-view-icon.png' );
 
   // strings
-  var bulbColor = require( 'string!COLOR_VISION/bulbSlider.label' );
-  var filterColor = require( 'string!COLOR_VISION/filterSlider.label' );
+  var bulbSliderLabelString = require( 'string!COLOR_VISION/bulbSlider.label' );
+  var filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 20;
@@ -86,7 +86,7 @@ define( function( require ) {
     } );
 
     // add text above the upper slider
-    var bulbColorText = new Text( bulbColor, {
+    var bulbColorText = new Text( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: upperSliderNode.top - 3,
@@ -189,7 +189,7 @@ define( function( require ) {
       } );
 
     // Add the text above the gaussian wavelength slider
-    var filterColorText = new Text( filterColor, {
+    var filterColorText = new Text( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
