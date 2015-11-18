@@ -20,7 +20,7 @@ define( function( require ) {
   function RGBPhotonEventModel( rateProperty ) {
     assert && assert( rateProperty instanceof Property, 'The rateProperty should be a Property' );
 
-    this.rateProperty = rateProperty;
+    this.rateProperty = rateProperty; // @private
   }
 
   return inherit( Object, RGBPhotonEventModel, {

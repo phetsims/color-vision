@@ -25,7 +25,10 @@ define( function( require ) {
 
     var flashlightTandem = tandem.createTandem( 'flashlight' );
     var filterTandem = tandem.createTandem( 'filter' );
+
     PropertySet.call( this, {
+
+      // @public
       lightType: 'colored',        // takes values 'white' and 'colored', to indicate what kind of light in the beam
       beamType: 'beam',            // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
       flashlightWavelength: 570,   // in units of wavelengths, default wavelength is yellow color
@@ -34,9 +37,7 @@ define( function( require ) {
       filterVisible: false,
       playing: true,               // is the sim running or paused
       headMode: 'no-brain',        // takes values 'brain' and 'no-brain'
-
-      // keep track of the last photon to hit the eye for use in calculating the perceived color
-      lastPhotonColor: new Color( 0, 0, 0, 0 )
+      lastPhotonColor: new Color( 0, 0, 0, 0 ) // keep track of the last photon to hit the eye for use in calculating the perceived color
     }, {
       tandemSet: {
         flashlightWavelength: flashlightTandem.createTandem( 'wavelength' ),
@@ -51,6 +52,7 @@ define( function( require ) {
     } );
 
     // the color perceived by the person depends on almost every property
+    // @public
     this.addDerivedProperty( 'perceivedColor', [
       'flashlightWavelength',
       'filterWavelength',
@@ -100,11 +102,13 @@ define( function( require ) {
       }
     } );
 
+    // @public
     this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem );
 
     var thisModel = this;
 
     // create a new photon every 1/120 seconds
+    // @private
     this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 120 ), function( timeElapsed ) {
       thisModel.photonBeam.createPhoton( timeElapsed );
     } );
@@ -112,6 +116,7 @@ define( function( require ) {
 
   return inherit( PropertySet, SingleBulbModel,
     {
+      // @public
       step: function( dt ) {
         if ( this.playing ) {
           this.photonBeam.updateAnimationFrame( dt );
@@ -120,11 +125,13 @@ define( function( require ) {
       },
 
       // step one frame, assuming 60fps
+      // @public
       manualStep: function() {
         this.photonBeam.updateAnimationFrame( 1 / 60 );
         this.eventTimer.step( 1 / 60 );
       },
 
+      // @public
       reset: function() {
         PropertySet.prototype.reset.call( this );
         this.photonBeam.reset();

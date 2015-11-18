@@ -39,14 +39,18 @@ define( function( require ) {
      * photon itself, which is constant.
      */
     PropertySet.call( this, {
+
+        // @public
         redIntensity: 0,
         greenIntensity: 0,
         blueIntensity: 0,
+        playing: true,        // is the sim running or paused?
+        headMode: 'no-brain', // takes values 'brain' or 'no-brain'
+
+        // @private
         perceivedRedIntensity: 0,
         perceivedGreenIntensity: 0,
-        perceivedBlueIntensity: 0,
-        playing: true,       // is the sim running or paused?
-        headMode: 'no-brain' // takes values 'brain' or 'no-brain'
+        perceivedBlueIntensity: 0
       }, {
         tandemSet: {
           redIntensity: tandem.createTandem( 'redIntensity' ),
@@ -61,6 +65,7 @@ define( function( require ) {
       }
     );
 
+    // @private
     this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, RGBConstants.RED_BEAM_LENGTH, tandem.createTandem( 'redBeam' ) );
     this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, RGBConstants.GREEN_BEAM_LENGTH, tandem.createTandem( 'greenBeam' ) );
     this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH, tandem.createTandem( 'blueBeam' ) );
@@ -69,6 +74,7 @@ define( function( require ) {
 
     // add perceivedColorProperty based on the combination of the three perceived intensities.
     // this determines the thought bubble color
+    // @public
     this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
       function( redIntensity, greenIntensity, blueIntensity ) {
         return new Color(
@@ -79,20 +85,23 @@ define( function( require ) {
       tandem.createTandem( 'perceivedColor' ) );
 
     // create a ConstantEventModel for each beam
-    this.redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
-    this.greenEventModel = new RGBPhotonEventModel( this.greenIntensityProperty );
-    this.blueEventModel = new RGBPhotonEventModel( this.blueIntensityProperty );
+    var redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
+    var greenEventModel = new RGBPhotonEventModel( this.greenIntensityProperty );
+    var blueEventModel = new RGBPhotonEventModel( this.blueIntensityProperty );
 
     // create an EventTimer for each beam, used to regulate when to create new photons for each beam
-    this.redEventTimer = new EventTimer( this.redEventModel, function( timeElapsed ) {
+    // @private
+    this.redEventTimer = new EventTimer( redEventModel, function( timeElapsed ) {
       thisModel.redBeam.createPhoton( timeElapsed );
     } );
 
-    this.greenEventTimer = new EventTimer( this.greenEventModel, function( timeElapsed ) {
+    // @private
+    this.greenEventTimer = new EventTimer( greenEventModel, function( timeElapsed ) {
       thisModel.greenBeam.createPhoton( timeElapsed );
     } );
 
-    this.blueEventTimer = new EventTimer( this.blueEventModel, function( timeElapsed ) {
+    // @private
+    this.blueEventTimer = new EventTimer( blueEventModel, function( timeElapsed ) {
       thisModel.blueBeam.createPhoton( timeElapsed );
     } );
 
@@ -122,6 +131,7 @@ define( function( require ) {
       this.blueEventTimer.step( dt );
     },
 
+    // @public
     step: function( dt ) {
       if ( this.playing ) {
         this.stepBeams( dt );
@@ -130,11 +140,13 @@ define( function( require ) {
     },
 
     // step one frame, assuming 60fps
+    // @public
     manualStep: function() {
       this.stepBeams( 1 / 60 );
       this.stepTimers( 1 / 60 );
     },
 
+    // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
       this.redBeam.reset();

@@ -19,6 +19,8 @@ define( function( require ) {
    # @constructor
    */
   function RGBPhoton( location, velocity, intensity ) {
+
+    // @public
     this.location = location;
     this.velocity = velocity;
     this.intensity = intensity;

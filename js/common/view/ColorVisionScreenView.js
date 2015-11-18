@@ -51,7 +51,7 @@ define( function( require ) {
     } ) );
 
     // Add reset all button
-    this.resetAllButton = new ResetAllButton( {
+    var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
       bottom: this.layoutBounds.bottom - 5,
       right:  this.layoutBounds.right - 30,
@@ -59,10 +59,10 @@ define( function( require ) {
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
-    this.addChild( this.resetAllButton );
+    this.addChild( resetAllButton );
 
     // Add play/pause button
-    this.playPauseButton = new PlayPauseButton( model.playingProperty,
+    var playPauseButton = new PlayPauseButton( model.playingProperty,
       {
         bottom:  this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
@@ -70,23 +70,23 @@ define( function( require ) {
         tandem: tandem.createTandem( 'playPauseButton' )
       } );
 
-    this.addChild( this.playPauseButton );
+    this.addChild( playPauseButton );
 
     // Add step button
-    this.stepButton = new StepButton(
+    var stepButton = new StepButton(
       function() {
         model.manualStep();
       },
       model.playingProperty,
       {
-        centerY: this.playPauseButton.centerY,
+        centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15,
         tandem: tandem.createTandem( 'stepButton' )
       }
     );
 
-    this.addChild( this.stepButton );
+    this.addChild( stepButton );
   }
 
   return inherit( ScreenView, ColorVisionScreenView );

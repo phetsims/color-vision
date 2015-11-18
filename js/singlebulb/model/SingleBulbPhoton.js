@@ -27,14 +27,14 @@ define( function( require ) {
 
     RGBPhoton.call( this, location, velocity, intensity );
 
-    this.passedFilter = false;
-
     // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
     // White photons passing through must be changed to match the filter color, but keep full intensity.
     // Colored photons must loose intensity when passing through the filter.
+    // @public
     this.isWhite = this.wasWhite = isWhite;
     this.color = color;
     this.wavelength = wavelength;
+    this.passedFilter = false;
   }
 
   // make this object globally accessible in support of together.js

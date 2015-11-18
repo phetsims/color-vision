@@ -24,17 +24,22 @@ define( function( require ) {
    # @constructor
    */
   function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, beamLength, tandem ) {
-    this.photons = [];
 
+    // @public
+    this.photons = [];
     this.color = color;
+    this.beamLength = beamLength;
+
+    // @private
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
-    this.beamLength = beamLength;
+
     tandem.createTandem( 'photons' ).addInstance( this.photons );
   }
 
   return inherit( PropertySet, RGBPhotonBeam, {
 
+    // @public
     updateAnimationFrame: function( dt ) {
 
       // move all photons that are currently active
@@ -61,6 +66,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     createPhoton: function( timeElapsed ) {
       var intensity = this.intensityProperty.get();
 
@@ -77,6 +83,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     reset: function() {
       // empty photon array
       while ( this.photons.length ) {

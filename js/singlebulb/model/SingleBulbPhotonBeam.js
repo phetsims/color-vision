@@ -28,9 +28,14 @@ define( function( require ) {
    # @constructor
    */
   function SingleBulbPhotonBeam( model, beamLength, tandem ) {
+
+    // @public
     this.photons = [];
     this.beamLength = beamLength;
+
+    // @private
     this.model = model;
+
     tandem.createTandem( 'photons' ).addInstance( this.photons );
   }
 
@@ -43,6 +48,7 @@ define( function( require ) {
 
   return inherit( PropertySet, SingleBulbPhotonBeam, {
 
+    // @public
     updateAnimationFrame: function( dt ) {
 
       var probability = 1; // probability for a given photon to pass the filter
@@ -134,6 +140,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     createPhoton: function( timeElapsed ) {
       // if the flashlight is on, create a new photon this animation frame
       if ( this.model.flashlightOn ) {
@@ -153,6 +160,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     reset: function() {
       // set all photons to be out of bounds to trigger empty redraw
       for ( var i = 0; i < this.photons.length; i++ ) {
