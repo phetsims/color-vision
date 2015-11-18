@@ -26,6 +26,7 @@ define( function( require ) {
    */
   function RGBPhotonBeamNode( photonBeam, tandem, options ) {
 
+    // @private
     this.beamBounds = options.canvasBounds;
     this.photons = photonBeam.photons;
     this.color = photonBeam.color;
@@ -39,7 +40,10 @@ define( function( require ) {
 
   return inherit( CanvasNode, RGBPhotonBeamNode, {
 
-    // @param {CanvasRenderingContext2D} context
+    /**
+     * @param {CanvasRenderingContext2D} context
+     * @private
+     */
     paintCanvas: function( context ) {
 
       //If the debug flag is enabled, it will show the bounds of the canvas
@@ -57,6 +61,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     step: function( dt ) {
       this.invalidatePaint();
     }

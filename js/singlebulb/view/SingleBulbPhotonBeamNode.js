@@ -37,7 +37,10 @@ define( function( require ) {
 
   return inherit( CanvasNode, SingleBulbPhotonBeamNode, {
 
-    // @param {CanvasRenderingContext2D} context
+    /**
+     * @param {CanvasRenderingContext2D} context
+     * @private
+     */
     paintCanvas: function( context ) {
 
       for ( var i = 0; i < this.photons.length; i++ ) {
@@ -46,6 +49,7 @@ define( function( require ) {
       }
     },
 
+    // @public
     step: function( dt ) {
       this.invalidatePaint();
     }

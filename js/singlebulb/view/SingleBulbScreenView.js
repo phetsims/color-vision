@@ -175,6 +175,7 @@ define( function( require ) {
     model.photonBeam.filterOffset = filterLeftNode.centerX - PHOTON_BEAM_START;
 
     // Create photonBeam node
+    // @private
     this.photonBeamNode = new SingleBulbPhotonBeamNode( model, tandem.createTandem( 'photonView' ), {
       canvasBounds: new Bounds2( 0, 0, SingleBulbConstants.SINGLE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
       x: PHOTON_BEAM_START
