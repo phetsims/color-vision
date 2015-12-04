@@ -44,9 +44,6 @@ define( function( require ) {
     hSlider.centerY = this.centerY;
 
     this.addChild( hSlider );
-
-    // @public but only for together.js
-    this.slider = hSlider;
   }
 
   return inherit( Rectangle, RGBSlider );
