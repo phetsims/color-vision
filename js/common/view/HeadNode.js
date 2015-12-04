@@ -98,9 +98,6 @@ define( function( require ) {
       centerX: silhouetteNode.centerX - 42
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
 
-    this.hideBrainRadioButton = radioButtonGroup.getRadioButtonGroupMember( 'no-brain' );
-    this.showBrainRadioButton = radioButtonGroup.getRadioButtonGroupMember( 'brain' );
-
     this.addChild( radioButtonGroup );
   }
 
