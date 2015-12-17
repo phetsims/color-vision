@@ -17,12 +17,12 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
-   * @param {Property<Number>} filterWavelengthProperty
-   * @param {Property<Number>} filterVisibleProperty
-   * @param {Number} centerX
-   * @param {Number} centerY
-   * @param {Number} radiusX
-   * @param {Number} radiusY
+   * @param {Property.<number>} filterWavelengthProperty
+   * @param {Property.<number>} filterVisibleProperty
+   * @param {number} centerX
+   * @param {number} centerY
+   * @param {number} radiusX
+   * @param {number} radiusY
    * @param {boolean} left is true to draw the left half of the filter, false to draw the right
    * @constructor
    */

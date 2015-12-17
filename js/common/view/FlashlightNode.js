@@ -23,8 +23,8 @@ define( function( require ) {
   var SCALE = 0.75;
 
   /**
-   * @param {Number} rotation
-   * @param {String} color - an rgb string or other legitimate color string
+   * @param {number} rotation
+   * @param {string} color - an rgb string or other legitimate color string
    * @param {Object} [options]
    # @constructor
    */

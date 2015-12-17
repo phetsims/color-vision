@@ -18,10 +18,10 @@ define( function( require ) {
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
-   * @param {Number} intensity between 0-1 for color alpha value
+   * @param {number} intensity between 0-1 for color alpha value
    * @param {Color} color
    * @param {boolean} isWhite
-   * @param {Number} wavelength
+   * @param {number} wavelength
    # @constructor
    */
   function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength ) {

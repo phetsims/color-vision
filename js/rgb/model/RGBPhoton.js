@@ -16,7 +16,7 @@ define( function( require ) {
   /**
    * @param {Vector2} location
    * @param {Vector2} velocity
-   * @param {Number} intensity between 0-255 for rgb intensity
+   * @param {number} intensity between 0-255 for rgb intensity
    # @constructor
    */
   function RGBPhoton( location, velocity, intensity ) {

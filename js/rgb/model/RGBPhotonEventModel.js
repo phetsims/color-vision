@@ -15,7 +15,7 @@ define( function( require ) {
 
   /*
    * Event model that will fire events at a variable rate. An event will occur every 1/rate time units.
-   * @param {Property<Number>} rateProperty
+   * @param {Property.<number>} rateProperty
    * @constructor
    */
   function RGBPhotonEventModel( rateProperty ) {

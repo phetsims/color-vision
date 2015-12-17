@@ -25,7 +25,7 @@ define( function( require ) {
   /**
    * @param {SingleBulbModel} model
    * @param {Bounds2} bounds
-   * @param {Number} cutoff the x-coordinate of the filter
+   * @param {number} cutoff the x-coordinate of the filter
    * @constructor
    */
   function SolidBeamNode( model, bounds, cutoff ) {

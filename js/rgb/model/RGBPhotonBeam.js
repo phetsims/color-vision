@@ -17,10 +17,10 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * @param {String} color an rgb string
-   * @param {Property<Number>} intensityProperty the intensity property for this color from the model
-   * @param {Property<Number>} perceivedIntensityProperty the perceived intensity property for this color from the model
-   * @param {Number} beamLength the length of the beam, used to calculate the starting x coordinate
+   * @param {string} color an rgb string
+   * @param {Property.<number>} intensityProperty the intensity property for this color from the model
+   * @param {Property.<number>} perceivedIntensityProperty the perceived intensity property for this color from the model
+   * @param {number} beamLength the length of the beam, used to calculate the starting x coordinate
    * @param {Tandem} tandem
    # @constructor
    */

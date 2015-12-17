@@ -37,9 +37,9 @@ define( function( require ) {
   var IMAGE_SCALE = 0.6;
 
   /**
-   * @param {Property<String>} headModeProperty
-   * @param {Number} layoutBoundsBottom should be layoutBounds.bottom so the HeadNode can align relative to that
-   * @param {Array<RGBPhotonBeamNode>} photonBeams for layering properly, only used in RGBScreenView
+   * @param {Property.<string>} headModeProperty
+   * @param {number} layoutBoundsBottom should be layoutBounds.bottom so the HeadNode can align relative to that
+   * @param {Array.<RGBPhotonBeamNode>} photonBeams for layering properly, only used in RGBScreenView
    * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor

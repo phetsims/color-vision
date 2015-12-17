@@ -18,7 +18,7 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
   /**
-   * @param {Property<Number>} intensityProperty the intensity property for this color from the model
+   * @param {Property.<number>} intensityProperty the intensity property for this color from the model
    * @param {String} color
    * @param {Tandem} tandem
    * @constructor

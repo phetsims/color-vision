@@ -17,7 +17,7 @@ define( function( require ) {
   /**
    * @param {Vector2} start
    * @param {Vector2} end
-   * @param {Number} width the distance the wire extends beyond the flashlight before turning up to the slider
+   * @param {number} width the distance the wire extends beyond the flashlight before turning up to the slider
    * @constructor
    */
   function FlashlightWireNode( start, end, width ) {
