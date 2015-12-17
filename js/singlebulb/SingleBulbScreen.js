@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Screen = require( 'JOIST/Screen' );
   var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
@@ -33,6 +34,8 @@ define( function( require ) {
       }
     );
   }
+
+  colorVision.register( 'SingleBulbScreen', SingleBulbScreen );
 
   return inherit( Screen, SingleBulbScreen );
 } );

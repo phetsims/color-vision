@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Screen = require( 'JOIST/Screen' );
   var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
@@ -34,6 +35,8 @@ define( function( require ) {
       }
     );
   }
+
+  colorVision.register( 'RGBScreen', RGBScreen );
 
   return inherit( Screen, RGBScreen );
 } );

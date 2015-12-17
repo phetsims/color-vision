@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
@@ -22,6 +23,8 @@ define( function( require ) {
 
     this.rateProperty = rateProperty; // @private
   }
+
+  colorVision.register( 'RGBPhotonEventModel', RGBPhotonEventModel );
 
   return inherit( Object, RGBPhotonEventModel, {
 

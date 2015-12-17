@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
@@ -112,6 +113,8 @@ define( function( require ) {
     this.greenIntensityProperty.link( function() { thisModel.greenEventTimer.timeBeforeNextEvent = 0; } );
     this.blueIntensityProperty.link( function() { thisModel.blueEventTimer.timeBeforeNextEvent = 0; } );
   }
+
+  colorVision.register( 'RGBModel', RGBModel );
 
   return inherit( PropertySet, RGBModel, {
 

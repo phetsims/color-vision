@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
@@ -36,6 +37,8 @@ define( function( require ) {
 
     tandem.createTandem( 'photons' ).addInstance( this.photons );
   }
+
+  colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
 
   return inherit( PropertySet, RGBPhotonBeam, {
 

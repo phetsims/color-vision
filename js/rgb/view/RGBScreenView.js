@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -102,6 +103,8 @@ define( function( require ) {
 
     this.addChild( sliderVBox );
   }
+
+  colorVision.register( 'RGBScreenView', RGBScreenView );
 
   return inherit( ColorVisionScreenView, RGBScreenView,
     {

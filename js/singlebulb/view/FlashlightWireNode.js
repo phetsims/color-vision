@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
@@ -37,6 +38,8 @@ define( function( require ) {
         lineJoin: 'round'
       } );
   }
+
+  colorVision.register( 'FlashlightWireNode', FlashlightWireNode );
 
   return inherit( Path, FlashlightWireNode );
 } );

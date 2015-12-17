@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -40,6 +41,8 @@ define( function( require ) {
 
     this.addChild( flashlightVBox );
   }
+
+  colorVision.register( 'RGBIconNode', RGBIconNode );
 
   return inherit( Rectangle, RGBIconNode );
 } );

@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
@@ -38,6 +39,8 @@ define( function( require ) {
 
     tandem.createTandem( 'photons' ).addInstance( this.photons );
   }
+
+  colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 
   function randomColor() {
     var r = Math.floor( Math.random() * 256 );

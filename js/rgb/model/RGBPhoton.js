@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -25,6 +26,8 @@ define( function( require ) {
     this.velocity = velocity;
     this.intensity = intensity;
   }
+
+  colorVision.register( 'RGBPhoton', RGBPhoton );
 
   // make this object globally accessible in support of together.js
   window.phet = window.phet || {};

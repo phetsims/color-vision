@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
@@ -113,6 +114,8 @@ define( function( require ) {
       thisModel.photonBeam.createPhoton( timeElapsed );
     } );
   }
+
+  colorVision.register( 'SingleBulbModel', SingleBulbModel );
 
   return inherit( PropertySet, SingleBulbModel,
     {

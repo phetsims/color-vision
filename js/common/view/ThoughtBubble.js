@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Shape = require( 'KITE/Shape' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -32,6 +33,8 @@ define( function( require ) {
 
     this.mutate( options );
   }
+
+  colorVision.register( 'ThoughtBubble', ThoughtBubble );
 
   return inherit( Path, ThoughtBubble );
 } );

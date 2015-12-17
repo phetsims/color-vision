@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -255,6 +256,8 @@ define( function( require ) {
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
   }
+
+  colorVision.register( 'SingleBulbScreenView', SingleBulbScreenView );
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView,
     {

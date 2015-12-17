@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var Color = require( 'SCENERY/util/Color' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -36,6 +37,8 @@ define( function( require ) {
     this.wavelength = wavelength;
     this.passedFilter = false;
   }
+
+  colorVision.register( 'SingleBulbPhoton', SingleBulbPhoton );
 
   // make this object globally accessible in support of together.js
   window.phet = window.phet || {};

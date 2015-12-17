@@ -7,7 +7,10 @@
 define( function( require ) {
   'use strict';
 
-  return {
+  // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
+
+  var ColorVisionConstants = {
     BEAM_HEIGHT: 130,     // height of all photonBeamNodes from both screens
     CENTER_Y_OFFSET: -20, // many nodes are positioned with this offset from layoutBounds.centerY
     X_VELOCITY: -240,     // x-velocity of photons, in screenview pixels / second
@@ -30,4 +33,8 @@ define( function( require ) {
       spacing: 13
     }
   };
+
+  colorVision.register( 'ColorVisionConstants', ColorVisionConstants );
+
+  return ColorVisionConstants;
 } );

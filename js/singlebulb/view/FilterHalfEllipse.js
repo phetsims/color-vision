@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
@@ -41,6 +42,8 @@ define( function( require ) {
 
     filterVisibleProperty.linkAttribute( this, 'visible' );
   }
+
+  colorVision.register( 'FilterHalfEllipse', FilterHalfEllipse );
 
   return inherit( Path, FilterHalfEllipse );
 } );

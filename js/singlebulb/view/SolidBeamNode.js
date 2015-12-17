@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -118,6 +119,8 @@ define( function( require ) {
     this.addChild( rightHalf );
     this.addChild( wholeBeam );
   }
+
+  colorVision.register( 'SolidBeamNode', SolidBeamNode );
 
   return inherit( Node, SolidBeamNode );
 } );

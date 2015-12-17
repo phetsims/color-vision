@@ -14,6 +14,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Image = require( 'SCENERY/nodes/Image' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -100,6 +101,8 @@ define( function( require ) {
 
     this.addChild( radioButtonGroup );
   }
+
+  colorVision.register( 'HeadNode', HeadNode );
 
   return inherit( Node, HeadNode );
 } );

@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var HSlider = require( 'SUN/HSlider' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -45,6 +46,8 @@ define( function( require ) {
 
     this.addChild( hSlider );
   }
+
+  colorVision.register( 'RGBSlider', RGBSlider );
 
   return inherit( Rectangle, RGBSlider );
 } );

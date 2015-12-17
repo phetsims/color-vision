@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
@@ -88,6 +89,8 @@ define( function( require ) {
 
     this.addChild( stepButton );
   }
+
+  colorVision.register( 'ColorVisionScreenView', ColorVisionScreenView );
 
   return inherit( ScreenView, ColorVisionScreenView );
 } );

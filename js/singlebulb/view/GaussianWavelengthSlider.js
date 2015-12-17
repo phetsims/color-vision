@@ -9,6 +9,8 @@
 define( function( require ) {
   'use strict';
 
+  // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
@@ -100,6 +102,8 @@ define( function( require ) {
 
     this.mutate( options );
   }
+
+  colorVision.register( 'GaussianWavelengthSlider', GaussianWavelengthSlider );
 
   return inherit( Node, GaussianWavelengthSlider );
 } );

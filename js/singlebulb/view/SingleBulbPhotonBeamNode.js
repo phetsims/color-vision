@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
@@ -34,6 +35,8 @@ define( function( require ) {
     // Export for the sole purpose of having together.js call invalidatePaint() after load complete
     tandem.addInstance( this );
   }
+
+  colorVision.register( 'SingleBulbPhotonBeamNode', SingleBulbPhotonBeamNode );
 
   return inherit( CanvasNode, SingleBulbPhotonBeamNode, {
 
