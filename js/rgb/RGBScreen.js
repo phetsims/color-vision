@@ -15,7 +15,7 @@ define( function( require ) {
   var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
   var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
-  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
   // strings
   var rgbBulbsModuleTitleString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );

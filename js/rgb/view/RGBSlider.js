@@ -15,7 +15,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
   /**
    * @param {Property<Number>} intensityProperty the intensity property for this color from the model

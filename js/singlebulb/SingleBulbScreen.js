@@ -15,7 +15,7 @@ define( function( require ) {
   var SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
   var SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
   var SingleBulbModel = require( 'COLOR_VISION/singlebulb/model/SingleBulbModel' );
-  var ColorVisionConstants = require( 'COLOR_VISION/ColorVisionConstants' );
+  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
   // strings
   var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
