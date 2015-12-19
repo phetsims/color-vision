@@ -30,7 +30,7 @@ define( function( require ) {
       function( model ) { return new SingleBulbScreenView( model, tandem ); }, {
         backgroundColor: 'black',
         navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        tandemScreenName: 'singleBulbScreen'
+        tandem: tandem
       }
     );
   }
