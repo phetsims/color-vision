@@ -40,11 +40,6 @@ define( function( require ) {
 
   colorVision.register( 'SingleBulbPhoton', SingleBulbPhoton );
 
-  // make this object globally accessible in support of together.js
-  window.phet = window.phet || {};
-  window.phet.colorVision = window.phet.colorVision || {};
-  window.phet.colorVision.SingleBulbPhoton = SingleBulbPhoton;
-
   return inherit( RGBPhoton, SingleBulbPhoton, {
       toStateObject: function() {
         return _.extend( {

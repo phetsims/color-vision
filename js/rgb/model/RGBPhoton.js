@@ -29,11 +29,6 @@ define( function( require ) {
 
   colorVision.register( 'RGBPhoton', RGBPhoton );
 
-  // make this object globally accessible in support of together.js
-  window.phet = window.phet || {};
-  window.phet.colorVision = window.phet.colorVision || {};
-  window.phet.colorVision.RGBPhoton = RGBPhoton;
-
   return inherit( Object, RGBPhoton, {
       updateAnimationFrame: function( newX, newY ) {
         this.location.x = newX;
