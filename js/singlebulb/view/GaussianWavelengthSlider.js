@@ -47,7 +47,7 @@ define( function( require ) {
       cursorVisible: false,
       thumbWidth: 30,
       thumbHeight: 40,
-      thumbTouchAreaExpandY: 10,
+      thumbTouchAreaYDilation: 10,
       pointerAreasOverTrack: true,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
     } );
