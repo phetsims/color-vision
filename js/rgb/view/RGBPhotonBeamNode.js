@@ -35,7 +35,7 @@ define( function( require ) {
     CanvasNode.call( this, options );
     this.invalidatePaint();
 
-    // Export for the sole purpose of having together.js call invalidatePaint() after load complete
+    // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
     tandem.addInstance( this );
   }
 
