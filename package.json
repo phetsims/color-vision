@@ -17,7 +17,7 @@
     "requirejsNamespace": "COLOR_VISION",
     "phet-io": {
       "preload": [
-        "../together/js/api/color-vision-api.js"
+        "../phet-io/js/api/color-vision-api.js"
       ]
     }
   }
