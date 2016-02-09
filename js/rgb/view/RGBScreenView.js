@@ -80,7 +80,7 @@ define( function( require ) {
         greenFlashlightNode,
         blueFlashlightNode ],
       spacing: 85,
-      right:   this.layoutBounds.maxX - 84,
+      right: this.layoutBounds.maxX - 84,
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET
     } );
 

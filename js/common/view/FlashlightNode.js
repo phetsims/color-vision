@@ -43,11 +43,11 @@ define( function( require ) {
 
     // draw a trapeziodal beam shape, just to the left of the flashlight image
     var beamShape = new Shape().
-      moveTo( startX, centerY + dy ).
-      lineTo( startX - dx, centerY + dy * 2 ).
-      lineTo( startX - dx, centerY - dy * 2 ).
-      lineTo( startX, centerY - dy ).
-      close();
+    moveTo( startX, centerY + dy ).
+    lineTo( startX - dx, centerY + dy * 2 ).
+    lineTo( startX - dx, centerY - dy * 2 ).
+    lineTo( startX, centerY - dy ).
+    close();
 
     this.addChild( new Path( beamShape, { fill: color } ) );
     this.addChild( flashlightNode );

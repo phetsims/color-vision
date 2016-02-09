@@ -55,7 +55,7 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
       bottom: this.layoutBounds.bottom - 5,
-      right:  this.layoutBounds.right - 30,
+      right: this.layoutBounds.right - 30,
       radius: 18,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
@@ -65,7 +65,7 @@ define( function( require ) {
     // Add play/pause button
     var playPauseButton = new PlayPauseButton( model.playingProperty,
       {
-        bottom:  this.layoutBounds.bottom - 20,
+        bottom: this.layoutBounds.bottom - 20,
         centerX: this.layoutBounds.centerX - 25,
         radius: 20,
         tandem: tandem.createTandem( 'playPauseButton' )
