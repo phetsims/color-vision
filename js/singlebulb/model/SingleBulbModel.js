@@ -41,14 +41,14 @@ define( function( require ) {
       lastPhotonColor: new Color( 0, 0, 0, 0 ) // keep track of the last photon to hit the eye for use in calculating the perceived color
     }, {
       tandemSet: {
-        flashlightWavelength: flashlightTandem.createTandem( 'wavelength' ),
-        lightType: tandem.createTandem( 'lightType' ),
-        beamType: tandem.createTandem( 'beamType' ),
-        filterWavelength: filterTandem.createTandem( 'wavelength' ),
-        flashlightOn: flashlightTandem.createTandem( 'on' ),
-        filterVisible: filterTandem.createTandem( 'visible' ),
-        playing: tandem.createTandem( 'playing' ),
-        headMode: tandem.createTandem( 'headMode' )
+        flashlightWavelength: flashlightTandem.createTandem( 'wavelengthProperty' ),
+        lightType: tandem.createTandem( 'lightTypeProperty' ),
+        beamType: tandem.createTandem( 'beamTypeProperty' ),
+        filterWavelength: filterTandem.createTandem( 'wavelengthProperty' ),
+        flashlightOn: flashlightTandem.createTandem( 'onProperty' ),
+        filterVisible: filterTandem.createTandem( 'visibleProperty' ),
+        playing: tandem.createTandem( 'playingProperty' ),
+        headMode: tandem.createTandem( 'headModeProperty' )
       }
     } );
 

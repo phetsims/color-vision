@@ -54,14 +54,14 @@ define( function( require ) {
         perceivedBlueIntensity: 0
       }, {
         tandemSet: {
-          redIntensity: tandem.createTandem( 'redIntensity' ),
-          greenIntensity: tandem.createTandem( 'greenIntensity' ),
-          blueIntensity: tandem.createTandem( 'blueIntensity' ),
-          perceivedRedIntensity: tandem.createTandem( 'perceivedRedIntensity' ),
-          perceivedGreenIntensity: tandem.createTandem( 'perceivedGreenIntensity' ),
-          perceivedBlueIntensity: tandem.createTandem( 'perceivedBlueIntensity' ),
-          playing: tandem.createTandem( 'playing' ),
-          headMode: tandem.createTandem( 'headMode' )
+          redIntensity: tandem.createTandem( 'redIntensityProperty' ),
+          greenIntensity: tandem.createTandem( 'greenIntensityProperty' ),
+          blueIntensity: tandem.createTandem( 'blueIntensityProperty' ),
+          perceivedRedIntensity: tandem.createTandem( 'perceivedRedIntensityProperty' ),
+          perceivedGreenIntensity: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
+          perceivedBlueIntensity: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
+          playing: tandem.createTandem( 'playingProperty' ),
+          headMode: tandem.createTandem( 'headModeProperty' )
         }
       }
     );
