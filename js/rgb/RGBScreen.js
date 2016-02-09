@@ -26,8 +26,8 @@ define( function( require ) {
    */
   function RGBScreen( tandem ) {
     Screen.call( this, rgbBulbsModuleTitleString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
-      function() { return new RGBModel( tandem ); },
-      function( model ) { return new RGBScreenView( model, tandem ); }, {
+      function() { return new RGBModel( tandem.createTandem( 'model' ) ); },
+      function( model ) { return new RGBScreenView( model, tandem.createTandem( 'view' ) ); }, {
         backgroundColor: 'black',
         navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
         tandem: tandem

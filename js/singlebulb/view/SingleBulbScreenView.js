@@ -64,13 +64,13 @@ define( function( require ) {
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
     // Create flashlight node
-    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem.createTandem( 'flashlight' ), {
+    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem.createTandem( 'flashlightNode' ), {
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
       right: this.layoutBounds.maxX - 40
     } );
 
     // Create upper WavelengthSlider node
-    var upperSliderNode = new WavelengthSlider( model.flashlightWavelengthProperty, {
+    var bulbColorSlider = new WavelengthSlider( model.flashlightWavelengthProperty, {
       top: this.layoutBounds.top + 40,
       right: wavelengthSliderDistance,
       tweakersVisible: false,
@@ -90,27 +90,27 @@ define( function( require ) {
     var bulbColorText = new Text( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
-      bottom: upperSliderNode.top - 3,
-      right: upperSliderNode.right - 18
+      bottom: bulbColorSlider.top - 3,
+      right: bulbColorSlider.right - 18
     } );
     this.addChild( bulbColorText );
 
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
       new Vector2( flashlightNode.right - 15, flashlightNode.centerY + 2 ),
-      new Vector2( upperSliderNode.right - 25, upperSliderNode.centerY - SLIDER_Y_OFFSET ),
+      new Vector2( bulbColorSlider.right - 25, bulbColorSlider.centerY - SLIDER_Y_OFFSET ),
       25 );
 
     // make bulb color slider invisible when on white light mode
     model.lightTypeProperty.link( function( lightType ) {
       var coloredLight = lightType !== 'white';
-      upperSliderNode.visible = coloredLight;
+      bulbColorSlider.visible = coloredLight;
       bulbColorText.visible = coloredLight;
       flashlightWire.visible = coloredLight;
     } );
 
     this.addChild( flashlightWire );
-    this.addChild( upperSliderNode );
+    this.addChild( bulbColorSlider );
 
     // options common to all IconToggleNodes
     var iconToggleOptions = _.extend( {
@@ -136,17 +136,15 @@ define( function( require ) {
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
     );
 
-    var beamPhotonButtonsContent = [
-      {
-        value: 'beam',
-        node: new Image( beamViewIcon, ICON_OPTIONS ),
-        tandem: tandem.createTandem( 'beamRadioButton' )
-      },
-      {
-        value: 'photon',
-        node: new Image( photonViewIcon, ICON_OPTIONS ),
-        tandem: tandem.createTandem( 'photonRadioButton' )
-      }
+    var beamPhotonButtonsContent = [ {
+      value: 'beam',
+      node: new Image( beamViewIcon, ICON_OPTIONS ),
+      tandem: tandem.createTandem( 'beamRadioButton' )
+    }, {
+      value: 'photon',
+      node: new Image( photonViewIcon, ICON_OPTIONS ),
+      tandem: tandem.createTandem( 'photonRadioButton' )
+    }
     ];
 
     var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
@@ -177,7 +175,7 @@ define( function( require ) {
 
     // Create photonBeam node
     // @private
-    this.photonBeamNode = new SingleBulbPhotonBeamNode( model, tandem.createTandem( 'photonView' ), {
+    this.photonBeamNode = new SingleBulbPhotonBeamNode( model, tandem.createTandem( 'photonBeamNode' ), {
       canvasBounds: new Bounds2( 0, 0, SingleBulbConstants.SINGLE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
       x: PHOTON_BEAM_START
     } );
@@ -185,7 +183,7 @@ define( function( require ) {
 
     // Create gaussian wavelength slider for controlling the filter color
     var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
-      tandem.createTandem( 'filter.colorSlider' ), {
+      tandem.createTandem( 'gaussianSlider' ), {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance
       } );
@@ -204,7 +202,7 @@ define( function( require ) {
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
       new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
-      tandem.createTandem( 'filter' )
+      tandem.createTandem( 'filterWireNode' )
     ) );
 
     this.addChild( gaussianSlider );
@@ -246,7 +244,7 @@ define( function( require ) {
     this.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], tandem );
+    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], tandem.createTandem( 'headNode' ) );
     this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind

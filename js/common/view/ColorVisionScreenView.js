@@ -63,13 +63,12 @@ define( function( require ) {
     this.addChild( resetAllButton );
 
     // Add play/pause button
-    var playPauseButton = new PlayPauseButton( model.playingProperty,
-      {
-        bottom: this.layoutBounds.bottom - 20,
-        centerX: this.layoutBounds.centerX - 25,
-        radius: 20,
-        tandem: tandem.createTandem( 'playPauseButton' )
-      } );
+    var playPauseButton = new PlayPauseButton( model.playingProperty, {
+      bottom: this.layoutBounds.bottom - 20,
+      centerX: this.layoutBounds.centerX - 25,
+      radius: 20,
+      tandem: tandem.createTandem( 'playPauseButton' )
+    } );
 
     this.addChild( playPauseButton );
 
@@ -78,8 +77,7 @@ define( function( require ) {
       function() {
         model.manualStep();
       },
-      model.playingProperty,
-      {
+      model.playingProperty, {
         centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15,

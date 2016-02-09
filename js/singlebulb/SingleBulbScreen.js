@@ -26,8 +26,8 @@ define( function( require ) {
    */
   function SingleBulbScreen( tandem ) {
     Screen.call( this, singleBulbModuleTitleString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
-      function() { return new SingleBulbModel( tandem ); },
-      function( model ) { return new SingleBulbScreenView( model, tandem ); }, {
+      function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
+      function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); }, {
         backgroundColor: 'black',
         navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
         tandem: tandem

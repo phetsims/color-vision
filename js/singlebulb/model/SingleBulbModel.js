@@ -41,12 +41,12 @@ define( function( require ) {
       lastPhotonColor: new Color( 0, 0, 0, 0 ) // keep track of the last photon to hit the eye for use in calculating the perceived color
     }, {
       tandemSet: {
-        flashlightWavelength: flashlightTandem.createTandem( 'wavelengthProperty' ),
+        flashlightWavelength: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
         lightType: tandem.createTandem( 'lightTypeProperty' ),
         beamType: tandem.createTandem( 'beamTypeProperty' ),
-        filterWavelength: filterTandem.createTandem( 'wavelengthProperty' ),
-        flashlightOn: flashlightTandem.createTandem( 'onProperty' ),
-        filterVisible: filterTandem.createTandem( 'visibleProperty' ),
+        filterWavelength: filterTandem.createTandem( 'filterWavelengthProperty' ),
+        flashlightOn: flashlightTandem.createTandem( 'flashlightOnProperty' ),
+        filterVisible: filterTandem.createTandem( 'filterVisibleProperty' ),
         playing: tandem.createTandem( 'playingProperty' ),
         headMode: tandem.createTandem( 'headModeProperty' )
       }
@@ -104,7 +104,7 @@ define( function( require ) {
     } );
 
     // @public
-    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem );
+    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem.createTandem( 'photonBeam' ) );
 
     var thisModel = this;
 
