@@ -91,7 +91,8 @@ define( function( require ) {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: bulbColorSlider.top - 3,
-      right: bulbColorSlider.right - 18
+      right: bulbColorSlider.right - 18,
+      maxWidth: 0.85 * bulbColorSlider.width
     } );
     this.addChild( bulbColorText );
 
@@ -193,7 +194,8 @@ define( function( require ) {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
-      right: gaussianSlider.right - 18
+      right: gaussianSlider.right - 18,
+      maxWidth: 0.85 * gaussianSlider.width
     } );
     this.addChild( filterColorText );
 
