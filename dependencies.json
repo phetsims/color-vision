@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.0 Tue Feb 16 2016 13:31:20 GMT-0700 (MST)",
+  "comment": "# color-vision 1.1.0 Mon Feb 22 2016 15:10:21 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "160fd7fc67637a624b7f63d310db31b3e75a1bdc",
+    "sha": "ad45769adf2651661e3e6da8f6bd9eee03bec01d",
     "branch": "1.1"
   },
   "dot": {
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "c61635d6c247bac0c06e50861636c578cb517d7e",
-    "branch": "HEAD"
+    "sha": "9109ddc454772fc0aae8484ec1e515ff99896f0f",
+    "branch": "color-vision-1.1"
   },
   "kite": {
     "sha": "10ca8bf2b2712307ff528352de8451c0c8afe093",
