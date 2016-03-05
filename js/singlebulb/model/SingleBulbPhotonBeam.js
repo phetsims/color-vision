@@ -97,7 +97,7 @@ define( function( require ) {
             // set the photonIntensity to be the same as the percentage passing through the filter,
             // for use when setting the perceived color when the photon hits the eye.
             // make sure the intensity is at least 0.2, otherwise it looks too black in the view
-            photon.intensity = ( probability < 0.2 ) ? 0.2 : probability;
+            photon.intensity = isFinite( probability ) ? ( ( probability < 0.2 ) ? 0.2 : probability ) : 0;
           }
         }
 
