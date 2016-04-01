@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.2 Fri Apr 01 2016 13:06:25 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.1.2 Fri Apr 01 2016 14:42:30 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,15 +9,15 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "ac9ccaa74427844b170dcd1582f3e9bb931edef4",
-    "branch": "HEAD"
+    "sha": "f4905d94da0b6c7d7834c34d4669a873c0fac88a",
+    "branch": "color-vision-1.1"
   },
   "chipper": {
     "sha": "b296e642826c46be547806dd3e55cc9b0b7e86b5",
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "d4eb71a7f15e8f8016d3597664166183633d45c1",
+    "sha": "56990b5dd76f72763acfdecd6f076a69e9beb5fe",
     "branch": "1.1"
   },
   "dot": {
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "9109ddc454772fc0aae8484ec1e515ff99896f0f",
-    "branch": "HEAD"
+    "sha": "dc0f9d1cc92b3fa441e8e1670d15af95bc9785e9",
+    "branch": "color-vision-1.1"
   },
   "kite": {
     "sha": "10ca8bf2b2712307ff528352de8451c0c8afe093",
@@ -38,7 +38,7 @@
   },
   "phetcommon": {
     "sha": "c1d016e74269e7f7482fb39d18421bbb84b34927",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "6bd54e23257cbb6d2557e332bd2cbf1e0a5b6f27",
