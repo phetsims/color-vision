@@ -30,6 +30,7 @@ define( function( require ) {
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
@@ -87,12 +88,13 @@ define( function( require ) {
     } );
 
     // add text above the upper slider
-    var bulbColorText = new Text( bulbSliderLabelString, {
+    var bulbColorText = new TandemText( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: bulbColorSlider.top - 3,
       right: bulbColorSlider.right - 18,
-      maxWidth: 0.85 * bulbColorSlider.width
+      maxWidth: 0.85 * bulbColorSlider.width,
+      tandem: tandem.createTandem( 'bulbColorText' )
     } );
     this.addChild( bulbColorText );
 
