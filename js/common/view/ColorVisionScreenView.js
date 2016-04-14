@@ -15,7 +15,7 @@ define( function( require ) {
   var ScreenView = require( 'JOIST/ScreenView' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var PlayPauseButton = require( 'SCENERY_PHET/buttons/PlayPauseButton' );
-  var StepButton = require( 'SCENERY_PHET/buttons/StepButton' );
+  var StepForwardButton = require( 'SCENERY_PHET/buttons/StepForwardButton' );
   var ThoughtBubble = require( 'COLOR_VISION/common/view/ThoughtBubble' );
 
   // constants
@@ -73,7 +73,7 @@ define( function( require ) {
     this.addChild( playPauseButton );
 
     // Add step button
-    var stepButton = new StepButton(
+    var stepButton = new StepForwardButton(
       function() {
         model.manualStep();
       },
