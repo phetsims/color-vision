@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.5-rc.1 Tue Jun 21 2016 16:05:16 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.1.5 Tue Jun 21 2016 16:12:57 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "8324dd7e623b4302b41423a87332acd1db54dd03",
+    "sha": "c4d971761fd05909533735cb042b4cc1175c67ac",
     "branch": "1.1"
   },
   "dot": {
