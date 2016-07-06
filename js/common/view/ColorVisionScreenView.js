@@ -73,12 +73,9 @@ define( function( require ) {
     this.addChild( playPauseButton );
 
     // Add step button
-    var stepButton = new StepForwardButton(
-      function() {
-        model.manualStep();
-      },
-      model.playingProperty, {
-        centerY: playPauseButton.centerY,
+    var stepButton = new StepForwardButton( model.playingProperty, {
+        listener: function() { model.manualStep(); },
+      centerY: playPauseButton.centerY,
         centerX: this.layoutBounds.centerX + 25,
         radius: 15,
         tandem: tandem.createTandem( 'stepButton' )
