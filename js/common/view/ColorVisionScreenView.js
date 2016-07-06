@@ -73,14 +73,14 @@ define( function( require ) {
     this.addChild( playPauseButton );
 
     // Add step button
-    var stepButton = new StepForwardButton( model.playingProperty, {
-        listener: function() { model.manualStep(); },
+    var stepButton = new StepForwardButton( {
+      playingProperty: model.playingProperty,
+      listener: function() { model.manualStep(); },
       centerY: playPauseButton.centerY,
-        centerX: this.layoutBounds.centerX + 25,
-        radius: 15,
-        tandem: tandem.createTandem( 'stepButton' )
-      }
-    );
+      centerX: this.layoutBounds.centerX + 25,
+      radius: 15,
+      tandem: tandem.createTandem( 'stepButton' )
+    } );
 
     this.addChild( stepButton );
   }
