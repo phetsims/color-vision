@@ -11,11 +11,8 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var assertInstanceOfTypes = require( 'PHET_IO/assertions/assertInstanceOfTypes' );
   var phetio = require( 'PHET_IO/phetio' );
   var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
   var TArray = require( 'PHET_IO/types/TArray' );
@@ -25,66 +22,17 @@ define( function( require ) {
   var TDerivedProperty = require( 'PHET_IO/types/axon/TDerivedProperty' );
   var THSlider = require( 'PHET_IO/types/sun/THSlider' );
   var TNumber = require( 'PHET_IO/types/TNumber' );
-  var TObject = require( 'PHET_IO/types/TObject' );
   var TOnOffSwitch = require( 'PHET_IO/types/sun/TOnOffSwitch' );
+  var TPhotonView = require( 'PHET_IO/simulations/color-vision/types/TPhotonView' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
   var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
+  var TRGBPhoton = require( 'PHET_IO/simulations/color-vision/types/TRGBPhoton' );
+  var TSingleBulbPhoton = require( 'PHET_IO/simulations/color-vision/types/TSingleBulbPhoton' );
   var TString = require( 'PHET_IO/types/TString' );
   var TTandemText = require( 'PHET_IO/types/tandem/scenery/nodes/TTandemText' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
-
-  var TSingleBulbPhoton = phetioInherit( TObject, 'TSingleBulbPhoton', function( instance, phetioID ) {
-    assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
-    TObject.call( this, instance, phetioID );
-  }, {}, {
-    fromStateObject: function( stateObject ) {
-      return window.phet.colorVision.SingleBulbPhoton.fromStateObject( stateObject );
-    },
-    toStateObject: function( value ) {
-      return value.toStateObject();
-    },
-    setValue: function() {}
-  } );
-
-  var TRGBPhoton = phetioInherit( TObject, 'TRGBPhoton', function( instance, phetioID ) {
-    assertInstanceOf( instance, phet.colorVision.RGBPhoton );
-    TObject.call( this, instance, phetioID );
-  }, {}, {
-    fromStateObject: function( stateObject ) {
-      return window.phet.colorVision.RGBPhoton.fromStateObject( stateObject );
-    },
-    toStateObject: function( value ) {
-      return value.toStateObject();
-    },
-    setValue: function() {}
-  } );
-
-  var TPhotonView = phetioInherit( TObject, 'TPhotonView', function( instance, phetioID ) {
-    assertInstanceOfTypes( instance, [
-      phet.colorVision.SingleBulbPhotonBeamNode,
-      phet.colorVision.RGBPhotonBeamNode
-    ] );
-    TObject.call( this, instance, phetioID );
-  }, {
-    setValue: {
-      implementation: function() {
-        this.instance.invalidatePaint();
-      }
-    }
-  }, {
-    fromStateObject: function( stateObject ) {
-      return {
-        // not needed, at least not yet
-      };
-    },
-    toStateObject: function( value ) {
-      return {
-        // not needed, at least not yet
-      };
-    }
-  } );
 
   var colorVisionAPI = PhETIOCommon.createAPI( {
     colorVision: PhETIOCommon.createSim( {
