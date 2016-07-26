@@ -18,12 +18,15 @@ define( function( require ) {
     assertInstanceOf( instance, phet.colorVision.RGBPhoton );
     TObject.call( this, instance, phetioID );
   }, {}, {
+
     fromStateObject: function( stateObject ) {
       return window.phet.colorVision.RGBPhoton.fromStateObject( stateObject );
     },
+
     toStateObject: function( value ) {
       return value.toStateObject();
     },
+
     setValue: function() {}
   } );
 

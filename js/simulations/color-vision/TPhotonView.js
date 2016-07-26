@@ -27,11 +27,13 @@ define( function( require ) {
       }
     }
   }, {
+
     fromStateObject: function( stateObject ) {
       return {
         // not needed, at least not yet
       };
     },
+
     toStateObject: function( value ) {
       return {
         // not needed, at least not yet

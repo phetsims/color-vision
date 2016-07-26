@@ -35,7 +35,9 @@ define( function( require ) {
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
 
   var colorVisionAPI = PhETIOCommon.createAPI( {
+
     colorVision: PhETIOCommon.createSim( {
+
       singleBulbScreen: {
         model: {
           lightTypeProperty: TProperty( TString ),
