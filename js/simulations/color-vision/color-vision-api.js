@@ -23,12 +23,12 @@ define( function( require ) {
   var THSlider = require( 'PHET_IO/types/sun/THSlider' );
   var TNumber = require( 'PHET_IO/types/TNumber' );
   var TOnOffSwitch = require( 'PHET_IO/types/sun/TOnOffSwitch' );
-  var TPhotonView = require( 'PHET_IO/simulations/color-vision/types/TPhotonView' );
+  var TPhotonView = require( 'PHET_IO/simulations/color-vision/TPhotonView' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
   var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
-  var TRGBPhoton = require( 'PHET_IO/simulations/color-vision/types/TRGBPhoton' );
-  var TSingleBulbPhoton = require( 'PHET_IO/simulations/color-vision/types/TSingleBulbPhoton' );
+  var TRGBPhoton = require( 'PHET_IO/simulations/color-vision/TRGBPhoton' );
+  var TSingleBulbPhoton = require( 'PHET_IO/simulations/color-vision/TSingleBulbPhoton' );
   var TString = require( 'PHET_IO/types/TString' );
   var TTandemText = require( 'PHET_IO/types/tandem/scenery/nodes/TTandemText' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
