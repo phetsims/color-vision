@@ -12,7 +12,6 @@ define( function( require ) {
 
   // modules
   var phetio = require( 'PHET_IO/phetio' );
-  var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
   var TArray = require( 'PHET_IO/types/TArray' );
@@ -34,9 +33,9 @@ define( function( require ) {
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
 
-  var colorVisionAPI = PhETIOCommon.createAPI( {
+  var colorVisionAPI = createAPI( {
 
-    colorVision: PhETIOCommon.createSim( {
+    colorVision: createSim( {
 
       singleBulbScreen: {
         model: {
