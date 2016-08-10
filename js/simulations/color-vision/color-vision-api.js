@@ -49,12 +49,12 @@ define( function( require ) {
             photons: TArray( TSingleBulbPhoton )
           },
           flashlight: {
-            flashlightWavelengthProperty: TProperty( TNumber( 'nanometers' ) ),
+            flashlightWavelengthProperty: TProperty( TNumber( { units: 'nanometers' } ) ),
 
             flashlightOnProperty: TProperty( TBoolean )
           },
           filter: {
-            filterWavelengthProperty: TProperty( TNumber( 'nanometers' ) ),
+            filterWavelengthProperty: TProperty( TNumber( { units: 'nanometers' } ) ),
             filterVisibleProperty: TProperty( TBoolean )
           }
         },
@@ -85,12 +85,12 @@ define( function( require ) {
       },
       rgbBulbsScreen: {
         model: {
-          redIntensityProperty: TProperty( TNumber( 'unitless' ) ),
-          greenIntensityProperty: TProperty( TNumber( 'unitless' ) ),
-          blueIntensityProperty: TProperty( TNumber( 'unitless' ) ),
-          perceivedRedIntensityProperty: TProperty( TNumber( 'unitless' ) ),
-          perceivedGreenIntensityProperty: TProperty( TNumber( 'unitless' ) ),
-          perceivedBlueIntensityProperty: TProperty( TNumber( 'unitless' ) ),
+          redIntensityProperty: TProperty( TNumber() ),
+          greenIntensityProperty: TProperty( TNumber() ),
+          blueIntensityProperty: TProperty( TNumber() ),
+          perceivedRedIntensityProperty: TProperty( TNumber() ),
+          perceivedGreenIntensityProperty: TProperty( TNumber() ),
+          perceivedBlueIntensityProperty: TProperty( TNumber() ),
           playingProperty: TProperty( TBoolean ),
           headModeProperty: TProperty( TString ),
           perceivedColor: TDerivedProperty( TColor ),
