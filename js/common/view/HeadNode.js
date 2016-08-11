@@ -21,6 +21,9 @@ define( function( require ) {
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+
   // images
   var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
   var headImage = require( 'image!COLOR_VISION/head.png' );
@@ -85,11 +88,13 @@ define( function( require ) {
     var toggleButtonsContent = [ {
       value: 'no-brain',
       node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
-      tandem: tandem.createTandem( 'hideBrainRadioButton' )
+      tandem: tandem.createTandem( 'hideBrainRadioButton' ),
+      phetioValueType: TBoolean
     }, {
       value: 'brain',
       node: new Image( headIcon, { scale: IMAGE_SCALE } ),
-      tandem: tandem.createTandem( 'showBrainRadioButton' )
+      tandem: tandem.createTandem( 'showBrainRadioButton' ),
+      phetioValueType: TBoolean
     } ];
 
     var radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {

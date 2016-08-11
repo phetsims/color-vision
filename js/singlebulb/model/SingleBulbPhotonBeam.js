@@ -19,6 +19,10 @@ define( function( require ) {
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var TSingleBulbPhoton = require( 'ifphetio!PHET_IO/simulations/color-vision/TSingleBulbPhoton' );
+
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
 
@@ -37,7 +41,7 @@ define( function( require ) {
     // @private
     this.model = model;
 
-    tandem.createTandem( 'photons' ).addInstance( this.photons );
+    tandem.createTandem( 'photons' ).addInstance( this.photons, TArray( TSingleBulbPhoton ) );
   }
 
   colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );

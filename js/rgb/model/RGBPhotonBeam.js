@@ -16,6 +16,10 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // phet-io modules
+  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var TRGBPhoton = require( 'ifphetio!PHET_IO/simulations/color-vision/TRGBPhoton' );
+
   /**
    * @param {string} color an rgb string
    * @param {Property.<number>} intensityProperty the intensity property for this color from the model
@@ -35,7 +39,7 @@ define( function( require ) {
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
 
-    tandem.createTandem( 'photons' ).addInstance( this.photons );
+    tandem.createTandem( 'photons' ).addInstance( this.photons, TArray( TRGBPhoton ) );
   }
 
   colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );

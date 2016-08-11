@@ -14,6 +14,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   // If this is set to true, it will show a rectangle around the beam.
   // This is useful for getting the placement of the beam correct relative to the
   // flashlight image.
@@ -36,7 +39,7 @@ define( function( require ) {
     this.invalidatePaint();
 
     // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   colorVision.register( 'RGBPhotonBeamNode', RGBPhotonBeamNode );

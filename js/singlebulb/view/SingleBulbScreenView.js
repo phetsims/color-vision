@@ -32,6 +32,10 @@ define( function( require ) {
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+
+
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
   var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
@@ -122,18 +126,17 @@ define( function( require ) {
       buttonContentYMargin: 2
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
 
-    var whiteColoredButtonsContent = [
-      {
-        value: 'white',
-        node: new Image( whiteLightIcon, ICON_OPTIONS ),
-        tandem: tandem.createTandem( 'whiteLightRadioButton' )
-      },
-      {
-        value: 'colored',
-        node: new Image( singleColorLightIcon, ICON_OPTIONS ),
-        tandem: tandem.createTandem( 'coloredLightRadioButton' )
-      }
-    ];
+    var whiteColoredButtonsContent = [ {
+      value: 'white',
+      node: new Image( whiteLightIcon, ICON_OPTIONS ),
+      tandem: tandem.createTandem( 'whiteLightRadioButton' ),
+      phetioValueType: TBoolean
+    }, {
+      value: 'colored',
+      node: new Image( singleColorLightIcon, ICON_OPTIONS ),
+      tandem: tandem.createTandem( 'coloredLightRadioButton' ),
+      phetioValueType: TBoolean
+    } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
@@ -142,13 +145,14 @@ define( function( require ) {
     var beamPhotonButtonsContent = [ {
       value: 'beam',
       node: new Image( beamViewIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'beamRadioButton' )
+      tandem: tandem.createTandem( 'beamRadioButton' ),
+      phetioValueType: TBoolean
     }, {
       value: 'photon',
       node: new Image( photonViewIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'photonRadioButton' )
-    }
-    ];
+      tandem: tandem.createTandem( 'photonRadioButton' ),
+      phetioValueType: TBoolean
+    } ];
 
     var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
@@ -261,10 +265,10 @@ define( function( require ) {
 
   colorVision.register( 'SingleBulbScreenView', SingleBulbScreenView );
 
-  return inherit( ColorVisionScreenView, SingleBulbScreenView,
-    {
-      step: function( dt ) {
-        this.photonBeamNode.step( dt );
-      }
-    } );
+  return inherit( ColorVisionScreenView, SingleBulbScreenView, {
+    step: function( dt ) {
+      this.photonBeamNode.step( dt );
+    }
+  } );
 } );
+

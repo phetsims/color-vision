@@ -13,6 +13,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   /**
    * @param {SingleBulbModel} model
    * @param {Tandem} tandem
@@ -33,7 +36,7 @@ define( function( require ) {
     this.invalidatePaint();
 
     // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   colorVision.register( 'SingleBulbPhotonBeamNode', SingleBulbPhotonBeamNode );

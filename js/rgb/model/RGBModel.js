@@ -9,14 +9,23 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Color = require( 'SCENERY/util/Color' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var EventTimer = require( 'PHET_CORE/EventTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PropertySet = require( 'AXON/PropertySet' );
+  var Range = require( 'DOT/Range' );
+  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
-  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
-  var EventTimer = require( 'PHET_CORE/EventTimer' );
-  var Color = require( 'SCENERY/util/Color' );
+
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TColor = require( 'PHET_IO/types/scenery/util/TColor' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+
+  var PERCENT_RANGE = new Range( 0, 100 );
 
   // constants
   var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
@@ -41,35 +50,59 @@ define( function( require ) {
      */
     PropertySet.call( this, {
 
-        // @public
-        redIntensity: 0,
-        greenIntensity: 0,
-        blueIntensity: 0,
-        playing: true,        // is the sim running or paused?
-        headMode: 'no-brain', // takes values 'brain' or 'no-brain'
+      // @public
+      redIntensity: 0,
+      greenIntensity: 0,
+      blueIntensity: 0,
+      playing: true, // is the sim running or paused?
+      headMode: 'no-brain', // takes values 'brain' or 'no-brain'
 
-        // @private
-        perceivedRedIntensity: 0,
-        perceivedGreenIntensity: 0,
-        perceivedBlueIntensity: 0
-      }, {
-        tandemSet: {
-          redIntensity: tandem.createTandem( 'redIntensityProperty' ),
-          greenIntensity: tandem.createTandem( 'greenIntensityProperty' ),
-          blueIntensity: tandem.createTandem( 'blueIntensityProperty' ),
-          perceivedRedIntensity: tandem.createTandem( 'perceivedRedIntensityProperty' ),
-          perceivedGreenIntensity: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
-          perceivedBlueIntensity: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
-          playing: tandem.createTandem( 'playingProperty' ),
-          headMode: tandem.createTandem( 'headModeProperty' )
-        }
+      // @private
+      perceivedRedIntensity: 0,
+      perceivedGreenIntensity: 0,
+      perceivedBlueIntensity: 0
+    }, {
+      tandemSet: {
+        redIntensity: tandem.createTandem( 'redIntensityProperty' ),
+        greenIntensity: tandem.createTandem( 'greenIntensityProperty' ),
+        blueIntensity: tandem.createTandem( 'blueIntensityProperty' ),
+        perceivedRedIntensity: tandem.createTandem( 'perceivedRedIntensityProperty' ),
+        perceivedGreenIntensity: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
+        perceivedBlueIntensity: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
+        playing: tandem.createTandem( 'playingProperty' ),
+        headMode: tandem.createTandem( 'headModeProperty' )
+      },
+      phetioValueTypeSet: {
+        redIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
+        greenIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
+        blueIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
+        perceivedRedIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
+        perceivedGreenIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
+        perceivedBlueIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
+        playing: TBoolean,
+        headMode: TString
       }
-    );
+    } );
 
     // @private
-    this.redBeam = new RGBPhotonBeam( '#ff0000', this.redIntensityProperty, this.perceivedRedIntensityProperty, RGBConstants.RED_BEAM_LENGTH, tandem.createTandem( 'redBeam' ) );
-    this.greenBeam = new RGBPhotonBeam( '#00ff00', this.greenIntensityProperty, this.perceivedGreenIntensityProperty, RGBConstants.GREEN_BEAM_LENGTH, tandem.createTandem( 'greenBeam' ) );
-    this.blueBeam = new RGBPhotonBeam( '#0000ff', this.blueIntensityProperty, this.perceivedBlueIntensityProperty, RGBConstants.BLUE_BEAM_LENGTH, tandem.createTandem( 'blueBeam' ) );
+    this.redBeam = new RGBPhotonBeam(
+      '#ff0000',
+      this.redIntensityProperty,
+      this.perceivedRedIntensityProperty,
+      RGBConstants.RED_BEAM_LENGTH,
+      tandem.createTandem( 'redBeam' ) );
+    this.greenBeam = new RGBPhotonBeam(
+      '#00ff00',
+      this.greenIntensityProperty,
+      this.perceivedGreenIntensityProperty,
+      RGBConstants.GREEN_BEAM_LENGTH,
+      tandem.createTandem( 'greenBeam' ) );
+    this.blueBeam = new RGBPhotonBeam(
+      '#0000ff',
+      this.blueIntensityProperty,
+      this.perceivedBlueIntensityProperty,
+      RGBConstants.BLUE_BEAM_LENGTH,
+      tandem.createTandem( 'blueBeam' ) );
 
     var thisModel = this;
 
@@ -83,7 +116,7 @@ define( function( require ) {
           Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
           Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
       },
-      tandem.createTandem( 'perceivedColor' ) );
+      tandem.createTandem( 'perceivedColorProperty' ), TColor );
 
     // create a ConstantEventModel for each beam
     var redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
@@ -159,3 +192,4 @@ define( function( require ) {
 
   } );
 } );
+
