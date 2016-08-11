@@ -15,9 +15,6 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
 
-  // If running as phet-io, load the API
-  require( 'ifphetio!PHET_IO/simulations/color-vision/color-vision-api' );
-
   // strings
   var colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
 
