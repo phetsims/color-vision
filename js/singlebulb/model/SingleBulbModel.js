@@ -18,6 +18,11 @@ define( function( require ) {
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
 
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+
   /**
    * @param {Tandem} tandem
    * @constructor
@@ -32,7 +37,7 @@ define( function( require ) {
       // @public
       lightType: 'colored',        // takes values 'white' and 'colored', to indicate what kind of light in the beam
       beamType: 'beam',            // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
-      flashlightWavelength: 570,   // in units of wavelengths, default wavelength is yellow color
+      flashlightWavelength: 570,   // in units of wavelengths, default wavelength is yellow color TODO check #108
       filterWavelength: 570,       // in units of wavelengths, default wavelength is yellow color
       flashlightOn: false,
       filterVisible: false,
@@ -49,6 +54,16 @@ define( function( require ) {
         filterVisible: filterTandem.createTandem( 'filterVisibleProperty' ),
         playing: tandem.createTandem( 'playingProperty' ),
         headMode: tandem.createTandem( 'headModeProperty' )
+      },
+      phetioValueTypeSet: {
+        flashlightWavelength: TNumber( { units: 'nanometers' } ),
+        lightType: TString,
+        beamType: TString,
+        filterWavelength: TNumber( { units: 'nanometers' } ),
+        flashlightOn: TBoolean,
+        filterVisible: TBoolean,
+        playing: TBoolean,
+        headMode: TString
       }
     } );
 
