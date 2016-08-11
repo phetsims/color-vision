@@ -14,13 +14,15 @@ define( function( require ) {
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
 
-  var TPhotonView = phetioInherit( TObject, 'TPhotonView', function( instance, phetioID ) {
+  var TPhotonView = function( instance, phetioID ) {
     assertInstanceOfTypes( instance, [
       phet.colorVision.SingleBulbPhotonBeamNode,
       phet.colorVision.RGBPhotonBeamNode
     ] );
     TObject.call( this, instance, phetioID );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TPhotonView', TPhotonView, {
     setValue: {
       implementation: function() {
         this.instance.invalidatePaint();

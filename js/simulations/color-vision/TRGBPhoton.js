@@ -14,10 +14,11 @@ define( function( require ) {
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
 
-  var TRGBPhoton = phetioInherit( TObject, 'TRGBPhoton', function( instance, phetioID ) {
+  var TRGBPhoton = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.RGBPhoton );
     TObject.call( this, instance, phetioID );
-  }, {}, {
+  };
+  phetioInherit( TObject, 'TRGBPhoton', TRGBPhoton, {}, {
 
     fromStateObject: function( stateObject ) {
       return window.phet.colorVision.RGBPhoton.fromStateObject( stateObject );
