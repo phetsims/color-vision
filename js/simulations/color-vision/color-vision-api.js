@@ -33,9 +33,9 @@ define( function( require ) {
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
 
-  var colorVisionAPI = createAPI( {
+  var colorVisionAPI = ( {
 
-    colorVision: createSim( {
+    colorVision: ( {
 
       singleBulbScreen: {
         model: {
