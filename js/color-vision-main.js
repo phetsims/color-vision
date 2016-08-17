@@ -28,8 +28,7 @@ define( function( require ) {
       qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
       graphicArts: 'Mike Fowler'
     },
-    showSmallHomeScreenIconFrame: true,
-    tandem: tandem
+    showSmallHomeScreenIconFrame: true
   };
 
   SimLauncher.launch( function() {
