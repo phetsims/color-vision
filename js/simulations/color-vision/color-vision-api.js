@@ -16,7 +16,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
   var TArray = require( 'PHET_IO/types/TArray' );
   var TBoolean = require( 'PHET_IO/types/TBoolean' );
-  var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
+  var TPushButton = require( 'PHET_IO/types/sun/buttons/TPushButton' );
   var TColor = require( 'PHET_IO/types/scenery/util/TColor' );
   var TDerivedProperty = require( 'PHET_IO/types/axon/TDerivedProperty' );
   var THSlider = require( 'PHET_IO/types/sun/THSlider' );
@@ -71,7 +71,7 @@ define( function( require ) {
 
           resetAllButton: TResetAllButton,
           playPauseButton: TToggleButton( TBoolean ),
-          stepButton: TButton,
+          stepButton: TPushButton,
           gaussianSlider: TWavelengthSlider,
           filterWireNode: {
             onOffSwitch: TOnOffSwitch
@@ -106,7 +106,7 @@ define( function( require ) {
         view: {
           resetAllButton: TResetAllButton,
           playPauseButton: TToggleButton( TBoolean ),
-          stepButton: TButton,
+          stepButton: TPushButton,
           headNode: {
             showBrainRadioButton: TRadioButton( TString ),
             hideBrainRadioButton: TRadioButton( TString )
