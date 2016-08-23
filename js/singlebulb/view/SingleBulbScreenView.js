@@ -86,7 +86,6 @@ define( function( require ) {
       thumbWidth: 30,
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
-      pointerAreasOverTrack: true,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
       tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
