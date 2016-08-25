@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var Dimension2 = require( 'DOT/Dimension2' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
@@ -56,7 +57,7 @@ define( function( require ) {
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
     var containerNode = new Node();
 
-    var wavelengthTrack = new SpectrumNode( width, height, VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 1 );
+    var wavelengthTrack = new SpectrumNode( { size: new Dimension2( width, height ) } );
     containerNode.addChild( wavelengthTrack );
     this.addChild( containerNode );
 
