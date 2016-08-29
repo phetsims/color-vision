@@ -64,6 +64,8 @@ define( function( require ) {
     // draw the switch inside the outline
     var onOffSwitch = new OnOffSwitch( onProperty, {
       size: new Dimension2( SWITCH_HEIGHT * 2, SWITCH_HEIGHT ),
+      thumbTouchAreaXDilation: 5,
+      thumbTouchAreaYDilation: 5,
       centerTop: new Vector2( start.x, start.y + switchDistance ),
       thumbFill: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, 'black' ).addColorStop( 1, 'gray' ),
       trackOffFill: '#eeeeee',
