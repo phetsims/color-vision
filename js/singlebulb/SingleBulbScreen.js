@@ -25,14 +25,19 @@ define( function( require ) {
    * @param {Tandem} tandem
    */
   function SingleBulbScreen( tandem ) {
-    Screen.call( this, singleBulbModuleTitleString, new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+
+    var options = {
+      name: singleBulbModuleTitleString,
+      backgroundColor: 'black',
+      homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+      navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
+      tandem: tandem
+    };
+
+    Screen.call( this,
       function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); }, {
-        backgroundColor: 'black',
-        navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        tandem: tandem
-      }
-    );
+      function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); },
+      options );
   }
 
   colorVision.register( 'SingleBulbScreen', SingleBulbScreen );

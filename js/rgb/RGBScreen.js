@@ -25,14 +25,19 @@ define( function( require ) {
    * @constructor
    */
   function RGBScreen( tandem ) {
-    Screen.call( this, rgbBulbsModuleTitleString, new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+
+    var options = {
+      name: rgbBulbsModuleTitleString,
+      backgroundColor: 'black',
+      homeScreenIcon: new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+      navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
+      tandem: tandem
+    };
+
+    Screen.call( this,
       function() { return new RGBModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new RGBScreenView( model, tandem.createTandem( 'view' ) ); }, {
-        backgroundColor: 'black',
-        navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-        tandem: tandem
-      }
-    );
+      function( model ) { return new RGBScreenView( model, tandem.createTandem( 'view' ) ); },
+      options );
   }
 
   colorVision.register( 'RGBScreen', RGBScreen );
