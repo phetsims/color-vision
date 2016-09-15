@@ -121,12 +121,12 @@ define( function( require ) {
     // @public
     this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem.createTandem( 'photonBeam' ) );
 
-    var thisModel = this;
+    var self = this;
 
     // create a new photon every 1/120 seconds
     // @private
     this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 120 ), function( timeElapsed ) {
-      thisModel.photonBeam.createPhoton( timeElapsed );
+      self.photonBeam.createPhoton( timeElapsed );
     } );
   }
 

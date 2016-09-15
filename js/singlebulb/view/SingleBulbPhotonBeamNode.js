@@ -28,9 +28,9 @@ define( function( require ) {
 
     CanvasNode.call( this, options );
 
-    var thisNode = this;
+    var self = this;
     model.beamTypeProperty.link( function( beamType ) {
-      thisNode.visible = ( beamType === 'photon' );
+      self.visible = ( beamType === 'photon' );
     } );
 
     this.invalidatePaint();

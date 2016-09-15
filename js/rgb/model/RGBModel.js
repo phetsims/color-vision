@@ -104,7 +104,7 @@ define( function( require ) {
       RGBConstants.BLUE_BEAM_LENGTH,
       tandem.createTandem( 'blueBeam' ) );
 
-    var thisModel = this;
+    var self = this;
 
     // add perceivedColorProperty based on the combination of the three perceived intensities.
     // this determines the thought bubble color
@@ -126,25 +126,25 @@ define( function( require ) {
     // create an EventTimer for each beam, used to regulate when to create new photons for each beam
     // @private
     this.redEventTimer = new EventTimer( redEventModel, function( timeElapsed ) {
-      thisModel.redBeam.createPhoton( timeElapsed );
+      self.redBeam.createPhoton( timeElapsed );
     } );
 
     // @private
     this.greenEventTimer = new EventTimer( greenEventModel, function( timeElapsed ) {
-      thisModel.greenBeam.createPhoton( timeElapsed );
+      self.greenBeam.createPhoton( timeElapsed );
     } );
 
     // @private
     this.blueEventTimer = new EventTimer( blueEventModel, function( timeElapsed ) {
-      thisModel.blueBeam.createPhoton( timeElapsed );
+      self.blueBeam.createPhoton( timeElapsed );
     } );
 
     // link the intensity of each beam to the rate of their event timers
     // we need to 0 out the timeBeforeNextEvent, otherwise there is a long delay in seeing the first photon from
     // the time when the slider is initially moved.
-    this.redIntensityProperty.link( function() { thisModel.redEventTimer.timeBeforeNextEvent = 0; } );
-    this.greenIntensityProperty.link( function() { thisModel.greenEventTimer.timeBeforeNextEvent = 0; } );
-    this.blueIntensityProperty.link( function() { thisModel.blueEventTimer.timeBeforeNextEvent = 0; } );
+    this.redIntensityProperty.link( function() { self.redEventTimer.timeBeforeNextEvent = 0; } );
+    this.greenIntensityProperty.link( function() { self.greenEventTimer.timeBeforeNextEvent = 0; } );
+    this.blueIntensityProperty.link( function() { self.blueEventTimer.timeBeforeNextEvent = 0; } );
   }
 
   colorVision.register( 'RGBModel', RGBModel );

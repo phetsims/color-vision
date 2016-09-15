@@ -34,10 +34,10 @@ define( function( require ) {
       .close();
 
     Path.call( this, shape );
-    var thisNode = this;
+    var self = this;
 
     filterWavelengthProperty.link( function( wavelength ) {
-      thisNode.fill = VisibleColor.wavelengthToColor( wavelength );
+      self.fill = VisibleColor.wavelengthToColor( wavelength );
     } );
 
     filterVisibleProperty.linkAttribute( this, 'visible' );
