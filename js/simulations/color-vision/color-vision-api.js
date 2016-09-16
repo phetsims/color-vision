@@ -24,7 +24,7 @@ define( function( require ) {
   var TOnOffSwitch = require( 'PHET_IO/types/sun/TOnOffSwitch' );
   var TPhotonView = require( 'PHET_IO/simulations/color-vision/TPhotonView' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
-  var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
+  var TRadioButton = require( 'PHET_IO/types/sun/TRadioButton' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
   var TRGBPhoton = require( 'PHET_IO/simulations/color-vision/TRGBPhoton' );
   var TSingleBulbPhoton = require( 'PHET_IO/simulations/color-vision/TSingleBulbPhoton' );
