@@ -22,7 +22,7 @@ define( function( require ) {
    */
   function RGBIconNode( options ) {
 
-    Rectangle.call( this, 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, options );
+    Rectangle.call( this, 0, 0, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height, options );
 
     var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
     var greenFlashlight = new FlashlightNode( 0, 'green' );
