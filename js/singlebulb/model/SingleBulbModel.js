@@ -32,40 +32,64 @@ define( function( require ) {
     var flashlightTandem = tandem.createTandem( 'flashlight' );
     var filterTandem = tandem.createTandem( 'filter' );
 
-    PropertySet.call( this, {
+    // @public
+    var properties = {
 
-      // @public
-      lightType: 'colored',        // takes values 'white' and 'colored', to indicate what kind of light in the beam
-      beamType: 'beam',            // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
-      flashlightWavelength: 570,   // in units of wavelengths, default wavelength is yellow color TODO check #108
-      filterWavelength: 570,       // in units of wavelengths, default wavelength is yellow color
-      flashlightOn: false,
-      filterVisible: false,
-      playing: true,               // is the sim running or paused
-      headMode: 'no-brain',        // takes values 'brain' and 'no-brain'
-      lastPhotonColor: new Color( 0, 0, 0, 0 ) // keep track of the last photon to hit the eye for use in calculating the perceived color
-    }, {
-      tandemSet: {
-        flashlightWavelength: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
-        lightType: tandem.createTandem( 'lightTypeProperty' ),
-        beamType: tandem.createTandem( 'beamTypeProperty' ),
-        filterWavelength: filterTandem.createTandem( 'filterWavelengthProperty' ),
-        flashlightOn: flashlightTandem.createTandem( 'flashlightOnProperty' ),
-        filterVisible: filterTandem.createTandem( 'filterVisibleProperty' ),
-        playing: tandem.createTandem( 'playingProperty' ),
-        headMode: tandem.createTandem( 'headModeProperty' )
+      lightType: {
+        value: 'colored', // takes values 'white' and 'colored', to indicate what kind of light in the beam
+        tandem: tandem.createTandem( 'lightTypeProperty' ),
+        phetioValueType: TString
       },
-      phetioValueTypeSet: {
-        flashlightWavelength: TNumber( { units: 'nanometers' } ),
-        lightType: TString,
-        beamType: TString,
-        filterWavelength: TNumber( { units: 'nanometers' } ),
-        flashlightOn: TBoolean,
-        filterVisible: TBoolean,
-        playing: TBoolean,
-        headMode: TString
+
+      beamType: {
+        value: 'beam', // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
+        tandem: tandem.createTandem( 'beamTypeProperty' ),
+        phetioValueType: TString
+      },
+
+      flashlightWavelength: {
+        value: 570, // in units of nm, default wavelength is yellow color TODO check #108
+        tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
+        phetioValueType: TNumber( { units: 'nanometers' } )
+      },
+
+      filterWavelength: {
+        value: 570, // in units of nm, default wavelength is yellow color
+        tandem: filterTandem.createTandem( 'filterWavelengthProperty' ),
+        phetioValueType: TNumber( { units: 'nanometers' } )
+      },
+
+      flashlightOn: {
+        value: false,
+        tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
+        phetioValueType: TBoolean
+      },
+
+      filterVisible: {
+        value: false,
+        tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
+        phetioValueType: TBoolean
+      },
+
+      playing: {
+        value: true,
+        tandem: tandem.createTandem( 'playingProperty' ),
+        phetioValueType: TBoolean
+      },
+
+      headMode: {
+        value: 'no-brain', // takes values 'brain' and 'no-brain'
+        tandem: tandem.createTandem( 'headModeProperty' ),
+        phetioValueType: TString
+      },
+
+      // keep track of the last photon to hit the eye, for use in calculating the perceived color
+      lastPhotonColor: {
+        value: new Color( 0, 0, 0, 0 )
       }
-    } );
+    };
+
+    PropertySet.call( this, null, null, properties );
 
     // the color perceived by the person depends on almost every property
     // @public

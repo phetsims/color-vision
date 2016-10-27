@@ -48,41 +48,54 @@ define( function( require ) {
      * intensity for this reason, even though it is not used in determining intensity of the
      * photon itself, which is constant.
      */
-    PropertySet.call( this, {
+    var properties = {
 
       // @public
-      redIntensity: 0,
-      greenIntensity: 0,
-      blueIntensity: 0,
-      playing: true, // is the sim running or paused?
-      headMode: 'no-brain', // takes values 'brain' or 'no-brain'
+      redIntensity: {
+        value: 0,
+        tandem: tandem.createTandem( 'redIntensityProperty' ),
+        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      },
+      greenIntensity: {
+        value: 0,
+        tandem: tandem.createTandem( 'greenIntensityProperty' ),
+        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      },
+      blueIntensity: {
+        value: 0,
+        tandem: tandem.createTandem( 'blueIntensityProperty' ),
+        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      },
+      playing: {
+        value: true, // is the sim running or paused?
+        tandem: tandem.createTandem( 'playingProperty' ),
+        phetioValueType: TBoolean
+      },
+      headMode: {
+        value: 'no-brain', // takes values 'brain' or 'no-brain'
+        tandem: tandem.createTandem( 'headModeProperty' ),
+        phetioValueType: TString
+      },
 
       // @private
-      perceivedRedIntensity: 0,
-      perceivedGreenIntensity: 0,
-      perceivedBlueIntensity: 0
-    }, {
-      tandemSet: {
-        redIntensity: tandem.createTandem( 'redIntensityProperty' ),
-        greenIntensity: tandem.createTandem( 'greenIntensityProperty' ),
-        blueIntensity: tandem.createTandem( 'blueIntensityProperty' ),
-        perceivedRedIntensity: tandem.createTandem( 'perceivedRedIntensityProperty' ),
-        perceivedGreenIntensity: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
-        perceivedBlueIntensity: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
-        playing: tandem.createTandem( 'playingProperty' ),
-        headMode: tandem.createTandem( 'headModeProperty' )
+      perceivedRedIntensity: {
+        value: 0,
+        tandem: tandem.createTandem( 'perceivedRedIntensityProperty' ),
+        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
       },
-      phetioValueTypeSet: {
-        redIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
-        greenIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
-        blueIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
-        perceivedRedIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
-        perceivedGreenIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
-        perceivedBlueIntensity: TNumber( { units: 'percent', range: PERCENT_RANGE } ),
-        playing: TBoolean,
-        headMode: TString
+      perceivedGreenIntensity: {
+        value: 0,
+        tandem: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
+        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      },
+      perceivedBlueIntensity: {
+        value: 0,
+        tandem: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
+        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
       }
-    } );
+    };
+
+    PropertySet.call( this, null, null, properties );
 
     // @private
     this.redBeam = new RGBPhotonBeam(
