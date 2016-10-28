@@ -122,7 +122,7 @@ define( function( require ) {
     // add perceivedColorProperty based on the combination of the three perceived intensities.
     // this determines the thought bubble color
     // @public
-    this.addDerivedPropertyWithOptions( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
+    this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
       function( redIntensity, greenIntensity, blueIntensity ) {
         return new Color(
           Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
