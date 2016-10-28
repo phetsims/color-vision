@@ -122,14 +122,16 @@ define( function( require ) {
     // add perceivedColorProperty based on the combination of the three perceived intensities.
     // this determines the thought bubble color
     // @public
-    this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
+    this.addDerivedPropertyWithOptions( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
       function( redIntensity, greenIntensity, blueIntensity ) {
         return new Color(
           Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
           Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
           Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
-      },
-      tandem.createTandem( 'perceivedColorProperty' ), TColor );
+      }, {
+        tandem: tandem.createTandem( 'perceivedColorProperty' ),
+        phetioValueType: TColor
+      } );
 
     // create a ConstantEventModel for each beam
     var redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
