@@ -89,7 +89,7 @@ define( function( require ) {
       }
     };
 
-    PropertySet.call( this, null, null, properties );
+    PropertySet.call( this, null, properties );
 
     // the color perceived by the person depends on almost every property
     // @public
