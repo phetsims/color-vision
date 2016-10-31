@@ -144,13 +144,11 @@ define( function( require ) {
     var beamPhotonButtonsContent = [ {
       value: 'beam',
       node: new Image( beamViewIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'beamRadioButton' ),
-      phetioValueType: TBoolean
+      tandem: tandem.createTandem( 'beamRadioButton' )
     }, {
       value: 'photon',
       node: new Image( photonViewIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'photonRadioButton' ),
-      phetioValueType: TBoolean
+      tandem: tandem.createTandem( 'photonRadioButton' )
     } ];
 
     var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
