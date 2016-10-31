@@ -128,13 +128,11 @@ define( function( require ) {
     var whiteColoredButtonsContent = [ {
       value: 'white',
       node: new Image( whiteLightIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'whiteLightRadioButton' ),
-      phetioValueType: TBoolean
+      tandem: tandem.createTandem( 'whiteLightRadioButton' )
     }, {
       value: 'colored',
       node: new Image( singleColorLightIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'coloredLightRadioButton' ),
-      phetioValueType: TBoolean
+      tandem: tandem.createTandem( 'coloredLightRadioButton' )
     } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
