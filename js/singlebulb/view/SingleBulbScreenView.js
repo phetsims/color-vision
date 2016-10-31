@@ -31,10 +31,7 @@ define( function( require ) {
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
-
-  // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-
+  
 
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
