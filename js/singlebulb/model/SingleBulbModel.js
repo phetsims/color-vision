@@ -17,6 +17,7 @@ define( function( require ) {
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
+  var Range = require( 'DOT/Range' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -51,13 +52,19 @@ define( function( require ) {
       flashlightWavelength: {
         value: 570, // in units of nm, default wavelength is yellow color TODO check #108
         tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
-        phetioValueType: TNumber( { units: 'nanometers' } )
+        phetioValueType: TNumber( {
+          units: 'nanometers',
+          range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
+        } )
       },
 
       filterWavelength: {
         value: 570, // in units of nm, default wavelength is yellow color
         tandem: filterTandem.createTandem( 'filterWavelengthProperty' ),
-        phetioValueType: TNumber( { units: 'nanometers' } )
+        phetioValueType: TNumber( {
+          units: 'nanometers',
+          range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
+        } )
       },
 
       flashlightOn: {
