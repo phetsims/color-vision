@@ -21,9 +21,6 @@ define( function( require ) {
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
-  // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-
   // images
   var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
   var headImage = require( 'image!COLOR_VISION/head.png' );
