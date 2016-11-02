@@ -1,11 +1,11 @@
 {
-  "comment": "# color-vision 1.2.0-phetio Tue Nov 01 2016 11:34:05 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.2.1-phetio Wed Nov 02 2016 10:05:16 GMT-0600 (MDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "master"
   },
   "axon": {
-    "sha": "e8d68085f3edc676ef535712f87c95571993f305",
+    "sha": "ae6c9fcaf1d96aabdadb17a007d9eeff37cb6fc7",
     "branch": "master"
   },
   "brand": {
@@ -13,11 +13,11 @@
     "branch": "master"
   },
   "chipper": {
-    "sha": "78b153cccea9738203e7deda4fe91c0d8d95a654",
+    "sha": "135e20644856fc923f67360d19084638be1b280d",
     "branch": "master"
   },
   "color-vision": {
-    "sha": "4d8a340e8cb5c201a16762d6f6275566e912154c",
+    "sha": "66d4ccd12bb97deff8a54a9c36e5837f1fb785aa",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -37,11 +37,11 @@
     "branch": "master"
   },
   "phet-io": {
-    "sha": "df290360d29bde107763bfe1c0d3fe5f00ae1acc",
+    "sha": "22157cc8fea8315aaa1b63ff802d7d88f3c57466",
     "branch": "master"
   },
   "phet-io-website": {
-    "sha": "5984ea01ad40336f62779cb9586f974811499636",
+    "sha": "f6cbbe3275b8d27b6160bb127d7142794aea731c",
     "branch": "master"
   },
   "phetcommon": {
@@ -53,7 +53,7 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "60ae8f182b1cee8d0eced458114c4cef04c27701",
+    "sha": "2a1b78887e5769a27093d176a1fa6e630b18ae5b",
     "branch": "master"
   },
   "scenery-phet": {
