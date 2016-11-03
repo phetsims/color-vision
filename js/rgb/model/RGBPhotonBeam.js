@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PropertySet = require( 'AXON/PropertySet' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -44,7 +43,7 @@ define( function( require ) {
 
   colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
 
-  return inherit( PropertySet, RGBPhotonBeam, {
+  return inherit( Object, RGBPhotonBeam, {
 
     // @public
     updateAnimationFrame: function( dt ) {
