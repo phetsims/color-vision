@@ -31,7 +31,7 @@ define( function( require ) {
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
-  
+
 
   // images
   var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
@@ -88,7 +88,7 @@ define( function( require ) {
     } );
 
     // add text above the upper slider
-    var bulbColorText = new TandemText( bulbSliderLabelString, {
+    var bulbColorTextNode = new TandemText( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: bulbColorSlider.top - 3,
@@ -96,7 +96,7 @@ define( function( require ) {
       maxWidth: 0.85 * bulbColorSlider.width,
       tandem: tandem.createTandem( 'bulbColorText' )
     } );
-    this.addChild( bulbColorText );
+    this.addChild( bulbColorTextNode );
 
     // Add wire from flashlight to WavelengthSlider
     var flashlightWire = new FlashlightWireNode(
@@ -108,7 +108,7 @@ define( function( require ) {
     model.lightTypeProperty.link( function( lightType ) {
       var coloredLight = lightType !== 'white';
       bulbColorSlider.visible = coloredLight;
-      bulbColorText.visible = coloredLight;
+      bulbColorTextNode.visible = coloredLight;
       flashlightWire.visible = coloredLight;
     } );
 
@@ -188,14 +188,15 @@ define( function( require ) {
       } );
 
     // Add the text above the gaussian wavelength slider
-    var filterColorText = new Text( filterSliderLabelString, {
+    var filterColorTextNode = new TandemText( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
       right: gaussianSlider.right - 18,
-      maxWidth: 0.85 * gaussianSlider.width
+      maxWidth: 0.85 * gaussianSlider.width,
+      tandem: tandem.createTandem( 'filterColorTextNode' )
     } );
-    this.addChild( filterColorText );
+    this.addChild( filterColorTextNode );
 
     // Add the wire from the slider to the filter
     this.addChild( new FilterWireNode(
