@@ -14,7 +14,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
