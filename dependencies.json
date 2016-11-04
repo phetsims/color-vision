@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.2-phetio Thu Nov 03 2016 16:42:54 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.2.3-phetio Thu Nov 03 2016 21:19:04 GMT-0600 (MDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "master"
@@ -17,7 +17,7 @@
     "branch": "master"
   },
   "color-vision": {
-    "sha": "bf41ad5c1d9a384694aec87e6b5b89bab407eaac",
+    "sha": "3b2eefa9a0f6f2e0ff14ec8378d6917b97284fe3",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -37,7 +37,7 @@
     "branch": "master"
   },
   "phet-io": {
-    "sha": "3526b9258a25388af15a54db7892cbdfeaa49ebd",
+    "sha": "6352e95738b27ebba901b66bb776cb81d554d55e",
     "branch": "master"
   },
   "phet-io-website": {
