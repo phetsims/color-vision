@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
@@ -53,7 +52,7 @@ define( function( require ) {
     return new Color( r, g, b, 1 );
   }
 
-  return inherit( PropertySet, SingleBulbPhotonBeam, {
+  return inherit( Object, SingleBulbPhotonBeam, {
 
     // @public
     updateAnimationFrame: function( dt ) {

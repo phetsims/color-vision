@@ -19,7 +19,7 @@ define( function( require ) {
 
   /**
    * @param {Property.<number>} intensityProperty the intensity property for this color from the model
-   * @param {String} color
+   * @param {string} color
    * @param {Tandem} tandem
    * @constructor
    */
