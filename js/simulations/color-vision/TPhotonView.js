@@ -22,13 +22,7 @@ define( function( require ) {
     TObject.call( this, instance, phetioID );
   };
 
-  phetioInherit( TObject, 'TPhotonView', TPhotonView, {
-    setValue: {
-      implementation: function() {
-        this.instance.invalidatePaint();
-      }
-    }
-  }, {
+  phetioInherit( TObject, 'TPhotonView', TPhotonView, {}, {
 
     fromStateObject: function( stateObject ) {
       return {
@@ -40,6 +34,9 @@ define( function( require ) {
       return {
         // not needed, at least not yet
       };
+    },
+    setValue: function( instance, value) {
+        instance.invalidatePaint();
     }
   } );
 

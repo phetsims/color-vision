@@ -29,7 +29,7 @@ define( function( require ) {
       return value.toStateObject();
     },
 
-    setValue: function() {}
+    setValue: function( instance, value) {}
   } );
 
   phetioNamespace.register( 'TSingleBulbPhoton', TSingleBulbPhoton );
