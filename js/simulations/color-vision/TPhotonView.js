@@ -35,8 +35,8 @@ define( function( require ) {
         // not needed, at least not yet
       };
     },
-    setValue: function( instance, value) {
-        instance.invalidatePaint();
+    setValue: function( instance, value ) {
+      instance.invalidatePaint();
     }
   } );
 
