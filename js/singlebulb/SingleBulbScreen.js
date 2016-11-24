@@ -16,6 +16,8 @@ define( function( require ) {
   var SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
   var SingleBulbModel = require( 'COLOR_VISION/singlebulb/model/SingleBulbModel' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  var Property = require( 'AXON/Property' );
+  var Color = require( 'SCENERY/util/Color' );
 
   // strings
   var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
@@ -28,7 +30,7 @@ define( function( require ) {
 
     var options = {
       name: singleBulbModuleTitleString,
-      backgroundColor: 'black',
+      backgroundColorProperty: new Property( Color.toColor( 'black' ) ),
       homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
       tandem: tandem
