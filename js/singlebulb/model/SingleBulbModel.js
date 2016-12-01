@@ -23,7 +23,7 @@ define( function( require ) {
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
-  var TColor = require( 'PHET_IO/types/scenery/util/TColor' );
+  var TColor = require( 'ifphetio!PHET_IO/types/scenery/util/TColor' );
 
   /**
    * @param {Tandem} tandem
