@@ -85,18 +85,19 @@ define( function( require ) {
     var toggleButtonsContent = [ {
       value: 'no-brain',
       node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
-      tandem: tandem.createTandem( 'hideBrainRadioButton' )
+      tandemName: 'hideBrainRadioButton'
     }, {
       value: 'brain',
       node: new Image( headIcon, { scale: IMAGE_SCALE } ),
-      tandem: tandem.createTandem( 'showBrainRadioButton' )
+      tandemName: 'showBrainRadioButton'
     } ];
 
     var radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {
       buttonContentXMargin: 4,
       buttonContentYMargin: 4,
       bottom: layoutBoundsBottom - 22,
-      centerX: silhouetteNode.centerX - 42
+      centerX: silhouetteNode.centerX - 42,
+      tandem: tandem.createTandem( 'radioButtonGroup' )
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
 
     this.addChild( radioButtonGroup );
