@@ -124,29 +124,35 @@ define( function( require ) {
     var whiteColoredButtonsContent = [ {
       value: 'white',
       node: new Image( whiteLightIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'whiteLightRadioButton' )
+      tandemName: 'whiteLightRadioButton'
     }, {
       value: 'colored',
       node: new Image( singleColorLightIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'coloredLightRadioButton' )
+      tandemName: 'coloredLightRadioButton'
     } ];
 
     var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
-      _.extend( { bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+      _.extend( {
+        bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
+        tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
+      }, iconToggleOptions )
     );
 
     var beamPhotonButtonsContent = [ {
       value: 'beam',
       node: new Image( beamViewIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'beamRadioButton' )
+      tandemName: 'beamRadioButton'
     }, {
       value: 'photon',
       node: new Image( photonViewIcon, ICON_OPTIONS ),
-      tandem: tandem.createTandem( 'photonRadioButton' )
+      tandemName: 'photonRadioButton'
     } ];
 
     var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
-      _.extend( { top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT }, iconToggleOptions )
+      _.extend( {
+        top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
+        tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
+      }, iconToggleOptions )
     );
 
     this.addChild( colorWhiteSelectButtons );
