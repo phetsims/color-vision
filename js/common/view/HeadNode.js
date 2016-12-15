@@ -97,7 +97,7 @@ define( function( require ) {
       buttonContentYMargin: 4,
       bottom: layoutBoundsBottom - 22,
       centerX: silhouetteNode.centerX - 42,
-      tandem: tandem.createTandem( 'RadioButtonGroup' )
+      tandem: tandem.createTandem( 'radioButtonGroup' )
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
 
     this.addChild( radioButtonGroup );
