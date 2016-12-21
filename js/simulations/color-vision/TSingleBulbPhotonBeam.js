@@ -23,40 +23,34 @@ define( function( require ) {
   phetioInherit( TObject, 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam, {}, {
 
     clearChildInstances: function( instance ) {
-      instance.photons.length = 0;
+      while ( instance.photons.length > 0 ) {
+        var p = instance.photons.pop();
+        p.dispose();
+      }
     },
 
     /**
      * Adds a precipitate particle as specified by the phetioID and state.
      * @param {Object} beam
      * @param {Tandem} tandem
-     * @param {Object} photon
+     * @param {Object} photonStateObject
      */
-    addChildInstance: function( beam, tandem, photon ) {
-      // var photon = TSingleBulbPhoton.fromStateObject( photon );
+    addChildInstance: function( beam, tandem, photonStateObject ) {
 
       // location, velocity, intensity, color, isWhite, wavelength, tandem
-      beam.photons.push( new phet.colorVision.SingleBulbPhoton(
-        TVector2.fromStateObject( photon.location ),
-        TVector2.fromStateObject( photon.velocity ),
-        photon.intensity,
-        TColor.fromStateObject( photon.color ),
-        photon.isWhite,
-        photon.wavelength,
+      var photonInstance = new phet.colorVision.SingleBulbPhoton(
+        TVector2.fromStateObject( photonStateObject.location ),
+        TVector2.fromStateObject( photonStateObject.velocity ),
+        photonStateObject.intensity,
+        TColor.fromStateObject( photonStateObject.color ),
+        photonStateObject.isWhite,
+        photonStateObject.wavelength,
         tandem
-      ) );
+      );
+      photonInstance.passedFilter = photonStateObject.passedFilter;
+      beam.photons.push( photonInstance );
       beam.repaintEmitter.emit();
     }
-
-    // fromStateObject: function( stateObject ) {
-    //   return window.phet.colorVision.SingleBulbPhoton.fromStateObject( stateObject );
-    // },
-    //
-    // toStateObject: function( value ) {
-    //   return value.toStateObject();
-    // },
-
-    // setValue: function( instance, value ) {}
   } );
 
   phetioNamespace.register( 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam );

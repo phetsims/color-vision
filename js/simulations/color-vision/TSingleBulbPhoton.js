@@ -28,14 +28,14 @@ define( function( require ) {
       return _.extend( {
         isWhite: instance.isWhite,
         color: instance.color.toStateObject(),
-        wavelength: instance.wavelength
+        wavelength: instance.wavelength,
+        passedFilter: instance.passedFilter
       }, TRGBPhoton.toStateObject( instance ) );
     },
 
+    // Used to setValue. Not needed here since all children are created by the container.
     fromStateObject: function( stateObject ) {
       return {};
-      // return new phet.colorVision.SingleBulbPhoton( Vector2.fromStateObject( stateObject.location ), Vector2.fromStateObject( stateObject.velocity ),
-      //   stateObject.intensity, Color.fromStateObject( stateObject.color ), stateObject.isWhite, stateObject.wavelength );
     }
   } );
 
