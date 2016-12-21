@@ -9,11 +9,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
-  var Vector2 = require( 'DOT/Vector2' );
+
+  // phet-io modules
+  var TSingleBulbPhoton = require( 'ifphetio!PHET_IO/simulations/color-vision/TSingleBulbPhoton' );
 
   /**
    * @param {Vector2} location
@@ -22,9 +23,10 @@ define( function( require ) {
    * @param {Color} color
    * @param {boolean} isWhite
    * @param {number} wavelength
+   * @param {Tandem} tandem
    # @constructor
    */
-  function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength ) {
+  function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength, tandem ) {
 
     RGBPhoton.call( this, location, velocity, intensity );
 
@@ -36,25 +38,17 @@ define( function( require ) {
     this.color = color;
     this.wavelength = wavelength;
     this.passedFilter = false;
+    tandem.addInstance( this, TSingleBulbPhoton );
+    this.disposeSingleBulbPhoton = function() {
+      tandem.removeInstance( this );
+    };
   }
 
   colorVision.register( 'SingleBulbPhoton', SingleBulbPhoton );
 
   return inherit( RGBPhoton, SingleBulbPhoton, {
-      toStateObject: function() {
-        return _.extend( {
-          isWhite: this.isWhite,
-          color: this.color.toStateObject(),
-          wavelength: this.wavelength
-        }, RGBPhoton.prototype.toStateObject.call( this ) );
-      }
-    },
-    // statics
-    {
-      fromStateObject: function( stateObject ) {
-        return new SingleBulbPhoton( Vector2.fromStateObject( stateObject.location ), Vector2.fromStateObject( stateObject.velocity ),
-          stateObject.intensity, Color.fromStateObject( stateObject.color ), stateObject.isWhite, stateObject.wavelength );
-      }
+    dispose: function() {
+      this.disposeSingleBulbPhoton();
     }
-  );
+  } );
 } );

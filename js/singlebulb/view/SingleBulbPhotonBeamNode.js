@@ -37,6 +37,10 @@ define( function( require ) {
 
     // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
     tandem.addInstance( this, TNode );
+
+    model.photonBeam.repaintEmitter.addListener( function() {
+      self.invalidatePaint();
+    } );
   }
 
   colorVision.register( 'SingleBulbPhotonBeamNode', SingleBulbPhotonBeamNode );

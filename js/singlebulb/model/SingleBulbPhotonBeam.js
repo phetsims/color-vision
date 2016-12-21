@@ -17,10 +17,10 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Emitter = require( 'AXON/Emitter' );
 
   // phet-io modules
-  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
-  var TSingleBulbPhoton = require( 'ifphetio!PHET_IO/simulations/color-vision/TSingleBulbPhoton' );
+  var TSingleBulbPhotonBeam = require( 'ifphetio!PHET_IO/simulations/color-vision/TSingleBulbPhotonBeam' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
@@ -40,7 +40,12 @@ define( function( require ) {
     // @private
     this.model = model;
 
-    tandem.createTandem( 'photons' ).addInstance( this.photons, TArray( TSingleBulbPhoton ) );
+    this.photonGroupTandem = tandem.createGroupTandem( 'photons' );
+
+    tandem.addInstance( this, TSingleBulbPhotonBeam );
+
+    // @public
+    this.repaintEmitter = new Emitter();
   }
 
   colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
@@ -56,6 +61,7 @@ define( function( require ) {
 
     // @public
     updateAnimationFrame: function( dt ) {
+      var self = this;
 
       var probability = 1; // probability for a given photon to pass the filter
 
@@ -86,6 +92,7 @@ define( function( require ) {
 
           // remove a percentage of photons from the beam
           if ( Math.random() >= probability ) {
+            this.photons[ j ].dispose();
             this.photons.splice( j, 1 ); // remove jth photon from list
             continue;
           }
@@ -126,6 +133,7 @@ define( function( require ) {
             // otherwise it takes the intensity of the photon, which may have been partially filtered
             this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.withAlpha( 1 ) : newPerceivedColor;
           }
+          this.photons[ j ].dispose();
           this.photons.splice( j, 1 ); // remove jth photon from list
         }
       }
@@ -133,21 +141,36 @@ define( function( require ) {
       // emit a black photon for resetting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisible ) {
-        var blackPhoton = new SingleBulbPhoton( new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
-          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false );
+        var blackPhoton = new SingleBulbPhoton(
+          new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
+          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
+          1,
+          BLACK_ALPHA_0,
+          false,
+          undefined,
+          self.photonGroupTandem.createNextTandem()
+        );
         blackPhoton.passedFilter = true;
         this.photons.push( blackPhoton );
       }
 
       // emit a black photon for resetting the perceived color to black if the flashlight is off
       if ( !this.model.flashlightOn ) {
-        this.photons.push( new SingleBulbPhoton( new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
-          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ), 1, BLACK_ALPHA_0, false ) );
+        this.photons.push( new SingleBulbPhoton(
+          new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
+          new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
+          1,
+          BLACK_ALPHA_0,
+          false,
+          undefined,// TODO: quoi?
+          self.photonGroupTandem.createNextTandem()
+        ) );
       }
     },
 
     // @public
     createPhoton: function( timeElapsed ) {
+      var self = this;
       // if the flashlight is on, create a new photon this animation frame
       if ( this.model.flashlightOn ) {
         var newColor = ( this.model.lightType === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
@@ -159,10 +182,15 @@ define( function( require ) {
         var deltaY = yVelocity * timeElapsed;
         var y = initialY + deltaY;
 
-        this.photons.push( new SingleBulbPhoton( new Vector2( x, y ),
+        this.photons.push( new SingleBulbPhoton(
+          new Vector2( x, y ),
           new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ),
-          1, newColor, ( this.model.lightType === 'white' ),
-          this.model.flashlightWavelength ) );
+          1,
+          newColor,
+          this.model.lightType === 'white',
+          this.model.flashlightWavelength,
+          self.photonGroupTandem.createNextTandem()
+        ) );
       }
     },
 

@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {Vector2} location
@@ -33,21 +32,6 @@ define( function( require ) {
       updateAnimationFrame: function( newX, newY ) {
         this.location.x = newX;
         this.location.y = newY;
-      },
-
-      toStateObject: function() {
-        return {
-          location: this.location.toStateObject(),
-          velocity: this.velocity.toStateObject(),
-          intensity: this.intensity
-        };
-      }
-    },
-    // statics
-    {
-      fromStateObject: function( stateObject ) {
-        return new RGBPhoton( Vector2.fromStateObject( stateObject.location ), Vector2.fromStateObject( stateObject.velocity ),
-          stateObject.intensity );
       }
     }
   );
