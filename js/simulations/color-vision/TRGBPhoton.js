@@ -35,9 +35,7 @@ define( function( require ) {
         velocity: TVector2.toStateObject( value.velocity ),
         intensity: value.intensity
       };
-    },
-
-    setValue: function( instance, value ) {}
+    }
   } );
 
   phetioNamespace.register( 'TRGBPhoton', TRGBPhoton );

@@ -22,8 +22,6 @@ define( function( require ) {
 
   phetioInherit( TObject, 'TSingleBulbPhoton', TSingleBulbPhoton, {}, {
 
-    setValue: function( instance, value ) {},
-
     toStateObject: function( instance ) {
       return _.extend( {
         isWhite: instance.isWhite,
