@@ -15,7 +15,7 @@ define( function( require ) {
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
   // phet-io modules
-  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+  var TPhotonView = require( 'ifphetio!PHET_IO/simulations/color-vision/TPhotonView' );
 
   // If this is set to true, it will show a rectangle around the beam.
   // This is useful for getting the placement of the beam correct relative to the
@@ -39,7 +39,13 @@ define( function( require ) {
     this.invalidatePaint();
 
     // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
-    tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TPhotonView );
+
+    // TODO: alternatively, use the pattern in TrackNode?
+    // In the state.html wrapper, when the state changes, we must update the skater node
+    // phetio.setStateEmitter && phetio.setStateEmitter.addListener( function() {
+    //   self.updateTrackShape();
+    // } );
   }
 
   colorVision.register( 'RGBPhotonBeamNode', RGBPhotonBeamNode );
