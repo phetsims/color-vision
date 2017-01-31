@@ -22,7 +22,7 @@ define( function( require ) {
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
-  var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
+  var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/StopSignNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
   var GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
