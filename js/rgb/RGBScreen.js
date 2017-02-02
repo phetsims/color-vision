@@ -17,7 +17,6 @@ define( function( require ) {
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Property = require( 'AXON/Property' );
-  var Color = require( 'SCENERY/util/Color' );
 
   // strings
   var rgbBulbsModuleTitleString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
@@ -30,7 +29,7 @@ define( function( require ) {
 
     var options = {
       name: rgbBulbsModuleTitleString,
-      backgroundColorProperty: new Property( Color.toColor( 'black' ) ),
+      backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
       tandem: tandem
