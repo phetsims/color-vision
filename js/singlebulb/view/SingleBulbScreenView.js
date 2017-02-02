@@ -21,6 +21,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
   var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
   var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
   var GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
