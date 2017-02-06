@@ -29,7 +29,7 @@ define( function( require ) {
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
 
   // images
@@ -87,7 +87,7 @@ define( function( require ) {
     } );
 
     // add text above the upper slider
-    var bulbColorTextNode = new TandemText( bulbSliderLabelString, {
+    var bulbColorTextNode = new Text( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: bulbColorSlider.top - 3,
@@ -193,7 +193,7 @@ define( function( require ) {
       } );
 
     // Add the text above the gaussian wavelength slider
-    var filterColorTextNode = new TandemText( filterSliderLabelString, {
+    var filterColorTextNode = new Text( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
