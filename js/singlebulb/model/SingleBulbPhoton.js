@@ -30,6 +30,8 @@ define( function( require ) {
 
     RGBPhoton.call( this, location, velocity, intensity );
 
+    var self = this;
+
     // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
     // White photons passing through must be changed to match the filter color, but keep full intensity.
     // Colored photons must loose intensity when passing through the filter.
@@ -40,7 +42,7 @@ define( function( require ) {
     this.passedFilter = false;
     tandem.addInstance( this, TSingleBulbPhoton );
     this.disposeSingleBulbPhoton = function() {
-      tandem.removeInstance( this );
+      tandem.removeInstance( self );
     };
   }
 
