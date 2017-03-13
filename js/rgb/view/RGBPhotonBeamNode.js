@@ -13,9 +13,9 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
+  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // phet-io modules
-  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
 
   // If this is set to true, it will show a rectangle around the beam.

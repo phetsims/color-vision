@@ -8,12 +8,14 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var TVector2 = require( 'DOT/TVector2' );
+  var TColor = require( 'SCENERY/util/TColor' );
+
+  // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TVector2 = require( 'DOT/TVector2' );
-  var TColor = require( 'ifphetio!PHET_IO/types/scenery/util/TColor' );
 
   var TSingleBulbPhotonBeam = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );

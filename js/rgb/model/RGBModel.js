@@ -18,16 +18,15 @@ define( function( require ) {
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
+  var TColor = require( 'SCENERY/util/TColor' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var TColor = require( 'ifphetio!PHET_IO/types/scenery/util/TColor' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
-  var PERCENT_RANGE = new Range( 0, 100 );
-
   // constants
+  var PERCENT_RANGE = new Range( 0, 100 );
   var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
 
   /**
