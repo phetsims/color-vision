@@ -13,7 +13,7 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
+  var TVector2 = require( 'DOT/TVector2' );
 
   var TRGBPhoton = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.RGBPhoton );
