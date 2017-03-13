@@ -14,7 +14,7 @@ define( function( require ) {
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
 
   // phet-io modules
-  var TSingleBulbPhoton = require( 'ifphetio!PHET_IO/simulations/color-vision/TSingleBulbPhoton' );
+  var TSingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/TSingleBulbPhoton' );
 
   /**
    * @param {Vector2} location

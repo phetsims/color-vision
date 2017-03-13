@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
 
   var TRGBPhoton = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.RGBPhoton );
@@ -38,7 +38,7 @@ define( function( require ) {
     }
   } );
 
-  phetioNamespace.register( 'TRGBPhoton', TRGBPhoton );
+  colorVision.register( 'TRGBPhoton', TRGBPhoton );
 
   return TRGBPhoton;
 } );

@@ -17,7 +17,7 @@ define( function( require ) {
 
   // phet-io modules
   var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
-  var TRGBPhoton = require( 'ifphetio!PHET_IO/simulations/color-vision/TRGBPhoton' );
+  var TRGBPhoton = require( 'COLOR_VISION/rgb/model/TRGBPhoton' );
 
   /**
    * @param {string} color an rgb string

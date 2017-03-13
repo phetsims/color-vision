@@ -8,12 +8,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
-  var TColor = require( 'PHET_IO/types/scenery/util/TColor' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
+  var TColor = require( 'ifphetio!PHET_IO/types/scenery/util/TColor' );
 
   var TSingleBulbPhotonBeam = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );
@@ -53,7 +53,7 @@ define( function( require ) {
     }
   } );
 
-  phetioNamespace.register( 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam );
+  colorVision.register( 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam );
 
   return TSingleBulbPhotonBeam;
 } );

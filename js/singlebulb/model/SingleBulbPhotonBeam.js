@@ -20,7 +20,7 @@ define( function( require ) {
   var Emitter = require( 'AXON/Emitter' );
 
   // phet-io modules
-  var TSingleBulbPhotonBeam = require( 'ifphetio!PHET_IO/simulations/color-vision/TSingleBulbPhotonBeam' );
+  var TSingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/TSingleBulbPhotonBeam' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
