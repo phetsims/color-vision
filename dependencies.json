@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.8 Thu Apr 13 2017 15:53:40 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.1.9-rc.1 Thu Apr 13 2017 17:06:21 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -10,14 +10,14 @@
   },
   "brand": {
     "sha": "4b1201f2fe0530e2b4c7373592ba061d9c3e16d6",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "chipper": {
     "sha": "1a08789628d51080e650928d6eec567056ee64e7",
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "dfc4c76c992df45616230afee35fbfaa19c5dba2",
+    "sha": "627ca4733b810fc253f97a13b6a8b83c78a89c73",
     "branch": "1.1"
   },
   "dot": {
@@ -38,7 +38,7 @@
   },
   "phetcommon": {
     "sha": "cee91f4223917df5ce50b54d053c29fada2398fb",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "2c13f9101befca596de2571fd6ced8d8ff05e9e1",
