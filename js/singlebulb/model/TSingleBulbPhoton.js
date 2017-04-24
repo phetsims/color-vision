@@ -21,6 +21,7 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TSingleBulbPhoton', TSingleBulbPhoton, {}, {
+    documentation: 'A Photon from a single bulb.',
 
     toStateObject: function( instance ) {
       return _.extend( {

@@ -23,6 +23,7 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam, {}, {
+    documentation: 'The Beam on the single bulb screen.',
 
     clearChildInstances: function( instance ) {
       while ( instance.photons.length > 0 ) {
