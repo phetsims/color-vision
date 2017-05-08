@@ -259,6 +259,7 @@ define( function( require ) {
 
   return inherit( ColorVisionScreenView, SingleBulbScreenView, {
     step: function( dt ) {
+      dt = Math.min( dt, 0.5 ); // Cap DT, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
       this.photonBeamNode.step( dt );
     }
   } );
