@@ -167,27 +167,28 @@ define( function( require ) {
 
   colorVision.register( 'SingleBulbModel', SingleBulbModel );
 
-  return inherit( PropertySet, SingleBulbModel,
-    {
-      // @public
-      step: function( dt ) {
-        if ( this.playing ) {
-          this.photonBeam.updateAnimationFrame( dt );
-          this.eventTimer.step( dt );
-        }
-      },
+  return inherit( PropertySet, SingleBulbModel, {
 
-      // step one frame, assuming 60fps
-      // @public
-      manualStep: function() {
-        this.photonBeam.updateAnimationFrame( 1 / 60 );
-        this.eventTimer.step( 1 / 60 );
-      },
-
-      // @public
-      reset: function() {
-        PropertySet.prototype.reset.call( this );
-        this.photonBeam.reset();
+    // @public
+    step: function( dt ) {
+      dt = Math.min( dt, 0.5 ); // Cap DT, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
+      if ( this.playing ) {
+        this.photonBeam.updateAnimationFrame( dt );
+        this.eventTimer.step( dt );
       }
-    } );
+    },
+
+    // step one frame, assuming 60fps
+    // @public
+    manualStep: function() {
+      this.photonBeam.updateAnimationFrame( 1 / 60 );
+      this.eventTimer.step( 1 / 60 );
+    },
+
+    // @public
+    reset: function() {
+      PropertySet.prototype.reset.call( this );
+      this.photonBeam.reset();
+    }
+  } );
 } );
