@@ -19,6 +19,7 @@ define( function( require ) {
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
   var TColor = require( 'SCENERY/util/TColor' );
+  var Property = require( 'AXON/Property' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
 
   // phet-io modules
@@ -66,16 +67,6 @@ define( function( require ) {
         tandem: tandem.createTandem( 'blueIntensityProperty' ),
         phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
       },
-      playing: {
-        value: true, // is the sim running or paused?
-        tandem: tandem.createTandem( 'playingProperty' ),
-        phetioValueType: TBoolean
-      },
-      headMode: {
-        value: 'no-brain', // takes values 'brain' or 'no-brain'
-        tandem: tandem.createTandem( 'headModeProperty' ),
-        phetioValueType: TString
-      },
 
       // @private
       perceivedRedIntensity: {
@@ -96,6 +87,19 @@ define( function( require ) {
     };
 
     PropertySet.call( this, null, properties );
+
+    // @public {Property.<boolean>} is the model running?
+    this.playingProperty = new Property( true, {
+      tandem: tandem.createTandem( 'playingProperty' ),
+      phetioValueType: TBoolean
+    } );
+
+    // @public {Property.<string>} which head view to show
+    this.headModeProperty = new Property( 'no-brain', {
+      validValues: [ 'brain', 'no-brain' ],
+      tandem: tandem.createTandem( 'headModeProperty' ),
+      phetioValueType: TString
+    } );
 
     // @private
     this.redBeam = new RGBPhotonBeam(
@@ -188,7 +192,7 @@ define( function( require ) {
     // @public
     step: function( dt ) {
       dt = Math.min( dt, 0.5 ); // Cap DT, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
-      if ( this.playing ) {
+      if ( this.playingProperty.value ) {
         this.stepBeams( dt );
         this.stepTimers( dt );
       }
@@ -203,7 +207,11 @@ define( function( require ) {
 
     // @public
     reset: function() {
+
       PropertySet.prototype.reset.call( this );
+      this.playingProperty.reset();
+      this.headModeProperty.reset();
+
       this.redBeam.reset();
       this.greenBeam.reset();
       this.blueBeam.reset();
