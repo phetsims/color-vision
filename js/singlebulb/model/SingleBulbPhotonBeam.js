@@ -129,12 +129,13 @@ define( function( require ) {
 
           // don't update the lastPhotonColor unless it is different than before, for performance reasons
           // and don't bother to update the color if the view is on beam mode
-          if ( !this.model.lastPhotonColor.equals( newPerceivedColor ) && this.model.beamTypeProperty.value === 'photon' ) {
+          if ( !this.model.lastPhotonColorProperty.value.equals( newPerceivedColor ) && this.model.beamTypeProperty.value === 'photon' ) {
 
             // if the photon was white, the perceived color keeps full intensity even when it passes the filter,
             // otherwise it takes the intensity of the photon, which may have been partially filtered
-            this.model.lastPhotonColor = ( photon.wasWhite ) ? newPerceivedColor.withAlpha( 1 ) : newPerceivedColor;
+            this.model.lastPhotonColorProperty.value = ( photon.wasWhite ) ? newPerceivedColor.withAlpha( 1 ) : newPerceivedColor;
           }
+          
           this.photons[ j ].dispose();
           this.photons.splice( j, 1 ); // remove jth photon from list
         }

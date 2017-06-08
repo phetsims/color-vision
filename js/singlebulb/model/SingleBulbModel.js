@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PropertySet = require( 'AXON/PropertySet' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
@@ -35,15 +34,6 @@ define( function( require ) {
 
     var flashlightTandem = tandem.createTandem( 'flashlight' );
     var filterTandem = tandem.createTandem( 'filter' );
-
-    // @public
-    var properties = {
-
-      // keep track of the last photon to hit the eye, for use in calculating the perceived color
-      lastPhotonColor: {
-        value: new Color( 0, 0, 0, 0 )
-      }
-    };
 
     // @public {Property.<string>} kind of light in the beam'
     this.lightTypeProperty = new Property( 'colored', {
@@ -102,7 +92,9 @@ define( function( require ) {
       phetioValueType: TString
     } );
 
-    PropertySet.call( this, null, properties );
+    // @public {Property.<Color|string>} keep track of the last photon to hit the eye,
+    // for use in calculating the perceived color
+    this.lastPhotonColorProperty = new Property( new Color( 0, 0, 0, 0 ) );
 
     // @public {DerivedProperty.<Color|string>} the color perceived by the person depends on almost every property
     this.perceivedColorProperty = new DerivedProperty( [
@@ -172,7 +164,7 @@ define( function( require ) {
 
   colorVision.register( 'SingleBulbModel', SingleBulbModel );
 
-  return inherit( PropertySet, SingleBulbModel, {
+  return inherit( Object, SingleBulbModel, {
 
     // @public
     step: function( dt ) {
@@ -196,7 +188,6 @@ define( function( require ) {
     // @public
     reset: function() {
 
-      PropertySet.prototype.reset.call( this );
       this.lightTypeProperty.reset();
       this.beamTypeProperty.reset();
       this.flashlightWavelengthProperty.reset();
@@ -205,6 +196,7 @@ define( function( require ) {
       this.filterVisibleProperty.reset();
       this.playingProperty.reset();
       this.headModeProperty.reset();
+      this.lastPhotonColorProperty
 
       this.photonBeam.reset();
     }
