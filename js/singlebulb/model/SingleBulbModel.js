@@ -196,7 +196,7 @@ define( function( require ) {
       this.filterVisibleProperty.reset();
       this.playingProperty.reset();
       this.headModeProperty.reset();
-      this.lastPhotonColorProperty
+      this.lastPhotonColorProperty.reset();
 
       this.photonBeam.reset();
     }
