@@ -19,6 +19,7 @@ define( function( require ) {
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
   var TColor = require( 'SCENERY/util/TColor' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -118,10 +119,13 @@ define( function( require ) {
 
     var self = this;
 
-    // add perceivedColorProperty based on the combination of the three perceived intensities.
-    // this determines the thought bubble color
-    // @public
-    this.addDerivedProperty( 'perceivedColor', [ 'perceivedRedIntensity', 'perceivedGreenIntensity', 'perceivedBlueIntensity' ],
+    // @public {Property.<Color|string>}
+    // based on the combination of the three perceived intensities, this determines the thought bubble color
+    this.perceivedColorProperty = new DerivedProperty( [
+        this.perceivedRedIntensityProperty,
+        this.perceivedGreenIntensityProperty,
+        this.perceivedBlueIntensityProperty
+      ],
       function( redIntensity, greenIntensity, blueIntensity ) {
         return new Color(
           Math.floor( redIntensity * COLOR_SCALE_FACTOR ),
