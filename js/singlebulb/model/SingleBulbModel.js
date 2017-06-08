@@ -101,6 +101,15 @@ define( function( require ) {
       phetioValueType: TString
     } );
 
+    // @public {Property.<number>} in units of nm, default wavelength is yellow color TODO check #108
+    this.flashlightWavelengthProperty = new Property( 570, {
+      tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
+      phetioValueType: TNumber( {
+        units: 'nanometers',
+        range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
+      } )
+    } );
+
     PropertySet.call( this, null, properties );
 
     // @public {DerivedProperty.<Color|string>} the color perceived by the person depends on almost every property
@@ -194,6 +203,7 @@ define( function( require ) {
       PropertySet.prototype.reset.call( this );
       this.lightTypeProperty.reset();
       this.beamTypeProperty.reset();
+      this.flashlightWavelengthProperty.reset();
       this.photonBeam.reset();
     }
   } );

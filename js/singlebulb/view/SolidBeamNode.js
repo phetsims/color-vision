@@ -82,7 +82,13 @@ define( function( require ) {
     } );
 
     // listen for any changes to the model that condition when the beam should be white.
-    model.multilink( [ 'flashlightWavelength', 'filterWavelength', 'lightType', 'filterVisible', 'beamType' ],
+    Property.multilink( [
+        model.flashlightWavelengthProperty,
+        model.filterWavelengthProperty,
+        model.lightTypeProperty,
+        model.filterVisibleProperty,
+        model.beamTypeProperty
+      ],
       function( flashlightWavelength, filterWavelength, lightType, filterVisible, beamMode ) {
         // update the beam only if it is visible
         if ( beamMode === 'beam' ) {

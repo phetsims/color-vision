@@ -173,7 +173,8 @@ define( function( require ) {
       var self = this;
       // if the flashlight is on, create a new photon this animation frame
       if ( this.model.flashlightOn ) {
-        var newColor = ( this.model.lightType === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
+        var newColor = ( this.model.lightTypeProperty.value === 'white' ) ?
+                       randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
 
         var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
         var yVelocity = ( Math.random() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
@@ -187,8 +188,8 @@ define( function( require ) {
           new Vector2( ColorVisionConstants.X_VELOCITY, yVelocity ),
           1,
           newColor,
-          this.model.lightType === 'white',
-          this.model.flashlightWavelength,
+          this.model.lightTypeProperty.value === 'white',
+          this.model.flashlightWavelengthProperty.value,
           self.photonGroupTandem.createNextTandem()
         ) );
       }
