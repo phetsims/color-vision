@@ -39,12 +39,6 @@ define( function( require ) {
     // @public
     var properties = {
 
-      filterVisible: {
-        value: false,
-        tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
-        phetioValueType: TBoolean
-      },
-
       playing: {
         value: true,
         tandem: tandem.createTandem( 'playingProperty' ),
@@ -98,6 +92,12 @@ define( function( require ) {
     // @public {Property.<boolean>} is the flashlight on?
     this.flashlightOnProperty = new Property( false, {
       tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
+      phetioValueType: TBoolean
+    } );
+
+    // @public {Property.<boolean>} is the filter on?
+    this.filterVisibleProperty = new Property( false, {
+      tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
       phetioValueType: TBoolean
     } );
 
@@ -198,6 +198,7 @@ define( function( require ) {
       this.flashlightWavelengthProperty.reset();
       this.filterWavelengthProperty.reset();
       this.flashlightOnProperty.reset();
+      this.filterVisibleProperty.reset();
 
       this.photonBeam.reset();
     }

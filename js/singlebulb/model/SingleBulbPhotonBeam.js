@@ -76,7 +76,7 @@ define( function( require ) {
         var newY = photon.location.y + dt * photon.velocity.y;
 
         // check if the photon just passed through the filter location
-        if ( this.model.filterVisible && newX < this.filterOffset && !photon.passedFilter ) {
+        if ( this.model.filterVisibleProperty.value && newX < this.filterOffset && !photon.passedFilter ) {
           var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the photon's wavelength is outside the transmission width, it doesn't pass.
@@ -142,7 +142,7 @@ define( function( require ) {
 
       // emit a black photon for resetting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
-      if ( probability === 0 && this.model.filterVisible ) {
+      if ( probability === 0 && this.model.filterVisibleProperty.value ) {
         var blackPhoton = new SingleBulbPhoton(
           new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
           new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
