@@ -157,7 +157,7 @@ define( function( require ) {
       }
 
       // emit a black photon for resetting the perceived color to black if the flashlight is off
-      if ( !this.model.flashlightOn ) {
+      if ( !this.model.flashlightOnProperty.value ) {
         this.photons.push( new SingleBulbPhoton(
           new Vector2( this.beamLength, ColorVisionConstants.BEAM_HEIGHT / 2 ),
           new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
@@ -174,7 +174,7 @@ define( function( require ) {
     createPhoton: function( timeElapsed ) {
       var self = this;
       // if the flashlight is on, create a new photon this animation frame
-      if ( this.model.flashlightOn ) {
+      if ( this.model.flashlightOnProperty.value ) {
         var newColor = ( this.model.lightTypeProperty.value === 'white' ) ?
                        randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
 

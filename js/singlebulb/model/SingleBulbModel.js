@@ -39,12 +39,6 @@ define( function( require ) {
     // @public
     var properties = {
 
-      flashlightOn: {
-        value: false,
-        tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
-        phetioValueType: TBoolean
-      },
-
       filterVisible: {
         value: false,
         tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
@@ -99,6 +93,12 @@ define( function( require ) {
         units: 'nanometers',
         range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
       } )
+    } );
+
+    // @public {Property.<boolean>} is the flashlight on?
+    this.flashlightOnProperty = new Property( false, {
+      tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
+      phetioValueType: TBoolean
     } );
 
     PropertySet.call( this, null, properties );
@@ -191,11 +191,14 @@ define( function( require ) {
 
     // @public
     reset: function() {
+
       PropertySet.prototype.reset.call( this );
       this.lightTypeProperty.reset();
       this.beamTypeProperty.reset();
       this.flashlightWavelengthProperty.reset();
       this.filterWavelengthProperty.reset();
+      this.flashlightOnProperty.reset();
+
       this.photonBeam.reset();
     }
   } );
