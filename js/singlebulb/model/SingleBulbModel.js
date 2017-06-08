@@ -39,12 +39,6 @@ define( function( require ) {
     // @public
     var properties = {
 
-      playing: {
-        value: true,
-        tandem: tandem.createTandem( 'playingProperty' ),
-        phetioValueType: TBoolean
-      },
-
       headMode: {
         value: 'no-brain', // takes values 'brain' and 'no-brain'
         tandem: tandem.createTandem( 'headModeProperty' ),
@@ -98,6 +92,12 @@ define( function( require ) {
     // @public {Property.<boolean>} is the filter on?
     this.filterVisibleProperty = new Property( false, {
       tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
+      phetioValueType: TBoolean
+    } );
+
+    // @public
+    this.playingProperty = new Property( true, {
+      tandem: tandem.createTandem( 'playingProperty' ),
       phetioValueType: TBoolean
     } );
 
@@ -175,8 +175,11 @@ define( function( require ) {
 
     // @public
     step: function( dt ) {
-      dt = Math.min( dt, 0.5 ); // Cap DT, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
-      if ( this.playing ) {
+
+      // Cap dt, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
+      dt = Math.min( dt, 0.5 );
+
+      if ( this.playingProperty.value ) {
         this.photonBeam.updateAnimationFrame( dt );
         this.eventTimer.step( dt );
       }
@@ -199,6 +202,7 @@ define( function( require ) {
       this.filterWavelengthProperty.reset();
       this.flashlightOnProperty.reset();
       this.filterVisibleProperty.reset();
+      this.playingProperty.reset();
 
       this.photonBeam.reset();
     }
