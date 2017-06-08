@@ -61,9 +61,11 @@ define( function( require ) {
 
     // @public
     updateAnimationFrame: function( dt ) {
+
       var self = this;
 
       var probability = 1; // probability for a given photon to pass the filter
+      var filterWavelength = this.model.filterWavelengthProperty.value;
 
       // move all photons that are currently active
       for ( var j = 0; j < this.photons.length; j++ ) {
@@ -78,13 +80,13 @@ define( function( require ) {
           var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the photon's wavelength is outside the transmission width, it doesn't pass.
-          if ( photon.wavelength < this.model.filterWavelength - halfWidth ||
-               photon.wavelength > this.model.filterWavelength + halfWidth ) {
+          if ( photon.wavelength < filterWavelength - halfWidth ||
+               photon.wavelength > filterWavelength + halfWidth ) {
             probability = 0;
           }
           // flashlightWavelength is within the transmission width, pass a linear percentage.
           else {
-            probability = 1 - Math.abs( this.model.filterWavelength - photon.wavelength ) / halfWidth;
+            probability = 1 - Math.abs( filterWavelength - photon.wavelength ) / halfWidth;
           }
 
           // set the probability to be 0.5 for white photons, this is just based on the observation of what looks good
@@ -98,7 +100,7 @@ define( function( require ) {
           }
           // if the beam is white, make sure it is the color of the filter
           else if ( photon.isWhite ) {
-            photon.color = VisibleColor.wavelengthToColor( this.model.filterWavelength );
+            photon.color = VisibleColor.wavelengthToColor( filterWavelength );
             photon.isWhite = false;
           }
           // if the photon is not white

@@ -115,12 +115,13 @@ define( function( require ) {
       } );
     visibleProperty.linkAttribute( this, 'visible' );
 
-    Property.multilink( [ model.perceivedColorProperty, visibleProperty ], function( perceivedColor, visible ) {
-      if ( visible ) {
-        // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
-        leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA * perceivedColor.a );
-      }
-    } );
+    Property.multilink( [ model.perceivedColorProperty, visibleProperty ],
+      function( perceivedColor, visible ) {
+        if ( visible ) {
+          // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
+          leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA * perceivedColor.a );
+        }
+      } );
 
     this.addChild( leftHalf );
     this.addChild( rightHalf );

@@ -39,15 +39,6 @@ define( function( require ) {
     // @public
     var properties = {
 
-      filterWavelength: {
-        value: 570, // in units of nm, default wavelength is yellow color
-        tandem: filterTandem.createTandem( 'filterWavelengthProperty' ),
-        phetioValueType: TNumber( {
-          units: 'nanometers',
-          range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
-        } )
-      },
-
       flashlightOn: {
         value: false,
         tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
@@ -92,9 +83,18 @@ define( function( require ) {
       phetioValueType: TString
     } );
 
-    // @public {Property.<number>} in units of nm, default wavelength is yellow color
+    // @public {Property.<number>} in units of nm, default wavelength is yellow
     this.flashlightWavelengthProperty = new Property( 570, {
       tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
+      phetioValueType: TNumber( {
+        units: 'nanometers',
+        range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
+      } )
+    } );
+
+    // @public {Property.<number>} in units of nm, default wavelength is yellow
+    this.filterWavelengthProperty = new Property( 570, {
+      tandem: filterTandem.createTandem( 'filterWavelengthProperty' ),
       phetioValueType: TNumber( {
         units: 'nanometers',
         range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
@@ -195,6 +195,7 @@ define( function( require ) {
       this.lightTypeProperty.reset();
       this.beamTypeProperty.reset();
       this.flashlightWavelengthProperty.reset();
+      this.filterWavelengthProperty.reset();
       this.photonBeam.reset();
     }
   } );
