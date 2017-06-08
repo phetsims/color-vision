@@ -39,12 +39,6 @@ define( function( require ) {
     // @public
     var properties = {
 
-      headMode: {
-        value: 'no-brain', // takes values 'brain' and 'no-brain'
-        tandem: tandem.createTandem( 'headModeProperty' ),
-        phetioValueType: TString
-      },
-
       // keep track of the last photon to hit the eye, for use in calculating the perceived color
       lastPhotonColor: {
         value: new Color( 0, 0, 0, 0 )
@@ -99,6 +93,13 @@ define( function( require ) {
     this.playingProperty = new Property( true, {
       tandem: tandem.createTandem( 'playingProperty' ),
       phetioValueType: TBoolean
+    } );
+
+    // @public
+    this.headModeProperty = new Property( 'no-brain', {
+      validValues: [ 'brain', 'no-brain' ],
+      tandem: tandem.createTandem( 'headModeProperty' ),
+      phetioValueType: TString
     } );
 
     PropertySet.call( this, null, properties );
@@ -203,6 +204,7 @@ define( function( require ) {
       this.flashlightOnProperty.reset();
       this.filterVisibleProperty.reset();
       this.playingProperty.reset();
+      this.headModeProperty.reset();
 
       this.photonBeam.reset();
     }
