@@ -92,7 +92,7 @@ define( function( require ) {
       phetioValueType: TString
     } );
 
-    // @public {Property.<number>} in units of nm, default wavelength is yellow color TODO check #108
+    // @public {Property.<number>} in units of nm, default wavelength is yellow color
     this.flashlightWavelengthProperty = new Property( 570, {
       tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
       phetioValueType: TNumber( {
