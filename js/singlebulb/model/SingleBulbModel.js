@@ -19,6 +19,8 @@ define( function( require ) {
   var EventTimer = require( 'PHET_CORE/EventTimer' );
   var Range = require( 'DOT/Range' );
   var TColor = require( 'SCENERY/util/TColor' );
+  var Property = require( 'AXON/Property' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -36,12 +38,6 @@ define( function( require ) {
 
     // @public
     var properties = {
-
-      lightType: {
-        value: 'colored', // takes values 'white' and 'colored', to indicate what kind of light in the beam
-        tandem: tandem.createTandem( 'lightTypeProperty' ),
-        phetioValueType: TString
-      },
 
       beamType: {
         value: 'beam', // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
@@ -97,61 +93,67 @@ define( function( require ) {
       }
     };
 
+    // @public {Property.<string>} kind of light in the beam, 'white' or 'colored'
+    this.lightTypeProperty = new Property( 'colored', {
+      tandem: tandem.createTandem( 'lightTypeProperty' ),
+      phetioValueType: TString
+    } );
+
     PropertySet.call( this, null, properties );
 
-    // the color perceived by the person depends on almost every property
-    // @public
-    this.addDerivedProperty( 'perceivedColor', [
-      'flashlightWavelength',
-      'filterWavelength',
-      'flashlightOn',
-      'filterVisible',
-      'lightType',
-      'beamType',
-      'lastPhotonColor'
-    ], function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, lightType, beamType, lastPhotonColor ) {
+    // @public {DerivedProperty.<Color|string>} the color perceived by the person depends on almost every property
+    this.perceivedColorProperty = new DerivedProperty( [
+        this.flashlightWavelengthProperty,
+        this.filterWavelengthProperty,
+        this.flashlightOnProperty,
+        this.filterVisibleProperty,
+        this.lightTypeProperty,
+        this.beamTypeProperty,
+        this.lastPhotonColorProperty
+      ],
+      function( flashlightWavelength, filterWavelength, flashlightOn, filterVisible, lightType, beamType, lastPhotonColor ) {
 
-      // If the beam is in photon mode, return the color of the last photon to hit the eye.
-      // The logic for handling all of the cases where the beam is in photon mode is in the file
-      // SingleBulbPhotonBeam, where lastPhotonColor is set.
-      if ( beamType === 'photon' ) {
-        return lastPhotonColor;
-      }
-      // if flashlight is not on, the perceived color is black
-      else if ( !flashlightOn ) {
-        return Color.BLACK;
-      }
-      // if the filter is visible, and the beam type is colored, calculate the percentage of color to pass
-      else if ( filterVisible && lightType === 'colored' ) {
-        var alpha; // the new alpha value for the color, porportional to the percentage of light to pass through the filter
-        var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
-
-        // If the flashlightWavelength is outside the transmission width, no color passes.
-        if ( flashlightWavelength < filterWavelength - halfWidth || flashlightWavelength > filterWavelength + halfWidth ) {
-          alpha = 0;
+        // If the beam is in photon mode, return the color of the last photon to hit the eye.
+        // The logic for handling all of the cases where the beam is in photon mode is in the file
+        // SingleBulbPhotonBeam, where lastPhotonColor is set.
+        if ( beamType === 'photon' ) {
+          return lastPhotonColor;
         }
-        // flashlightWavelength is within the transmission width, pass a linear percentage.
+        // if flashlight is not on, the perceived color is black
+        else if ( !flashlightOn ) {
+          return Color.BLACK;
+        }
+        // if the filter is visible, and the beam type is colored, calculate the percentage of color to pass
+        else if ( filterVisible && lightType === 'colored' ) {
+          var alpha; // the new alpha value for the color, porportional to the percentage of light to pass through the filter
+          var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
+
+          // If the flashlightWavelength is outside the transmission width, no color passes.
+          if ( flashlightWavelength < filterWavelength - halfWidth || flashlightWavelength > filterWavelength + halfWidth ) {
+            alpha = 0;
+          }
+          // flashlightWavelength is within the transmission width, pass a linear percentage.
+          else {
+            alpha = 1 - Math.abs( filterWavelength - flashlightWavelength ) / halfWidth;
+          }
+          return VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( alpha );
+        }
+        // if the filter is visible, and the beam is white, return the filter wavelength's color
+        else if ( filterVisible && lightType === 'white' ) {
+          return VisibleColor.wavelengthToColor( filterWavelength );
+        }
+        // if the beam is white and the filter is not visible, return white
+        else if ( !filterVisible && lightType === 'white' ) {
+          return Color.WHITE;
+        }
+        // if the filter is not visible, return the flashlight wavelength's color
         else {
-          alpha = 1 - Math.abs( filterWavelength - flashlightWavelength ) / halfWidth;
+          return VisibleColor.wavelengthToColor( flashlightWavelength );
         }
-        return VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( alpha );
-      }
-      // if the filter is visible, and the beam is white, return the filter wavelength's color
-      else if ( filterVisible && lightType === 'white' ) {
-        return VisibleColor.wavelengthToColor( filterWavelength );
-      }
-      // if the beam is white and the filter is not visible, return white
-      else if ( !filterVisible && lightType === 'white' ) {
-        return Color.WHITE;
-      }
-      // if the filter is not visible, return the flashlight wavelength's color
-      else {
-        return VisibleColor.wavelengthToColor( flashlightWavelength );
-      }
-    }, {
-      tandem: tandem.createTandem( 'perceivedColorProperty' ),
-      phetioValueType: TColor
-    } );
+      }, {
+        tandem: tandem.createTandem( 'perceivedColorProperty' ),
+        phetioValueType: TColor
+      } );
 
     // @public
     this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem.createTandem( 'photonBeam' ) );
@@ -188,6 +190,7 @@ define( function( require ) {
     // @public
     reset: function() {
       PropertySet.prototype.reset.call( this );
+      this.lightTypeProperty.reset();
       this.photonBeam.reset();
     }
   } );
