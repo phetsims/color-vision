@@ -17,6 +17,7 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
   var Property = require( 'AXON/Property' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
 
   // constants
   var DEFAULT_BEAM_ALPHA = 0.8;
@@ -108,7 +109,7 @@ define( function( require ) {
         }
       } );
 
-    var visibleProperty = model.toDerivedProperty( [ 'flashlightOn', 'beamType' ],
+    var visibleProperty = new DerivedProperty( [ model.flashlightOnProperty, model.beamTypeProperty ],
       function( flashlightOn, beamType ) {
         return ( flashlightOn && beamType === 'beam' );
       } );
