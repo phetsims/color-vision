@@ -35,7 +35,7 @@ define( function( require ) {
     var flashlightTandem = tandem.createTandem( 'flashlight' );
     var filterTandem = tandem.createTandem( 'filter' );
 
-    // @public {Property.<string>} kind of light in the beam'
+    // @public {Property.<string>} kind of light in the beam
     this.lightTypeProperty = new Property( 'colored', {
       validValues: [ 'white', 'colored' ],
       tandem: tandem.createTandem( 'lightTypeProperty' ),
@@ -79,13 +79,13 @@ define( function( require ) {
       phetioValueType: TBoolean
     } );
 
-    // @public
+    // @public {Property.<boolean>} is the model running?
     this.playingProperty = new Property( true, {
       tandem: tandem.createTandem( 'playingProperty' ),
       phetioValueType: TBoolean
     } );
 
-    // @public
+    // @public {Property.<string>} which head view to show
     this.headModeProperty = new Property( 'no-brain', {
       validValues: [ 'brain', 'no-brain' ],
       tandem: tandem.createTandem( 'headModeProperty' ),
