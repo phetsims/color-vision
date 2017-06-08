@@ -39,12 +39,6 @@ define( function( require ) {
     // @public
     var properties = {
 
-      beamType: {
-        value: 'beam', // takes values 'beam' and 'photon', to indicate solid beam vs individual photons
-        tandem: tandem.createTandem( 'beamTypeProperty' ),
-        phetioValueType: TString
-      },
-
       flashlightWavelength: {
         value: 570, // in units of nm, default wavelength is yellow color TODO check #108
         tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
@@ -93,9 +87,17 @@ define( function( require ) {
       }
     };
 
-    // @public {Property.<string>} kind of light in the beam, 'white' or 'colored'
+    // @public {Property.<string>} kind of light in the beam'
     this.lightTypeProperty = new Property( 'colored', {
+      validValues: [ 'white', 'colored' ],
       tandem: tandem.createTandem( 'lightTypeProperty' ),
+      phetioValueType: TString
+    } );
+
+    // @public {Property.<string>} indicates solid beam vs individual photons
+    this.beamTypeProperty = new Property( 'beam', {
+      validValues: [ 'beam', 'photon' ],
+      tandem: tandem.createTandem( 'beamTypeProperty' ),
       phetioValueType: TString
     } );
 
@@ -191,6 +193,7 @@ define( function( require ) {
     reset: function() {
       PropertySet.prototype.reset.call( this );
       this.lightTypeProperty.reset();
+      this.beamTypeProperty.reset();
       this.photonBeam.reset();
     }
   } );
