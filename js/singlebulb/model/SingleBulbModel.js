@@ -35,6 +35,19 @@ define( function( require ) {
     var flashlightTandem = tandem.createTandem( 'flashlight' );
     var filterTandem = tandem.createTandem( 'filter' );
 
+    // @public {Property.<boolean>} is the model running?
+    this.playingProperty = new Property( true, {
+      tandem: tandem.createTandem( 'playingProperty' ),
+      phetioValueType: TBoolean
+    } );
+
+    // @public {Property.<string>} which head view to show
+    this.headModeProperty = new Property( 'no-brain', {
+      validValues: [ 'brain', 'no-brain' ],
+      tandem: tandem.createTandem( 'headModeProperty' ),
+      phetioValueType: TString
+    } );
+    
     // @public {Property.<string>} kind of light in the beam
     this.lightTypeProperty = new Property( 'colored', {
       validValues: [ 'white', 'colored' ],
@@ -77,19 +90,6 @@ define( function( require ) {
     this.filterVisibleProperty = new Property( false, {
       tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
       phetioValueType: TBoolean
-    } );
-
-    // @public {Property.<boolean>} is the model running?
-    this.playingProperty = new Property( true, {
-      tandem: tandem.createTandem( 'playingProperty' ),
-      phetioValueType: TBoolean
-    } );
-
-    // @public {Property.<string>} which head view to show
-    this.headModeProperty = new Property( 'no-brain', {
-      validValues: [ 'brain', 'no-brain' ],
-      tandem: tandem.createTandem( 'headModeProperty' ),
-      phetioValueType: TString
     } );
 
     // @public {Property.<Color|string>} keep track of the last photon to hit the eye,
