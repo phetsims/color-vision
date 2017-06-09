@@ -13,7 +13,6 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PropertySet = require( 'AXON/PropertySet' );
   var Range = require( 'DOT/Range' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
@@ -37,40 +36,6 @@ define( function( require ) {
    */
   function RGBModel( tandem ) {
 
-    /**
-     * RGBModel contains 6 intensity properties, all of which range between 0-100.
-     *
-     * The values of the properties redIntensity, greenIntensity, and blueIntensity are determined
-     * from the sliders, and indicate the density of the photons coming out of the flashlights.
-     *
-     * The perceivedIntensity properties determine the color of the thought
-     * bubbles. They are calculated by taking the intensity value of the most recent photon to
-     * reach the end of the photon beam (the person's eye). Each photon keeps a record of the
-     * intensity for this reason, even though it is not used in determining intensity of the
-     * photon itself, which is constant.
-     */
-    var properties = {
-
-      // @private
-      perceivedRedIntensity: {
-        value: 0,
-        tandem: tandem.createTandem( 'perceivedRedIntensityProperty' ),
-        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
-      },
-      perceivedGreenIntensity: {
-        value: 0,
-        tandem: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
-        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
-      },
-      perceivedBlueIntensity: {
-        value: 0,
-        tandem: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
-        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
-      }
-    };
-
-    PropertySet.call( this, null, properties );
-
     // @public {Property.<boolean>} is the model running?
     this.playingProperty = new Property( true, {
       tandem: tandem.createTandem( 'playingProperty' ),
@@ -85,6 +50,9 @@ define( function( require ) {
     } );
 
     // @public
+    // The values of the properties redIntensity, greenIntensity, and blueIntensity are determined
+    // from the sliders, and determine the density of the photons coming out of the flashlights.
+    // Range is 0-100.
     this.redIntensityProperty = new Property( 0, {
       tandem: tandem.createTandem( 'redIntensityProperty' ),
       phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
@@ -95,6 +63,28 @@ define( function( require ) {
     } );
     this.blueIntensityProperty = new Property( 0, {
       tandem: tandem.createTandem( 'blueIntensityProperty' ),
+      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+    } );
+
+    // @private
+    // The perceivedIntensity properties determine the color of the thought bubbles.
+    // They are calculated by taking the intensity value of the most recent photon to
+    // reach the end of the photon beam (the person's eye). Each photon keeps a record of the
+    // intensity for this reason, even though it is not used in determining intensity of the
+    // photon itself, which is constant.
+    // Range is 0-100.
+    this.perceivedRedIntensityProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'perceivedRedIntensityProperty' ),
+      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+    } );
+    this.perceivedGreenIntensityProperty = new Property( 0, {
+      value: 0,
+      tandem: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
+      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+    } );
+    this.perceivedBlueIntensityProperty = new Property( 0, {
+      value: 0,
+      tandem: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
       phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
     } );
 
@@ -168,7 +158,7 @@ define( function( require ) {
 
   colorVision.register( 'RGBModel', RGBModel );
 
-  return inherit( PropertySet, RGBModel, {
+  return inherit( Object, RGBModel, {
 
     // @private
     // convenience method for stepping all of the beams at once, used in step and manualStep
@@ -205,12 +195,14 @@ define( function( require ) {
     // @public
     reset: function() {
 
-      PropertySet.prototype.reset.call( this );
       this.playingProperty.reset();
       this.headModeProperty.reset();
       this.redIntensityProperty.reset();
       this.greenIntensityProperty.reset();
       this.blueIntensityProperty.reset();
+      this.perceivedRedIntensityProperty.reset();
+      this.perceivedGreenIntensityProperty.reset();
+      this.perceivedBlueIntensityProperty.reset();
 
       this.redBeam.reset();
       this.greenBeam.reset();
