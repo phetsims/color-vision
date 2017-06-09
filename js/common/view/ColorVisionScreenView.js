@@ -24,7 +24,7 @@ define( function( require ) {
   var THOUGHT_BUBBLE_Y = -10;
 
   /**
-   * @param {PropertySet} model
+   * @param {RGBModel|SingleBulbModel} model
    * @param {Object} options
    * @param {Tandem} tandem
    * @constructor
