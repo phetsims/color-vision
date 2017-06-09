@@ -25,7 +25,7 @@ define( function( require ) {
    * @param {Property.<number>} perceivedIntensityProperty the perceived intensity property for this color from the model
    * @param {number} beamLength the length of the beam, used to calculate the starting x coordinate
    * @param {Tandem} tandem
-   # @constructor
+   * @constructor
    */
   function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, beamLength, tandem ) {
 

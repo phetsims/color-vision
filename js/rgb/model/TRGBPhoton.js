@@ -15,10 +15,15 @@ define( function( require ) {
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TVector2 = require( 'DOT/TVector2' );
 
+  /**
+   * @param instance
+   * @param phetioID
+   */
   var TRGBPhoton = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.RGBPhoton );
     TObject.call( this, instance, phetioID );
   };
+
   phetioInherit( TObject, 'TRGBPhoton', TRGBPhoton, {}, {
 
     fromStateObject: function( stateObject ) {

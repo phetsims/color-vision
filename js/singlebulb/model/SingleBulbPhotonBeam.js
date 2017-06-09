@@ -29,7 +29,7 @@ define( function( require ) {
    * @param {SingleBulbModel} model
    * @param {number} beamLength the length of the beam. This is used to determine what location to restart the photons.
    * @param {Tandem} tandem
-   # @constructor
+   * @constructor
    */
   function SingleBulbPhotonBeam( model, beamLength, tandem ) {
 

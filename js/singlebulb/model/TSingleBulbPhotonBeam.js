@@ -17,6 +17,10 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
 
+  /**
+   * @param instance
+   * @param phetioID
+   */
   var TSingleBulbPhotonBeam = function( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );
     TObject.call( this, instance, phetioID );

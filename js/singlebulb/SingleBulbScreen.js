@@ -22,8 +22,8 @@ define( function( require ) {
   var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
 
   /**
-   * @constructor
    * @param {Tandem} tandem
+   * @constructor
    */
   function SingleBulbScreen( tandem ) {
 

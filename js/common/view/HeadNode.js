@@ -24,10 +24,8 @@ define( function( require ) {
   // images
   var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
   var headImage = require( 'image!COLOR_VISION/head.png' );
-
   var silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
   var headFrontImage = require( 'image!COLOR_VISION/head-front.png' );
-
   var headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
   var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
 
@@ -99,7 +97,6 @@ define( function( require ) {
       centerX: silhouetteNode.centerX - 42,
       tandem: tandem.createTandem( 'radioButtonGroup' )
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
-
     this.addChild( radioButtonGroup );
   }
 

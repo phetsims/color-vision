@@ -24,7 +24,7 @@ define( function( require ) {
    * @param {boolean} isWhite
    * @param {number} wavelength
    * @param {Tandem} tandem
-   # @constructor
+   * @constructor
    */
   function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength, tandem ) {
 
