@@ -53,7 +53,8 @@ define( function( require ) {
       this.headModeProperty.reset();
     },
 
-    // @public step one frame, assuming 60fps
+    // @public @abstract
+    // step one frame, assuming 60fps
     manualStep: function() {
       throw new Error( 'must be defined by subtype' );
     }
