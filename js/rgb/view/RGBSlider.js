@@ -35,7 +35,7 @@ define( function( require ) {
     hSlider.rotation = -Math.PI / 2;
 
     var rectWidth = hSlider.width + 8;
-    var rectHeight = hSlider.height + 30;
+    var rectHeight = hSlider.height + 22;
 
     Rectangle.call( this, 0, 0, rectWidth, rectHeight, 5, 5,
       {
