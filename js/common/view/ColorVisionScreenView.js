@@ -59,7 +59,6 @@ define( function( require ) {
       radius: 18,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-
     this.addChild( resetAllButton );
 
     // Add play/pause button
@@ -69,7 +68,6 @@ define( function( require ) {
       radius: 20,
       tandem: tandem.createTandem( 'playPauseButton' )
     } );
-
     this.addChild( playPauseButton );
 
     // Add step button
@@ -81,7 +79,6 @@ define( function( require ) {
       radius: 15,
       tandem: tandem.createTandem( 'stepButton' )
     } );
-
     this.addChild( stepButton );
   }
 
