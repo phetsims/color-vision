@@ -51,23 +51,6 @@ define( function( require ) {
      */
     var properties = {
 
-      // @public
-      redIntensity: {
-        value: 0,
-        tandem: tandem.createTandem( 'redIntensityProperty' ),
-        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
-      },
-      greenIntensity: {
-        value: 0,
-        tandem: tandem.createTandem( 'greenIntensityProperty' ),
-        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
-      },
-      blueIntensity: {
-        value: 0,
-        tandem: tandem.createTandem( 'blueIntensityProperty' ),
-        phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
-      },
-
       // @private
       perceivedRedIntensity: {
         value: 0,
@@ -99,6 +82,20 @@ define( function( require ) {
       validValues: [ 'brain', 'no-brain' ],
       tandem: tandem.createTandem( 'headModeProperty' ),
       phetioValueType: TString
+    } );
+
+    // @public
+    this.redIntensityProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'redIntensityProperty' ),
+      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+    } );
+    this.greenIntensityProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'greenIntensityProperty' ),
+      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+    } );
+    this.blueIntensityProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'blueIntensityProperty' ),
+      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
     } );
 
     // @private
@@ -211,6 +208,9 @@ define( function( require ) {
       PropertySet.prototype.reset.call( this );
       this.playingProperty.reset();
       this.headModeProperty.reset();
+      this.redIntensityProperty.reset();
+      this.greenIntensityProperty.reset();
+      this.blueIntensityProperty.reset();
 
       this.redBeam.reset();
       this.greenBeam.reset();
