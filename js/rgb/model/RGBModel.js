@@ -20,11 +20,10 @@ define( function( require ) {
   var TColor = require( 'SCENERY/util/TColor' );
   var Property = require( 'AXON/Property' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   // constants
   var PERCENT_RANGE = new Range( 0, 100 );
@@ -36,18 +35,7 @@ define( function( require ) {
    */
   function RGBModel( tandem ) {
 
-    // @public {Property.<boolean>} is the model running?
-    this.playingProperty = new Property( true, {
-      tandem: tandem.createTandem( 'playingProperty' ),
-      phetioValueType: TBoolean
-    } );
-
-    // @public {Property.<string>} which head view to show
-    this.headModeProperty = new Property( 'no-brain', {
-      validValues: [ 'brain', 'no-brain' ],
-      tandem: tandem.createTandem( 'headModeProperty' ),
-      phetioValueType: TString
-    } );
+    ColorVisionModel.call( this, tandem );
 
     // @public
     // The values of the properties redIntensity, greenIntensity, and blueIntensity are determined
@@ -158,7 +146,7 @@ define( function( require ) {
 
   colorVision.register( 'RGBModel', RGBModel );
 
-  return inherit( Object, RGBModel, {
+  return inherit( ColorVisionModel, RGBModel, {
 
     // @private
     // convenience method for stepping all of the beams at once, used in step and manualStep
@@ -188,17 +176,18 @@ define( function( require ) {
       }
     },
 
-    // @public step one frame, assuming 60fps
+    // @public @override
+    // step one frame, assuming 60fps
     manualStep: function() {
       this.stepBeams( 1 / 60 );
       this.stepTimers( 1 / 60 );
     },
 
-    // @public
+    // @public @override
     reset: function() {
 
-      this.playingProperty.reset();
-      this.headModeProperty.reset();
+      ColorVisionModel.prototype.reset.call( this );
+
       this.redIntensityProperty.reset();
       this.greenIntensityProperty.reset();
       this.blueIntensityProperty.reset();

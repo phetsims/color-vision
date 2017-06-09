@@ -20,6 +20,7 @@ define( function( require ) {
   var TColor = require( 'SCENERY/util/TColor' );
   var Property = require( 'AXON/Property' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -32,22 +33,11 @@ define( function( require ) {
    */
   function SingleBulbModel( tandem ) {
 
+    ColorVisionModel.call( this, tandem );
+
     var flashlightTandem = tandem.createTandem( 'flashlight' );
     var filterTandem = tandem.createTandem( 'filter' );
 
-    // @public {Property.<boolean>} is the model running?
-    this.playingProperty = new Property( true, {
-      tandem: tandem.createTandem( 'playingProperty' ),
-      phetioValueType: TBoolean
-    } );
-
-    // @public {Property.<string>} which head view to show
-    this.headModeProperty = new Property( 'no-brain', {
-      validValues: [ 'brain', 'no-brain' ],
-      tandem: tandem.createTandem( 'headModeProperty' ),
-      phetioValueType: TString
-    } );
-    
     // @public {Property.<string>} kind of light in the beam
     this.lightTypeProperty = new Property( 'colored', {
       validValues: [ 'white', 'colored' ],
@@ -164,7 +154,7 @@ define( function( require ) {
 
   colorVision.register( 'SingleBulbModel', SingleBulbModel );
 
-  return inherit( Object, SingleBulbModel, {
+  return inherit( ColorVisionModel, SingleBulbModel, {
 
     // @public
     step: function( dt ) {
@@ -178,14 +168,17 @@ define( function( require ) {
       }
     },
 
-    // @public step one frame, assuming 60fps
+    // @public @override
+    // step one frame, assuming 60fps
     manualStep: function() {
       this.photonBeam.updateAnimationFrame( 1 / 60 );
       this.eventTimer.step( 1 / 60 );
     },
 
-    // @public
+    // @public @override
     reset: function() {
+
+      ColorVisionModel.prototype.reset.call( this );
 
       this.lightTypeProperty.reset();
       this.beamTypeProperty.reset();
@@ -193,8 +186,6 @@ define( function( require ) {
       this.filterWavelengthProperty.reset();
       this.flashlightOnProperty.reset();
       this.filterVisibleProperty.reset();
-      this.playingProperty.reset();
-      this.headModeProperty.reset();
       this.lastPhotonColorProperty.reset();
 
       this.photonBeam.reset();
