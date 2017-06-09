@@ -188,8 +188,7 @@ define( function( require ) {
       }
     },
 
-    // step one frame, assuming 60fps
-    // @public
+    // @public step one frame, assuming 60fps
     manualStep: function() {
       this.stepBeams( 1 / 60 );
       this.stepTimers( 1 / 60 );
