@@ -18,11 +18,12 @@ define( function( require ) {
   /**
    * @param instance
    * @param phetioID
+   * @constructor
    */
-  var TSingleBulbPhoton = function( instance, phetioID ) {
+  function TSingleBulbPhoton( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
     TObject.call( this, instance, phetioID );
-  };
+  }
 
   phetioInherit( TObject, 'TSingleBulbPhoton', TSingleBulbPhoton, {}, {
     documentation: 'A Photon from a single bulb.',

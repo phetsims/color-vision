@@ -20,11 +20,12 @@ define( function( require ) {
   /**
    * @param instance
    * @param phetioID
+   * @constructor
    */
-  var TSingleBulbPhotonBeam = function( instance, phetioID ) {
+  function TSingleBulbPhotonBeam( instance, phetioID ) {
     assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );
     TObject.call( this, instance, phetioID );
-  };
+  }
 
   phetioInherit( TObject, 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam, {}, {
     documentation: 'The Beam on the single bulb screen.',
