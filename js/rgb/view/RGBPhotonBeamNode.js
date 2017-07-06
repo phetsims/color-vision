@@ -13,7 +13,6 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // phet-io modules
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
@@ -42,7 +41,10 @@ define( function( require ) {
     this.invalidatePaint();
 
     // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
 
     // TODO: alternatively, use the pattern in TrackNode?
     // In the state.html wrapper, when the state changes, we must update the skater node

@@ -12,7 +12,6 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   /**
    * @param {SingleBulbModel} model
@@ -33,8 +32,10 @@ define( function( require ) {
 
     this.invalidatePaint();
 
-    // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
 
     model.photonBeam.repaintEmitter.addListener( function() {
       self.invalidatePaint();
