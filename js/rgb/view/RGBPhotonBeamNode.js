@@ -48,7 +48,7 @@ define( function( require ) {
 
     // TODO: alternatively, use the pattern in TrackNode?
     // In the state.html wrapper, when the state changes, we must update the skater node
-    phetio.setStateEmitter && phetio.setStateEmitter.addListener( function() {
+    phet.phetIo && phet.phetIo.phetio.setStateEmitter && phet.phetIo.phetio.setStateEmitter.addListener( function() {
       self.invalidatePaint();
     } );
   }
