@@ -14,9 +14,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
-  // phet-io modules
-  var phetio = require( 'ifphetio!PHET_IO/phetio' );
-
   // If this is set to true, it will show a rectangle around the beam.
   // This is useful for getting the placement of the beam correct relative to the
   // flashlight image.
