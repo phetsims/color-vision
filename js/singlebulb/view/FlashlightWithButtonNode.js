@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
 
   // images
   var flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );

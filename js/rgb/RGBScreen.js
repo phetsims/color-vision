@@ -10,13 +10,13 @@ define( function( require ) {
 
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Screen = require( 'JOIST/Screen' );
-  var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
+  var Property = require( 'AXON/Property' );
   var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
   var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var Property = require( 'AXON/Property' );
+  var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
+  var Screen = require( 'JOIST/Screen' );
 
   // strings
   var rgbBulbsModuleTitleString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );

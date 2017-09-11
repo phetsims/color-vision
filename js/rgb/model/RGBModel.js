@@ -9,17 +9,17 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
+  var Color = require( 'SCENERY/util/Color' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
-  var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
-  var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
-  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
-  var Range = require( 'DOT/Range' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Color = require( 'SCENERY/util/Color' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var Range = require( 'DOT/Range' );
+  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
+  var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
   var TColor = require( 'SCENERY/util/TColor' );
 
   // constants

@@ -8,8 +8,8 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var TVector2 = require( 'DOT/TVector2' );
   var TColor = require( 'SCENERY/util/TColor' );
+  var TVector2 = require( 'DOT/TVector2' );
 
   // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );

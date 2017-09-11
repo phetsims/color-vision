@@ -10,9 +10,9 @@ define( function( require ) {
 
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules

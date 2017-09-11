@@ -10,17 +10,17 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
-  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
+  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
+  var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
+  var VBox = require( 'SCENERY/nodes/VBox' );
 
   // images
   var flashlightDownImage = require( 'image!COLOR_VISION/flashlight-neg-45-deg.png' );

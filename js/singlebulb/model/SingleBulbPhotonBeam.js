@@ -9,15 +9,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var Color = require( 'SCENERY/util/Color' );
-  var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var Vector2 = require( 'DOT/Vector2' );
   var Emitter = require( 'AXON/Emitter' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
+  var Vector2 = require( 'DOT/Vector2' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
   var TSingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/TSingleBulbPhotonBeam' );

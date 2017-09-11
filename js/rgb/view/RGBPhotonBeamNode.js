@@ -10,9 +10,9 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
   // If this is set to true, it will show a rectangle around the beam.
   // This is useful for getting the placement of the beam correct relative to the

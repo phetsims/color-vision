@@ -15,19 +15,19 @@ define( function( require ) {
 
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
 
   // images
-  var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
-  var headImage = require( 'image!COLOR_VISION/head.png' );
-  var silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
   var headFrontImage = require( 'image!COLOR_VISION/head-front.png' );
   var headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
+  var headImage = require( 'image!COLOR_VISION/head.png' );
+  var silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
   var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
+  var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
 
   // constants
   var BOTTOM_OFFSET = 15;

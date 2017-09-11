@@ -9,9 +9,9 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
   /**
    * @param {SingleBulbModel} model

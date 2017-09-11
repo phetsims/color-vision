@@ -10,9 +10,9 @@ define( function( require ) {
 
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
   var Screen = require( 'JOIST/Screen' );
 
   /**

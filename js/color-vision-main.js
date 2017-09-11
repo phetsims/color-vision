@@ -10,9 +10,9 @@ define( function( require ) {
 
   // modules
   var RGBScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
-  var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
+  var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
   var Tandem = require( 'TANDEM/Tandem' );
 
   // strings

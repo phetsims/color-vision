@@ -10,11 +10,11 @@ define( function( require ) {
 
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Screen = require( 'JOIST/Screen' );
+  var VBox = require( 'SCENERY/nodes/VBox' );
 
   /**
    * @param {Object} [options]
