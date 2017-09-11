@@ -9,21 +9,18 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var EventTimer = require( 'PHET_CORE/EventTimer' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Range = require( 'DOT/Range' );
-  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
+  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  var Range = require( 'DOT/Range' );
+  var EventTimer = require( 'PHET_CORE/EventTimer' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Color = require( 'SCENERY/util/Color' );
   var TColor = require( 'SCENERY/util/TColor' );
-  var Property = require( 'AXON/Property' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   // constants
   var PERCENT_RANGE = new Range( 0, 100 );
@@ -41,17 +38,20 @@ define( function( require ) {
     // The values of the properties redIntensity, greenIntensity, and blueIntensity are determined
     // from the sliders, and determine the density of the photons coming out of the flashlights.
     // Range is 0-100.
-    this.redIntensityProperty = new Property( 0, {
+    this.redIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'redIntensityProperty' ),
-      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      units: 'percent',
+      range: PERCENT_RANGE
     } );
-    this.greenIntensityProperty = new Property( 0, {
+    this.greenIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'greenIntensityProperty' ),
-      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      units: 'percent',
+      range: PERCENT_RANGE
     } );
-    this.blueIntensityProperty = new Property( 0, {
+    this.blueIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'blueIntensityProperty' ),
-      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      units: 'percent',
+      range: PERCENT_RANGE
     } );
 
     // @private
@@ -61,19 +61,22 @@ define( function( require ) {
     // intensity for this reason, even though it is not used in determining intensity of the
     // photon itself, which is constant.
     // Range is 0-100.
-    this.perceivedRedIntensityProperty = new Property( 0, {
+    this.perceivedRedIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'perceivedRedIntensityProperty' ),
-      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      units: 'percent',
+      range: PERCENT_RANGE
     } );
-    this.perceivedGreenIntensityProperty = new Property( 0, {
+    this.perceivedGreenIntensityProperty = new NumberProperty( 0, {
       value: 0,
       tandem: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
-      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      units: 'percent',
+      range: PERCENT_RANGE
     } );
-    this.perceivedBlueIntensityProperty = new Property( 0, {
+    this.perceivedBlueIntensityProperty = new NumberProperty( 0, {
       value: 0,
       tandem: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
-      phetioValueType: TNumber( { units: 'percent', range: PERCENT_RANGE } )
+      units: 'percent',
+      range: PERCENT_RANGE
     } );
 
     // @private
@@ -166,7 +169,7 @@ define( function( require ) {
 
     // @public
     step: function( dt ) {
-      
+
       // Cap DT, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
       dt = Math.min( dt, 0.5 );
 

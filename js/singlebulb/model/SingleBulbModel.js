@@ -9,22 +9,22 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var Property = require( 'AXON/Property' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-  var Color = require( 'SCENERY/util/Color' );
+  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var EventTimer = require( 'PHET_CORE/EventTimer' );
   var Range = require( 'DOT/Range' );
+  var EventTimer = require( 'PHET_CORE/EventTimer' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Color = require( 'SCENERY/util/Color' );
   var TColor = require( 'SCENERY/util/TColor' );
-  var Property = require( 'AXON/Property' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   /**
@@ -53,21 +53,17 @@ define( function( require ) {
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
-    this.flashlightWavelengthProperty = new Property( 570, {
+    this.flashlightWavelengthProperty = new NumberProperty( 570, {
       tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
-      phetioValueType: TNumber( {
-        units: 'nanometers',
-        range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
-      } )
+      units: 'nanometers',
+      range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
-    this.filterWavelengthProperty = new Property( 570, {
+    this.filterWavelengthProperty = new NumberProperty( 570, {
       tandem: filterTandem.createTandem( 'filterWavelengthProperty' ),
-      phetioValueType: TNumber( {
-        units: 'nanometers',
-        range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
-      } )
+      units: 'nanometers',
+      range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
     } );
 
     // @public {Property.<boolean>} is the flashlight on?
