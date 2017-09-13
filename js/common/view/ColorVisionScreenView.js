@@ -25,13 +25,15 @@ define( function( require ) {
 
   /**
    * @param {ColorVisionModel} model
-   * @param {Object} options
    * @param {Tandem} tandem
    * @constructor
    */
-  function ColorVisionScreenView( model, tandem, options ) {
+  function ColorVisionScreenView( model, tandem ) {
 
-    ScreenView.call( this, { layoutBounds: new Bounds2( 0, 0, 768, 504 ) } );
+    ScreenView.call( this, {
+      layoutBounds: new Bounds2( 0, 0, 768, 504 ),
+      tandem: tandem
+    } );
 
     // Add thought bubbles
     this.addChild( new ThoughtBubble( model.perceivedColorProperty, 45, {
