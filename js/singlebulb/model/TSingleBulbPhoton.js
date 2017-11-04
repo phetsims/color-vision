@@ -21,7 +21,7 @@ define( function( require ) {
    * @constructor
    */
   function TSingleBulbPhoton( instance, phetioID ) {
-    assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
+    assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
     TObject.call( this, instance, phetioID );
   }
 

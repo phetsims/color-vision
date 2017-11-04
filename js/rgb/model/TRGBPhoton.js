@@ -20,7 +20,7 @@ define( function( require ) {
    * @param phetioID
    */
   var TRGBPhoton = function( instance, phetioID ) {
-    assertInstanceOf( instance, phet.colorVision.RGBPhoton );
+    assert && assertInstanceOf( instance, phet.colorVision.RGBPhoton );
     TObject.call( this, instance, phetioID );
   };
 
