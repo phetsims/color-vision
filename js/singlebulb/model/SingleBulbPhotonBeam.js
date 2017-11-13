@@ -40,6 +40,7 @@ define( function( require ) {
     // @private
     this.model = model;
 
+    // @public
     this.photonGroupTandem = tandem.createGroupTandem( 'photons' );
 
     tandem.addInstance( this, TSingleBulbPhotonBeam );
