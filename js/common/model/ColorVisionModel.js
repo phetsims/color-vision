@@ -14,6 +14,7 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
+  var TProperty = require( 'AXON/TProperty' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -28,14 +29,14 @@ define( function( require ) {
     // @public {Property.<boolean>} is the model running?
     this.playingProperty = new Property( true, {
       tandem: tandem.createTandem( 'playingProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     // @public {Property.<string>} which head view to show
     this.headModeProperty = new Property( 'no-brain', {
       validValues: [ 'brain', 'no-brain' ],
       tandem: tandem.createTandem( 'headModeProperty' ),
-      phetioValueType: TString
+      phetioType: TProperty( TString )
     } );
 
     // @public {DerivedProperty.<Color|string>}

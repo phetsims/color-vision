@@ -43,7 +43,7 @@ define( function( require ) {
     // @public
     this.photonGroupTandem = tandem.createGroupTandem( 'photons' );
 
-    tandem.addInstance( this, TSingleBulbPhotonBeam );
+    tandem.addInstance( this, { phetioType: TSingleBulbPhotonBeam } );
 
     // @public
     this.repaintEmitter = new Emitter();

@@ -21,6 +21,8 @@ define( function( require ) {
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
   var TColor = require( 'SCENERY/util/TColor' );
+  var TDerivedProperty = require( 'AXON/TDerivedProperty' );
+  var TProperty = require( 'AXON/TProperty' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
@@ -42,14 +44,14 @@ define( function( require ) {
     this.lightTypeProperty = new Property( 'colored', {
       validValues: [ 'white', 'colored' ],
       tandem: tandem.createTandem( 'lightTypeProperty' ),
-      phetioValueType: TString
+      phetioType: TProperty( TString )
     } );
 
     // @public {Property.<string>} indicates solid beam vs individual photons
     this.beamTypeProperty = new Property( 'beam', {
       validValues: [ 'beam', 'photon' ],
       tandem: tandem.createTandem( 'beamTypeProperty' ),
-      phetioValueType: TString
+      phetioType: TProperty( TString )
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
@@ -69,13 +71,13 @@ define( function( require ) {
     // @public {Property.<boolean>} is the flashlight on?
     this.flashlightOnProperty = new Property( false, {
       tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     // @public {Property.<boolean>} is the filter on?
     this.filterVisibleProperty = new Property( false, {
       tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     // @public {Property.<Color|string>} keep track of the last photon to hit the eye,
@@ -133,7 +135,7 @@ define( function( require ) {
         }
       }, {
         tandem: tandem.createTandem( 'perceivedColorProperty' ),
-        phetioValueType: TColor
+        phetioType: TDerivedProperty( TColor )
       } );
 
     // @public

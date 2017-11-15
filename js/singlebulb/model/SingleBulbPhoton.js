@@ -40,7 +40,7 @@ define( function( require ) {
     this.color = color;
     this.wavelength = wavelength;
     this.passedFilter = false;
-    tandem.addInstance( this, TSingleBulbPhoton );
+    tandem.addInstance( this, { phetioType: TSingleBulbPhoton } );
     this.disposeSingleBulbPhoton = function() {
       tandem.removeInstance( self );
     };
