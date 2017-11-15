@@ -22,7 +22,7 @@ define( function( require ) {
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
   var TColor = require( 'SCENERY/util/TColor' );
   var TDerivedProperty = require( 'AXON/TDerivedProperty' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
@@ -44,14 +44,14 @@ define( function( require ) {
     this.lightTypeProperty = new Property( 'colored', {
       validValues: [ 'white', 'colored' ],
       tandem: tandem.createTandem( 'lightTypeProperty' ),
-      phetioType: TProperty( TString )
+      phetioType: PropertyIO( TString )
     } );
 
     // @public {Property.<string>} indicates solid beam vs individual photons
     this.beamTypeProperty = new Property( 'beam', {
       validValues: [ 'beam', 'photon' ],
       tandem: tandem.createTandem( 'beamTypeProperty' ),
-      phetioType: TProperty( TString )
+      phetioType: PropertyIO( TString )
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
@@ -71,13 +71,13 @@ define( function( require ) {
     // @public {Property.<boolean>} is the flashlight on?
     this.flashlightOnProperty = new Property( false, {
       tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
 
     // @public {Property.<boolean>} is the filter on?
     this.filterVisibleProperty = new Property( false, {
       tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
 
     // @public {Property.<Color|string>} keep track of the last photon to hit the eye,
