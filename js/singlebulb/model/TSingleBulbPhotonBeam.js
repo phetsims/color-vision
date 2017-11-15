@@ -9,7 +9,7 @@ define( function( require ) {
 
   // modules
   var TColor = require( 'SCENERY/util/TColor' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
 
   // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
@@ -47,8 +47,8 @@ define( function( require ) {
 
       // location, velocity, intensity, color, isWhite, wavelength, tandem
       var photonInstance = new phet.colorVision.SingleBulbPhoton(
-        TVector2.fromStateObject( photonStateObject.location ),
-        TVector2.fromStateObject( photonStateObject.velocity ),
+        Vector2IO.fromStateObject( photonStateObject.location ),
+        Vector2IO.fromStateObject( photonStateObject.velocity ),
         photonStateObject.intensity,
         TColor.fromStateObject( photonStateObject.color ),
         photonStateObject.isWhite,

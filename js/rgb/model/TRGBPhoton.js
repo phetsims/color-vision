@@ -13,7 +13,7 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
    * @param instance
@@ -28,16 +28,16 @@ define( function( require ) {
 
     fromStateObject: function( stateObject ) {
       return new window.phet.colorVision.RGBPhoton(
-        TVector2.fromStateObject( stateObject.location ),
-        TVector2.fromStateObject( stateObject.velocity ),
+        Vector2IO.fromStateObject( stateObject.location ),
+        Vector2IO.fromStateObject( stateObject.velocity ),
         stateObject.intensity
       );
     },
 
     toStateObject: function( value ) {
       return {
-        location: TVector2.toStateObject( value.location ),
-        velocity: TVector2.toStateObject( value.velocity ),
+        location: Vector2IO.toStateObject( value.location ),
+        velocity: Vector2IO.toStateObject( value.velocity ),
         intensity: value.intensity
       };
     }
