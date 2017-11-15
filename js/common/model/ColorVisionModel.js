@@ -17,7 +17,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   /**
@@ -29,7 +29,7 @@ define( function( require ) {
     // @public {Property.<boolean>} is the model running?
     this.playingProperty = new Property( true, {
       tandem: tandem.createTandem( 'playingProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // @public {Property.<string>} which head view to show

@@ -26,7 +26,7 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   /**
@@ -71,13 +71,13 @@ define( function( require ) {
     // @public {Property.<boolean>} is the flashlight on?
     this.flashlightOnProperty = new Property( false, {
       tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // @public {Property.<boolean>} is the filter on?
     this.filterVisibleProperty = new Property( false, {
       tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // @public {Property.<Color|string>} keep track of the last photon to hit the eye,

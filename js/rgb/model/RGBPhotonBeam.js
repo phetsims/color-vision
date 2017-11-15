@@ -16,7 +16,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var TRGBPhoton = require( 'COLOR_VISION/rgb/model/TRGBPhoton' );
 
   /**
@@ -38,7 +38,7 @@ define( function( require ) {
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
 
-    tandem.createTandem( 'photons' ).addInstance( this.photons, { phetioType: TArray( TRGBPhoton ) } );
+    tandem.createTandem( 'photons' ).addInstance( this.photons, { phetioType: ArrayIO( TRGBPhoton ) } );
   }
 
   colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
