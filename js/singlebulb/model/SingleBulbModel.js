@@ -21,7 +21,7 @@ define( function( require ) {
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
   var TColor = require( 'SCENERY/util/TColor' );
-  var TDerivedProperty = require( 'AXON/TDerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
@@ -135,7 +135,7 @@ define( function( require ) {
         }
       }, {
         tandem: tandem.createTandem( 'perceivedColorProperty' ),
-        phetioType: TDerivedProperty( TColor )
+        phetioType: DerivedPropertyIO( TColor )
       } );
 
     // @public
