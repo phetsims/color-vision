@@ -15,7 +15,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
 
   /**
    * @param instance
@@ -24,10 +24,10 @@ define( function( require ) {
    */
   function TSingleBulbPhotonBeam( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam, {}, {
+  phetioInherit( ObjectIO, 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam, {}, {
     documentation: 'The Beam on the single bulb screen.',
 
     clearChildInstances: function( instance ) {

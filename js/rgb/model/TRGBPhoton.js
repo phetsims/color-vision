@@ -12,7 +12,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var TVector2 = require( 'DOT/TVector2' );
 
   /**
@@ -21,10 +21,10 @@ define( function( require ) {
    */
   var TRGBPhoton = function( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.colorVision.RGBPhoton );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   };
 
-  phetioInherit( TObject, 'TRGBPhoton', TRGBPhoton, {}, {
+  phetioInherit( ObjectIO, 'TRGBPhoton', TRGBPhoton, {}, {
 
     fromStateObject: function( stateObject ) {
       return new window.phet.colorVision.RGBPhoton(

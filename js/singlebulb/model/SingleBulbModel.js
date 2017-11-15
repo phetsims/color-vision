@@ -27,7 +27,7 @@ define( function( require ) {
 
   // phet-io modules
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   /**
    * @param {Tandem} tandem
@@ -44,14 +44,14 @@ define( function( require ) {
     this.lightTypeProperty = new Property( 'colored', {
       validValues: [ 'white', 'colored' ],
       tandem: tandem.createTandem( 'lightTypeProperty' ),
-      phetioType: PropertyIO( TString )
+      phetioType: PropertyIO( StringIO )
     } );
 
     // @public {Property.<string>} indicates solid beam vs individual photons
     this.beamTypeProperty = new Property( 'beam', {
       validValues: [ 'beam', 'photon' ],
       tandem: tandem.createTandem( 'beamTypeProperty' ),
-      phetioType: PropertyIO( TString )
+      phetioType: PropertyIO( StringIO )
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow

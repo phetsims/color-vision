@@ -18,7 +18,7 @@ define( function( require ) {
 
   // phet-io modules
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   /**
    * @param {Tandem} tandem
@@ -36,7 +36,7 @@ define( function( require ) {
     this.headModeProperty = new Property( 'no-brain', {
       validValues: [ 'brain', 'no-brain' ],
       tandem: tandem.createTandem( 'headModeProperty' ),
-      phetioType: PropertyIO( TString )
+      phetioType: PropertyIO( StringIO )
     } );
 
     // @public {DerivedProperty.<Color|string>}

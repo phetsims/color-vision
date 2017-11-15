@@ -12,7 +12,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var TRGBPhoton = require( 'COLOR_VISION/rgb/model/TRGBPhoton' );
 
   /**
@@ -22,10 +22,10 @@ define( function( require ) {
    */
   function TSingleBulbPhoton( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TSingleBulbPhoton', TSingleBulbPhoton, {}, {
+  phetioInherit( ObjectIO, 'TSingleBulbPhoton', TSingleBulbPhoton, {}, {
     documentation: 'A Photon from a single bulb.',
 
     toStateObject: function( instance ) {
