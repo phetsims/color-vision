@@ -13,7 +13,7 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TRGBPhoton = require( 'COLOR_VISION/rgb/model/TRGBPhoton' );
+  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
 
   /**
    * @param instance
@@ -34,7 +34,7 @@ define( function( require ) {
         color: instance.color.toStateObject(),
         wavelength: instance.wavelength,
         passedFilter: instance.passedFilter
-      }, TRGBPhoton.toStateObject( instance ) );
+      }, RGBPhotonIO.toStateObject( instance ) );
     },
 
     // Used to setValue. Not needed here since all children are created by the container.

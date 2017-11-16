@@ -19,12 +19,12 @@ define( function( require ) {
    * @param instance
    * @param phetioID
    */
-  var TRGBPhoton = function( instance, phetioID ) {
+  var RGBPhotonIO = function( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.colorVision.RGBPhoton );
     ObjectIO.call( this, instance, phetioID );
   };
 
-  phetioInherit( ObjectIO, 'TRGBPhoton', TRGBPhoton, {}, {
+  phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
 
     fromStateObject: function( stateObject ) {
       return new window.phet.colorVision.RGBPhoton(
@@ -43,8 +43,8 @@ define( function( require ) {
     }
   } );
 
-  colorVision.register( 'TRGBPhoton', TRGBPhoton );
+  colorVision.register( 'RGBPhotonIO', RGBPhotonIO );
 
-  return TRGBPhoton;
+  return RGBPhotonIO;
 } );
 

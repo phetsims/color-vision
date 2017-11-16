@@ -17,7 +17,7 @@ define( function( require ) {
 
   // phet-io modules
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
-  var TRGBPhoton = require( 'COLOR_VISION/rgb/model/TRGBPhoton' );
+  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
 
   /**
    * @param {string} color an rgb string
@@ -38,7 +38,7 @@ define( function( require ) {
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
 
-    tandem.createTandem( 'photons' ).addInstance( this.photons, { phetioType: ArrayIO( TRGBPhoton ) } );
+    tandem.createTandem( 'photons' ).addInstance( this.photons, { phetioType: ArrayIO( RGBPhotonIO ) } );
   }
 
   colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
