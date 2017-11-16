@@ -22,12 +22,12 @@ define( function( require ) {
    * @param phetioID
    * @constructor
    */
-  function TSingleBulbPhotonBeam( instance, phetioID ) {
+  function SingleBulbPhotonBeamIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam, {}, {
+  phetioInherit( ObjectIO, 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO, {}, {
     documentation: 'The Beam on the single bulb screen.',
 
     clearChildInstances: function( instance ) {
@@ -61,8 +61,8 @@ define( function( require ) {
     }
   } );
 
-  colorVision.register( 'TSingleBulbPhotonBeam', TSingleBulbPhotonBeam );
+  colorVision.register( 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO );
 
-  return TSingleBulbPhotonBeam;
+  return SingleBulbPhotonBeamIO;
 } );
 

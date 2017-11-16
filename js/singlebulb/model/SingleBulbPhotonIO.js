@@ -20,12 +20,12 @@ define( function( require ) {
    * @param phetioID
    * @constructor
    */
-  function TSingleBulbPhoton( instance, phetioID ) {
+  function SingleBulbPhotonIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TSingleBulbPhoton', TSingleBulbPhoton, {}, {
+  phetioInherit( ObjectIO, 'SingleBulbPhotonIO', SingleBulbPhotonIO, {}, {
     documentation: 'A Photon from a single bulb.',
 
     toStateObject: function( instance ) {
@@ -43,9 +43,9 @@ define( function( require ) {
     }
   } );
 
-  colorVision.register( 'TSingleBulbPhoton', TSingleBulbPhoton );
+  colorVision.register( 'SingleBulbPhotonIO', SingleBulbPhotonIO );
 
-  return TSingleBulbPhoton;
+  return SingleBulbPhotonIO;
 } )
 ;
 

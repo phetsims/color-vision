@@ -20,7 +20,7 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
-  var TSingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/TSingleBulbPhotonBeam' );
+  var SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
@@ -43,7 +43,7 @@ define( function( require ) {
     // @public
     this.photonGroupTandem = tandem.createGroupTandem( 'photons' );
 
-    tandem.addInstance( this, { phetioType: TSingleBulbPhotonBeam } );
+    tandem.addInstance( this, { phetioType: SingleBulbPhotonBeamIO } );
 
     // @public
     this.repaintEmitter = new Emitter();

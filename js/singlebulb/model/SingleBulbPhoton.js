@@ -14,7 +14,7 @@ define( function( require ) {
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
 
   // phet-io modules
-  var TSingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/TSingleBulbPhoton' );
+  var SingleBulbPhotonIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonIO' );
 
   /**
    * @param {Vector2} location
@@ -40,7 +40,7 @@ define( function( require ) {
     this.color = color;
     this.wavelength = wavelength;
     this.passedFilter = false;
-    tandem.addInstance( this, { phetioType: TSingleBulbPhoton } );
+    tandem.addInstance( this, { phetioType: SingleBulbPhotonIO } );
     this.disposeSingleBulbPhoton = function() {
       tandem.removeInstance( self );
     };
