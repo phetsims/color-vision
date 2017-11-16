@@ -10,9 +10,11 @@ define( function( require ) {
 
   // modules
   var Color = require( 'SCENERY/util/Color' );
+  var ColorIO = require( 'SCENERY/util/ColorIO' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
@@ -20,8 +22,6 @@ define( function( require ) {
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
-  var ColorIO = require( 'SCENERY/util/ColorIO' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
 
   // constants
   var PERCENT_RANGE = new Range( 0, 100 );

@@ -10,19 +10,19 @@ define( function( require ) {
 
   // modules
   var Color = require( 'SCENERY/util/Color' );
+  var ColorIO = require( 'SCENERY/util/ColorIO' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var EventTimer = require( 'PHET_CORE/EventTimer' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
-  var ColorIO = require( 'SCENERY/util/ColorIO' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules

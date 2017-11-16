@@ -14,8 +14,8 @@ define( function( require ) {
   // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
    * @param instance

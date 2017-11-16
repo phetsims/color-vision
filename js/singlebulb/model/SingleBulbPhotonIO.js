@@ -11,8 +11,8 @@ define( function( require ) {
   // modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TRGBPhoton = require( 'COLOR_VISION/rgb/model/TRGBPhoton' );
 
   /**
