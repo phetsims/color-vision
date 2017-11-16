@@ -20,7 +20,7 @@ define( function( require ) {
   var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
   var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
   var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
-  var TColor = require( 'SCENERY/util/TColor' );
+  var ColorIO = require( 'SCENERY/util/ColorIO' );
   var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
 
   // constants
@@ -116,7 +116,7 @@ define( function( require ) {
           Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
       }, {
         tandem: tandem.createTandem( 'perceivedColorProperty' ),
-        phetioType: DerivedPropertyIO( TColor )
+        phetioType: DerivedPropertyIO( ColorIO )
       } );
 
     // create a ConstantEventModel for each beam

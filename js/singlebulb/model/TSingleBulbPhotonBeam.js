@@ -8,7 +8,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var TColor = require( 'SCENERY/util/TColor' );
+  var ColorIO = require( 'SCENERY/util/ColorIO' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   // phet-io modules
@@ -50,7 +50,7 @@ define( function( require ) {
         Vector2IO.fromStateObject( photonStateObject.location ),
         Vector2IO.fromStateObject( photonStateObject.velocity ),
         photonStateObject.intensity,
-        TColor.fromStateObject( photonStateObject.color ),
+        ColorIO.fromStateObject( photonStateObject.color ),
         photonStateObject.isWhite,
         photonStateObject.wavelength,
         tandem
