@@ -15,6 +15,7 @@ define( function( require ) {
   var HSlider = require( 'SUN/HSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Range = require( 'DOT/Range' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   /**
@@ -25,7 +26,7 @@ define( function( require ) {
    */
   function RGBSlider( intensityProperty, color, tandem ) {
 
-    var hSlider = new HSlider( intensityProperty, { min: 0, max: 100 }, {
+    var hSlider = new HSlider( intensityProperty, new Range( 0, 100 ), {
       trackSize: new Dimension2( 100, 2 ),
       thumbSize: new Dimension2( 14, 28 ),
       thumbTouchAreaXDilation: 7,
