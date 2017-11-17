@@ -16,12 +16,12 @@ define( function( require ) {
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
-   * @param instance
+   * @param rgbPhoton
    * @param phetioID
    */
-  var RGBPhotonIO = function( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.colorVision.RGBPhoton );
-    ObjectIO.call( this, instance, phetioID );
+  var RGBPhotonIO = function( rgbPhoton, phetioID ) {
+    assert && assertInstanceOf( rgbPhoton, phet.colorVision.RGBPhoton );
+    ObjectIO.call( this, rgbPhoton, phetioID );
   };
 
   phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
@@ -34,11 +34,12 @@ define( function( require ) {
       );
     },
 
-    toStateObject: function( value ) {
+    toStateObject: function( rgbPhoton ) {
+      assert && assertInstanceOf( rgbPhoton, phet.colorVision.RGBPhoton );
       return {
-        location: Vector2IO.toStateObject( value.location ),
-        velocity: Vector2IO.toStateObject( value.velocity ),
-        intensity: value.intensity
+        location: Vector2IO.toStateObject( rgbPhoton.location ),
+        velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
+        intensity: rgbPhoton.intensity
       };
     }
   } );

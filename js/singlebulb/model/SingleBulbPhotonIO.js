@@ -16,25 +16,26 @@ define( function( require ) {
   var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
 
   /**
-   * @param instance
+   * @param singleBulbPhoton
    * @param phetioID
    * @constructor
    */
-  function SingleBulbPhotonIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhoton );
-    ObjectIO.call( this, instance, phetioID );
+  function SingleBulbPhotonIO( singleBulbPhoton, phetioID ) {
+    assert && assertInstanceOf( singleBulbPhoton, phet.colorVision.SingleBulbPhoton );
+    ObjectIO.call( this, singleBulbPhoton, phetioID );
   }
 
   phetioInherit( ObjectIO, 'SingleBulbPhotonIO', SingleBulbPhotonIO, {}, {
     documentation: 'A Photon from a single bulb.',
 
-    toStateObject: function( instance ) {
+    toStateObject: function( singleBulbPhoton ) {
+      assert && assertInstanceOf( singleBulbPhoton, phet.colorVision.SingleBulbPhoton );
       return _.extend( {
-        isWhite: instance.isWhite,
-        color: instance.color.toStateObject(),
-        wavelength: instance.wavelength,
-        passedFilter: instance.passedFilter
-      }, RGBPhotonIO.toStateObject( instance ) );
+        isWhite: singleBulbPhoton.isWhite,
+        color: singleBulbPhoton.color.toStateObject(),
+        wavelength: singleBulbPhoton.wavelength,
+        passedFilter: singleBulbPhoton.passedFilter
+      }, RGBPhotonIO.toStateObject( singleBulbPhoton ) );
     },
 
     // Used to setValue. Not needed here since all children are created by the container.

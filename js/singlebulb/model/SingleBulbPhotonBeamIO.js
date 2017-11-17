@@ -18,32 +18,34 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
-   * @param instance
+   * @param singleBulbPhotonBeam
    * @param phetioID
    * @constructor
    */
-  function SingleBulbPhotonBeamIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.colorVision.SingleBulbPhotonBeam );
-    ObjectIO.call( this, instance, phetioID );
+  function SingleBulbPhotonBeamIO( singleBulbPhotonBeam, phetioID ) {
+    assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
+    ObjectIO.call( this, singleBulbPhotonBeam, phetioID );
   }
 
   phetioInherit( ObjectIO, 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO, {}, {
     documentation: 'The Beam on the single bulb screen.',
 
-    clearChildInstances: function( instance ) {
-      while ( instance.photons.length > 0 ) {
-        var p = instance.photons.pop();
+    clearChildInstances: function( singleBulbPhotonBeam ) {
+      assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
+      while ( singleBulbPhotonBeam.photons.length > 0 ) {
+        var p = singleBulbPhotonBeam.photons.pop();
         p.dispose();
       }
     },
 
     /**
      * Adds a precipitate particle as specified by the phetioID and state.
-     * @param {Object} beam
+     * @param {Object} singleBulbPhotonBeam
      * @param {Tandem} tandem
      * @param {Object} photonStateObject
      */
-    addChildInstance: function( beam, tandem, photonStateObject ) {
+    addChildInstance: function( singleBulbPhotonBeam, tandem, photonStateObject ) {
+      assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
 
       // location, velocity, intensity, color, isWhite, wavelength, tandem
       var photonInstance = new phet.colorVision.SingleBulbPhoton(
@@ -56,8 +58,8 @@ define( function( require ) {
         tandem
       );
       photonInstance.passedFilter = photonStateObject.passedFilter;
-      beam.photons.push( photonInstance );
-      beam.repaintEmitter.emit();
+      singleBulbPhotonBeam.photons.push( photonInstance );
+      singleBulbPhotonBeam.repaintEmitter.emit();
     }
   } );
 
