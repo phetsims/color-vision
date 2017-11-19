@@ -18,7 +18,7 @@ define( function( require ) {
   // strings
   var colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
 
-  var tandem = Tandem.createRootTandem();
+  var tandem = Tandem.rootTandem;
 
   var simOptions = {
     credits: {
