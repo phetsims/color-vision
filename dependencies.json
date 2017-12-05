@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.10-rc.1 Fri Nov 17 2017 18:41:27 GMT-0700 (MST)",
+  "comment": "# color-vision 1.1.10 Tue Dec 05 2017 01:33:15 GMT-0700 (MST)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "e5680bce80f9837be5386dca4971752bd884fe52",
+    "sha": "977aac624f6d21e69daa367a7d5767f35e9599b0",
     "branch": "1.1"
   },
   "dot": {
