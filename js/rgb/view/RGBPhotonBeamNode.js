@@ -34,14 +34,11 @@ define( function( require ) {
     this.photons = photonBeam.photons;
     this.color = photonBeam.color;
 
+    // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
+    options.tandem = tandem;
+
     CanvasNode.call( this, options );
     this.invalidatePaint();
-
-    // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
 
     // TODO: alternatively, use the pattern in TrackNode?
     // In the state.html wrapper, when the state changes, we must update the skater node

@@ -22,6 +22,7 @@ define( function( require ) {
   function SingleBulbPhotonBeamNode( model, tandem, options ) {
 
     this.photons = model.photonBeam.photons;
+    options.tandem = tandem;
 
     CanvasNode.call( this, options );
 
@@ -31,11 +32,6 @@ define( function( require ) {
     } );
 
     this.invalidatePaint();
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
 
     model.photonBeam.repaintEmitter.addListener( function() {
       self.invalidatePaint();
