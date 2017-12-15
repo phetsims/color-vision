@@ -139,7 +139,9 @@ define( function( require ) {
       } );
 
     // @public
-    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, tandem.createTandem( 'photonBeam' ) );
+    this.photonBeam = new SingleBulbPhotonBeam( this, SingleBulbConstants.SINGLE_BEAM_LENGTH, {
+      tandem: tandem.createTandem( 'photonBeam' )
+    } );
 
     var self = this;
 

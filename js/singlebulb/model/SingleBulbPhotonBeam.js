@@ -14,6 +14,7 @@ define( function( require ) {
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Emitter = require( 'AXON/Emitter' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   var Vector2 = require( 'DOT/Vector2' );
@@ -28,10 +29,16 @@ define( function( require ) {
   /**
    * @param {SingleBulbModel} model
    * @param {number} beamLength the length of the beam. This is used to determine what location to restart the photons.
-   * @param {Tandem} tandem
+   * @param {Object} options - required
    * @constructor
    */
-  function SingleBulbPhotonBeam( model, beamLength, tandem ) {
+  function SingleBulbPhotonBeam( model, beamLength, options ) {
+
+    options = _.extend( {
+      phetioType: SingleBulbPhotonBeamIO
+    }, options );
+
+    PhetioObject.call( this, options );
 
     // @public
     this.photons = [];
@@ -41,9 +48,7 @@ define( function( require ) {
     this.model = model;
 
     // @public
-    this.photonGroupTandem = tandem.createGroupTandem( 'photons' );
-
-    tandem.addInstance( this, { phetioType: SingleBulbPhotonBeamIO } );
+    this.photonGroupTandem = options.tandem.createGroupTandem( 'photons' );
 
     // @public
     this.repaintEmitter = new Emitter();
@@ -58,7 +63,7 @@ define( function( require ) {
     return new Color( r, g, b, 1 );
   }
 
-  return inherit( Object, SingleBulbPhotonBeam, {
+  return inherit( PhetioObject, SingleBulbPhotonBeam, {
 
     // @public
     updateAnimationFrame: function( dt ) {
@@ -156,7 +161,7 @@ define( function( require ) {
           }
         );
         blackPhoton.passedFilter = true;
-        this.photons.push( blackPshoton );
+        this.photons.push( blackPhoton );
       }
 
       // emit a black photon for resetting the perceived color to black if the flashlight is off
@@ -209,6 +214,5 @@ define( function( require ) {
         this.photons[ i ].location.x = 0;
       }
     }
-
   } );
 } );
