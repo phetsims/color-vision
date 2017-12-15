@@ -23,14 +23,13 @@ define( function( require ) {
    * @param {Color} color
    * @param {boolean} isWhite
    * @param {number} wavelength
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength, tandem ) {
+  function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength, options ) {
 
-    RGBPhoton.call( this, location, velocity, intensity );
-
-    var self = this;
+    options = _.extend( { phetioType: SingleBulbPhotonIO }, options );
+    RGBPhoton.call( this, location, velocity, intensity, options );
 
     // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
     // White photons passing through must be changed to match the filter color, but keep full intensity.
@@ -40,17 +39,9 @@ define( function( require ) {
     this.color = color;
     this.wavelength = wavelength;
     this.passedFilter = false;
-    tandem.addInstance( this, { phetioType: SingleBulbPhotonIO } );
-    this.disposeSingleBulbPhoton = function() {
-      tandem.removeInstance( self );
-    };
   }
 
   colorVision.register( 'SingleBulbPhoton', SingleBulbPhoton );
 
-  return inherit( RGBPhoton, SingleBulbPhoton, {
-    dispose: function() {
-      this.disposeSingleBulbPhoton();
-    }
-  } );
+  return inherit( RGBPhoton, SingleBulbPhoton );
 } );

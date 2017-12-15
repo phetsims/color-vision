@@ -136,7 +136,7 @@ define( function( require ) {
             // otherwise it takes the intensity of the photon, which may have been partially filtered
             this.model.lastPhotonColorProperty.value = ( photon.wasWhite ) ? newPerceivedColor.withAlpha( 1 ) : newPerceivedColor;
           }
-          
+
           this.photons[ j ].dispose();
           this.photons.splice( j, 1 ); // remove jth photon from list
         }
@@ -151,11 +151,12 @@ define( function( require ) {
           1,
           BLACK_ALPHA_0,
           false,
-          undefined,
-          self.photonGroupTandem.createNextTandem()
+          undefined, {
+            tandem: self.photonGroupTandem.createNextTandem()
+          }
         );
         blackPhoton.passedFilter = true;
-        this.photons.push( blackPhoton );
+        this.photons.push( blackPshoton );
       }
 
       // emit a black photon for resetting the perceived color to black if the flashlight is off
@@ -166,8 +167,9 @@ define( function( require ) {
           1,
           BLACK_ALPHA_0,
           false,
-          undefined,// TODO: quoi?
-          self.photonGroupTandem.createNextTandem()
+          undefined, {// TODO: quoi?
+            tandem: self.photonGroupTandem.createNextTandem()
+          }
         ) );
       }
     },
@@ -193,8 +195,9 @@ define( function( require ) {
           1,
           newColor,
           this.model.lightTypeProperty.value === 'white',
-          this.model.flashlightWavelengthProperty.value,
-          self.photonGroupTandem.createNextTandem()
+          this.model.flashlightWavelengthProperty.value, {
+            tandem: self.photonGroupTandem.createNextTandem()
+          }
         ) );
       }
     },
