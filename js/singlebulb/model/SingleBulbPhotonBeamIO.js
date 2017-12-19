@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for SingleBulbPhotonBeam.
  * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
@@ -18,8 +18,8 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
-   * @param singleBulbPhotonBeam
-   * @param phetioID
+   * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
+   * @param {string} phetioID
    * @constructor
    */
   function SingleBulbPhotonBeamIO( singleBulbPhotonBeam, phetioID ) {
@@ -30,6 +30,10 @@ define( function( require ) {
   phetioInherit( ObjectIO, 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO, {}, {
     documentation: 'The Beam on the single bulb screen.',
 
+    /**
+     * Clears the children from the model so it can be deserialized.
+     * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
+     */
     clearChildInstances: function( singleBulbPhotonBeam ) {
       assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
       while ( singleBulbPhotonBeam.photons.length > 0 ) {
@@ -39,8 +43,8 @@ define( function( require ) {
     },
 
     /**
-     * Adds a precipitate particle as specified by the phetioID and state.
-     * @param {Object} singleBulbPhotonBeam
+     * Adds a photon beam as specified by the phetioID and state.
+     * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
      * @param {Tandem} tandem
      * @param {Object} photonStateObject
      */

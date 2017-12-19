@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for SingleBulbPhoton.
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -16,8 +16,8 @@ define( function( require ) {
   var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
 
   /**
-   * @param singleBulbPhoton
-   * @param phetioID
+   * @param {SingleBulbPhoton} singleBulbPhoton
+   * @param {string} phetioID
    * @constructor
    */
   function SingleBulbPhotonIO( singleBulbPhoton, phetioID ) {
@@ -28,6 +28,11 @@ define( function( require ) {
   phetioInherit( ObjectIO, 'SingleBulbPhotonIO', SingleBulbPhotonIO, {}, {
     documentation: 'A Photon from a single bulb.',
 
+    /**
+     * Serializes an instance.
+     * @param {SingleBulbPhoton} singleBulbPhoton
+     * @returns {Object}
+     */
     toStateObject: function( singleBulbPhoton ) {
       assert && assertInstanceOf( singleBulbPhoton, phet.colorVision.SingleBulbPhoton );
       return _.extend( {
@@ -38,7 +43,11 @@ define( function( require ) {
       }, RGBPhotonIO.toStateObject( singleBulbPhoton ) );
     },
 
-    // Used to setValue. Not needed here since all children are created by the container.
+    /**
+     * Deserializes an instance. Not needed here since all children are created by the container.
+     * @param {Object} stateObject
+     * @returns {{}}
+     */
     fromStateObject: function( stateObject ) {
       return {};
     }

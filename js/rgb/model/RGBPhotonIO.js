@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for RGBPhoton.
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -16,8 +16,8 @@ define( function( require ) {
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
-   * @param rgbPhoton
-   * @param phetioID
+   * @param {RGBPhoton} rgbPhoton
+   * @param {string} phetioID
    */
   var RGBPhotonIO = function( rgbPhoton, phetioID ) {
     assert && assertInstanceOf( rgbPhoton, phet.colorVision.RGBPhoton );
@@ -26,14 +26,24 @@ define( function( require ) {
 
   phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
 
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {RGBPhoton}
+     */
     fromStateObject: function( stateObject ) {
-      return new window.phet.colorVision.RGBPhoton(
+      return new phet.colorVision.RGBPhoton(
         Vector2IO.fromStateObject( stateObject.location ),
         Vector2IO.fromStateObject( stateObject.velocity ),
         stateObject.intensity
       );
     },
 
+    /**
+     * Serializes an instance.
+     * @param {RGBPhoton} rgbPhoton
+     * @returns {Object}
+     */
     toStateObject: function( rgbPhoton ) {
       assert && assertInstanceOf( rgbPhoton, phet.colorVision.RGBPhoton );
       return {
