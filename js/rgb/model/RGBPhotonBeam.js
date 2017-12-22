@@ -37,8 +37,6 @@ define( function( require ) {
     // @private
     this.intensityProperty = intensityProperty;
     this.perceivedIntensityProperty = perceivedIntensityProperty;
-
-    tandem.createTandem( 'photons' ).addInstance( this.photons, { phetioType: ArrayIO( RGBPhotonIO ) } );
   }
 
   colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
