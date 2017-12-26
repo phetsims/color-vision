@@ -15,10 +15,6 @@ define( function( require ) {
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // phet-io modules
-  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
-  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
-
   /**
    * @param {string} color an rgb string
    * @param {Property.<number>} intensityProperty the intensity property for this color from the model
@@ -101,6 +97,5 @@ define( function( require ) {
         this.photons.pop();
       }
     }
-
   } );
 } );
