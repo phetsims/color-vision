@@ -2,6 +2,7 @@
 
 /**
  * IO type for SingleBulbPhotonBeam.
+ * 
  * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
