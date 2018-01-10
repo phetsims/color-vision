@@ -28,19 +28,6 @@ define( function( require ) {
   phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
 
     /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {RGBPhoton}
-     */
-    fromStateObject: function( stateObject ) {
-      return new phet.colorVision.RGBPhoton(
-        Vector2IO.fromStateObject( stateObject.location ),
-        Vector2IO.fromStateObject( stateObject.velocity ),
-        stateObject.intensity
-      );
-    },
-
-    /**
      * Serializes an instance.
      * @param {RGBPhoton} rgbPhoton
      * @returns {Object}
@@ -52,6 +39,19 @@ define( function( require ) {
         velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
         intensity: rgbPhoton.intensity
       };
+    },
+
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {RGBPhoton}
+     */
+    fromStateObject: function( stateObject ) {
+      return new phet.colorVision.RGBPhoton(
+        Vector2IO.fromStateObject( stateObject.location ),
+        Vector2IO.fromStateObject( stateObject.velocity ),
+        stateObject.intensity
+      );
     }
   } );
 
