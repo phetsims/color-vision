@@ -2,7 +2,7 @@
 
 /**
  * IO type for SingleBulbPhotonBeam.
- * 
+ *
  * @author Sam Reid (PhET Interactive Simulations)
  */
 define( function( require ) {
@@ -59,8 +59,9 @@ define( function( require ) {
         photonStateObject.intensity,
         ColorIO.fromStateObject( photonStateObject.color ),
         photonStateObject.isWhite,
-        photonStateObject.wavelength,
-        tandem
+        photonStateObject.wavelength, {
+          tandem: tandem
+        }
       );
       photonInstance.passedFilter = photonStateObject.passedFilter;
       singleBulbPhotonBeam.photons.push( photonInstance );
