@@ -35,7 +35,8 @@ define( function( require ) {
   function SingleBulbPhotonBeam( model, beamLength, options ) {
 
     options = _.extend( {
-      phetioType: SingleBulbPhotonBeamIO
+      phetioType: SingleBulbPhotonBeamIO,
+      phetioState: false
     }, options );
 
     PhetioObject.call( this, options );

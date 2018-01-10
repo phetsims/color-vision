@@ -66,27 +66,6 @@ define( function( require ) {
       photonInstance.passedFilter = photonStateObject.passedFilter;
       singleBulbPhotonBeam.photons.push( photonInstance );
       singleBulbPhotonBeam.repaintEmitter.emit();
-    },
-
-    /**
-     * Serializes an instance.
-     * @returns {Object}
-     */
-    toStateObject: function() {
-      return {};
-    },
-
-    /**
-     * Deserializes an instance.
-     * @returns {}
-     */
-    fromStateObject: function() {
-      return {};
-    },
-
-    /**
-     */
-    setValue: function() {
     }
   } );
 
