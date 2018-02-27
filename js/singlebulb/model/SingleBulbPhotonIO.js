@@ -10,11 +10,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
+  
+  // phet-io modules
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
 
   /**
    * @param {SingleBulbPhoton} singleBulbPhoton
