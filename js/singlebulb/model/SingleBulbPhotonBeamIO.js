@@ -11,10 +11,10 @@ define( function( require ) {
   // modules
   var ColorIO = require( 'SCENERY/util/ColorIO' );
   var Vector2IO = require( 'DOT/Vector2IO' );
+  var colorVision = require( 'COLOR_VISION/colorVision' );
 
   // phet-io modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
