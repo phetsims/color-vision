@@ -19,7 +19,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var Shape = require( 'KITE/Shape' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var SpectrumNode = require( 'SCENERY_PHET/SpectrumNode' );
+  var WavelengthSpectrumNode = require( 'SCENERY_PHET/WavelengthSpectrumNode' );
   var Util = require( 'DOT/Util' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
@@ -57,8 +57,8 @@ define( function( require ) {
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
     var containerNode = new Node();
 
-    var wavelengthTrack = new SpectrumNode( { size: new Dimension2( width, height ) } );
-    containerNode.addChild( wavelengthTrack );
+    var spectrumTrack = new WavelengthSpectrumNode( { size: new Dimension2( width, height ) } );
+    containerNode.addChild( spectrumTrack );
     this.addChild( containerNode );
 
     // function for a gaussian with mean 0 and standard deviation 0.5
@@ -95,7 +95,7 @@ define( function( require ) {
 
     filterWavelengthProperty.link( function( wavelength ) {
       var newPosition = wavelengthToPosition( wavelength );
-      wavelengthTrack.x = width / 2 - newPosition;
+      spectrumTrack.x = width / 2 - newPosition;
       containerNode.x = newPosition - width / 2;
       gaussianPath.centerX = newPosition;
     } );
