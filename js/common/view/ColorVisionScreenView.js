@@ -53,16 +53,6 @@ define( function( require ) {
       centerY: 220 + THOUGHT_BUBBLE_Y
     } ) );
 
-    // Add reset all button
-    var resetAllButton = new ResetAllButton( {
-      listener: function() { model.reset(); },
-      bottom: this.layoutBounds.bottom - 5,
-      right: this.layoutBounds.right - 30,
-      radius: 18,
-      tandem: tandem.createTandem( 'resetAllButton' )
-    } );
-    this.addChild( resetAllButton );
-
     // Add play/pause button
     var playPauseButton = new PlayPauseButton( model.playingProperty, {
       bottom: this.layoutBounds.bottom - 20,
@@ -82,6 +72,16 @@ define( function( require ) {
       tandem: tandem.createTandem( 'stepButton' )
     } );
     this.addChild( stepButton );
+
+    // Add reset all button
+    var resetAllButton = new ResetAllButton( {
+      listener: function() { model.reset(); },
+      bottom: this.layoutBounds.bottom - 5,
+      right: this.layoutBounds.right - 30,
+      radius: 18,
+      tandem: tandem.createTandem( 'resetAllButton' )
+    } );
+    this.addChild( resetAllButton );
   }
 
   colorVision.register( 'ColorVisionScreenView', ColorVisionScreenView );

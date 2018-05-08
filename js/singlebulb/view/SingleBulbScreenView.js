@@ -131,7 +131,7 @@ define( function( require ) {
       tandemName: 'coloredLightRadioButton'
     } ];
 
-    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
+    var lightColorRadioButtonGroup = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       _.extend( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
@@ -148,15 +148,15 @@ define( function( require ) {
       tandemName: 'photonRadioButton'
     } ];
 
-    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
+    var beamPhotonRadioButtonGroup = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       _.extend( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
       }, iconToggleOptions )
     );
 
-    this.addChild( colorWhiteSelectButtons );
-    this.addChild( beamPhotonSelectButtons );
+    this.addChild( lightColorRadioButtonGroup );
+    this.addChild( beamPhotonRadioButtonGroup );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same location and will match up perfectly
@@ -186,8 +186,8 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
-      tandem.createTandem( 'gaussianSlider' ), {
+    var filterColorSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
+      tandem.createTandem( 'filterColorSlider' ), {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance
       } );
@@ -196,22 +196,23 @@ define( function( require ) {
     var filterColorTextNode = new Text( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
-      bottom: gaussianSlider.top - 3,
-      right: gaussianSlider.right - 18,
-      maxWidth: 0.85 * gaussianSlider.width,
+      bottom: filterColorSlider.top - 3,
+      right: filterColorSlider.right - 18,
+      maxWidth: 0.85 * filterColorSlider.width,
       tandem: tandem.createTandem( 'filterColorTextNode' )
     } );
     this.addChild( filterColorTextNode );
 
     // Add the wire from the slider to the filter
-    this.addChild( new FilterWireNode(
+    var filterWireNode = new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
+      new Vector2( filterColorSlider.left + 16, filterColorSlider.centerY - SLIDER_Y_OFFSET ),
       tandem.createTandem( 'filterWireNode' )
-    ) );
+    );
+    this.addChild( filterWireNode );
 
-    this.addChild( gaussianSlider );
+    this.addChild( filterColorSlider );
 
     // Left half of the filter
     var filterLeft = new FilterHalfEllipse(
@@ -259,6 +260,17 @@ define( function( require ) {
 
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
+
+    // focus order for a11y
+    this.accessibleOrder = [
+      flashlightNode,
+      bulbColorSlider,
+      lightColorRadioButtonGroup,
+      beamPhotonRadioButtonGroup,
+      filterWireNode, //TODO OnOffSwitch needs to be instrumented
+      filterColorSlider,
+      headNode
+    ];
   }
 
   colorVision.register( 'SingleBulbScreenView', SingleBulbScreenView );
