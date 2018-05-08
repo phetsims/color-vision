@@ -267,7 +267,7 @@ define( function( require ) {
       bulbColorSlider,
       lightColorRadioButtonGroup,
       beamPhotonRadioButtonGroup,
-      filterWireNode, //TODO OnOffSwitch needs to be instrumented
+      filterWireNode, //TODO #121 OnOffSwitch needs to be instrumented
       filterColorSlider,
       headNode
     ];
