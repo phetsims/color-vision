@@ -32,7 +32,8 @@ define( function( require ) {
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-      tandem: tandem
+      tandem: tandem,
+      descriptionContent: 'Single Bulb Screen'
     };
 
     Screen.call( this,

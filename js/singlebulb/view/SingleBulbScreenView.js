@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
+  var ColorVisionA11yStrings = require( 'COLOR_VISION/common/ColorVisionA11yStrings' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
@@ -27,10 +28,10 @@ define( function( require ) {
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
-
 
   // images
   var beamViewIcon = require( 'image!COLOR_VISION/beam-view-icon.png' );
@@ -43,6 +44,8 @@ define( function( require ) {
   // strings
   var bulbSliderLabelString = require( 'string!COLOR_VISION/bulbSlider.label' );
   var filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
+  var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
+  var screenNamePatternString = ColorVisionA11yStrings.screenNamePattern.value;
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 20;
@@ -59,7 +62,9 @@ define( function( require ) {
    */
   function SingleBulbScreenView( model, tandem ) {
 
-    ColorVisionScreenView.call( this, model, tandem );
+    ColorVisionScreenView.call( this, model, tandem, {
+      labelContent: StringUtils.fillIn( screenNamePatternString, { screenName: singleBulbModuleTitleString } )
+    } );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
