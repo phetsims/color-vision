@@ -12,16 +12,11 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PerceivedColorNode = require( 'COLOR_VISION/common/view/PerceivedColorNode' );
   var PlayPauseButton = require( 'SCENERY_PHET/buttons/PlayPauseButton' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var StepForwardButton = require( 'SCENERY_PHET/buttons/StepForwardButton' );
-  var ThoughtBubble = require( 'COLOR_VISION/common/view/ThoughtBubble' );
-
-  // constants
-  // used for moving the thought bubbles together as a group in case minor adjustments are needed
-  var THOUGHT_BUBBLE_X = -15;
-  var THOUGHT_BUBBLE_Y = -10;
 
   /**
    * @param {ColorVisionModel} model
@@ -36,24 +31,9 @@ define( function( require ) {
       tandem: tandem
     }, options ) );
 
-    //TODO #121 to add H3 for "perceived color", we need to combine these 4 Nodes into one container
-    // Add thought bubbles
-    this.addChild( new ThoughtBubble( model.perceivedColorProperty, 45, {
-      centerX: 220 + THOUGHT_BUBBLE_X,
-      centerY: 60 + THOUGHT_BUBBLE_Y
-    } ) );
-    this.addChild( new ThoughtBubble( model.perceivedColorProperty, 15, {
-      centerX: 90 + THOUGHT_BUBBLE_X,
-      centerY: 105 + THOUGHT_BUBBLE_Y
-    } ) );
-    this.addChild( new ThoughtBubble( model.perceivedColorProperty, 12, {
-      centerX: 62 + THOUGHT_BUBBLE_X,
-      centerY: 165 + THOUGHT_BUBBLE_Y
-    } ) );
-    this.addChild( new ThoughtBubble( model.perceivedColorProperty, 7, {
-      centerX: 50 + THOUGHT_BUBBLE_X,
-      centerY: 220 + THOUGHT_BUBBLE_Y
-    } ) );
+    // Bubbles that display perceived color
+    var perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty );
+    this.addChild( perceivedColorNode );
 
     // Add play/pause button
     var playPauseButton = new PlayPauseButton( model.playingProperty, {
