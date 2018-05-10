@@ -15,6 +15,9 @@ define( function( require ) {
   var ColorVisionA11yStrings = {
     screenNamePattern: {
       value: '{{screenName}} Screen'
+    },
+    singleBulbSceneSummary: {
+      value: 'On this screen, the Play Area has a person looking at a light source. The light source color is adjustable and can be viewed as a beam or particle stream. An adjustable filter can be placed in front of the light source. The color perceived by the person is displayed. In the Control Panel, buttons play and pause the sim, change the depiction of the person, or reset the sim.\n'
     }
   };
 
