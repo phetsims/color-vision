@@ -36,6 +36,7 @@ define( function( require ) {
       tandem: tandem
     }, options ) );
 
+    //TODO #121 to add H3 for "perceived color", we need to combine these 4 Nodes into one container
     // Add thought bubbles
     this.addChild( new ThoughtBubble( model.perceivedColorProperty, 45, {
       centerX: 220 + THOUGHT_BUBBLE_X,

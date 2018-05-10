@@ -24,6 +24,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   var SceneSummaryNode = require( 'SCENERY_PHET/accessibility/nodes/SceneSummaryNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
@@ -48,6 +49,7 @@ define( function( require ) {
   var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
   var screenNamePatternString = ColorVisionA11yStrings.screenNamePattern.value;
   var singleBulbSceneSummaryString = ColorVisionA11yStrings.singleBulbSceneSummary.value;
+  var lightSourceColorControlString = ColorVisionA11yStrings.lightSourceColorControl.value;
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 20;
@@ -75,6 +77,9 @@ define( function( require ) {
     } );
     this.addChild( sceneSummaryNode );
 
+    var playAreaAccessibleSectionNode = new PlayAreaNode();
+    this.addChild( playAreaAccessibleSectionNode );
+
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
@@ -97,7 +102,11 @@ define( function( require ) {
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-      tandem: tandem.createTandem( 'bulbColorSlider' )
+      tandem: tandem.createTandem( 'bulbColorSlider' ),
+
+      // a11y
+      labelTagName: 'h3',
+      labelContent: lightSourceColorControlString
     } );
 
     // add text above the upper slider
