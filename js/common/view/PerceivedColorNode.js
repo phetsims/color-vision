@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Displays the color perceived by the viewer.
+ * Displays the color perceived by the viewer in a set of cartoon-like 'thought bubbles'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -12,7 +12,8 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ThoughtBubble = require( 'COLOR_VISION/common/view/ThoughtBubble' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Shape = require( 'KITE/Shape' );
 
   /**
    * @param {Property.<Color|string>} perceivedColorProperty
@@ -49,6 +50,32 @@ define( function( require ) {
 
   colorVision.register( 'PerceivedColorNode', PerceivedColorNode );
 
-  return inherit( Node, PerceivedColorNode );
+  inherit( Node, PerceivedColorNode );
+
+  /**
+   * One of the 'thought bubbles' in the perceived color display.
+   * @param {Property.<Color|string>} perceivedColorProperty
+   * @param {number} yRadius
+   * @param {Object} [options]
+   * @constructor
+   */
+  function ThoughtBubble( perceivedColorProperty, yRadius, options ) {
+
+    options = _.extend( {
+      lineWidth: 0.5,
+      stroke: '#c0b9b9' // gray
+    }, options );
+
+    var ellipse = new Shape().ellipse( 0, 0, 2 * yRadius, yRadius, 0 );
+    Path.call( this, ellipse, options );
+
+    perceivedColorProperty.linkAttribute( this, 'fill' );
+  }
+
+  colorVision.register( 'PerceivedColorNode.ThoughtBubble', ThoughtBubble );
+
+  inherit( Path, ThoughtBubble );
+
+  return PerceivedColorNode;
 } );
  
