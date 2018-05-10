@@ -25,6 +25,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
+  var SceneSummaryNode = require( 'SCENERY_PHET/accessibility/nodes/SceneSummaryNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
@@ -46,6 +47,7 @@ define( function( require ) {
   var filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
   var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
   var screenNamePatternString = ColorVisionA11yStrings.screenNamePattern.value;
+  var singleBulbSceneSummaryString = ColorVisionA11yStrings.singleBulbSceneSummary.value;
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 20;
@@ -65,6 +67,13 @@ define( function( require ) {
     ColorVisionScreenView.call( this, model, tandem, {
       labelContent: StringUtils.fillIn( screenNamePatternString, { screenName: singleBulbModuleTitleString } )
     } );
+
+    var sceneSummaryNode = new SceneSummaryNode( singleBulbSceneSummaryString, {
+      appendDescription: true,
+      descriptionTagName: 'p',
+      descriptionContent: 'Turn on bulb to begin observations. If needed, check out the Keyboard Shortcuts for this sim under Sim Resources.'
+    } );
+    this.addChild( sceneSummaryNode );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
@@ -268,6 +277,7 @@ define( function( require ) {
 
     // focus order for a11y
     this.accessibleOrder = [
+      sceneSummaryNode, // this must be first!
       flashlightNode,
       bulbColorSlider,
       lightColorRadioButtonGroup,
