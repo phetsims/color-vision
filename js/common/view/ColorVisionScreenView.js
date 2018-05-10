@@ -32,7 +32,10 @@ define( function( require ) {
     }, options ) );
 
     // Bubbles that display perceived color
-    var perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty );
+    var perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty, {
+      left: 20,
+      top: 5
+    } );
     this.addChild( perceivedColorNode );
 
     // Add play/pause button
