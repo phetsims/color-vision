@@ -21,24 +21,23 @@ define( function( require ) {
   /**
    * @param {ColorVisionModel} model
    * @param {Tandem} tandem
-   * @param {Object} [options]
    * @constructor
    */
-  function ColorVisionScreenView( model, tandem, options ) {
+  function ColorVisionScreenView( model, tandem ) {
 
-    ScreenView.call( this, _.extend( {
+    ScreenView.call( this, {
       layoutBounds: new Bounds2( 0, 0, 768, 504 ),
       tandem: tandem
-    }, options ) );
+    } );
 
-    // Bubbles that display perceived color
+    // 'Thought bubbles' that display perceived color
     var perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty, {
       left: 20,
       top: 5
     } );
     this.addChild( perceivedColorNode );
 
-    // Add play/pause button
+    // Play/pause button
     var playPauseButton = new PlayPauseButton( model.playingProperty, {
       bottom: this.layoutBounds.bottom - 20,
       centerX: this.layoutBounds.centerX - 25,
@@ -47,7 +46,7 @@ define( function( require ) {
     } );
     this.addChild( playPauseButton );
 
-    // Add step button
+    // Step button
     var stepButton = new StepForwardButton( {
       playingProperty: model.playingProperty,
       listener: function() { model.manualStep(); },
@@ -58,7 +57,7 @@ define( function( require ) {
     } );
     this.addChild( stepButton );
 
-    // Add reset all button
+    // Reset All button
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
       bottom: this.layoutBounds.bottom - 5,

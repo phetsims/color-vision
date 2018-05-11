@@ -12,7 +12,6 @@ define( function( require ) {
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionA11yStrings = require( 'COLOR_VISION/common/ColorVisionA11yStrings' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
   var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
@@ -24,16 +23,14 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var PlayAreaNode = require( 'SCENERY_PHET/accessibility/nodes/PlayAreaNode' );
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
-  var SceneSummaryNode = require( 'SCENERY_PHET/accessibility/nodes/SceneSummaryNode' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
   var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Vector2 = require( 'DOT/Vector2' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+
 
   // images
   var beamViewIcon = require( 'image!COLOR_VISION/beam-view-icon.png' );
@@ -46,10 +43,6 @@ define( function( require ) {
   // strings
   var bulbSliderLabelString = require( 'string!COLOR_VISION/bulbSlider.label' );
   var filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
-  var singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
-  var screenNamePatternString = ColorVisionA11yStrings.screenNamePattern.value;
-  var singleBulbSceneSummaryString = ColorVisionA11yStrings.singleBulbSceneSummary.value;
-  var lightSourceColorControlString = ColorVisionA11yStrings.lightSourceColorControl.value;
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 20;
@@ -66,19 +59,7 @@ define( function( require ) {
    */
   function SingleBulbScreenView( model, tandem ) {
 
-    ColorVisionScreenView.call( this, model, tandem, {
-      labelContent: StringUtils.fillIn( screenNamePatternString, { screenName: singleBulbModuleTitleString } )
-    } );
-
-    var sceneSummaryNode = new SceneSummaryNode( singleBulbSceneSummaryString, {
-      appendDescription: true,
-      descriptionTagName: 'p',
-      descriptionContent: 'Turn on bulb to begin observations. If needed, check out the Keyboard Shortcuts for this sim under Sim Resources.'
-    } );
-    this.addChild( sceneSummaryNode );
-
-    var playAreaAccessibleSectionNode = new PlayAreaNode();
-    this.addChild( playAreaAccessibleSectionNode );
+    ColorVisionScreenView.call( this, model, tandem );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
     var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
@@ -102,11 +83,7 @@ define( function( require ) {
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-      tandem: tandem.createTandem( 'bulbColorSlider' ),
-
-      // a11y
-      labelTagName: 'h3',
-      labelContent: lightSourceColorControlString
+      tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
 
     // add text above the upper slider
@@ -154,7 +131,7 @@ define( function( require ) {
       tandemName: 'coloredLightRadioButton'
     } ];
 
-    var lightColorRadioButtonGroup = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
+    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       _.extend( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
@@ -171,15 +148,15 @@ define( function( require ) {
       tandemName: 'photonRadioButton'
     } ];
 
-    var beamPhotonRadioButtonGroup = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
+    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       _.extend( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
       }, iconToggleOptions )
     );
 
-    this.addChild( lightColorRadioButtonGroup );
-    this.addChild( beamPhotonRadioButtonGroup );
+    this.addChild( colorWhiteSelectButtons );
+    this.addChild( beamPhotonSelectButtons );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same location and will match up perfectly
@@ -209,8 +186,8 @@ define( function( require ) {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
-    var filterColorSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
-      tandem.createTandem( 'filterColorSlider' ), {
+    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
+      tandem.createTandem( 'gaussianSlider' ), {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance
       } );
@@ -219,23 +196,22 @@ define( function( require ) {
     var filterColorTextNode = new Text( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
-      bottom: filterColorSlider.top - 3,
-      right: filterColorSlider.right - 18,
-      maxWidth: 0.85 * filterColorSlider.width,
+      bottom: gaussianSlider.top - 3,
+      right: gaussianSlider.right - 18,
+      maxWidth: 0.85 * gaussianSlider.width,
       tandem: tandem.createTandem( 'filterColorTextNode' )
     } );
     this.addChild( filterColorTextNode );
 
     // Add the wire from the slider to the filter
-    var filterWireNode = new FilterWireNode(
+    this.addChild( new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
-      new Vector2( filterColorSlider.left + 16, filterColorSlider.centerY - SLIDER_Y_OFFSET ),
+      new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
       tandem.createTandem( 'filterWireNode' )
-    );
-    this.addChild( filterWireNode );
+    ) );
 
-    this.addChild( filterColorSlider );
+    this.addChild( gaussianSlider );
 
     // Left half of the filter
     var filterLeft = new FilterHalfEllipse(
@@ -283,18 +259,6 @@ define( function( require ) {
 
     // flashlight is added after the beams so it covers up the beginning of the beam
     this.addChild( flashlightNode );
-
-    // focus order for a11y
-    this.accessibleOrder = [
-      sceneSummaryNode, // this must be first!
-      flashlightNode,
-      bulbColorSlider,
-      lightColorRadioButtonGroup,
-      beamPhotonRadioButtonGroup,
-      filterWireNode, //TODO #121 OnOffSwitch needs to be instrumented
-      filterColorSlider,
-      headNode
-    ];
   }
 
   colorVision.register( 'SingleBulbScreenView', SingleBulbScreenView );
