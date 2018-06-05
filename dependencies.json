@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.4-phetio Mon Jun 04 2018 21:46:39 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.2.5-phetiorc.1 Mon Jun 04 2018 21:48:13 GMT-0600 (MDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "4f91daf96735639db9031b4a416c981e2e48ef1e",
+    "sha": "852dc6707286c848303daafec9acda9afab644ba",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -54,7 +54,7 @@
   },
   "scenery": {
     "sha": "2be4b7bad6b540223792c95d8ba2e187655a8ecb",
-    "branch": "color-vision-1.2-phetio"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "5ced4569a646e71adc900dcb918ca76644207a9e",
