@@ -76,7 +76,7 @@ define( function( require ) {
       // only create a new photon if intensity is greater than 0
       if ( intensity > 0 ) {
         var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
-        var yVelocity = ( Math.random() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
+        var yVelocity = ( phet.joist.random.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
         var initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
         var deltaY = yVelocity * timeElapsed;

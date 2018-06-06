@@ -58,9 +58,9 @@ define( function( require ) {
   colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 
   function randomColor() {
-    var r = Math.floor( Math.random() * 256 );
-    var g = Math.floor( Math.random() * 256 );
-    var b = Math.floor( Math.random() * 256 );
+    var r = Math.floor( phet.joist.random.nextDouble() * 256 );
+    var g = Math.floor( phet.joist.random.nextDouble() * 256 );
+    var b = Math.floor( phet.joist.random.nextDouble() * 256 );
     return new Color( r, g, b, 1 );
   }
 
@@ -100,7 +100,7 @@ define( function( require ) {
           probability = ( !photon.wasWhite ) ? probability : 0.5;
 
           // remove a percentage of photons from the beam
-          if ( Math.random() >= probability ) {
+          if ( phet.joist.random.nextDouble() >= probability ) {
             this.photons[ j ].dispose();
             this.photons.splice( j, 1 ); // remove jth photon from list
             continue;
@@ -189,7 +189,7 @@ define( function( require ) {
                        randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
 
         var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
-        var yVelocity = ( Math.random() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
+        var yVelocity = ( phet.joist.random.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
         var initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
         var deltaY = yVelocity * timeElapsed;
