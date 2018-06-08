@@ -25,7 +25,7 @@ define( function( require ) {
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 

@@ -13,7 +13,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
 
-  // phet-io modules
+  // ifphetio
   var SingleBulbPhotonIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonIO' );
 
   /**

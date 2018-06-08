@@ -20,7 +20,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
-  // phet-io modules
+  // ifphetio
   var SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
 
   // constants
