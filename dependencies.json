@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.12 Fri Aug 10 2018 01:53:37 GMT-0600 (MDT)",
+  "comment": "# color-vision 1.1.13-rc.1 Fri Aug 10 2018 03:35:31 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "328d6c586c0c5287ed73178757f91ba21367d39b",
+    "sha": "521a215161c6a07b69d52a228625dc80c2d1a996",
     "branch": "1.1"
   },
   "dot": {
@@ -38,7 +38,7 @@
   },
   "phetcommon": {
     "sha": "29c5a6eb6f51294d2eae9ad28c0fb443e1070b28",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "2d90c3482a0ef44e6551ab4b8417235b6c08ed24",
