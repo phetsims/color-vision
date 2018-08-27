@@ -48,7 +48,7 @@ define( function( require ) {
 
     // Step button
     var stepButton = new StepForwardButton( {
-      playingProperty: model.playingProperty,
+      isPlayingProperty: model.playingProperty,
       listener: function() { model.manualStep(); },
       centerY: playPauseButton.centerY,
       centerX: this.layoutBounds.centerX + 25,
