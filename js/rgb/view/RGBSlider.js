@@ -1,4 +1,4 @@
-// Copyright 2014-2017, University of Colorado Boulder
+// Copyright 2018, University of Colorado Boulder
 
 /**
  * View for RGBSlider objects
@@ -12,11 +12,11 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var HSlider = require( 'SUN/HSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Range = require( 'DOT/Range' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var VSlider = require( 'SUN/VSlider' );
 
   /**
    * @param {Property.<number>} intensityProperty the intensity property for this color from the model
@@ -26,14 +26,13 @@ define( function( require ) {
    */
   function RGBSlider( intensityProperty, color, tandem ) {
 
-    var hSlider = new HSlider( intensityProperty, new Range( 0, 100 ), {
+    var hSlider = new VSlider( intensityProperty, new Range( 0, 100 ), {
       trackSize: new Dimension2( 100, 2 ),
       thumbSize: new Dimension2( 14, 28 ),
       thumbTouchAreaXDilation: 7,
       thumbTouchAreaYDilation: 7,
       tandem: tandem
     } );
-    hSlider.rotation = -Math.PI / 2;
 
     var rectWidth = hSlider.width + 8;
     var rectHeight = hSlider.height + 22;
