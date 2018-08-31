@@ -26,7 +26,7 @@ define( function( require ) {
    */
   function RGBSlider( intensityProperty, color, tandem ) {
 
-    var hSlider = new VSlider( intensityProperty, new Range( 0, 100 ), {
+    var slider = new VSlider( intensityProperty, new Range( 0, 100 ), {
       trackSize: new Dimension2( 100, 2 ),
       thumbSize: new Dimension2( 14, 28 ),
       thumbTouchAreaXDilation: 7,
@@ -34,8 +34,8 @@ define( function( require ) {
       tandem: tandem
     } );
 
-    var rectWidth = hSlider.width + 8;
-    var rectHeight = hSlider.height + 22;
+    var rectWidth = slider.width + 8;
+    var rectHeight = slider.height + 22;
 
     Rectangle.call( this, 0, 0, rectWidth, rectHeight, 5, 5,
       {
@@ -43,10 +43,10 @@ define( function( require ) {
         stroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
 
-    hSlider.centerX = this.centerX;
-    hSlider.centerY = this.centerY;
+    slider.centerX = this.centerX;
+    slider.centerY = this.centerY;
 
-    this.addChild( hSlider );
+    this.addChild( slider );
   }
 
   colorVision.register( 'RGBSlider', RGBSlider );
