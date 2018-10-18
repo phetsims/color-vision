@@ -17,8 +17,8 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // ifphetio
-  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var StringIO = require( 'TANDEM/types/StringIO' );
 
   /**
    * @param {Tandem} tandem
