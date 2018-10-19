@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var Color = require( 'SCENERY/util/Color' );
   var ColorIO = require( 'SCENERY/util/ColorIO' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
@@ -23,11 +24,8 @@ define( function( require ) {
   var Range = require( 'DOT/Range' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var StringIO = require( 'TANDEM/types/StringIO' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
    * @param {Tandem} tandem
