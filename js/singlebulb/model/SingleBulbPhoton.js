@@ -12,8 +12,6 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
-
-  // ifphetio
   var SingleBulbPhotonIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonIO' );
 
   /**

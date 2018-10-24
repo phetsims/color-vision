@@ -19,8 +19,6 @@ define( function( require ) {
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   var Vector2 = require( 'DOT/Vector2' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-
-  // ifphetio
   var SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
 
   // constants
