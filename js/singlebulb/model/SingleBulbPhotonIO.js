@@ -13,10 +13,10 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
+  var phetioInherit = require( 'TANDEM/phetioInherit' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
    * @param {SingleBulbPhoton} singleBulbPhoton
