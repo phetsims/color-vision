@@ -17,9 +17,9 @@ define( function( require ) {
   var PhetioObject = require( 'TANDEM/PhetioObject' );
   var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
+  var SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
   var Vector2 = require( 'DOT/Vector2' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-  var SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();

@@ -12,8 +12,8 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
+  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
