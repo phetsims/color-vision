@@ -9,7 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var Color = require( 'SCENERY/util/Color' );
   var ColorIO = require( 'SCENERY/util/ColorIO' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
@@ -67,15 +67,13 @@ define( function( require ) {
     } );
 
     // @public {Property.<boolean>} is the flashlight on?
-    this.flashlightOnProperty = new Property( false, {
-      tandem: flashlightTandem.createTandem( 'flashlightOnProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.flashlightOnProperty = new BooleanProperty( false, {
+      tandem: flashlightTandem.createTandem( 'flashlightOnProperty' )
     } );
 
     // @public {Property.<boolean>} is the filter on?
-    this.filterVisibleProperty = new Property( false, {
-      tandem: filterTandem.createTandem( 'filterVisibleProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.filterVisibleProperty = new BooleanProperty( false, {
+      tandem: filterTandem.createTandem( 'filterVisibleProperty' )
     } );
 
     // @public {Property.<Color|string>} keep track of the last photon to hit the eye,

@@ -11,12 +11,10 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
+  var StringProperty = require( 'AXON/StringProperty' );
 
   /**
    * @param {Tandem} tandem
@@ -25,16 +23,14 @@ define( function( require ) {
   function ColorVisionModel( tandem ) {
 
     // @public {Property.<boolean>} is the model running?
-    this.playingProperty = new Property( true, {
-      tandem: tandem.createTandem( 'playingProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.playingProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'playingProperty' )
     } );
 
     // @public {Property.<string>} which head view to show
-    this.headModeProperty = new Property( 'no-brain', {
+    this.headModeProperty = new StringProperty( 'no-brain', {
       validValues: [ 'brain', 'no-brain' ],
-      tandem: tandem.createTandem( 'headModeProperty' ),
-      phetioType: PropertyIO( StringIO )
+      tandem: tandem.createTandem( 'headModeProperty' )
     } );
 
     // @public {DerivedProperty.<Color|string>}
