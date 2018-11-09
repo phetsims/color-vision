@@ -34,7 +34,7 @@ define( function( require ) {
     this.photons = photonBeam.photons;
     this.color = photonBeam.color;
 
-    // Export for the sole purpose of having phetio.js call invalidatePaint() after load complete
+    // Export for the sole purpose of having phet-io call invalidatePaint() after load complete
     options.tandem = tandem;
 
     CanvasNode.call( this, options );
@@ -42,7 +42,7 @@ define( function( require ) {
 
     // TODO: alternatively, use the pattern in TrackNode?
     // In the state wrapper, when the state changes, we must update the skater node
-    phet.phetIo && phet.phetIo.phetio.setStateEmitter && phet.phetIo.phetio.setStateEmitter.addListener( function() {
+    phet.phetIo && phet.phetIo.phetioEngine.setStateEmitter && phet.phetIo.phetioEngine.setStateEmitter.addListener( function() {
       self.invalidatePaint();
     } );
   }
