@@ -13,7 +13,7 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
-  var RGBPhoton = require( 'COLOR_VISION/rgb/modelRGBPhoton' );
+  var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   // ifphetio
