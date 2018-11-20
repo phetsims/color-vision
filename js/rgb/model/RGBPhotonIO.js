@@ -2,7 +2,7 @@
 
 /**
  * IO type for RGBPhoton.
- * 
+ *
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -13,6 +13,7 @@ define( function( require ) {
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
+  var RGBPhoton = require( 'COLOR_VISION/rgb/modelRGBPhoton' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   // ifphetio
@@ -23,7 +24,7 @@ define( function( require ) {
    * @param {string} phetioID
    */
   var RGBPhotonIO = function( rgbPhoton, phetioID ) {
-    assert && assertInstanceOf( rgbPhoton, phet.colorVision.RGBPhoton );
+    assert && assertInstanceOf( rgbPhoton, RGBPhoton );
     ObjectIO.call( this, rgbPhoton, phetioID );
   };
 
@@ -35,7 +36,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( rgbPhoton ) {
-      assert && assertInstanceOf( rgbPhoton, phet.colorVision.RGBPhoton );
+      assert && assertInstanceOf( rgbPhoton, RGBPhoton );
       return {
         location: Vector2IO.toStateObject( rgbPhoton.location ),
         velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
@@ -49,7 +50,7 @@ define( function( require ) {
      * @returns {RGBPhoton}
      */
     fromStateObject: function( stateObject ) {
-      return new phet.colorVision.RGBPhoton(
+      return new RGBPhoton(
         Vector2IO.fromStateObject( stateObject.location ),
         Vector2IO.fromStateObject( stateObject.velocity ),
         stateObject.intensity
