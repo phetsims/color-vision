@@ -31,7 +31,7 @@ define( function( require ) {
 
     // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
     // White photons passing through must be changed to match the filter color, but keep full intensity.
-    // Colored photons must loose intensity when passing through the filter.
+    // Colored photons must lose intensity when passing through the filter.
     // @public
     this.isWhite = this.wasWhite = isWhite;
     this.color = color;
