@@ -27,8 +27,7 @@ define( function( require ) {
       team: 'Wendy Adams, Danielle Harlow, Ariel Paul, Carl Wieman',
       qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
       graphicArts: 'Mike Fowler'
-    },
-    showSmallHomeScreenIconFrame: true
+    }
   };
 
   SimLauncher.launch( function() {

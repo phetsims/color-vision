@@ -32,6 +32,7 @@ define( function( require ) {
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
       navigationBarIcon: new RGBIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
+      showUnselectedHomeScreenIconFrame: true,
       tandem: tandem
     };
 
