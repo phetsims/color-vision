@@ -14,9 +14,7 @@ define( function( require ) {
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
@@ -24,19 +22,19 @@ define( function( require ) {
    * @constructor
    */
   function SingleBulbPhotonBeamIO( singleBulbPhotonBeam, phetioID ) {
-    assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
     ObjectIO.call( this, singleBulbPhotonBeam, phetioID );
   }
 
   phetioInherit( ObjectIO, 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO, {}, {
     documentation: 'The Beam on the single bulb screen.',
+    validator: { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhotonBeam },
 
     /**
      * Clears the children from the model so it can be deserialized.
      * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
      */
     clearChildInstances: function( singleBulbPhotonBeam ) {
-      assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
+      validate( singleBulbPhotonBeam, this.validator );
       while ( singleBulbPhotonBeam.photons.length > 0 ) {
         var p = singleBulbPhotonBeam.photons.pop();
         p.dispose();
@@ -50,7 +48,7 @@ define( function( require ) {
      * @param {Object} photonStateObject
      */
     addChildInstance: function( singleBulbPhotonBeam, tandem, photonStateObject ) {
-      assert && assertInstanceOf( singleBulbPhotonBeam, phet.colorVision.SingleBulbPhotonBeam );
+      validate( singleBulbPhotonBeam, this.validator );
 
       // location, velocity, intensity, color, isWhite, wavelength, tandem
       var photonInstance = new phet.colorVision.SingleBulbPhoton(

@@ -14,9 +14,7 @@ define( function( require ) {
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {SingleBulbPhoton} singleBulbPhoton
@@ -24,12 +22,12 @@ define( function( require ) {
    * @constructor
    */
   function SingleBulbPhotonIO( singleBulbPhoton, phetioID ) {
-    assert && assertInstanceOf( singleBulbPhoton, phet.colorVision.SingleBulbPhoton );
     ObjectIO.call( this, singleBulbPhoton, phetioID );
   }
 
   phetioInherit( ObjectIO, 'SingleBulbPhotonIO', SingleBulbPhotonIO, {}, {
     documentation: 'A Photon from a single bulb.',
+    validator: { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton },
 
     /**
      * Serializes an instance.
@@ -37,7 +35,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( singleBulbPhoton ) {
-      assert && assertInstanceOf( singleBulbPhoton, phet.colorVision.SingleBulbPhoton );
+      validate( singleBulbPhoton, this.validator );
       return _.extend( {
         isWhite: singleBulbPhoton.isWhite,
         color: singleBulbPhoton.color.toStateObject(),

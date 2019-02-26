@@ -15,20 +15,18 @@ define( function( require ) {
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {RGBPhoton} rgbPhoton
    * @param {string} phetioID
    */
   var RGBPhotonIO = function( rgbPhoton, phetioID ) {
-    assert && assertInstanceOf( rgbPhoton, RGBPhoton );
     ObjectIO.call( this, rgbPhoton, phetioID );
   };
 
   phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
+    validator: { valueType: RGBPhoton },
 
     /**
      * Serializes an instance.
@@ -36,7 +34,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( rgbPhoton ) {
-      assert && assertInstanceOf( rgbPhoton, RGBPhoton );
+      validate( rgbPhoton, this.validator );
       return {
         location: Vector2IO.toStateObject( rgbPhoton.location ),
         velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
