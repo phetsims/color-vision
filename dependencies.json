@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.8-phetio Tue Nov 06 2018 13:24:57 GMT-0700 (MST)",
+  "comment": "# color-vision 1.2.8-phetio Fri Mar 08 2019 12:59:25 GMT-0500 (EST)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -9,15 +9,15 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "880a18ded11185580cf5950e568931cf0df4eb87",
-    "branch": "HEAD"
+    "sha": "bb6ba123ed38933cabb369750b2cec961a7efda4",
+    "branch": "color-vision-1.2-phetio"
   },
   "chipper": {
     "sha": "e7a63a9da3a143ffc45dd62a92147596a59d5716",
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "5ffe831b6f8fd34d213fe45e392e1fe90cba0d5c",
+    "sha": "069dc516da6c4e0a46ae90be1d15d471fc382369",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "7524291900f5931018a74baf8b97ccf8df5afdc2",
-    "branch": "HEAD"
+    "sha": "b7692d200e22c75a9590cafef64c4d6b91136174",
+    "branch": "color-vision-1.2-phetio"
   },
   "kite": {
     "sha": "d506825f0e044f9715f94b2aac23dbd52b139a82",
