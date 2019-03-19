@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.8-phetio Fri Mar 08 2019 12:59:25 GMT-0500 (EST)",
+  "comment": "# color-vision 1.2.8-phetio Tue Mar 19 2019 16:05:24 GMT-0400 (EDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -10,14 +10,14 @@
   },
   "brand": {
     "sha": "bb6ba123ed38933cabb369750b2cec961a7efda4",
-    "branch": "color-vision-1.2-phetio"
-  },
-  "chipper": {
-    "sha": "e7a63a9da3a143ffc45dd62a92147596a59d5716",
     "branch": "HEAD"
   },
+  "chipper": {
+    "sha": "517bbdb4c1875c69e2a6deb3245a8f8a23ce60a5",
+    "branch": "color-vision-1.2-phetio"
+  },
   "color-vision": {
-    "sha": "069dc516da6c4e0a46ae90be1d15d471fc382369",
+    "sha": "a01ffa9b3edeb7ab4b6700f73693da7f330d6ff6",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "b7692d200e22c75a9590cafef64c4d6b91136174",
-    "branch": "color-vision-1.2-phetio"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "d506825f0e044f9715f94b2aac23dbd52b139a82",
@@ -46,6 +46,10 @@
   },
   "phetcommon": {
     "sha": "4ffa8334e7c1d097a6f8648cc33dec44341577c4",
+    "branch": "HEAD"
+  },
+  "phetmarks": {
+    "sha": "6fa44ee0b524af471777135867df0cb9b2798aac",
     "branch": "HEAD"
   },
   "query-string-machine": {
@@ -71,9 +75,5 @@
   "tandem": {
     "sha": "9319527488a8d5d298e52f2b165db27fab7944a1",
     "branch": "HEAD"
-  },
-  "phetmarks": {
-    "branch": "master",
-    "sha": "6fa44ee0b524af471777135867df0cb9b2798aac"
   }
 }
