@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.8-phetio Tue Mar 19 2019 16:05:24 GMT-0400 (EDT)",
+  "comment": "# color-vision 1.2.9-phetiorc.1 Wed Mar 20 2019 18:39:17 GMT-0400 (EDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -14,10 +14,10 @@
   },
   "chipper": {
     "sha": "517bbdb4c1875c69e2a6deb3245a8f8a23ce60a5",
-    "branch": "color-vision-1.2-phetio"
+    "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "a01ffa9b3edeb7ab4b6700f73693da7f330d6ff6",
+    "sha": "50a70c2e8b6cf3a0eadb05118b2c66eb17f42cc6",
     "branch": "1.2-phetio"
   },
   "dot": {
