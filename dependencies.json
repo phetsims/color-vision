@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.15 Tue Mar 19 2019 16:04:09 GMT-0400 (EDT)",
+  "comment": "# color-vision 1.1.16-rc.1 Wed Mar 20 2019 18:37:48 GMT-0400 (EDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -14,10 +14,10 @@
   },
   "chipper": {
     "sha": "da9b3a9b713c678f7a215ea0ea44c52c30f35ab7",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "bda23911d59ff9e0f9fdd8a08a0d68298e2f371e",
+    "sha": "36fb1260a4297c38b38ae1b5aa1873d5179d2856",
     "branch": "1.1"
   },
   "dot": {
