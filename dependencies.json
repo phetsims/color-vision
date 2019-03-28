@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.9-phetiorc.1 Wed Mar 20 2019 18:39:17 GMT-0400 (EDT)",
+  "comment": "# color-vision 1.2.9-phetiorc.1 Thu Mar 28 2019 12:15:46 GMT-0400 (EDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -9,15 +9,15 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "bb6ba123ed38933cabb369750b2cec961a7efda4",
-    "branch": "HEAD"
+    "sha": "f5101b123eda11e4dad47f74702a8c5dc84ba7b4",
+    "branch": "color-vision-1.2-phetio"
   },
   "chipper": {
     "sha": "517bbdb4c1875c69e2a6deb3245a8f8a23ce60a5",
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "50a70c2e8b6cf3a0eadb05118b2c66eb17f42cc6",
+    "sha": "fb2d74ea4ef7748255f306f8d3054caaa0ba7232",
     "branch": "1.2-phetio"
   },
   "dot": {
