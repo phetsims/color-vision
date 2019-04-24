@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.17-rc.1 Thu Apr 18 2019 08:53:32 GMT-0800 (Alaskan Daylight Time)",
+  "comment": "# color-vision 1.1.17 Wed Apr 24 2019 15:05:39 GMT-0800 (Alaskan Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "1f8ceb1ed957e107c879fdce8c1f6589e3056088",
+    "sha": "297e63dd0defb43865a1efc1e5474b8113b369fc",
     "branch": "1.1"
   },
   "dot": {
