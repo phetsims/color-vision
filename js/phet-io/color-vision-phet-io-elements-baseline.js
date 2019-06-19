@@ -2102,6 +2102,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
+    "colorVision.rgbBulbsScreen.view.blueSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "colorVision.rgbBulbsScreen.view.blueSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -2365,6 +2376,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
+    },
+    "colorVision.rgbBulbsScreen.view.greenSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -2685,6 +2707,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
     },
+    "colorVision.rgbBulbsScreen.view.playPauseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggleNode": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
@@ -3003,6 +3036,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
+    },
+    "colorVision.rgbBulbsScreen.view.redSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -4521,6 +4565,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+    },
+    "colorVision.singleBulbScreen.view.playPauseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggleNode": {
       "phetioDocumentation": "",
