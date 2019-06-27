@@ -290,7 +290,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.general.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -609,7 +609,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.general.navigationBar.rgbBulbsScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -796,7 +796,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.general.navigationBar.singleBulbScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2116,7 +2116,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.blueSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2391,7 +2391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.greenSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2424,7 +2424,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2534,7 +2534,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2655,7 +2655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.playPauseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3051,7 +3051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.redSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3073,7 +3073,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3172,7 +3172,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.rgbBulbsScreen.view.stepButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3414,7 +3414,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3513,7 +3513,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3986,7 +3986,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.flashlightNode.button.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4239,7 +4239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4349,7 +4349,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4514,7 +4514,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.playPauseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4657,7 +4657,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4756,7 +4756,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.stepButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4866,7 +4866,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4987,7 +4987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
