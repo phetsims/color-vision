@@ -3,6 +3,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
   {
     "colorVision.general.activeProperty": {
       "phetioDocumentation": "Determines whether the entire simulation is running and processing user input. Setting this property to false pauses the simulation, and prevents user interaction.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -14,6 +15,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle": {
       "phetioDocumentation": "Semi-transparent barrier used to block input events when a dialog is shown, also fades out the background",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -25,6 +27,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -36,6 +39,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -47,6 +51,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -58,6 +63,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -69,6 +75,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -80,6 +87,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.barrierRectangle.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -91,6 +99,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.browserTabVisibleProperty": {
       "phetioDocumentation": "Indicates whether the browser tab containing the simulation is currently visible",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -102,6 +111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -113,6 +123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -124,6 +135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.mouseOutAction": {
       "phetioDocumentation": "Emits when the mouse moves out of the display",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -135,6 +147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.mouseOverAction": {
       "phetioDocumentation": "Emits when the mouse is moved over a Node",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -146,6 +159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.mouseUpAction": {
       "phetioDocumentation": "Emits when a mouse button is released",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -157,6 +171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.penCancelAction": {
       "phetioDocumentation": "Emits when a pen is canceled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -168,6 +183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.penEndAction": {
       "phetioDocumentation": "Emits when a pen is lifted",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -179,6 +195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.penMoveAction": {
       "phetioDocumentation": "Emits when a pen is moved",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -190,6 +207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.penStartAction": {
       "phetioDocumentation": "Emits when a pen touches the screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -201,6 +219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.touchCancelAction": {
       "phetioDocumentation": "Emits when a touch is canceled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -212,6 +231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.touchEndAction": {
       "phetioDocumentation": "Emits when a touch ends",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -223,6 +243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.touchMoveAction": {
       "phetioDocumentation": "Emits when a touch moves",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -234,6 +255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.touchStartAction": {
       "phetioDocumentation": "Emits when a touch begins",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -245,6 +267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.validatePointersAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -256,6 +279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.controller.input.wheelScrollAction": {
       "phetioDocumentation": "Emits when the mouse wheel scrolls",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -267,6 +291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.focusProperty": {
       "phetioDocumentation": "Stores the current focus for the simulation, null if there is not focus. This is not updated based on mouse or touch input, only keyboard and other alternative inputs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -278,6 +303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -289,6 +315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -300,6 +327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -311,6 +339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -322,6 +351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -333,6 +363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -344,6 +375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -355,6 +387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.homeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -366,6 +399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton": {
       "phetioDocumentation": "The button that appears at the right side of the navigation bar, which shows a menu when pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -377,6 +411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -388,6 +423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -399,6 +435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu": {
       "phetioDocumentation": "This menu is displayed when the PhET button is pressed.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -410,6 +447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem": {
       "phetioDocumentation": "This menu item shows a dialog with information about the simulation.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -421,6 +459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -432,6 +471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -443,6 +483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -454,6 +495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -465,6 +507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -476,6 +519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -487,6 +531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem": {
       "phetioDocumentation": "This menu item captures a screenshot from the simulation and saves it to the file system.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -498,6 +543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -509,6 +555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -520,6 +567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -531,6 +579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -542,6 +591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -553,6 +603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -564,6 +615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.pickableProperty": {
       "phetioDocumentation": "Set whether the phetButton will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -575,6 +627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -586,6 +639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.phetButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -597,6 +651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'rgbBulbsScreen' screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -608,6 +663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -619,6 +675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -630,6 +687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.icon": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -641,6 +699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -652,6 +711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -663,6 +723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -674,6 +735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -685,6 +747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -696,6 +759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -707,6 +771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -718,6 +783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -729,6 +795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -740,6 +807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -751,6 +819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -762,6 +831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -773,6 +843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -784,6 +855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'singleBulbScreen' screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -795,6 +867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -806,6 +879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -817,6 +891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.icon": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -828,6 +903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -839,6 +915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -850,6 +927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -861,6 +939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -872,6 +951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -883,6 +963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -894,6 +975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -905,6 +987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -916,6 +999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -927,6 +1011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -938,6 +1023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -949,6 +1035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -960,6 +1047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -971,6 +1059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.titleTextNode": {
       "phetioDocumentation": "Displays the title of the simulation in the navigation bar (bottom left)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -982,6 +1071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.titleTextNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -993,6 +1083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.titleTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1004,6 +1095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.titleTextNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1015,6 +1107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.navigationBar.titleTextNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1026,6 +1119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.phetioCommandProcessor": {
       "phetioDocumentation": "Processes messages from the wrapper frame and returns the results. This serves as the source of PhET-iO data stream messages when commands are invoked from the wrapper.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1037,6 +1131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.resizeAction": {
       "phetioDocumentation": "Executes when the sim is resized",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1048,6 +1143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.screenIndexProperty": {
       "phetioDocumentation": "Indicates which screen is selected (0-indexed)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1059,6 +1155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.showHomeScreenProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1070,6 +1167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.soundEnabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1081,6 +1179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.general.stepSimulationAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1092,6 +1191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1103,6 +1203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1114,6 +1215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1125,6 +1227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1136,6 +1239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1147,6 +1251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1158,6 +1263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1169,6 +1275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1180,6 +1287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1191,6 +1299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1202,6 +1311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1213,6 +1323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1224,6 +1335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1235,6 +1347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1246,6 +1359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1257,6 +1371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1268,6 +1383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1279,6 +1395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1290,6 +1407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1301,6 +1419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1312,6 +1431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1323,6 +1443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1334,6 +1455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1345,6 +1467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1356,6 +1479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1367,6 +1491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1378,6 +1503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1389,6 +1515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1400,6 +1527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1411,6 +1539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1422,6 +1551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1433,6 +1563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1444,6 +1575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1455,6 +1587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1466,6 +1599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1477,6 +1611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1488,6 +1623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1499,6 +1635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1510,6 +1647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1521,6 +1659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1532,6 +1671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1543,6 +1683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1554,6 +1695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1565,6 +1707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1576,6 +1719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1587,6 +1731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1598,6 +1743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1609,6 +1755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1620,6 +1767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1631,6 +1779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1642,6 +1791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1653,6 +1803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1664,6 +1815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.title": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1675,6 +1827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.title.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1686,6 +1839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.title.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1697,6 +1851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.title.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1708,6 +1863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.title.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1719,6 +1875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.homeScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1730,6 +1887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1741,6 +1899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.blueIntensityProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1752,6 +1911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.greenIntensityProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1763,6 +1923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.headModeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1774,6 +1935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.perceivedBlueIntensityProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1785,6 +1947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.perceivedColorProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1796,6 +1959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.perceivedGreenIntensityProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1807,6 +1971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.perceivedRedIntensityProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1818,6 +1983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.playingProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1829,6 +1995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.model.redIntensityProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1840,6 +2007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1851,6 +2019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueBeam": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1862,6 +2031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueBeam.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1873,6 +2043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueBeam.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1884,6 +2055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueBeam.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1895,6 +2067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1906,6 +2079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1917,6 +2091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1928,6 +2103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1939,6 +2115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1950,6 +2127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1961,6 +2139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1972,6 +2151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1983,6 +2163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1994,6 +2175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2005,6 +2187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2016,6 +2199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2027,6 +2211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2038,6 +2223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2049,6 +2235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2060,6 +2247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2071,6 +2259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2082,6 +2271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2093,6 +2283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2104,6 +2295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2115,6 +2307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2126,6 +2319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenBeam": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2137,6 +2331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenBeam.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2148,6 +2343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenBeam.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2159,6 +2355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenBeam.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2170,6 +2367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2181,6 +2379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2192,6 +2391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2203,6 +2403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2214,6 +2415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2225,6 +2427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2236,6 +2439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2247,6 +2451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2258,6 +2463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2269,6 +2475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2280,6 +2487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2291,6 +2499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2302,6 +2511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2313,6 +2523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2324,6 +2535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2335,6 +2547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2346,6 +2559,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2357,6 +2571,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2368,6 +2583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2379,6 +2595,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2390,6 +2607,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2401,6 +2619,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2412,6 +2631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2423,6 +2643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2434,6 +2655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2445,6 +2667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2456,6 +2679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2467,6 +2691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2478,6 +2703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2489,6 +2715,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2500,6 +2727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2511,6 +2739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2522,6 +2751,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2533,6 +2763,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2544,6 +2775,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2555,6 +2787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2566,6 +2799,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2577,6 +2811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2588,6 +2823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2599,6 +2835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2610,6 +2847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2621,6 +2859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2632,6 +2871,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2643,6 +2883,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2654,6 +2895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2665,6 +2907,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2676,6 +2919,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2687,6 +2931,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2698,6 +2943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2709,6 +2955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.property": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2720,6 +2967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2731,6 +2979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2742,6 +2991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2753,6 +3003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2764,6 +3015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2775,6 +3027,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2786,6 +3039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redBeam": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2797,6 +3051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redBeam.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2808,6 +3063,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redBeam.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2819,6 +3075,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redBeam.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2830,6 +3087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2841,6 +3099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2852,6 +3111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2863,6 +3123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2874,6 +3135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2885,6 +3147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2896,6 +3159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2907,6 +3171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2918,6 +3183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2929,6 +3195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2940,6 +3207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2951,6 +3219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2962,6 +3231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2973,6 +3243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2984,6 +3255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2995,6 +3267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -3006,6 +3279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3017,6 +3291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3028,6 +3303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3039,6 +3315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3050,6 +3327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.redSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3061,6 +3339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton": {
       "phetioDocumentation": "The orange, round button that can be used to restore the initial state",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3072,6 +3351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3083,6 +3363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3094,6 +3375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3105,6 +3387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3116,6 +3399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3127,6 +3411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3138,6 +3423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3149,6 +3435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3160,6 +3447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3171,6 +3459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3182,6 +3471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3193,6 +3483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3204,6 +3495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3215,6 +3507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3226,6 +3519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3237,6 +3531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.stepButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3248,6 +3543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.rgbBulbsScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3259,6 +3555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3270,6 +3567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.beamTypeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3281,6 +3579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.filter.filterVisibleProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3292,6 +3591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.filter.filterWavelengthProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3303,6 +3603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.flashlight.flashlightOnProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3314,6 +3615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.flashlight.flashlightWavelengthProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3325,6 +3627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.headModeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3336,6 +3639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.lightTypeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3347,6 +3651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.perceivedColorProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3358,6 +3663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.photonBeam": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3369,6 +3675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.model.playingProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3380,6 +3687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3391,6 +3699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3402,6 +3711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3413,6 +3723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3424,6 +3735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3435,6 +3747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3446,6 +3759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3457,6 +3771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3468,6 +3783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3479,6 +3795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3490,6 +3807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3501,6 +3819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3512,6 +3831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3523,6 +3843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3534,6 +3855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3545,6 +3867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3556,6 +3879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3567,6 +3891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3578,6 +3903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3589,6 +3915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3600,6 +3927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3611,6 +3939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3622,6 +3951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3633,6 +3963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3644,6 +3975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3655,6 +3987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -3666,6 +3999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3677,6 +4011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3688,6 +4023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3699,6 +4035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3710,6 +4047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -3721,6 +4059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3732,6 +4071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3743,6 +4083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3754,6 +4095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3765,6 +4107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3776,6 +4119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3787,6 +4131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3798,6 +4143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3809,6 +4155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.bulbColorText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3820,6 +4167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterColorTextNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3831,6 +4179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterColorTextNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3842,6 +4191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterColorTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3853,6 +4203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterColorTextNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3864,6 +4215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterColorTextNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3875,6 +4227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3886,6 +4239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3897,6 +4251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3908,6 +4263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3919,6 +4275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -3930,6 +4287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3941,6 +4299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3952,6 +4311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3963,6 +4323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3974,6 +4335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3985,6 +4347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3996,6 +4359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4007,6 +4371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4018,6 +4383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4029,6 +4395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4040,6 +4407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4051,6 +4419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4062,6 +4431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4073,6 +4443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4084,6 +4455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4095,6 +4467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4106,6 +4479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4117,6 +4491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4128,6 +4503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4139,6 +4515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4150,6 +4527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4161,6 +4539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4172,6 +4551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4183,6 +4563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4194,6 +4575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4205,6 +4587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4216,6 +4599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4227,6 +4611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4238,6 +4623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4249,6 +4635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4260,6 +4647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4271,6 +4659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4282,6 +4671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4293,6 +4683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4304,6 +4695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4315,6 +4707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4326,6 +4719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4337,6 +4731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4348,6 +4743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4359,6 +4755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4370,6 +4767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4381,6 +4779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4392,6 +4791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4403,6 +4803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4414,6 +4815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4425,6 +4827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4436,6 +4839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4447,6 +4851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.photonBeamNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4458,6 +4863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.photonBeamNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4469,6 +4875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.photonBeamNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4480,6 +4887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.photonBeamNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4491,6 +4899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4502,6 +4911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4513,6 +4923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4524,6 +4935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4535,6 +4947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4546,6 +4959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4557,6 +4971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4568,6 +4983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.property": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4579,6 +4995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4590,6 +5007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4601,6 +5019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4612,6 +5031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4623,6 +5043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4634,6 +5055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.playPauseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4645,6 +5067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton": {
       "phetioDocumentation": "The orange, round button that can be used to restore the initial state",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4656,6 +5079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4667,6 +5091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4678,6 +5103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4689,6 +5115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4700,6 +5127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4711,6 +5139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4722,6 +5151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4733,6 +5163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4744,6 +5175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4755,6 +5187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4766,6 +5199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4777,6 +5211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4788,6 +5223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4799,6 +5235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4810,6 +5247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4821,6 +5259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.stepButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4832,6 +5271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4843,6 +5283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4854,6 +5295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4865,6 +5307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4876,6 +5319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4887,6 +5331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4898,6 +5343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4909,6 +5355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4920,6 +5367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4931,6 +5379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4942,6 +5391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4953,6 +5403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4964,6 +5415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4975,6 +5427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4986,6 +5439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4997,6 +5451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.firedEmitter": {
       "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5008,6 +5463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5019,6 +5475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5030,6 +5487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5041,6 +5499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5052,6 +5511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5063,6 +5523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "phetioEngine": {
       "phetioDocumentation": "Central point for PhET-iO interoperability",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
