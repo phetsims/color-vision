@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.10-phetio Fri Jul 26 2019 15:19:30 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.2.11-phetiorc.1 Thu Aug 01 2019 00:13:41 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "1cbda321daf55bec49e3ffe0d514e3d8390a3e60",
+    "sha": "816dfca3bde01782a8326563dc77f4ffa2fbb641",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -46,7 +46,7 @@
   },
   "phetcommon": {
     "sha": "19b0d7f089ccfc29d14db23cd68d0fdb445e106d",
-    "branch": "color-vision-1.2-phetio"
+    "branch": "HEAD"
   },
   "phetmarks": {
     "sha": "6fa44ee0b524af471777135867df0cb9b2798aac",
