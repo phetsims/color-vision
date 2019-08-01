@@ -26,7 +26,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.general.barrierRectangle.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -38,7 +38,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.general.barrierRectangle.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -50,7 +50,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.barrierRectangle.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -110,7 +110,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.general.controller.input.mouseDownAction": {
-      "phetioDocumentation": "Emits when a mouse button is pressed",
+      "phetioDocumentation": "Emits when a mouse button is pressed The arguments are:<br><ol><li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -122,7 +122,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.mouseMovedAction": {
-      "phetioDocumentation": "Emits when the mouse is moved",
+      "phetioDocumentation": "Emits when the mouse is moved The arguments are:<br><ol><li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -134,7 +134,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.mouseOutAction": {
-      "phetioDocumentation": "Emits when the mouse moves out of the display",
+      "phetioDocumentation": "Emits when the mouse moves out of the display The arguments are:<br><ol><li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -146,7 +146,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.mouseOverAction": {
-      "phetioDocumentation": "Emits when the mouse is moved over a Node",
+      "phetioDocumentation": "Emits when the mouse is moved over a Node The arguments are:<br><ol><li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -158,7 +158,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.mouseUpAction": {
-      "phetioDocumentation": "Emits when a mouse button is released",
+      "phetioDocumentation": "Emits when a mouse button is released The arguments are:<br><ol><li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -170,7 +170,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.penCancelAction": {
-      "phetioDocumentation": "Emits when a pen is canceled",
+      "phetioDocumentation": "Emits when a pen is canceled The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -182,7 +182,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.penEndAction": {
-      "phetioDocumentation": "Emits when a pen is lifted",
+      "phetioDocumentation": "Emits when a pen is lifted The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -194,7 +194,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.penMoveAction": {
-      "phetioDocumentation": "Emits when a pen is moved",
+      "phetioDocumentation": "Emits when a pen is moved The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -206,7 +206,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.penStartAction": {
-      "phetioDocumentation": "Emits when a pen touches the screen",
+      "phetioDocumentation": "Emits when a pen touches the screen The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -218,7 +218,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.touchCancelAction": {
-      "phetioDocumentation": "Emits when a touch is canceled",
+      "phetioDocumentation": "Emits when a touch is canceled The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -230,7 +230,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.touchEndAction": {
-      "phetioDocumentation": "Emits when a touch ends",
+      "phetioDocumentation": "Emits when a touch ends The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -242,7 +242,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.touchMoveAction": {
-      "phetioDocumentation": "Emits when a touch moves",
+      "phetioDocumentation": "Emits when a touch moves The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -254,7 +254,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.touchStartAction": {
-      "phetioDocumentation": "Emits when a touch begins",
+      "phetioDocumentation": "Emits when a touch begins The arguments are:<br><ol><li>id: NumberIO</li>\n<li>point: Vector2IO</li>\n<li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -266,7 +266,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
     "colorVision.general.controller.input.validatePointersAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -278,7 +278,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<>"
     },
     "colorVision.general.controller.input.wheelScrollAction": {
-      "phetioDocumentation": "Emits when the mouse wheel scrolls",
+      "phetioDocumentation": "Emits when the mouse wheel scrolls The arguments are:<br><ol><li>event: DOMEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -326,7 +326,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.general.navigationBar.homeButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -362,7 +362,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.general.navigationBar.homeButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -374,7 +374,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.navigationBar.homeButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -422,7 +422,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.general.navigationBar.phetButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -458,7 +458,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -470,7 +470,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -482,7 +482,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -542,7 +542,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -554,7 +554,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -566,7 +566,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -626,7 +626,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.general.navigationBar.phetButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -638,7 +638,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.navigationBar.phetButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -674,7 +674,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -758,7 +758,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -770,7 +770,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.navigationBar.rgbBulbsScreenButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -878,7 +878,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -962,7 +962,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -974,7 +974,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.general.navigationBar.singleBulbScreenButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1130,7 +1130,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PhetioCommandProcessorIO"
     },
     "colorVision.general.resizeAction": {
-      "phetioDocumentation": "Executes when the sim is resized",
+      "phetioDocumentation": "Executes when the sim is resized The arguments are:<br><ol><li>width: NumberIO</li>\n<li>height: NumberIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -1178,7 +1178,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.general.stepSimulationAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>dt: NumberIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -1250,7 +1250,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1262,7 +1262,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1274,7 +1274,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.homeScreen.view.rgbBulbsScreenLargeButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1394,7 +1394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1406,7 +1406,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1418,7 +1418,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.homeScreen.view.rgbBulbsScreenSmallButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1538,7 +1538,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1550,7 +1550,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1562,7 +1562,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.homeScreen.view.singleBulbScreenLargeButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1682,7 +1682,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.inputListener.firedEmitter": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1694,7 +1694,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "EmitterIO.<>"
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.inputListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -1706,7 +1706,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.homeScreen.view.singleBulbScreenSmallButton.inputListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2186,7 +2186,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2198,7 +2198,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2210,7 +2210,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.thumbInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2246,7 +2246,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2258,7 +2258,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2270,7 +2270,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.blueSlider.track.trackInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2486,7 +2486,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2498,7 +2498,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2510,7 +2510,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.thumbInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2546,7 +2546,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2558,7 +2558,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2570,7 +2570,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.greenSlider.track.trackInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2654,7 +2654,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2690,7 +2690,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2702,7 +2702,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2774,7 +2774,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2810,7 +2810,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2822,7 +2822,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2930,7 +2930,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -2942,7 +2942,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3014,7 +3014,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.rgbBulbsScreen.view.playPauseButton.toggledEmitter": {
-      "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3206,7 +3206,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3218,7 +3218,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3230,7 +3230,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.thumbInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3266,7 +3266,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3278,7 +3278,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3290,7 +3290,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.redSlider.track.trackInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3362,7 +3362,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3410,7 +3410,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3422,7 +3422,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.resetAllButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3470,7 +3470,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.rgbBulbsScreen.view.stepButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3506,7 +3506,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.rgbBulbsScreen.view.stepButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3518,7 +3518,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.rgbBulbsScreen.view.stepButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3734,7 +3734,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3770,7 +3770,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3782,7 +3782,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.beamRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3842,7 +3842,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3878,7 +3878,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3890,7 +3890,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.beamPhotonRadioButtonGroup.photonRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -3986,7 +3986,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3998,7 +3998,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4010,7 +4010,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.thumbInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4046,7 +4046,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4058,7 +4058,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4070,7 +4070,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.bulbColorSlider.trackInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4274,7 +4274,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4286,7 +4286,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4298,7 +4298,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.simpleDragHandler.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4382,7 +4382,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4394,7 +4394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4406,7 +4406,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.flashlightNode.button.toggledEmitter": {
-      "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4478,7 +4478,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4490,7 +4490,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4502,7 +4502,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.thumbInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4538,7 +4538,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ObjectIO"
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.dragAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4550,7 +4550,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.dragEndAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4562,7 +4562,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.gaussianSlider.trackInputListener.dragStartAction": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "A function that executes. The arguments are:<br><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li>\n<li>event: VoidIO. the scenery pointer Event</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4634,7 +4634,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4670,7 +4670,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4682,7 +4682,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.hideBrainRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4754,7 +4754,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4790,7 +4790,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4802,7 +4802,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.headNode.radioButtonGroup.showBrainRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4958,7 +4958,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.playPauseButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -4970,7 +4970,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.playPauseButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5042,7 +5042,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.playPauseButton.toggledEmitter": {
-      "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5090,7 +5090,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.resetAllButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5138,7 +5138,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.resetAllButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5150,7 +5150,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.resetAllButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5198,7 +5198,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.stepButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the button is fired",
+      "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5234,7 +5234,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.stepButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5246,7 +5246,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.stepButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5318,7 +5318,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5354,7 +5354,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5366,7 +5366,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.coloredLightRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5450,7 +5450,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.firedEmitter": {
-      "phetioDocumentation": "Emits when the radio button is pressed",
+      "phetioDocumentation": "Emits when the radio button is pressed No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5486,7 +5486,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.pressListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event. The arguments are:<br><ol><li>event: EventIO</li>\n<li>targetNode: VoidIO</li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5498,7 +5498,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
     "colorVision.singleBulbScreen.view.whiteColoredRadioButtonGroup.whiteLightRadioButton.pressListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br><ol><li>event: NullableIO.<EventIO></li>\n<li>callback: VoidIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
