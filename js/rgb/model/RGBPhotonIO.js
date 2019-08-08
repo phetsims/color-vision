@@ -27,6 +27,8 @@ define( function( require ) {
 
   phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
     validator: { valueType: RGBPhoton },
+    documentation: 'A Photon that has R, G, and B',
+
 
     /**
      * Serializes an instance.
