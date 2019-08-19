@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.19 Mon Aug 19 2019 13:09:57 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.1.20-rc.1 Mon Aug 19 2019 16:02:41 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "a564e6aebd9168ae3583e091c517069800d1a4e6",
+    "sha": "270522bb816b373e7156e2fcc41ce8fa553b01fa",
     "branch": "1.1"
   },
   "dot": {
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "69ca61dd7de4ee0210b2e1a32dddbf5dcf0df045",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "10ca8bf2b2712307ff528352de8451c0c8afe093",
@@ -50,7 +50,7 @@
   },
   "scenery-phet": {
     "sha": "71937eb4ba428f1a5529b1757caa248fafd93213",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "f5043f7d9adaad7b1c2e620a096a8e5bc09a4ef8",
