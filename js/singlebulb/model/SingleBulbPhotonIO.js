@@ -12,29 +12,17 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {SingleBulbPhoton} singleBulbPhoton
-   * @param {string} phetioID
-   * @constructor
-   */
-  function SingleBulbPhotonIO( singleBulbPhoton, phetioID ) {
-    ObjectIO.call( this, singleBulbPhoton, phetioID );
-  }
-
-  phetioInherit( ObjectIO, 'SingleBulbPhotonIO', SingleBulbPhotonIO, {}, {
-    documentation: 'A Photon from a single bulb.',
-    validator: { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton },
+  class SingleBulbPhotonIO extends ObjectIO {
 
     /**
      * Serializes an instance.
      * @param {SingleBulbPhoton} singleBulbPhoton
      * @returns {Object}
      */
-    toStateObject: function( singleBulbPhoton ) {
+    static toStateObject( singleBulbPhoton ) {
       validate( singleBulbPhoton, this.validator );
       return _.extend( {
         isWhite: singleBulbPhoton.isWhite,
@@ -42,21 +30,22 @@ define( function( require ) {
         wavelength: singleBulbPhoton.wavelength,
         passedFilter: singleBulbPhoton.passedFilter
       }, RGBPhotonIO.toStateObject( singleBulbPhoton ) );
-    },
+    }
 
     /**
      * Deserializes an instance. Not needed here since all children are created by the container.
      * @param {Object} stateObject
      * @returns {{}}
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
       return {};
     }
-  } );
+  }
 
-  colorVision.register( 'SingleBulbPhotonIO', SingleBulbPhotonIO );
+  SingleBulbPhotonIO.documentation = 'A Photon from a single bulb.';
+  SingleBulbPhotonIO.validator = { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton };
+  SingleBulbPhotonIO.typeName = 'SingleBulbPhotonIO';
+  ObjectIO.validateSubtype( SingleBulbPhotonIO );
 
-  return SingleBulbPhotonIO;
-} )
-;
-
+  return colorVision.register( 'SingleBulbPhotonIO', SingleBulbPhotonIO );
+} );

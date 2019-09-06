@@ -12,54 +12,45 @@ define( function( require ) {
   // modules
   var colorVision = require( 'COLOR_VISION/colorVision' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   var Vector2IO = require( 'DOT/Vector2IO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {RGBPhoton} rgbPhoton
-   * @param {string} phetioID
-   */
-  var RGBPhotonIO = function( rgbPhoton, phetioID ) {
-    ObjectIO.call( this, rgbPhoton, phetioID );
-  };
-
-  phetioInherit( ObjectIO, 'RGBPhotonIO', RGBPhotonIO, {}, {
-    validator: { valueType: RGBPhoton },
-    documentation: 'A Photon that has R, G, and B',
-
+  class RGBPhotonIO extends ObjectIO {
 
     /**
      * Serializes an instance.
      * @param {RGBPhoton} rgbPhoton
      * @returns {Object}
      */
-    toStateObject: function( rgbPhoton ) {
+    static toStateObject( rgbPhoton ) {
       validate( rgbPhoton, this.validator );
       return {
         location: Vector2IO.toStateObject( rgbPhoton.location ),
         velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
         intensity: rgbPhoton.intensity
       };
-    },
+    }
 
     /**
      * Deserializes an instance.
      * @param {Object} stateObject
      * @returns {RGBPhoton}
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
       return new RGBPhoton(
         Vector2IO.fromStateObject( stateObject.location ),
         Vector2IO.fromStateObject( stateObject.velocity ),
         stateObject.intensity
       );
     }
-  } );
+  }
 
-  colorVision.register( 'RGBPhotonIO', RGBPhotonIO );
+  RGBPhotonIO.validator = { valueType: RGBPhoton };
+  RGBPhotonIO.documentation = 'A Photon that has R, G, and B';
+  RGBPhotonIO.typeName = 'RGBPhotonIO';
+  ObjectIO.validateSubtype( RGBPhotonIO );
 
-  return RGBPhotonIO;
+  return colorVision.register( 'RGBPhotonIO', RGBPhotonIO );
 } );
 
