@@ -6,26 +6,26 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
-  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
-  var RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
-  var RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
+  const HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  const RGBPhotonBeamNode = require( 'COLOR_VISION/rgb/view/RGBPhotonBeamNode' );
+  const RGBSlider = require( 'COLOR_VISION/rgb/view/RGBSlider' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   // images
-  var flashlightDownImage = require( 'image!COLOR_VISION/flashlight-neg-45-deg.png' );
-  var flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
-  var flashlightUpImage = require( 'image!COLOR_VISION/flashlight-pos-45-deg.png' );
+  const flashlightDownImage = require( 'image!COLOR_VISION/flashlight-neg-45-deg.png' );
+  const flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
+  const flashlightUpImage = require( 'image!COLOR_VISION/flashlight-pos-45-deg.png' );
 
   // constants
   var BEAM_ANGLE = Math.PI / 6;

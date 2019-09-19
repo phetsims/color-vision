@@ -5,18 +5,18 @@
  *
  * @author Aaron Davis
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PerceivedColorNode = require( 'COLOR_VISION/common/view/PerceivedColorNode' );
-  var PlayPauseButton = require( 'SCENERY_PHET/buttons/PlayPauseButton' );
-  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var ScreenView = require( 'JOIST/ScreenView' );
-  var StepForwardButton = require( 'SCENERY_PHET/buttons/StepForwardButton' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const PerceivedColorNode = require( 'COLOR_VISION/common/view/PerceivedColorNode' );
+  const PlayPauseButton = require( 'SCENERY_PHET/buttons/PlayPauseButton' );
+  const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
+  const ScreenView = require( 'JOIST/ScreenView' );
+  const StepForwardButton = require( 'SCENERY_PHET/buttons/StepForwardButton' );
 
   /**
    * @param {ColorVisionModel} model

@@ -5,15 +5,15 @@
  *
  * @author Sam Reid (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var ColorIO = require( 'SCENERY/util/ColorIO' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var Vector2IO = require( 'DOT/Vector2IO' );
-  var validate = require( 'AXON/validate' );
+  const ColorIO = require( 'SCENERY/util/ColorIO' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+  const validate = require( 'AXON/validate' );
 
   class SingleBulbPhotonBeamIO extends ObjectIO {
 

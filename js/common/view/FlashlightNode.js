@@ -5,19 +5,19 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var Shape = require( 'KITE/Shape' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Path = require( 'SCENERY/nodes/Path' );
+  const Shape = require( 'KITE/Shape' );
 
   // images
-  var flashlightImage = require( 'image!COLOR_VISION/flashlight-icon.png' );
+  const flashlightImage = require( 'image!COLOR_VISION/flashlight-icon.png' );
 
   // constants
   var SCALE = 0.75;

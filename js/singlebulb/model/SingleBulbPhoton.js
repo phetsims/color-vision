@@ -5,14 +5,14 @@
  *
  * @author Aaron Davis
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
-  var SingleBulbPhotonIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonIO' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
+  const SingleBulbPhotonIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonIO' );
 
   /**
    * @param {Vector2} location

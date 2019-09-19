@@ -5,19 +5,19 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var Property = require( 'AXON/Property' );
-  var Shape = require( 'KITE/Shape' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  const Color = require( 'SCENERY/util/Color' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Path = require( 'SCENERY/nodes/Path' );
+  const Property = require( 'AXON/Property' );
+  const Shape = require( 'KITE/Shape' );
+  const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // constants
   var DEFAULT_BEAM_ALPHA = 0.8;

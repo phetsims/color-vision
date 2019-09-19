@@ -5,21 +5,21 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var Emitter = require( 'AXON/Emitter' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
-  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
-  var SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  const Color = require( 'SCENERY/util/Color' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const Emitter = require( 'AXON/Emitter' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const PhetioObject = require( 'TANDEM/PhetioObject' );
+  const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  const SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
+  const SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // constants
   var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();

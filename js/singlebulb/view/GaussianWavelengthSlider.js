@@ -6,23 +6,23 @@
  *
  * @author Aaron Davis
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LinearFunction = require( 'DOT/LinearFunction' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var Shape = require( 'KITE/Shape' );
-  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var Util = require( 'DOT/Util' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
-  var WavelengthSpectrumNode = require( 'SCENERY_PHET/WavelengthSpectrumNode' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LinearFunction = require( 'DOT/LinearFunction' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Path = require( 'SCENERY/nodes/Path' );
+  const Shape = require( 'KITE/Shape' );
+  const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  const Util = require( 'DOT/Util' );
+  const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  const WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+  const WavelengthSpectrumNode = require( 'SCENERY_PHET/WavelengthSpectrumNode' );
 
   /**
    * Wavelength slider with a gaussian

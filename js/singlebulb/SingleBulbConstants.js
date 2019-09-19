@@ -4,11 +4,11 @@
  * Constants used in the Single Bulb Screen.
  * @author Aaron Davis
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
 
   var SingleBulbConstants = {
     SINGLE_BEAM_LENGTH: 280,

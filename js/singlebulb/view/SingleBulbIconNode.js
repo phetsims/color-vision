@@ -5,15 +5,15 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var Screen = require( 'JOIST/Screen' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const Screen = require( 'JOIST/Screen' );
 
   /**
    * @param {Object} [options]

@@ -5,18 +5,18 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  const BooleanRoundStickyToggleButton = require( 'SUN/buttons/BooleanRoundStickyToggleButton' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
 
   // images
-  var flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
+  const flashlightImage = require( 'image!COLOR_VISION/flashlight-0-deg.png' );
 
   /**
    * @param {Property.<boolean>} onProperty

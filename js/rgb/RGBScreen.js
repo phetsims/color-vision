@@ -5,21 +5,21 @@
  *
  * @author Sam Reid
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
-  var RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
-  var RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
-  var Screen = require( 'JOIST/Screen' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Property = require( 'AXON/Property' );
+  const RGBIconNode = require( 'COLOR_VISION/rgb/view/RGBIconNode' );
+  const RGBModel = require( 'COLOR_VISION/rgb/model/RGBModel' );
+  const RGBScreenView = require( 'COLOR_VISION/rgb/view/RGBScreenView' );
+  const Screen = require( 'JOIST/Screen' );
 
   // strings
-  var rgbBulbsModuleTitleString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
+  const rgbBulbsModuleTitleString = require( 'string!COLOR_VISION/RgbBulbsModule.title' );
 
   /**
    * @param {Tandem} tandem

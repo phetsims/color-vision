@@ -6,14 +6,14 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
-  var validate = require( 'AXON/validate' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
+  const validate = require( 'AXON/validate' );
 
   class SingleBulbPhotonIO extends ObjectIO {
 

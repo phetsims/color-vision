@@ -6,43 +6,43 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  * @author Sam Reid (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
-  var FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
-  var FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
-  var FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
-  var FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
-  var GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
-  var HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
-  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
-  var SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const ColorVisionScreenView = require( 'COLOR_VISION/common/view/ColorVisionScreenView' );
+  const FilterHalfEllipse = require( 'COLOR_VISION/singlebulb/view/FilterHalfEllipse' );
+  const FilterWireNode = require( 'COLOR_VISION/singlebulb/view/FilterWireNode' );
+  const FlashlightWireNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWireNode' );
+  const FlashlightWithButtonNode = require( 'COLOR_VISION/singlebulb/view/FlashlightWithButtonNode' );
+  const GaussianWavelengthSlider = require( 'COLOR_VISION/singlebulb/view/GaussianWavelengthSlider' );
+  const HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
+  const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  const SingleBulbPhotonBeamNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbPhotonBeamNode' );
+  const SolidBeamNode = require( 'COLOR_VISION/singlebulb/view/SolidBeamNode' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
 
   // images
-  var beamViewIcon = require( 'image!COLOR_VISION/beam-view-icon.png' );
-  var filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
-  var filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
-  var photonViewIcon = require( 'image!COLOR_VISION/photon-view-icon.png' );
-  var singleColorLightIcon = require( 'image!COLOR_VISION/single-color-light-icon.png' );
-  var whiteLightIcon = require( 'image!COLOR_VISION/white-light-icon.png' );
+  const beamViewIcon = require( 'image!COLOR_VISION/beam-view-icon.png' );
+  const filterLeftImage = require( 'image!COLOR_VISION/filter-left.png' );
+  const filterRightImage = require( 'image!COLOR_VISION/filter-right.png' );
+  const photonViewIcon = require( 'image!COLOR_VISION/photon-view-icon.png' );
+  const singleColorLightIcon = require( 'image!COLOR_VISION/single-color-light-icon.png' );
+  const whiteLightIcon = require( 'image!COLOR_VISION/white-light-icon.png' );
 
   // strings
-  var bulbSliderLabelString = require( 'string!COLOR_VISION/bulbSlider.label' );
-  var filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
+  const bulbSliderLabelString = require( 'string!COLOR_VISION/bulbSlider.label' );
+  const filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
 
   // constants
   var DISTANCE_FROM_FLASHLIGHT = 20;

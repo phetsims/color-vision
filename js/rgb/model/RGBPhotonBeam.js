@@ -5,15 +5,15 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {string} color an rgb string

@@ -4,11 +4,11 @@
  * Constants used throughout the simulation.
  * @author Aaron Davis
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
 
   var ColorVisionConstants = {
 

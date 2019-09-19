@@ -5,27 +5,27 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var Color = require( 'SCENERY/util/Color' );
-  var ColorIO = require( 'SCENERY/util/ColorIO' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  var EventTimer = require( 'PHET_CORE/EventTimer' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var Range = require( 'DOT/Range' );
-  var SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  var SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const Color = require( 'SCENERY/util/Color' );
+  const ColorIO = require( 'SCENERY/util/ColorIO' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const EventTimer = require( 'PHET_CORE/EventTimer' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const Range = require( 'DOT/Range' );
+  const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
+  const SingleBulbPhotonBeam = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeam' );
+  const StringIO = require( 'TANDEM/types/StringIO' );
+  const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
    * @param {Tandem} tandem

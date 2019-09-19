@@ -5,18 +5,18 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var RGBScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
-  var Sim = require( 'JOIST/Sim' );
-  var SimLauncher = require( 'JOIST/SimLauncher' );
-  var SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const RGBScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
+  const Sim = require( 'JOIST/Sim' );
+  const SimLauncher = require( 'JOIST/SimLauncher' );
+  const SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
+  const colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
 
   var tandem = Tandem.rootTandem;
 

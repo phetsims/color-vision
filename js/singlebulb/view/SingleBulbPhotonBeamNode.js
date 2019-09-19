@@ -5,13 +5,13 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  const CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {SingleBulbModel} model

@@ -5,23 +5,23 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
-  var ColorIO = require( 'SCENERY/util/ColorIO' );
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  var EventTimer = require( 'PHET_CORE/EventTimer' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var Range = require( 'DOT/Range' );
-  var RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
-  var RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
-  var RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
+  const Color = require( 'SCENERY/util/Color' );
+  const ColorIO = require( 'SCENERY/util/ColorIO' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionModel = require( 'COLOR_VISION/common/model/ColorVisionModel' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const EventTimer = require( 'PHET_CORE/EventTimer' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Range = require( 'DOT/Range' );
+  const RGBConstants = require( 'COLOR_VISION/rgb/RGBConstants' );
+  const RGBPhotonBeam = require( 'COLOR_VISION/rgb/model/RGBPhotonBeam' );
+  const RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
 
   // constants
   var PERCENT_RANGE = new Range( 0, 100 );

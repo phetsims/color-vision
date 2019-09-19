@@ -10,24 +10,24 @@
  *
  * @author Aaron Davis
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var colorVision = require( 'COLOR_VISION/colorVision' );
-  var ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
+  const colorVision = require( 'COLOR_VISION/colorVision' );
+  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
 
   // images
-  var headFrontImage = require( 'image!COLOR_VISION/head-front.png' );
-  var headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
-  var headImage = require( 'image!COLOR_VISION/head.png' );
-  var silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
-  var silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
-  var silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
+  const headFrontImage = require( 'image!COLOR_VISION/head-front.png' );
+  const headIcon = require( 'image!COLOR_VISION/silhouette-icon.png' );
+  const headImage = require( 'image!COLOR_VISION/head.png' );
+  const silhouetteFrontImage = require( 'image!COLOR_VISION/silhouette-front.png' );
+  const silhouetteIcon = require( 'image!COLOR_VISION/head-icon.png' );
+  const silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
 
   // constants
   var BOTTOM_OFFSET = 15;
