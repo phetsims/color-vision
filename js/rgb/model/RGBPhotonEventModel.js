@@ -29,7 +29,7 @@ define( require => {
   return inherit( Object, RGBPhotonEventModel, {
 
     getPeriodBeforeNextEvent: function() {
-      var rate = this.rateProperty.get() * 2;
+      const rate = this.rateProperty.get() * 2;
       assert && assert( rate >= 0, 'We need to have a non-negative rate in order to prevent infinite loops.' );
 
       // make sure that a 0 rate doesn't fire an event

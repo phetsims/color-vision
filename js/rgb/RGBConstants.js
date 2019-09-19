@@ -10,7 +10,7 @@ define( require => {
   // modules
   const colorVision = require( 'COLOR_VISION/colorVision' );
 
-  var RGBConstants = {
+  const RGBConstants = {
     RED_BEAM_LENGTH: 300,
     GREEN_BEAM_LENGTH: 250,
     BLUE_BEAM_LENGTH: 330

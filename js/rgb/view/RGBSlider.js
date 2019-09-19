@@ -26,7 +26,7 @@ define( require => {
    */
   function RGBSlider( intensityProperty, color, tandem ) {
 
-    var slider = new VSlider( intensityProperty, new Range( 0, 100 ), {
+    const slider = new VSlider( intensityProperty, new Range( 0, 100 ), {
       trackSize: new Dimension2( 100, 2 ),
       thumbSize: new Dimension2( 14, 28 ),
       thumbTouchAreaXDilation: 7,
@@ -34,8 +34,8 @@ define( require => {
       tandem: tandem
     } );
 
-    var rectWidth = slider.width + 8;
-    var rectHeight = slider.height + 22;
+    const rectWidth = slider.width + 8;
+    const rectHeight = slider.height + 22;
 
     Rectangle.call( this, 0, 0, rectWidth, rectHeight, 5, 5,
       {

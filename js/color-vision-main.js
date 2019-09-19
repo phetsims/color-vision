@@ -18,9 +18,9 @@ define( require => {
   // strings
   const colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
 
-  var tandem = Tandem.rootTandem;
+  const tandem = Tandem.rootTandem;
 
-  var simOptions = {
+  const simOptions = {
     credits: {
       leadDesign: 'Bryce Gruneich, Kathy Perkins',
       softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley (PixelZoom, Inc.), Sam Reid',
@@ -31,7 +31,7 @@ define( require => {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( colorVisionTitleString, [
+    const sim = new Sim( colorVisionTitleString, [
       new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
       new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
     ], simOptions );

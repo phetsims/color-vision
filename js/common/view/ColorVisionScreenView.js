@@ -31,14 +31,14 @@ define( require => {
     } );
 
     // 'Thought bubbles' that display perceived color
-    var perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty, {
+    const perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty, {
       left: 20,
       top: 5
     } );
     this.addChild( perceivedColorNode );
 
     // Play/pause button
-    var playPauseButton = new PlayPauseButton( model.playingProperty, {
+    const playPauseButton = new PlayPauseButton( model.playingProperty, {
       bottom: this.layoutBounds.bottom - 20,
       centerX: this.layoutBounds.centerX - 25,
       radius: 20,
@@ -47,7 +47,7 @@ define( require => {
     this.addChild( playPauseButton );
 
     // Step button
-    var stepButton = new StepForwardButton( {
+    const stepButton = new StepForwardButton( {
       isPlayingProperty: model.playingProperty,
       listener: function() { model.manualStep(); },
       centerY: playPauseButton.centerY,
@@ -58,7 +58,7 @@ define( require => {
     this.addChild( stepButton );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
       bottom: this.layoutBounds.bottom - 5,
       right: this.layoutBounds.right - 30,

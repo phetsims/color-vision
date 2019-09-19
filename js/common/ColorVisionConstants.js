@@ -10,7 +10,7 @@ define( require => {
   // modules
   const colorVision = require( 'COLOR_VISION/colorVision' );
 
-  var ColorVisionConstants = {
+  const ColorVisionConstants = {
 
     // height of all photonBeamNodes from both screens
     BEAM_HEIGHT: 130,

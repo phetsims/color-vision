@@ -20,8 +20,8 @@ define( require => {
   const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // constants
-  var DEFAULT_BEAM_ALPHA = 0.8;
-  var WHITE_WITH_ALPHA = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
+  const DEFAULT_BEAM_ALPHA = 0.8;
+  const WHITE_WITH_ALPHA = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
 
   /**
    * @param {SingleBulbModel} model
@@ -34,19 +34,19 @@ define( require => {
     Node.call( this );
 
     // use the principle of similar triangles to calculate where to split the beam
-    var width = bounds.maxX - bounds.minX;
-    var triangleHeight = 30; // height of right triangle the overlaps with the beam fanning
-    var smallTriangleWidth = cutoff - bounds.minX;
-    var smallTriangleHeight = smallTriangleWidth * triangleHeight / width;
+    const width = bounds.maxX - bounds.minX;
+    const triangleHeight = 30; // height of right triangle the overlaps with the beam fanning
+    const smallTriangleWidth = cutoff - bounds.minX;
+    const smallTriangleHeight = smallTriangleWidth * triangleHeight / width;
 
-    var leftHalfShape = new Shape()
+    const leftHalfShape = new Shape()
       .moveTo( bounds.minX, bounds.minY )
       .lineTo( bounds.minX, bounds.maxY )
       .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
       .lineTo( cutoff, bounds.minY - smallTriangleHeight )
       .close();
 
-    var rightHalfShape = new Shape()
+    const rightHalfShape = new Shape()
       .moveTo( cutoff, bounds.minY - smallTriangleHeight )
       .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
       .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
@@ -54,19 +54,19 @@ define( require => {
       .close();
 
     // use the whole beam when the filter is disabled, to avoid seeing the cut between the halves
-    var wholeBeamShape = new Shape()
+    const wholeBeamShape = new Shape()
       .moveTo( bounds.minX, bounds.minY )
       .lineTo( bounds.minX, bounds.maxY )
       .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
       .lineTo( bounds.maxX, bounds.minY - triangleHeight )
       .close();
 
-    var leftHalf = new Path( leftHalfShape );
-    var rightHalf = new Path( rightHalfShape );
-    var wholeBeam = new Path( wholeBeamShape );
+    const leftHalf = new Path( leftHalfShape );
+    const rightHalf = new Path( rightHalfShape );
+    const wholeBeam = new Path( wholeBeamShape );
 
     model.flashlightWavelengthProperty.link( function( wavelength ) {
-      var newColor = VisibleColor.wavelengthToColor( wavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
+      const newColor = VisibleColor.wavelengthToColor( wavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
       rightHalf.fill = newColor;
       wholeBeam.fill = newColor;
     } );
@@ -109,7 +109,7 @@ define( require => {
         }
       } );
 
-    var visibleProperty = new DerivedProperty( [ model.flashlightOnProperty, model.beamTypeProperty ],
+    const visibleProperty = new DerivedProperty( [ model.flashlightOnProperty, model.beamTypeProperty ],
       function( flashlightOn, beamType ) {
         return ( flashlightOn && beamType === 'beam' );
       } );

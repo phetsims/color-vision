@@ -17,7 +17,7 @@ define( require => {
   // If this is set to true, it will show a rectangle around the beam.
   // This is useful for getting the placement of the beam correct relative to the
   // flashlight image.
-  var debug = false;
+  const debug = false;
 
   /**
    * @param {PhotonBeam} photonBeam
@@ -27,7 +27,7 @@ define( require => {
    */
   function RGBPhotonBeamNode( photonBeam, tandem, options ) {
 
-    var self = this;
+    const self = this;
 
     // @private
     this.beamBounds = options.canvasBounds;
@@ -64,7 +64,7 @@ define( require => {
       }
 
       context.fillStyle = this.color;
-      for ( var i = 0; i < this.photons.length; i++ ) {
+      for ( let i = 0; i < this.photons.length; i++ ) {
         // don't draw photons with intensity 0, since these are just used for ensuring the perceived color is black
         if ( this.photons[ i ].intensity !== 0 ) {
           context.fillRect( this.photons[ i ].location.x, this.photons[ i ].location.y, 3, 2 );

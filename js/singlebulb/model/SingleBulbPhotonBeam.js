@@ -22,7 +22,7 @@ define( require => {
   const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // constants
-  var BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
+  const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
 
   /**
    * @param {SingleBulbModel} model
@@ -56,9 +56,9 @@ define( require => {
   colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 
   function randomColor() {
-    var r = Math.floor( phet.joist.random.nextDouble() * 256 );
-    var g = Math.floor( phet.joist.random.nextDouble() * 256 );
-    var b = Math.floor( phet.joist.random.nextDouble() * 256 );
+    const r = Math.floor( phet.joist.random.nextDouble() * 256 );
+    const g = Math.floor( phet.joist.random.nextDouble() * 256 );
+    const b = Math.floor( phet.joist.random.nextDouble() * 256 );
     return new Color( r, g, b, 1 );
   }
 
@@ -67,22 +67,22 @@ define( require => {
     // @public
     updateAnimationFrame: function( dt ) {
 
-      var self = this;
+      const self = this;
 
-      var probability = 1; // probability for a given photon to pass the filter
-      var filterWavelength = this.model.filterWavelengthProperty.value;
+      let probability = 1; // probability for a given photon to pass the filter
+      const filterWavelength = this.model.filterWavelengthProperty.value;
 
       // move all photons that are currently active
-      for ( var j = 0; j < this.photons.length; j++ ) {
-        var photon = this.photons[ j ];
+      for ( let j = 0; j < this.photons.length; j++ ) {
+        const photon = this.photons[ j ];
 
         // calculate the new location of the photon in order to check whether will still be in bounds
-        var newX = photon.location.x + dt * photon.velocity.x;
-        var newY = photon.location.y + dt * photon.velocity.y;
+        const newX = photon.location.x + dt * photon.velocity.x;
+        const newY = photon.location.y + dt * photon.velocity.y;
 
         // check if the photon just passed through the filter location
         if ( this.model.filterVisibleProperty.value && newX < this.filterOffset && !photon.passedFilter ) {
-          var halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
+          const halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the photon's wavelength is outside the transmission width, it doesn't pass.
           if ( photon.wavelength < filterWavelength - halfWidth ||
@@ -130,7 +130,7 @@ define( require => {
 
         // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
         else {
-          var newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color.withAlpha( photon.intensity );
+          const newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color.withAlpha( photon.intensity );
 
           // don't update the lastPhotonColor unless it is different than before, for performance reasons
           // and don't bother to update the color if the view is on beam mode
@@ -149,7 +149,7 @@ define( require => {
       // emit a black photon for resetting the perceived color to black if no more photons passing through the filter.
       // this takes care of the case when no photons pass through the filter
       if ( probability === 0 && this.model.filterVisibleProperty.value ) {
-        var blackPhoton = new SingleBulbPhoton(
+        const blackPhoton = new SingleBulbPhoton(
           new Vector2( this.filterOffset, ColorVisionConstants.BEAM_HEIGHT / 2 ),
           new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
           1,
@@ -180,18 +180,18 @@ define( require => {
 
     // @public
     createPhoton: function( timeElapsed ) {
-      var self = this;
+      const self = this;
       // if the flashlight is on, create a new photon this animation frame
       if ( this.model.flashlightOnProperty.value ) {
-        var newColor = ( this.model.lightTypeProperty.value === 'white' ) ?
+        const newColor = ( this.model.lightTypeProperty.value === 'white' ) ?
                        randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
 
-        var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
-        var yVelocity = ( phet.joist.random.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
+        const x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
+        const yVelocity = ( phet.joist.random.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
-        var initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
-        var deltaY = yVelocity * timeElapsed;
-        var y = initialY + deltaY;
+        const initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
+        const deltaY = yVelocity * timeElapsed;
+        const y = initialY + deltaY;
 
         this.photons.push( new SingleBulbPhoton(
           new Vector2( x, y ),
@@ -209,7 +209,7 @@ define( require => {
     // @public
     reset: function() {
       // set all photons to be out of bounds to trigger empty redraw
-      for ( var i = 0; i < this.photons.length; i++ ) {
+      for ( let i = 0; i < this.photons.length; i++ ) {
         this.photons[ i ].location.x = 0;
       }
     }

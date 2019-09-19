@@ -27,7 +27,7 @@ define( require => {
    */
   function SingleBulbScreen( tandem ) {
 
-    var options = {
+    const options = {
       name: singleBulbModuleTitleString,
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),

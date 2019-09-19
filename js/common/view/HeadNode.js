@@ -30,9 +30,9 @@ define( require => {
   const silhouetteImage = require( 'image!COLOR_VISION/silhouette.png' );
 
   // constants
-  var BOTTOM_OFFSET = 15;
-  var SCALE = 0.96;
-  var IMAGE_SCALE = 0.6;
+  const BOTTOM_OFFSET = 15;
+  const SCALE = 0.96;
+  const IMAGE_SCALE = 0.6;
 
   /**
    * @param {Property.<string>} headModeProperty
@@ -46,14 +46,14 @@ define( require => {
 
     Node.call( this );
 
-    var silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
-    var headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
+    const silhouetteOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 78, scale: SCALE };
+    const headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
 
     // create nodes for each head image
-    var silhouetteNode = new Image( silhouetteImage, silhouetteOptions );
-    var headNode = new Image( headImage, headOptions );
-    var silhouetteFrontNode = new Image( silhouetteFrontImage, silhouetteOptions );
-    var headFrontNode = new Image( headFrontImage, headOptions );
+    const silhouetteNode = new Image( silhouetteImage, silhouetteOptions );
+    const headNode = new Image( headImage, headOptions );
+    const silhouetteFrontNode = new Image( silhouetteFrontImage, silhouetteOptions );
+    const headFrontNode = new Image( headFrontImage, headOptions );
 
     // Make sure only one image is visible at at time, depending on the user's selection
     headModeProperty.link( function( mode ) {
@@ -70,7 +70,7 @@ define( require => {
     // add the photon beams on top of the head images
     // this is only needed in the RGB screen. The single bulb screen takes care of its own layering to account for the filter
     if ( photonBeams ) {
-      for ( var i = 0; i < photonBeams.length; i++ ) {
+      for ( let i = 0; i < photonBeams.length; i++ ) {
         this.addChild( photonBeams[ i ] );
       }
     }
@@ -80,7 +80,7 @@ define( require => {
     this.addChild( headFrontNode );
 
     // Add head mode toggle
-    var toggleButtonsContent = [ {
+    const toggleButtonsContent = [ {
       value: 'no-brain',
       node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
       tandemName: 'hideBrainRadioButton'
@@ -90,7 +90,7 @@ define( require => {
       tandemName: 'showBrainRadioButton'
     } ];
 
-    var radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {
+    const radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {
       buttonContentXMargin: 4,
       buttonContentYMargin: 4,
       bottom: layoutBoundsBottom - 22,

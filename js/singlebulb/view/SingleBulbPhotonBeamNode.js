@@ -26,7 +26,7 @@ define( require => {
 
     CanvasNode.call( this, options );
 
-    var self = this;
+    const self = this;
     model.beamTypeProperty.link( function( beamType ) {
       self.visible = ( beamType === 'photon' );
     } );
@@ -48,7 +48,7 @@ define( require => {
      */
     paintCanvas: function( context ) {
 
-      for ( var i = 0; i < this.photons.length; i++ ) {
+      for ( let i = 0; i < this.photons.length; i++ ) {
         context.fillStyle = this.photons[ i ].color.toCSS();
         context.fillRect( this.photons[ i ].location.x, this.photons[ i ].location.y, 3, 2 );
       }

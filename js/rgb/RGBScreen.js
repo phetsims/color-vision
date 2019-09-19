@@ -27,7 +27,7 @@ define( require => {
    */
   function RGBScreen( tandem ) {
 
-    var options = {
+    const options = {
       name: rgbBulbsModuleTitleString,
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),

@@ -28,13 +28,13 @@ define( require => {
    */
   function FilterHalfEllipse( filterWavelengthProperty, filterVisibleProperty, centerX, centerY, radiusX, radiusY, left ) {
 
-    var shape = new Shape()
+    const shape = new Shape()
       .moveTo( centerX, centerY - radiusY )
       .ellipticalArc( centerX, centerY, radiusX, radiusY, 0, -Math.PI / 2, Math.PI / 2, left )
       .close();
 
     Path.call( this, shape );
-    var self = this;
+    const self = this;
 
     filterWavelengthProperty.link( function( wavelength ) {
       self.fill = VisibleColor.wavelengthToColor( wavelength );

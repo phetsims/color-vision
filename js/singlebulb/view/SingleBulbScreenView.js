@@ -45,12 +45,12 @@ define( require => {
   const filterSliderLabelString = require( 'string!COLOR_VISION/filterSlider.label' );
 
   // constants
-  var DISTANCE_FROM_FLASHLIGHT = 20;
-  var SLIDER_Y_OFFSET = 21;
-  var SLIDER_TRACK_WIDTH = 200;
-  var SLIDER_TRACK_HEIGHT = 30;
-  var PHOTON_BEAM_START = 320;
-  var ICON_OPTIONS = { scale: 0.74 }; // options common to all icon images
+  const DISTANCE_FROM_FLASHLIGHT = 20;
+  const SLIDER_Y_OFFSET = 21;
+  const SLIDER_TRACK_WIDTH = 200;
+  const SLIDER_TRACK_HEIGHT = 30;
+  const PHOTON_BEAM_START = 320;
+  const ICON_OPTIONS = { scale: 0.74 }; // options common to all icon images
 
   /**
    * @param {SingleBulbModel} model
@@ -62,16 +62,16 @@ define( require => {
     ColorVisionScreenView.call( this, model, tandem );
 
     // constant for determining the distance of the wavelengthSlider from the right side of the screen
-    var wavelengthSliderDistance = this.layoutBounds.maxX - 70;
+    const wavelengthSliderDistance = this.layoutBounds.maxX - 70;
 
     // Create flashlight node
-    var flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem.createTandem( 'flashlightNode' ), {
+    const flashlightNode = new FlashlightWithButtonNode( model.flashlightOnProperty, tandem.createTandem( 'flashlightNode' ), {
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 3,
       right: this.layoutBounds.maxX - 40
     } );
 
     // Create upper WavelengthSlider node
-    var bulbColorSlider = new WavelengthSlider( model.flashlightWavelengthProperty, {
+    const bulbColorSlider = new WavelengthSlider( model.flashlightWavelengthProperty, {
       top: this.layoutBounds.top + 40,
       right: wavelengthSliderDistance,
       tweakersVisible: false,
@@ -87,7 +87,7 @@ define( require => {
     } );
 
     // add text above the upper slider
-    var bulbColorTextNode = new Text( bulbSliderLabelString, {
+    const bulbColorTextNode = new Text( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: bulbColorSlider.top - 3,
@@ -98,14 +98,14 @@ define( require => {
     this.addChild( bulbColorTextNode );
 
     // Add wire from flashlight to WavelengthSlider
-    var flashlightWire = new FlashlightWireNode(
+    const flashlightWire = new FlashlightWireNode(
       new Vector2( flashlightNode.right - 15, flashlightNode.centerY + 2 ),
       new Vector2( bulbColorSlider.right - 25, bulbColorSlider.centerY - SLIDER_Y_OFFSET ),
       25 );
 
     // make bulb color slider invisible when on white light mode
     model.lightTypeProperty.link( function( lightType ) {
-      var coloredLight = lightType !== 'white';
+      const coloredLight = lightType !== 'white';
       bulbColorSlider.visible = coloredLight;
       bulbColorTextNode.visible = coloredLight;
       flashlightWire.visible = coloredLight;
@@ -115,13 +115,13 @@ define( require => {
     this.addChild( bulbColorSlider );
 
     // options common to all IconToggleNodes
-    var iconToggleOptions = _.extend( {
+    const iconToggleOptions = _.extend( {
       left: flashlightNode.left,
       buttonContentXMargin: 2,
       buttonContentYMargin: 2
     }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
 
-    var whiteColoredButtonsContent = [ {
+    const whiteColoredButtonsContent = [ {
       value: 'white',
       node: new Image( whiteLightIcon, ICON_OPTIONS ),
       tandemName: 'whiteLightRadioButton'
@@ -131,14 +131,14 @@ define( require => {
       tandemName: 'coloredLightRadioButton'
     } ];
 
-    var colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
+    const colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       _.extend( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
       }, iconToggleOptions )
     );
 
-    var beamPhotonButtonsContent = [ {
+    const beamPhotonButtonsContent = [ {
       value: 'beam',
       node: new Image( beamViewIcon, ICON_OPTIONS ),
       tandemName: 'beamRadioButton'
@@ -148,7 +148,7 @@ define( require => {
       tandemName: 'photonRadioButton'
     } ];
 
-    var beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
+    const beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       _.extend( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
@@ -160,7 +160,7 @@ define( require => {
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same location and will match up perfectly
-    var filterOptions = {
+    const filterOptions = {
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
       scale: 0.7,
       right: flashlightNode.left - 100
@@ -169,8 +169,8 @@ define( require => {
     // Add the circular filter images into the scene
     // Note: In Chrome, there is a 1px wide white line that can been seen separating the two image halves,
     // seen in both Windows and OSX. So far, it has seemed minor enough to ignore.
-    var filterLeftNode = new Image( filterLeftImage, filterOptions );
-    var filterRightNode = new Image( filterRightImage, filterOptions );
+    const filterLeftNode = new Image( filterLeftImage, filterOptions );
+    const filterRightNode = new Image( filterRightImage, filterOptions );
     model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
     model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 
@@ -186,14 +186,14 @@ define( require => {
     this.photonBeamNode.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
     // Create gaussian wavelength slider for controlling the filter color
-    var gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
+    const gaussianSlider = new GaussianWavelengthSlider( model.filterWavelengthProperty, SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT,
       tandem.createTandem( 'gaussianSlider' ), {
         bottom: this.layoutBounds.bottom - 20,
         right: wavelengthSliderDistance
       } );
 
     // Add the text above the gaussian wavelength slider
-    var filterColorTextNode = new Text( filterSliderLabelString, {
+    const filterColorTextNode = new Text( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
@@ -214,7 +214,7 @@ define( require => {
     this.addChild( gaussianSlider );
 
     // Left half of the filter
-    var filterLeft = new FilterHalfEllipse(
+    const filterLeft = new FilterHalfEllipse(
       model.filterWavelengthProperty,
       model.filterVisibleProperty,
       filterLeftNode.centerX + 1,
@@ -225,7 +225,7 @@ define( require => {
     );
 
     // Right half of the filter
-    var filterRight = new FilterHalfEllipse(
+    const filterRight = new FilterHalfEllipse(
       model.filterWavelengthProperty,
       model.filterVisibleProperty,
       filterLeftNode.centerX - 1,
@@ -236,21 +236,21 @@ define( require => {
     );
 
     // bounds for the solid beam view
-    var beamBounds = new Bounds2(
+    const beamBounds = new Bounds2(
       filterLeft.left - 130,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET + 54,
       flashlightNode.left + 15,
       this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET - 48
     );
 
-    var solidBeam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
+    const solidBeam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter before the solid beam and the left side
     this.addChild( filterRightNode );
     this.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], tandem.createTandem( 'headNode' ) );
+    const headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], tandem.createTandem( 'headNode' ) );
     this.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind

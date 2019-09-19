@@ -24,11 +24,11 @@ define( require => {
 
     Rectangle.call( this, 0, 0, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height, options );
 
-    var redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
-    var greenFlashlight = new FlashlightNode( 0, 'green' );
-    var blueFlashlight = new FlashlightNode( Math.PI / 12, 'blue' );
+    const redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
+    const greenFlashlight = new FlashlightNode( 0, 'green' );
+    const blueFlashlight = new FlashlightNode( Math.PI / 12, 'blue' );
 
-    var flashlightVBox = new VBox(
+    const flashlightVBox = new VBox(
       {
         children: [
           redFlashlight,

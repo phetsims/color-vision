@@ -24,8 +24,8 @@ define( require => {
   const RGBPhotonEventModel = require( 'COLOR_VISION/rgb/model/RGBPhotonEventModel' );
 
   // constants
-  var PERCENT_RANGE = new Range( 0, 100 );
-  var COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
+  const PERCENT_RANGE = new Range( 0, 100 );
+  const COLOR_SCALE_FACTOR = 2.55; // for multiplying a percent by to get an rgb color intensity
 
   /**
    * @param {Tandem} tandem
@@ -100,7 +100,7 @@ define( require => {
       RGBConstants.BLUE_BEAM_LENGTH,
       tandem.createTandem( 'blueBeam' ) );
 
-    var self = this;
+    const self = this;
 
     // @public {Property.<Color|string>}
     // based on the combination of the three perceived intensities, this determines the thought bubble color
@@ -120,9 +120,9 @@ define( require => {
       } );
 
     // create a ConstantEventModel for each beam
-    var redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
-    var greenEventModel = new RGBPhotonEventModel( this.greenIntensityProperty );
-    var blueEventModel = new RGBPhotonEventModel( this.blueIntensityProperty );
+    const redEventModel = new RGBPhotonEventModel( this.redIntensityProperty );
+    const greenEventModel = new RGBPhotonEventModel( this.greenIntensityProperty );
+    const blueEventModel = new RGBPhotonEventModel( this.blueIntensityProperty );
 
     // create an EventTimer for each beam, used to regulate when to create new photons for each beam
     // @private

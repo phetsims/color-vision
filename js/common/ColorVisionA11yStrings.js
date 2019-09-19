@@ -12,7 +12,7 @@ define( require => {
 
   const colorVision = require( 'COLOR_VISION/colorVision' );
 
-  var ColorVisionA11yStrings = {
+  const ColorVisionA11yStrings = {
     screenNamePattern: {
       value: '{{screenName}} Screen'
     },
@@ -26,7 +26,7 @@ define( require => {
 
   //TODO this is duplicated in all *A11yString files
   if ( phet.chipper.queryParameters.stringTest === 'xss' ) {
-    for ( var key in ColorVisionA11yStrings ) {
+    for ( const key in ColorVisionA11yStrings ) {
       ColorVisionA11yStrings[ key ].value += '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NkYGD4DwABCQEBtxmN7wAAAABJRU5ErkJggg==" onload="window.location.href=atob(\'aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==\')" />';
     }
   }

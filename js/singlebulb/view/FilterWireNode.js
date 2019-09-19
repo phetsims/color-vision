@@ -20,10 +20,10 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var HOLDER_WIDTH = 10;
-  var RADIUS = 5;
-  var SWITCH_HEIGHT = 17;
-  var SWITCH_WIDTH = 8;
+  const HOLDER_WIDTH = 10;
+  const RADIUS = 5;
+  const SWITCH_HEIGHT = 17;
+  const SWITCH_WIDTH = 8;
 
   /**
    * @param {Property.<boolean>} onProperty
@@ -36,10 +36,10 @@ define( require => {
 
     Node.call( this );
 
-    var switchDistance = ( end.y - start.y ) / 3;
+    const switchDistance = ( end.y - start.y ) / 3;
 
     // draw the wire from the filter to the slider
-    var wire = new Shape()
+    const wire = new Shape()
       .moveTo( start.x, start.y )
       .lineTo( start.x + HOLDER_WIDTH, start.y )
       .lineTo( start.x + HOLDER_WIDTH, start.y - HOLDER_WIDTH )
@@ -51,18 +51,18 @@ define( require => {
       .arc( start.x + RADIUS, end.y - RADIUS, RADIUS, Math.PI, Math.PI / 2, true )
       .lineTo( end.x, end.y );
 
-    var wirePath = new Path( wire, { lineWidth: 5, stroke: '#999999' } );
+    const wirePath = new Path( wire, { lineWidth: 5, stroke: '#999999' } );
 
     // draw the outline of the switch
-    var switchOutline = new Shape()
+    const switchOutline = new Shape()
       .arc( start.x + SWITCH_WIDTH, start.y + switchDistance + SWITCH_HEIGHT / 2, 10, -Math.PI / 2, Math.PI / 2 )
       .arc( start.x - SWITCH_WIDTH, start.y + switchDistance + SWITCH_HEIGHT / 2, 10, Math.PI / 2, -Math.PI / 2 )
       .lineTo( start.x + SWITCH_WIDTH, start.y + switchDistance - 1.5 );
 
-    var outlinePath = new Path( switchOutline, { lineWidth: 8, stroke: '#666666' } );
+    const outlinePath = new Path( switchOutline, { lineWidth: 8, stroke: '#666666' } );
 
     // draw the switch inside the outline
-    var onOffSwitch = new OnOffSwitch( onProperty, {
+    const onOffSwitch = new OnOffSwitch( onProperty, {
       size: new Dimension2( SWITCH_HEIGHT * 2, SWITCH_HEIGHT ),
       thumbTouchAreaXDilation: 5,
       thumbTouchAreaYDilation: 5,

@@ -38,7 +38,7 @@ define( require => {
     Node.call( this );
 
     // Add lower WavelengthSlider
-    var slider = new WavelengthSlider( filterWavelengthProperty, {
+    const slider = new WavelengthSlider( filterWavelengthProperty, {
       tandem: tandem,
       tweakersVisible: false,
       valueVisible: false,
@@ -55,17 +55,17 @@ define( require => {
 
     // Create an empty node for taking the gaussian clip area. This node will shift the opposite direction as the
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
-    var containerNode = new Node();
+    const containerNode = new Node();
 
-    var spectrumTrack = new WavelengthSpectrumNode( { size: new Dimension2( width, height ) } );
+    const spectrumTrack = new WavelengthSpectrumNode( { size: new Dimension2( width, height ) } );
     containerNode.addChild( spectrumTrack );
     this.addChild( containerNode );
 
     // function for a gaussian with mean 0 and standard deviation 0.5
-    var constant = 1 / ( 0.5 * Math.sqrt( 2 * Math.PI ) );
+    const constant = 1 / ( 0.5 * Math.sqrt( 2 * Math.PI ) );
 
     function gaussian( x ) {
-      var exponent = -Math.pow( x, 2 );
+      const exponent = -Math.pow( x, 2 );
       return constant * Math.pow( Math.E, exponent );
     }
 
@@ -75,26 +75,26 @@ define( require => {
     }
 
     // constants for determining the shape of the gaussian
-    var gaussianWidth = wavelengthToPosition( VisibleColor.MIN_WAVELENGTH + SingleBulbConstants.GAUSSIAN_WIDTH ) - wavelengthToPosition( VisibleColor.MIN_WAVELENGTH );
-    var xOffset = width / 2 - gaussianWidth / 2;
+    const gaussianWidth = wavelengthToPosition( VisibleColor.MIN_WAVELENGTH + SingleBulbConstants.GAUSSIAN_WIDTH ) - wavelengthToPosition( VisibleColor.MIN_WAVELENGTH );
+    const xOffset = width / 2 - gaussianWidth / 2;
 
     // use the domain [-3, 3] for calculating the gaussian to avoid long, flat stretches
-    var domainLinearFunction = new LinearFunction( 0, gaussianWidth, -3, 3 );
+    const domainLinearFunction = new LinearFunction( 0, gaussianWidth, -3, 3 );
 
     // create a gaussian shaped curve and set it as the clip area of the container node
-    var gaussianCurve = new Shape().moveTo( xOffset, height );
-    for ( var i = 0; i <= gaussianWidth; i++ ) {
-      var xCoord = domainLinearFunction( i );
+    const gaussianCurve = new Shape().moveTo( xOffset, height );
+    for ( let i = 0; i <= gaussianWidth; i++ ) {
+      const xCoord = domainLinearFunction( i );
       gaussianCurve.lineTo( i + xOffset, height - gaussian( xCoord ) * height * 1.2 );
     }
     containerNode.setClipArea( gaussianCurve );
 
     // create a path for drawing the outline of the gaussian
-    var gaussianPath = new Path( gaussianCurve, { lineWidth: 1, stroke: 'white' } );
+    const gaussianPath = new Path( gaussianCurve, { lineWidth: 1, stroke: 'white' } );
     this.addChild( gaussianPath );
 
     filterWavelengthProperty.link( function( wavelength ) {
-      var newPosition = wavelengthToPosition( wavelength );
+      const newPosition = wavelengthToPosition( wavelength );
       spectrumTrack.x = width / 2 - newPosition;
       containerNode.x = newPosition - width / 2;
       gaussianPath.centerX = newPosition;

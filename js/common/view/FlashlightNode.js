@@ -20,7 +20,7 @@ define( require => {
   const flashlightImage = require( 'image!COLOR_VISION/flashlight-icon.png' );
 
   // constants
-  var SCALE = 0.75;
+  const SCALE = 0.75;
 
   /**
    * @param {number} rotation
@@ -33,16 +33,16 @@ define( require => {
     Node.call( this, { rotation: rotation } );
 
     // draw the flashlight image, with the bulb pointed toward the left
-    var flashlightNode = new Image( flashlightImage, { scale: SCALE } );
+    const flashlightNode = new Image( flashlightImage, { scale: SCALE } );
 
     // values used for drawing the beam shape
-    var startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight
-    var centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
-    var dx = 170 * SCALE;                        // length of the beam in the x direction
-    var dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
+    const startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight
+    const centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
+    const dx = 170 * SCALE;                        // length of the beam in the x direction
+    const dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
 
     // draw a trapezoidal beam shape, just to the left of the flashlight image
-    var beamShape = new Shape()
+    const beamShape = new Shape()
       .moveTo( startX, centerY + dy )
       .lineTo( startX - dx, centerY + dy * 2 )
       .lineTo( startX - dx, centerY - dy * 2 )

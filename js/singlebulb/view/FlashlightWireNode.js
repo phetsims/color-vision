@@ -22,8 +22,8 @@ define( require => {
    */
   function FlashlightWireNode( start, end, width ) {
 
-    var radius = 5;
-    var wire = new Shape()
+    const radius = 5;
+    const wire = new Shape()
       .moveTo( start.x, start.y )
       .lineTo( start.x + width - radius, start.y )
       .arc( start.x + width - radius, start.y - radius, radius, Math.PI / 2, 0, true )

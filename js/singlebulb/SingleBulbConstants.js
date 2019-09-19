@@ -10,7 +10,7 @@ define( require => {
   // modules
   const colorVision = require( 'COLOR_VISION/colorVision' );
 
-  var SingleBulbConstants = {
+  const SingleBulbConstants = {
     SINGLE_BEAM_LENGTH: 280,
     GAUSSIAN_WIDTH: 70 // width of the gaussian for the filter slider in units of wavelengths
   };

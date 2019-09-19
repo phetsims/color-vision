@@ -28,9 +28,9 @@ define( require => {
 
     Node.call( this );
 
-    var flashlightNode = new Image( flashlightImage, { scale: 0.85 } );
+    const flashlightNode = new Image( flashlightImage, { scale: 0.85 } );
 
-    var button = new BooleanRoundStickyToggleButton( onProperty, {
+    const button = new BooleanRoundStickyToggleButton( onProperty, {
       centerY: flashlightNode.centerY,
       centerX: flashlightNode.centerX + 15,
       baseColor: 'red',

@@ -24,7 +24,7 @@ define( require => {
     static clearChildInstances( singleBulbPhotonBeam ) {
       validate( singleBulbPhotonBeam, this.validator );
       while ( singleBulbPhotonBeam.photons.length > 0 ) {
-        var p = singleBulbPhotonBeam.photons.pop();
+        const p = singleBulbPhotonBeam.photons.pop();
         p.dispose();
       }
     }
@@ -39,7 +39,7 @@ define( require => {
       validate( singleBulbPhotonBeam, this.validator );
 
       // location, velocity, intensity, color, isWhite, wavelength, tandem
-      var photonInstance = new phet.colorVision.SingleBulbPhoton(
+      const photonInstance = new phet.colorVision.SingleBulbPhoton(
         Vector2IO.fromStateObject( photonStateObject.location ),
         Vector2IO.fromStateObject( photonStateObject.velocity ),
         photonStateObject.intensity,

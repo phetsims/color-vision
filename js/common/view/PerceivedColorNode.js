@@ -27,7 +27,7 @@ define( require => {
     }, options );
 
     // four thought bubbles, described from largest to smallest
-    var shape = new Shape()
+    const shape = new Shape()
       .ellipse( 0, 0, 90, 45, 0 )
       .newSubpath()
       .ellipse( -130, 45, 30, 15, 0 )

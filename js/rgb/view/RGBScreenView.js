@@ -28,8 +28,8 @@ define( require => {
   const flashlightUpImage = require( 'image!COLOR_VISION/flashlight-pos-45-deg.png' );
 
   // constants
-  var BEAM_ANGLE = Math.PI / 6;
-  var FLASHLIGHT_SCALE = 0.73;
+  const BEAM_ANGLE = Math.PI / 6;
+  const FLASHLIGHT_SCALE = 0.73;
 
   /**
    * @param {RGBModel} model
@@ -65,16 +65,16 @@ define( require => {
     } );
 
     // add head node
-    var beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
-    var headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, tandem.createTandem( 'headNode' ) );
+    const beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
+    const headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, tandem.createTandem( 'headNode' ) );
     this.addChild( headNode );
 
     // Add flashlights
-    var redFlashlightNode = new Image( flashlightDownImage, { scale: FLASHLIGHT_SCALE } );
-    var greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
-    var blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
+    const redFlashlightNode = new Image( flashlightDownImage, { scale: FLASHLIGHT_SCALE } );
+    const greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
+    const blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
 
-    var flashlightVBox = new VBox( {
+    const flashlightVBox = new VBox( {
       children: [
         redFlashlightNode,
         greenFlashlightNode,
@@ -87,11 +87,11 @@ define( require => {
     this.addChild( flashlightVBox );
 
     // Add sliders
-    var redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
-    var greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
-    var blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
+    const redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
+    const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
+    const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
 
-    var sliderVBox = new VBox( {
+    const sliderVBox = new VBox( {
       children: [
         redSlider,
         greenSlider,
