@@ -1,4 +1,4 @@
-// Copyright 2018, University of Colorado Boulder
+// Copyright 2018-2019, University of Colorado Boulder
 
 /**
  * Displays the color perceived by the viewer in a set of cartoon-like 'thought bubbles'.
