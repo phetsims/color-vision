@@ -52,6 +52,7 @@ define( require => {
       photonInstance.passedFilter = photonStateObject.passedFilter;
       singleBulbPhotonBeam.photons.push( photonInstance );
       singleBulbPhotonBeam.repaintEmitter.emit();
+      return photonInstance;
     }
   }
 
