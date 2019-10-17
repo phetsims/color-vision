@@ -11,6 +11,7 @@ define( require => {
   // modules
   const colorVision = require( 'COLOR_VISION/colorVision' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const RGBPhoton = require( 'COLOR_VISION/rgb/model/RGBPhoton' );
   const SingleBulbPhotonIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonIO' );
 
@@ -26,7 +27,7 @@ define( require => {
    */
   function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength, options ) {
 
-    options = _.extend( { phetioType: SingleBulbPhotonIO }, options );
+    options = merge( { phetioType: SingleBulbPhotonIO }, options );
     RGBPhoton.call( this, location, velocity, intensity, options );
 
     // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.

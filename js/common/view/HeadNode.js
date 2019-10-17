@@ -18,6 +18,7 @@ define( require => {
   const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   const Image = require( 'SCENERY/nodes/Image' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
 
@@ -90,7 +91,7 @@ define( require => {
       tandemName: 'showBrainRadioButton'
     } ];
 
-    const radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, _.extend( {
+    const radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, merge( {
       buttonContentXMargin: 4,
       buttonContentYMargin: 4,
       bottom: layoutBoundsBottom - 22,

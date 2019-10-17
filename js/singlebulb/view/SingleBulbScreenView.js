@@ -22,6 +22,7 @@ define( require => {
   const HeadNode = require( 'COLOR_VISION/common/view/HeadNode' );
   const Image = require( 'SCENERY/nodes/Image' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
   const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
@@ -115,7 +116,7 @@ define( require => {
     this.addChild( bulbColorSlider );
 
     // options common to all IconToggleNodes
-    const iconToggleOptions = _.extend( {
+    const iconToggleOptions = merge( {
       left: flashlightNode.left,
       buttonContentXMargin: 2,
       buttonContentYMargin: 2
@@ -132,7 +133,7 @@ define( require => {
     } ];
 
     const colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
-      _.extend( {
+      merge( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
       }, iconToggleOptions )
@@ -149,7 +150,7 @@ define( require => {
     } ];
 
     const beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
-      _.extend( {
+      merge( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
       }, iconToggleOptions )

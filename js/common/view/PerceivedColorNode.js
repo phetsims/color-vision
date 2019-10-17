@@ -11,6 +11,7 @@ define( require => {
   // modules
   const colorVision = require( 'COLOR_VISION/colorVision' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Path = require( 'SCENERY/nodes/Path' );
   const Shape = require( 'KITE/Shape' );
 
@@ -21,7 +22,7 @@ define( require => {
    */
   function PerceivedColorNode( perceivedColorProperty, options ) {
 
-    options = _.extend( {
+    options = merge( {
       lineWidth: 0.5,
       stroke: '#c0b9b9' // gray
     }, options );

@@ -14,6 +14,7 @@ define( require => {
   const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
   const Emitter = require( 'AXON/Emitter' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
   const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   const SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
@@ -32,7 +33,7 @@ define( require => {
    */
   function SingleBulbPhotonBeam( model, beamLength, options ) {
 
-    options = _.extend( {
+    options = merge( {
       phetioType: SingleBulbPhotonBeamIO,
       phetioState: false
     }, options );

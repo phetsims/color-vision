@@ -11,6 +11,7 @@ define( require => {
 
   // modules
   const colorVision = require( 'COLOR_VISION/colorVision' );
+  const merge = require( 'PHET_CORE/merge' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const RGBPhotonIO = require( 'COLOR_VISION/rgb/model/RGBPhotonIO' );
   const validate = require( 'AXON/validate' );
@@ -24,7 +25,7 @@ define( require => {
      */
     static toStateObject( singleBulbPhoton ) {
       validate( singleBulbPhoton, this.validator );
-      return _.extend( {
+      return merge( {
         isWhite: singleBulbPhoton.isWhite,
         color: singleBulbPhoton.color.toStateObject(),
         wavelength: singleBulbPhoton.wavelength,
