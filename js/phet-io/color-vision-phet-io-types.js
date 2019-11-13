@@ -1237,6 +1237,14 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "NodeIO",
       "typeName": "ResetAllButtonIO"
     },
+    "RichTextIO": {
+      "documentation": "The tandem IO type for the scenery RichText node",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "NodeIO",
+      "typeName": "RichTextIO"
+    },
     "SingleBulbPhotonBeamIO": {
       "documentation": "The Beam on the single bulb screen.",
       "events": [],
