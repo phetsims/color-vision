@@ -35,7 +35,7 @@ define( require => {
      * @param {Tandem} tandem
      * @param {Object} photonStateObject
      */
-    static addChildInstance( singleBulbPhotonBeam, tandem, photonStateObject ) {
+    static addChildInstanceDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
       validate( singleBulbPhotonBeam, this.validator );
 
       // location, velocity, intensity, color, isWhite, wavelength, tandem
