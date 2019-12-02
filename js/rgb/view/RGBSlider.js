@@ -27,8 +27,8 @@ define( require => {
   function RGBSlider( intensityProperty, color, tandem ) {
 
     const slider = new VSlider( intensityProperty, new Range( 0, 100 ), {
-      trackSize: new Dimension2( 100, 2 ),
-      thumbSize: new Dimension2( 14, 28 ),
+      trackSize: new Dimension2( 2, 100 ),
+      thumbSize: new Dimension2( 28, 14 ),
       thumbTouchAreaXDilation: 7,
       thumbTouchAreaYDilation: 7,
       tandem: tandem
