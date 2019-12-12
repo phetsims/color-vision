@@ -18,7 +18,7 @@ define( require => {
   // strings
   const colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
 
-  const tandem = Tandem.rootTandem;
+  const tandem = Tandem.ROOT;
 
   const simOptions = {
     credits: {
