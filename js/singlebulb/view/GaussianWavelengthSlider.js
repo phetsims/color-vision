@@ -19,7 +19,7 @@ define( require => {
   const Path = require( 'SCENERY/nodes/Path' );
   const Shape = require( 'KITE/Shape' );
   const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
   const WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   const WavelengthSpectrumNode = require( 'SCENERY_PHET/WavelengthSpectrumNode' );
@@ -71,7 +71,7 @@ define( require => {
 
     // this function is almost identical to the one in WavelengthSlider, perhaps it should be refactored out
     function wavelengthToPosition( wavelength ) {
-      return Math.floor( Util.clamp( Util.linear( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, width, wavelength ), 0, width ) );
+      return Math.floor( Utils.clamp( Utils.linear( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH, 0, width, wavelength ), 0, width ) );
     }
 
     // constants for determining the shape of the gaussian
