@@ -13,10 +13,9 @@ define( require => {
   const colorVision = require( 'COLOR_VISION/colorVision' );
   const inherit = require( 'PHET_CORE/inherit' );
   const PerceivedColorNode = require( 'COLOR_VISION/common/view/PerceivedColorNode' );
-  const PlayPauseButton = require( 'SCENERY_PHET/buttons/PlayPauseButton' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
-  const StepForwardButton = require( 'SCENERY_PHET/buttons/StepForwardButton' );
+  const TimeControlNode = require( 'SCENERY_PHET/TimeControlNode' );
 
   /**
    * @param {ColorVisionModel} model
@@ -37,25 +36,17 @@ define( require => {
     } );
     this.addChild( perceivedColorNode );
 
-    // Play/pause button
-    const playPauseButton = new PlayPauseButton( model.playingProperty, {
+    // add the play/pause and step buttons
+    const timeControlNode = new TimeControlNode( model.playingProperty, {
       bottom: this.layoutBounds.bottom - 20,
-      centerX: this.layoutBounds.centerX - 25,
-      radius: 20,
-      tandem: tandem.createTandem( 'playPauseButton' )
+      centerX: this.layoutBounds.centerX - 3,
+      playPauseStepXSpacing: 14,
+      stepForwardOptions: {
+        listener: () => model.manualStep()
+      },
+      tandem: tandem.createTandem( 'timeControlNode' )
     } );
-    this.addChild( playPauseButton );
-
-    // Step button
-    const stepButton = new StepForwardButton( {
-      isPlayingProperty: model.playingProperty,
-      listener: function() { model.manualStep(); },
-      centerY: playPauseButton.centerY,
-      centerX: this.layoutBounds.centerX + 25,
-      radius: 15,
-      tandem: tandem.createTandem( 'stepButton' )
-    } );
-    this.addChild( stepButton );
+    this.addChild( timeControlNode );
 
     // Reset All button
     const resetAllButton = new ResetAllButton( {
