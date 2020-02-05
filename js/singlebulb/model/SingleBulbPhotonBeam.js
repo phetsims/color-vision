@@ -25,10 +25,11 @@ define( require => {
   // constants
   const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
 
+  // TODO: Should the required options be renamed to 'config'?
   /**
    * @param {SingleBulbModel} model
    * @param {number} beamLength the length of the beam. This is used to determine what location to restart the photons.
-   * @param {Object} options - required
+   * @param {Object} [options] - required
    * @constructor
    */
   function SingleBulbPhotonBeam( model, beamLength, options ) {

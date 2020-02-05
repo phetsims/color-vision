@@ -21,7 +21,7 @@ define( require => {
   /**
    * @param {Property.<boolean>} onProperty
    * @param {Tandem} tandem
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function FlashlightWithButtonNode( onProperty, tandem, options ) {
