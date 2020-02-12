@@ -16,6 +16,7 @@ define( require => {
   const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
+  const required = require( 'PHET_CORE/required' );
   const SingleBulbConstants = require( 'COLOR_VISION/singlebulb/SingleBulbConstants' );
   const SingleBulbPhoton = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhoton' );
   const SingleBulbPhotonBeamIO = require( 'COLOR_VISION/singlebulb/model/SingleBulbPhotonBeamIO' );
@@ -35,8 +36,8 @@ define( require => {
   function SingleBulbPhotonBeam( model, beamLength, options ) {
 
     options = merge( {
-      phetioType: SingleBulbPhotonBeamIO,
-      phetioState: false
+      phetioType: required( SingleBulbPhotonBeamIO ),
+      phetioState: required( false )
     }, options );
 
     PhetioObject.call( this, options );
