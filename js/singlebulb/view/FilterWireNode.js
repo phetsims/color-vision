@@ -68,8 +68,8 @@ define( require => {
       thumbTouchAreaYDilation: 5,
       centerTop: new Vector2( start.x, start.y + switchDistance ),
       thumbFill: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, 'black' ).addColorStop( 1, 'gray' ),
-      trackOffFill: '#eeeeee',
-      trackOnFill: '#eeeeee',
+      trackFillLeft: '#eeeeee',
+      trackFillRight: '#eeeeee',
       trackStroke: 'black',
       thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' ),
       tandem: tandem.createTandem( 'onOffSwitch' )

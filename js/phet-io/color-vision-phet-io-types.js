@@ -19,6 +19,30 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "ActionIO<>"
     },
+    "ActionIO<BooleanIO, BooleanIO>": {
+      "documentation": "Executes when an event occurs.",
+      "events": [
+        "emitted"
+      ],
+      "methodOrder": [],
+      "methods": {
+        "execute": {
+          "documentation": "Executes the function the Action is wrapping.",
+          "invocableForReadOnlyElements": false,
+          "parameterTypes": [
+            "BooleanIO",
+            "BooleanIO"
+          ],
+          "returnType": "VoidIO"
+        }
+      },
+      "parameterTypes": [
+        "BooleanIO",
+        "BooleanIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "ActionIO<BooleanIO, BooleanIO>"
+    },
     "ActionIO<EventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
@@ -729,16 +753,6 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": null,
       "typeName": "ObjectIO"
-    },
-    "OnOffSwitchIO": {
-      "documentation": "A traditional switch component",
-      "events": [
-        "toggled"
-      ],
-      "methodOrder": [],
-      "methods": {},
-      "supertype": "NodeIO",
-      "typeName": "OnOffSwitchIO"
     },
     "PhetButtonIO": {
       "documentation": "The PhET Button in the bottom right of the screen",
@@ -1523,6 +1537,16 @@ window.phet.phetio.phetioTypes = assert &&
       "methods": {},
       "supertype": "NodeIO",
       "typeName": "ToggleButtonIO"
+    },
+    "ToggleSwitchIO": {
+      "documentation": "a switch that toggles between 2 values",
+      "events": [
+        "toggledAction"
+      ],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "NodeIO",
+      "typeName": "ToggleSwitchIO"
     },
     "Vector2IO": {
       "documentation": "A numerical object with x and y properties, like {x:3,y:4}",
