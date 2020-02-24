@@ -5368,7 +5368,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ToggleSwitchIO"
+      "phetioTypeName": "NodeIO"
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
@@ -5449,7 +5449,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "LinkedElementIO"
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.toggleAction": {
-      "phetioDocumentation": "Occurs when the switch is toggled via user interaction The arguments are:<br/><ol><li>oldValue: BooleanIO</li><br/><li>newValue: BooleanIO</li></ol>",
+      "phetioDocumentation": "Occurs when the switch is toggled via user interaction No arguments.",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
@@ -5459,7 +5459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO<BooleanIO, BooleanIO>"
+      "phetioTypeName": "ActionIO<>"
     },
     "colorVision.singleBulbScreen.view.filterWireNode.onOffSwitch.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",

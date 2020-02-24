@@ -19,30 +19,6 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "ActionIO<>"
     },
-    "ActionIO<BooleanIO, BooleanIO>": {
-      "documentation": "Executes when an event occurs.",
-      "events": [
-        "emitted"
-      ],
-      "methodOrder": [],
-      "methods": {
-        "execute": {
-          "documentation": "Executes the function the Action is wrapping.",
-          "invocableForReadOnlyElements": false,
-          "parameterTypes": [
-            "BooleanIO",
-            "BooleanIO"
-          ],
-          "returnType": "VoidIO"
-        }
-      },
-      "parameterTypes": [
-        "BooleanIO",
-        "BooleanIO"
-      ],
-      "supertype": "ObjectIO",
-      "typeName": "ActionIO<BooleanIO, BooleanIO>"
-    },
     "ActionIO<EventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
@@ -1592,27 +1568,6 @@ window.phet.phetio.phetioTypes = assert &&
       },
       "supertype": "NodeIO",
       "typeName": "ToggleButtonIO"
-    },
-    "ToggleSwitchIO": {
-      "documentation": "a switch that toggles between 2 values",
-      "events": [
-        "toggledAction"
-      ],
-      "methodOrder": [],
-      "methods": {
-        "moveBackward": {
-          "documentation": "Move this node one index backward in each of its parents.  If the node is already at the back, this is a no-op.",
-          "parameterTypes": [],
-          "returnType": "VoidIO"
-        },
-        "moveForward": {
-          "documentation": "Move this node one index forward in each of its parents.  If the node is already at the front, this is a no-op.",
-          "parameterTypes": [],
-          "returnType": "VoidIO"
-        }
-      },
-      "supertype": "NodeIO",
-      "typeName": "ToggleSwitchIO"
     },
     "Vector2IO": {
       "documentation": "A numerical object with x and y properties, like {x:3,y:4}",
