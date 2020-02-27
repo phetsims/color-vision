@@ -5,36 +5,32 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const RGBScreen = require( 'COLOR_VISION/rgb/RGBScreen' );
-  const Sim = require( 'JOIST/Sim' );
-  const SimLauncher = require( 'JOIST/SimLauncher' );
-  const SingleBulbScreen = require( 'COLOR_VISION/singlebulb/SingleBulbScreen' );
-  const Tandem = require( 'TANDEM/Tandem' );
+import Sim from '../../joist/js/Sim.js';
+import SimLauncher from '../../joist/js/SimLauncher.js';
+import Tandem from '../../tandem/js/Tandem.js';
+import colorVisionStrings from './color-vision-strings.js';
+import RGBScreen from './rgb/RGBScreen.js';
+import SingleBulbScreen from './singlebulb/SingleBulbScreen.js';
 
-  // strings
-  const colorVisionTitleString = require( 'string!COLOR_VISION/color-vision.title' );
+const colorVisionTitleString = colorVisionStrings[ 'color-vision' ].title;
 
-  const tandem = Tandem.ROOT;
+const tandem = Tandem.ROOT;
 
-  const simOptions = {
-    credits: {
-      leadDesign: 'Bryce Gruneich, Kathy Perkins',
-      softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley (PixelZoom, Inc.), Sam Reid',
-      team: 'Wendy Adams, Danielle Harlow, Ariel Paul, Carl Wieman',
-      qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
-      graphicArts: 'Mike Fowler'
-    }
-  };
+const simOptions = {
+  credits: {
+    leadDesign: 'Bryce Gruneich, Kathy Perkins',
+    softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley (PixelZoom, Inc.), Sam Reid',
+    team: 'Wendy Adams, Danielle Harlow, Ariel Paul, Carl Wieman',
+    qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
+    graphicArts: 'Mike Fowler'
+  }
+};
 
-  SimLauncher.launch( function() {
-    const sim = new Sim( colorVisionTitleString, [
-      new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
-      new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
-    ], simOptions );
-    sim.start();
-  } );
+SimLauncher.launch( function() {
+  const sim = new Sim( colorVisionTitleString, [
+    new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
+    new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
+  ], simOptions );
+  sim.start();
 } );

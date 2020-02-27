@@ -5,44 +5,41 @@
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const colorVision = require( 'COLOR_VISION/colorVision' );
-  const FlashlightNode = require( 'COLOR_VISION/common/view/FlashlightNode' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  const Screen = require( 'JOIST/Screen' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
+import Screen from '../../../../joist/js/Screen.js';
+import inherit from '../../../../phet-core/js/inherit.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import VBox from '../../../../scenery/js/nodes/VBox.js';
+import colorVision from '../../colorVision.js';
+import FlashlightNode from '../../common/view/FlashlightNode.js';
 
-  /**
-   * @param {Object} [options]
-   * @constructor
-   */
-  function RGBIconNode( options ) {
+/**
+ * @param {Object} [options]
+ * @constructor
+ */
+function RGBIconNode( options ) {
 
-    Rectangle.call( this, 0, 0, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height, options );
+  Rectangle.call( this, 0, 0, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height, options );
 
-    const redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
-    const greenFlashlight = new FlashlightNode( 0, 'green' );
-    const blueFlashlight = new FlashlightNode( Math.PI / 12, 'blue' );
+  const redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
+  const greenFlashlight = new FlashlightNode( 0, 'green' );
+  const blueFlashlight = new FlashlightNode( Math.PI / 12, 'blue' );
 
-    const flashlightVBox = new VBox(
-      {
-        children: [
-          redFlashlight,
-          greenFlashlight,
-          blueFlashlight ],
-        spacing: -4,
-        centerX: this.centerX,
-        centerY: this.centerY
-      } );
+  const flashlightVBox = new VBox(
+    {
+      children: [
+        redFlashlight,
+        greenFlashlight,
+        blueFlashlight ],
+      spacing: -4,
+      centerX: this.centerX,
+      centerY: this.centerY
+    } );
 
-    this.addChild( flashlightVBox );
-  }
+  this.addChild( flashlightVBox );
+}
 
-  colorVision.register( 'RGBIconNode', RGBIconNode );
+colorVision.register( 'RGBIconNode', RGBIconNode );
 
-  return inherit( Rectangle, RGBIconNode );
-} );
+inherit( Rectangle, RGBIconNode );
+export default RGBIconNode;

@@ -5,44 +5,41 @@
  *
  * @author Sam Reid
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const colorVision = require( 'COLOR_VISION/colorVision' );
-  const ColorVisionConstants = require( 'COLOR_VISION/common/ColorVisionConstants' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const Property = require( 'AXON/Property' );
-  const Screen = require( 'JOIST/Screen' );
-  const SingleBulbIconNode = require( 'COLOR_VISION/singlebulb/view/SingleBulbIconNode' );
-  const SingleBulbModel = require( 'COLOR_VISION/singlebulb/model/SingleBulbModel' );
-  const SingleBulbScreenView = require( 'COLOR_VISION/singlebulb/view/SingleBulbScreenView' );
+import Property from '../../../axon/js/Property.js';
+import Screen from '../../../joist/js/Screen.js';
+import inherit from '../../../phet-core/js/inherit.js';
+import colorVisionStrings from '../color-vision-strings.js';
+import colorVision from '../colorVision.js';
+import ColorVisionConstants from '../common/ColorVisionConstants.js';
+import SingleBulbModel from './model/SingleBulbModel.js';
+import SingleBulbIconNode from './view/SingleBulbIconNode.js';
+import SingleBulbScreenView from './view/SingleBulbScreenView.js';
 
-  // strings
-  const singleBulbModuleTitleString = require( 'string!COLOR_VISION/SingleBulbModule.title' );
+const singleBulbModuleTitleString = colorVisionStrings.SingleBulbModule.title;
 
-  /**
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function SingleBulbScreen( tandem ) {
+/**
+ * @param {Tandem} tandem
+ * @constructor
+ */
+function SingleBulbScreen( tandem ) {
 
-    const options = {
-      name: singleBulbModuleTitleString,
-      backgroundColorProperty: new Property( 'black' ),
-      homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
-      navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
-      showUnselectedHomeScreenIconFrame: true,
-      tandem: tandem
-    };
+  const options = {
+    name: singleBulbModuleTitleString,
+    backgroundColorProperty: new Property( 'black' ),
+    homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+    navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
+    showUnselectedHomeScreenIconFrame: true,
+    tandem: tandem
+  };
 
-    Screen.call( this,
-      function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); },
-      options );
-  }
+  Screen.call( this,
+    function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
+    function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); },
+    options );
+}
 
-  colorVision.register( 'SingleBulbScreen', SingleBulbScreen );
+colorVision.register( 'SingleBulbScreen', SingleBulbScreen );
 
-  return inherit( Screen, SingleBulbScreen );
-} );
+inherit( Screen, SingleBulbScreen );
+export default SingleBulbScreen;

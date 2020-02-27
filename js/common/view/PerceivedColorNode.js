@@ -5,45 +5,41 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const colorVision = require( 'COLOR_VISION/colorVision' );
-  const inherit = require( 'PHET_CORE/inherit' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Path = require( 'SCENERY/nodes/Path' );
-  const Shape = require( 'KITE/Shape' );
+import Shape from '../../../../kite/js/Shape.js';
+import inherit from '../../../../phet-core/js/inherit.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import colorVision from '../../colorVision.js';
 
-  /**
-   * @param {Property.<Color|string>} perceivedColorProperty
-   * @param {Object} [options]
-   * @constructor
-   */
-  function PerceivedColorNode( perceivedColorProperty, options ) {
+/**
+ * @param {Property.<Color|string>} perceivedColorProperty
+ * @param {Object} [options]
+ * @constructor
+ */
+function PerceivedColorNode( perceivedColorProperty, options ) {
 
-    options = merge( {
-      lineWidth: 0.5,
-      stroke: '#c0b9b9' // gray
-    }, options );
+  options = merge( {
+    lineWidth: 0.5,
+    stroke: '#c0b9b9' // gray
+  }, options );
 
-    // four thought bubbles, described from largest to smallest
-    const shape = new Shape()
-      .ellipse( 0, 0, 90, 45, 0 )
-      .newSubpath()
-      .ellipse( -130, 45, 30, 15, 0 )
-      .newSubpath()
-      .ellipse( -158, 105, 24, 12, 0 )
-      .newSubpath()
-      .ellipse( -170, 160, 14, 7, 0 );
+  // four thought bubbles, described from largest to smallest
+  const shape = new Shape()
+    .ellipse( 0, 0, 90, 45, 0 )
+    .newSubpath()
+    .ellipse( -130, 45, 30, 15, 0 )
+    .newSubpath()
+    .ellipse( -158, 105, 24, 12, 0 )
+    .newSubpath()
+    .ellipse( -170, 160, 14, 7, 0 );
 
-    Path.call( this, shape, options );
+  Path.call( this, shape, options );
 
-    perceivedColorProperty.linkAttribute( this, 'fill' );
-  }
+  perceivedColorProperty.linkAttribute( this, 'fill' );
+}
 
-  colorVision.register( 'PerceivedColorNode', PerceivedColorNode );
+colorVision.register( 'PerceivedColorNode', PerceivedColorNode );
 
-  return inherit( Path, PerceivedColorNode );
-} );
- 
+inherit( Path, PerceivedColorNode );
+export default PerceivedColorNode;
