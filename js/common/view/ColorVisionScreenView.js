@@ -37,9 +37,11 @@ function ColorVisionScreenView( model, tandem ) {
   const timeControlNode = new TimeControlNode( model.playingProperty, {
     bottom: this.layoutBounds.bottom - 20,
     centerX: this.layoutBounds.centerX - 3,
-    playPauseStepXSpacing: 14,
-    stepForwardOptions: {
-      listener: () => model.manualStep()
+    playPauseStepButtonOptions: {
+      playPauseStepXSpacing: 14,
+      stepForwardButtonOptions: {
+        listener: () => model.manualStep()
+      }
     },
     tandem: tandem.createTandem( 'timeControlNode' )
   } );
