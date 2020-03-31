@@ -22,7 +22,7 @@ import filterRightImage from '../../../images/filter-right_png.js';
 import photonViewIcon from '../../../images/photon-view-icon_png.js';
 import singleColorLightIcon from '../../../images/single-color-light-icon_png.js';
 import whiteLightIcon from '../../../images/white-light-icon_png.js';
-import colorVisionStrings from '../../color-vision-strings.js';
+import colorVisionStrings from '../../colorVisionStrings.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';

@@ -9,7 +9,7 @@
 import Sim from '../../joist/js/Sim.js';
 import SimLauncher from '../../joist/js/SimLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
-import colorVisionStrings from './color-vision-strings.js';
+import colorVisionStrings from './colorVisionStrings.js';
 import RGBScreen from './rgb/RGBScreen.js';
 import SingleBulbScreen from './singlebulb/SingleBulbScreen.js';
 
