@@ -39,7 +39,7 @@ function RGBPhotonBeamNode( photonBeam, tandem, options ) {
 
   // TODO: alternatively, use the pattern in TrackNode?
   // In the state wrapper, when the state changes, we must update the skater node
-  _.hasIn( window, 'phet.phetIo.phetioEngine' ) && phet.phetIo.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( function() {
+  _.hasIn( window, 'phet.phetio.phetioEngine' ) && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( function() {
     self.invalidatePaint();
   } );
 }
