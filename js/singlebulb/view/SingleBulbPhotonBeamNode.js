@@ -47,7 +47,7 @@ export default inherit( CanvasNode, SingleBulbPhotonBeamNode, {
 
     for ( let i = 0; i < this.photons.length; i++ ) {
       context.fillStyle = this.photons[ i ].color.toCSS();
-      context.fillRect( this.photons[ i ].location.x, this.photons[ i ].location.y, 3, 2 );
+      context.fillRect( this.photons[ i ].position.x, this.photons[ i ].position.y, 3, 2 );
     }
   },
 

@@ -11,16 +11,16 @@ import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import colorVision from '../../colorVision.js';
 
 /**
- * @param {Vector2} location
+ * @param {Vector2} position
  * @param {Vector2} velocity
  * @param {number} intensity between 0-255 for rgb intensity
  * @param {Object} [options]
  * @constructor
  */
-function RGBPhoton( location, velocity, intensity, options ) {
+function RGBPhoton( position, velocity, intensity, options ) {
 
   // @public
-  this.location = location;
+  this.position = position;
   this.velocity = velocity;
   this.intensity = intensity;
 
@@ -31,8 +31,8 @@ colorVision.register( 'RGBPhoton', RGBPhoton );
 
 export default inherit( PhetioObject, RGBPhoton, {
     updateAnimationFrame: function( newX, newY ) {
-      this.location.x = newX;
-      this.location.y = newY;
+      this.position.x = newX;
+      this.position.y = newY;
     }
   }
 );

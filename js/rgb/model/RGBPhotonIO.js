@@ -23,7 +23,7 @@ class RGBPhotonIO extends ObjectIO {
   static toStateObject( rgbPhoton ) {
     validate( rgbPhoton, this.validator );
     return {
-      location: Vector2IO.toStateObject( rgbPhoton.location ),
+      position: Vector2IO.toStateObject( rgbPhoton.position ),
       velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
       intensity: rgbPhoton.intensity
     };
@@ -36,7 +36,7 @@ class RGBPhotonIO extends ObjectIO {
    */
   static fromStateObject( stateObject ) {
     return new RGBPhoton(
-      Vector2IO.fromStateObject( stateObject.location ),
+      Vector2IO.fromStateObject( stateObject.position ),
       Vector2IO.fromStateObject( stateObject.velocity ),
       stateObject.intensity
     );

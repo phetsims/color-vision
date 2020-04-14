@@ -13,7 +13,7 @@ import RGBPhoton from '../../rgb/model/RGBPhoton.js';
 import SingleBulbPhotonIO from './SingleBulbPhotonIO.js';
 
 /**
- * @param {Vector2} location
+ * @param {Vector2} position
  * @param {Vector2} velocity
  * @param {number} intensity between 0-1 for color alpha value
  * @param {Color} color
@@ -22,10 +22,10 @@ import SingleBulbPhotonIO from './SingleBulbPhotonIO.js';
  * @param {Object} [options]
  * @constructor
  */
-function SingleBulbPhoton( location, velocity, intensity, color, isWhite, wavelength, options ) {
+function SingleBulbPhoton( position, velocity, intensity, color, isWhite, wavelength, options ) {
 
   options = merge( { phetioType: SingleBulbPhotonIO }, options );
-  RGBPhoton.call( this, location, velocity, intensity, options );
+  RGBPhoton.call( this, position, velocity, intensity, options );
 
   // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
   // White photons passing through must be changed to match the filter color, but keep full intensity.

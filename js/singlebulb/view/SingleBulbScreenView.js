@@ -154,7 +154,7 @@ function SingleBulbScreenView( model, tandem ) {
   this.addChild( beamPhotonSelectButtons );
 
   // right and left filters have the same image dimensions (while only taking up half of the image each),
-  // so both can use the same option parameters and can be positioned the same location and will match up perfectly
+  // so both can use the same option parameters and can be positioned the same and will match up perfectly
   const filterOptions = {
     centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET,
     scale: 0.7,
@@ -169,7 +169,7 @@ function SingleBulbScreenView( model, tandem ) {
   model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
   model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 
-  // tell the photon beam model where the filter location is
+  // tell the photon beam model where the filter position is
   model.photonBeam.filterOffset = filterLeftNode.centerX - PHOTON_BEAM_START;
 
   // Create photonBeam node

@@ -42,9 +42,9 @@ export default inherit( Object, RGBPhotonBeam, {
     // move all photons that are currently active
     for ( let i = 0; i < this.photons.length; i++ ) {
 
-      // calculate the new location of the photon in order to check whether will still be in bounds
-      const newX = this.photons[ i ].location.x + dt * this.photons[ i ].velocity.x;
-      const newY = this.photons[ i ].location.y + dt * this.photons[ i ].velocity.y;
+      // calculate the new position of the photon in order to check whether will still be in bounds
+      const newX = this.photons[ i ].position.x + dt * this.photons[ i ].velocity.x;
+      const newY = this.photons[ i ].position.y + dt * this.photons[ i ].velocity.y;
 
       if ( newX > 0 && newY > 0 && newY < ColorVisionConstants.BEAM_HEIGHT ) {
         this.photons[ i ].updateAnimationFrame( newX, newY );

@@ -25,7 +25,7 @@ const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
 
 /**
  * @param {SingleBulbModel} model
- * @param {number} beamLength the length of the beam. This is used to determine what location to restart the photons.
+ * @param {number} beamLength the length of the beam. This is used to determine what position to restart the photons.
  * @param {Object} [options] - required
  * @constructor
  */
@@ -74,11 +74,11 @@ export default inherit( PhetioObject, SingleBulbPhotonBeam, {
     for ( let j = 0; j < this.photons.length; j++ ) {
       const photon = this.photons[ j ];
 
-      // calculate the new location of the photon in order to check whether will still be in bounds
-      const newX = photon.location.x + dt * photon.velocity.x;
-      const newY = photon.location.y + dt * photon.velocity.y;
+      // calculate the new position of the photon in order to check whether will still be in bounds
+      const newX = photon.position.x + dt * photon.velocity.x;
+      const newY = photon.position.y + dt * photon.velocity.y;
 
-      // check if the photon just passed through the filter location
+      // check if the photon just passed through the filter position
       if ( this.model.filterVisibleProperty.value && newX < this.filterOffset && !photon.passedFilter ) {
         const halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
@@ -117,7 +117,7 @@ export default inherit( PhetioObject, SingleBulbPhotonBeam, {
       }
 
       // keep track of photons which pass the filter
-      if ( photon.location.x < this.filterOffset ) {
+      if ( photon.position.x < this.filterOffset ) {
         photon.passedFilter = true;
       }
 
@@ -208,7 +208,7 @@ export default inherit( PhetioObject, SingleBulbPhotonBeam, {
   reset: function() {
     // set all photons to be out of bounds to trigger empty redraw
     for ( let i = 0; i < this.photons.length; i++ ) {
-      this.photons[ i ].location.x = 0;
+      this.photons[ i ].position.x = 0;
     }
   }
 } );

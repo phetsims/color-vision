@@ -35,9 +35,9 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
   static addChildInstanceDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
     validate( singleBulbPhotonBeam, this.validator );
 
-    // location, velocity, intensity, color, isWhite, wavelength, tandem
+    // position, velocity, intensity, color, isWhite, wavelength, tandem
     const photonInstance = new phet.colorVision.SingleBulbPhoton(
-      Vector2IO.fromStateObject( photonStateObject.location ),
+      Vector2IO.fromStateObject( photonStateObject.position ),
       Vector2IO.fromStateObject( photonStateObject.velocity ),
       photonStateObject.intensity,
       ColorIO.fromStateObject( photonStateObject.color ),
