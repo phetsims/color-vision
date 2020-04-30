@@ -147,7 +147,7 @@ function SingleBulbModel( tandem ) {
 
 colorVision.register( 'SingleBulbModel', SingleBulbModel );
 
-export default inherit( ColorVisionModel, SingleBulbModel, {
+inherit( ColorVisionModel, SingleBulbModel, {
 
   // @public
   step: function( dt ) {
@@ -184,3 +184,5 @@ export default inherit( ColorVisionModel, SingleBulbModel, {
     this.photonBeam.reset();
   }
 } );
+
+export default SingleBulbModel;

@@ -60,7 +60,7 @@ function randomColor() {
   return new Color( r, g, b, 1 );
 }
 
-export default inherit( PhetioObject, SingleBulbPhotonBeam, {
+inherit( PhetioObject, SingleBulbPhotonBeam, {
 
   // @public
   updateAnimationFrame: function( dt ) {
@@ -212,3 +212,5 @@ export default inherit( PhetioObject, SingleBulbPhotonBeam, {
     }
   }
 } );
+
+export default SingleBulbPhotonBeam;

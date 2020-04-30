@@ -23,7 +23,7 @@ function RGBPhotonEventModel( rateProperty ) {
 
 colorVision.register( 'RGBPhotonEventModel', RGBPhotonEventModel );
 
-export default inherit( Object, RGBPhotonEventModel, {
+inherit( Object, RGBPhotonEventModel, {
 
   getPeriodBeforeNextEvent: function() {
     const rate = this.rateProperty.get() * 2;
@@ -39,3 +39,5 @@ export default inherit( Object, RGBPhotonEventModel, {
   }
 
 } );
+
+export default RGBPhotonEventModel;

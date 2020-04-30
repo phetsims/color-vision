@@ -147,7 +147,7 @@ function RGBModel( tandem ) {
 
 colorVision.register( 'RGBModel', RGBModel );
 
-export default inherit( ColorVisionModel, RGBModel, {
+inherit( ColorVisionModel, RGBModel, {
 
   // @private
   // convenience method for stepping all of the beams at once, used in step and manualStep
@@ -202,3 +202,5 @@ export default inherit( ColorVisionModel, RGBModel, {
   }
 
 } );
+
+export default RGBModel;

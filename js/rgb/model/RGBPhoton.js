@@ -29,10 +29,12 @@ function RGBPhoton( position, velocity, intensity, options ) {
 
 colorVision.register( 'RGBPhoton', RGBPhoton );
 
-export default inherit( PhetioObject, RGBPhoton, {
+inherit( PhetioObject, RGBPhoton, {
     updateAnimationFrame: function( newX, newY ) {
       this.position.x = newX;
       this.position.y = newY;
     }
   }
 );
+
+export default RGBPhoton;

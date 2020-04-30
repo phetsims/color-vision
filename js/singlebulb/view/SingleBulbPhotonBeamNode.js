@@ -37,7 +37,7 @@ function SingleBulbPhotonBeamNode( model, tandem, options ) {
 
 colorVision.register( 'SingleBulbPhotonBeamNode', SingleBulbPhotonBeamNode );
 
-export default inherit( CanvasNode, SingleBulbPhotonBeamNode, {
+inherit( CanvasNode, SingleBulbPhotonBeamNode, {
 
   /**
    * @param {CanvasRenderingContext2D} context
@@ -57,3 +57,5 @@ export default inherit( CanvasNode, SingleBulbPhotonBeamNode, {
   }
 
 } );
+
+export default SingleBulbPhotonBeamNode;

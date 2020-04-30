@@ -37,7 +37,7 @@ function ColorVisionModel( tandem ) {
 
 colorVision.register( 'ColorVisionModel', ColorVisionModel );
 
-export default inherit( Object, ColorVisionModel, {
+inherit( Object, ColorVisionModel, {
 
   // @public
   reset: function() {
@@ -51,3 +51,5 @@ export default inherit( Object, ColorVisionModel, {
     throw new Error( 'must be defined by subtype' );
   }
 } );
+
+export default ColorVisionModel;

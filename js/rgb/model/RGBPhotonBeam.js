@@ -34,7 +34,7 @@ function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, be
 
 colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
 
-export default inherit( Object, RGBPhotonBeam, {
+inherit( Object, RGBPhotonBeam, {
 
   // @public
   updateAnimationFrame: function( dt ) {
@@ -95,3 +95,5 @@ export default inherit( Object, RGBPhotonBeam, {
     }
   }
 } );
+
+export default RGBPhotonBeam;

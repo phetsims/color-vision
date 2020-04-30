@@ -46,7 +46,7 @@ function RGBPhotonBeamNode( photonBeam, tandem, options ) {
 
 colorVision.register( 'RGBPhotonBeamNode', RGBPhotonBeamNode );
 
-export default inherit( CanvasNode, RGBPhotonBeamNode, {
+inherit( CanvasNode, RGBPhotonBeamNode, {
 
   /**
    * @param {CanvasRenderingContext2D} context
@@ -75,3 +75,5 @@ export default inherit( CanvasNode, RGBPhotonBeamNode, {
   }
 
 } );
+
+export default RGBPhotonBeamNode;
