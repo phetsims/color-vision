@@ -32,7 +32,7 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
    * @param {Tandem} tandem
    * @param {Object} photonStateObject
    */
-  static addChildInstanceDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
+  static addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
     validate( singleBulbPhotonBeam, this.validator );
 
     // position, velocity, intensity, color, isWhite, wavelength, tandem
