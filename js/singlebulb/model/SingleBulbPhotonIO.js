@@ -19,6 +19,7 @@ class SingleBulbPhotonIO extends ObjectIO {
    * Serializes an instance.
    * @param {SingleBulbPhoton} singleBulbPhoton
    * @returns {Object}
+   * @public
    */
   static toStateObject( singleBulbPhoton ) {
     validate( singleBulbPhoton, this.validator );
@@ -34,6 +35,7 @@ class SingleBulbPhotonIO extends ObjectIO {
    * Deserializes an instance. Not needed here since all children are created by the container.
    * @param {Object} stateObject
    * @returns {{}}
+   * @public
    */
   static fromStateObject( stateObject ) {
     return {};

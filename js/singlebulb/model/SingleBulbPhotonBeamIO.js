@@ -17,6 +17,7 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
   /**
    * Clears the children from the model so it can be deserialized.
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
+   * @public
    */
   static clearChildInstances( singleBulbPhotonBeam ) {
     validate( singleBulbPhotonBeam, this.validator );
@@ -31,6 +32,7 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
    * @param {Tandem} tandem
    * @param {Object} photonStateObject
+   * @public
    */
   static addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
     validate( singleBulbPhotonBeam, this.validator );

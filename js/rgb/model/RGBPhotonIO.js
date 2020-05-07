@@ -19,6 +19,7 @@ class RGBPhotonIO extends ObjectIO {
    * Serializes an instance.
    * @param {RGBPhoton} rgbPhoton
    * @returns {Object}
+   * @public
    */
   static toStateObject( rgbPhoton ) {
     validate( rgbPhoton, this.validator );
@@ -33,6 +34,7 @@ class RGBPhotonIO extends ObjectIO {
    * Deserializes an instance.
    * @param {Object} stateObject
    * @returns {RGBPhoton}
+   * @public
    */
   static fromStateObject( stateObject ) {
     return new RGBPhoton(
