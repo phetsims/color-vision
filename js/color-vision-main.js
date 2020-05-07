@@ -7,7 +7,7 @@
  */
 
 import Sim from '../../joist/js/Sim.js';
-import SimLauncher from '../../joist/js/SimLauncher.js';
+import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import colorVisionStrings from './colorVisionStrings.js';
 import RGBScreen from './rgb/RGBScreen.js';
@@ -27,7 +27,7 @@ const simOptions = {
   }
 };
 
-SimLauncher.launch( function() {
+simLauncher.launch( function() {
   const sim = new Sim( colorVisionTitleString, [
     new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
     new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
