@@ -8,9 +8,10 @@
 
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
+import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import inherit from '../../../phet-core/js/inherit.js';
-import colorVisionStrings from '../colorVisionStrings.js';
 import colorVision from '../colorVision.js';
+import colorVisionStrings from '../colorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
 import SingleBulbModel from './model/SingleBulbModel.js';
 import SingleBulbIconNode from './view/SingleBulbIconNode.js';
@@ -27,7 +28,10 @@ function SingleBulbScreen( tandem ) {
   const options = {
     name: singleBulbModuleTitleString,
     backgroundColorProperty: new Property( 'black' ),
-    homeScreenIcon: new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ),
+    homeScreenIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
+      maxIconWidthProportion: 1,
+      maxIconHeightProportion: 1
+    } ),
     navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
     showUnselectedHomeScreenIconFrame: true,
     tandem: tandem
