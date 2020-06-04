@@ -9,6 +9,7 @@
 
 import inherit from '../../../../phet-core/js/inherit.js';
 import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import colorVision from '../../colorVision.js';
 
 // If this is set to true, it will show a rectangle around the beam.
@@ -39,7 +40,7 @@ function RGBPhotonBeamNode( photonBeam, tandem, options ) {
 
   // TODO: alternatively, use the pattern in TrackNode?
   // In the state wrapper, when the state changes, we must update the skater node
-  _.hasIn( window, 'phet.phetio.phetioEngine' ) && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( function() {
+  Tandem.PHET_IO_ENABLED && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( function() {
     self.invalidatePaint();
   } );
 }
