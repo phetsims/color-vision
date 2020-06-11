@@ -32,7 +32,10 @@ function SingleBulbScreen( tandem ) {
       maxIconWidthProportion: 1,
       maxIconHeightProportion: 1
     } ),
-    navigationBarIcon: new SingleBulbIconNode( ColorVisionConstants.NAVBAR_ICON_OPTIONS ),
+    navigationBarIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
+      maxIconWidthProportion: 1,
+      maxIconHeightProportion: 1
+    } ),
     showUnselectedHomeScreenIconFrame: true,
     tandem: tandem
   };
