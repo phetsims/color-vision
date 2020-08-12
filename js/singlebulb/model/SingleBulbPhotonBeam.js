@@ -10,7 +10,6 @@ import Emitter from '../../../../axon/js/Emitter.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
-import required from '../../../../phet-core/js/required.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -31,8 +30,8 @@ const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
  */
 function SingleBulbPhotonBeam( model, beamLength, options ) {
   options = merge( {
-    phetioType: required( SingleBulbPhotonBeamIO ),
-    phetioState: required( false )
+    phetioType: SingleBulbPhotonBeamIO,
+    phetioState: false
   }, options );
 
   PhetioObject.call( this, options );
