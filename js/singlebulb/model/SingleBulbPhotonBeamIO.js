@@ -1,7 +1,7 @@
 // Copyright 2017-2020, University of Colorado Boulder
 
 /**
- * IO type for SingleBulbPhotonBeam.
+ * IO Type for SingleBulbPhotonBeam.
  *
  * @author Sam Reid (PhET Interactive Simulations)
  */
