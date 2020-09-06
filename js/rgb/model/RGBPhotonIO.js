@@ -48,7 +48,7 @@ class RGBPhotonIO extends ObjectIO {
 RGBPhotonIO.validator = { valueType: RGBPhoton };
 RGBPhotonIO.documentation = 'A Photon that has R, G, and B';
 RGBPhotonIO.typeName = 'RGBPhotonIO';
-ObjectIO.validateSubtype( RGBPhotonIO );
+ObjectIO.validateIOType( RGBPhotonIO );
 
 colorVision.register( 'RGBPhotonIO', RGBPhotonIO );
 export default RGBPhotonIO;

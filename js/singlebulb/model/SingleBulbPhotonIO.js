@@ -45,7 +45,7 @@ class SingleBulbPhotonIO extends ObjectIO {
 SingleBulbPhotonIO.documentation = 'A Photon from a single bulb.';
 SingleBulbPhotonIO.validator = { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton };
 SingleBulbPhotonIO.typeName = 'SingleBulbPhotonIO';
-ObjectIO.validateSubtype( SingleBulbPhotonIO );
+ObjectIO.validateIOType( SingleBulbPhotonIO );
 
 colorVision.register( 'SingleBulbPhotonIO', SingleBulbPhotonIO );
 export default SingleBulbPhotonIO;

@@ -58,7 +58,7 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
 SingleBulbPhotonBeamIO.documentation = 'The Beam on the single bulb screen.';
 SingleBulbPhotonBeamIO.validator = { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhotonBeam };
 SingleBulbPhotonBeamIO.typeName = 'SingleBulbPhotonBeamIO';
-ObjectIO.validateSubtype( SingleBulbPhotonBeamIO );
+ObjectIO.validateIOType( SingleBulbPhotonBeamIO );
 
 colorVision.register( 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO );
 export default SingleBulbPhotonBeamIO;
