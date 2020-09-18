@@ -34,7 +34,7 @@ const SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
    * @param {Tandem} tandem
    * @param {Object} photonStateObject
    * @public
-   * https://github.com/phetsims/tandem/issues/211
+   * TODO: https://github.com/phetsims/tandem/issues/211 deprecated pattern
    */
   addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
 
