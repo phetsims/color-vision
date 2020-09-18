@@ -6,26 +6,27 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import ColorIO from '../../../../scenery/js/util/ColorIO.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import colorVision from '../../colorVision.js';
 
-class SingleBulbPhotonBeamIO extends ObjectIO {
+const SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
+  isValidValue: v => v instanceof phet.colorVision.SingleBulbPhotonBeam,
+  documentation: 'The Beam on the single bulb screen.',
 
   /**
    * Clears the children from the model so it can be deserialized.
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
    * @public
+   * https://github.com/phetsims/tandem/issues/211
    */
-  static clearChildInstances( singleBulbPhotonBeam ) {
-    validate( singleBulbPhotonBeam, this.validator );
+  clearChildInstances( singleBulbPhotonBeam ) {
     while ( singleBulbPhotonBeam.photons.length > 0 ) {
       const p = singleBulbPhotonBeam.photons.pop();
       p.dispose();
     }
-  }
+  },
 
   /**
    * Adds a photon beam as specified by the phetioID and state.
@@ -33,9 +34,9 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
    * @param {Tandem} tandem
    * @param {Object} photonStateObject
    * @public
+   * https://github.com/phetsims/tandem/issues/211
    */
-  static addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
-    validate( singleBulbPhotonBeam, this.validator );
+  addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
 
     // position, velocity, intensity, color, isWhite, wavelength, tandem
     const photonInstance = new phet.colorVision.SingleBulbPhoton(
@@ -53,12 +54,7 @@ class SingleBulbPhotonBeamIO extends ObjectIO {
     singleBulbPhotonBeam.repaintEmitter.emit();
     return photonInstance;
   }
-}
-
-SingleBulbPhotonBeamIO.documentation = 'The Beam on the single bulb screen.';
-SingleBulbPhotonBeamIO.validator = { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhotonBeam };
-SingleBulbPhotonBeamIO.typeName = 'SingleBulbPhotonBeamIO';
-ObjectIO.validateIOType( SingleBulbPhotonBeamIO );
+} );
 
 colorVision.register( 'SingleBulbPhotonBeamIO', SingleBulbPhotonBeamIO );
 export default SingleBulbPhotonBeamIO;

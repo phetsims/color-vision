@@ -7,29 +7,28 @@
  * @author Andrew Adare (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import merge from '../../../../phet-core/js/merge.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import colorVision from '../../colorVision.js';
 import RGBPhotonIO from '../../rgb/model/RGBPhotonIO.js';
 
-class SingleBulbPhotonIO extends ObjectIO {
-
+const SingleBulbPhotonIO = new IOType( 'SingleBulbPhotonIO', {
+  isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton,
+  documentation: 'A Photon from a single bulb.',
   /**
    * Serializes an instance.
    * @param {SingleBulbPhoton} singleBulbPhoton
    * @returns {Object}
    * @public
    */
-  static toStateObject( singleBulbPhoton ) {
-    validate( singleBulbPhoton, this.validator );
+  toStateObject( singleBulbPhoton ) {
     return merge( {
       isWhite: singleBulbPhoton.isWhite,
       color: singleBulbPhoton.color.toStateObject(),
       wavelength: singleBulbPhoton.wavelength,
       passedFilter: singleBulbPhoton.passedFilter
     }, RGBPhotonIO.toStateObject( singleBulbPhoton ) );
-  }
+  },
 
   /**
    * Deserializes an instance. Not needed here since all children are created by the container.
@@ -37,15 +36,10 @@ class SingleBulbPhotonIO extends ObjectIO {
    * @returns {{}}
    * @public
    */
-  static fromStateObject( stateObject ) {
+  fromStateObject( stateObject ) {
     return {};
   }
-}
-
-SingleBulbPhotonIO.documentation = 'A Photon from a single bulb.';
-SingleBulbPhotonIO.validator = { isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton };
-SingleBulbPhotonIO.typeName = 'SingleBulbPhotonIO';
-ObjectIO.validateIOType( SingleBulbPhotonIO );
+} );
 
 colorVision.register( 'SingleBulbPhotonIO', SingleBulbPhotonIO );
 export default SingleBulbPhotonIO;
