@@ -19,7 +19,7 @@ const SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
    * Clears the children from the model so it can be deserialized.
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
    * @public
-   * https://github.com/phetsims/tandem/issues/211
+   // TODO: https://github.com/phetsims/tandem/issues/211 is never called
    */
   clearChildInstances( singleBulbPhotonBeam ) {
     while ( singleBulbPhotonBeam.photons.length > 0 ) {
