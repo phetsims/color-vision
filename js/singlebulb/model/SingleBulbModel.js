@@ -8,7 +8,6 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import PropertyIO from '../../../../axon/js/PropertyIO.js';
@@ -128,7 +127,7 @@ function SingleBulbModel( tandem ) {
       }
     }, {
       tandem: tandem.createTandem( 'perceivedColorProperty' ),
-      phetioType: DerivedPropertyIO( ColorIO )
+      phetioType: DerivedProperty.DerivedPropertyIO( ColorIO )
     } );
 
   // @public

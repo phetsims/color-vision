@@ -7,7 +7,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
@@ -113,7 +112,7 @@ function RGBModel( tandem ) {
         Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
     }, {
       tandem: tandem.createTandem( 'perceivedColorProperty' ),
-      phetioType: DerivedPropertyIO( ColorIO )
+      phetioType: DerivedProperty.DerivedPropertyIO( ColorIO )
     } );
 
   // create a ConstantEventModel for each beam
