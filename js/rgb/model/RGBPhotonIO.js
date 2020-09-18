@@ -15,20 +15,16 @@ import RGBPhoton from './RGBPhoton.js';
 const RGBPhotonIO = new IOType( 'RGBPhotonIO', {
   valueType: RGBPhoton,
   documentation: 'A Photon that has R, G, and B',
-  toStateObject( rgbPhoton ) {
-    return {
-      position: Vector2IO.toStateObject( rgbPhoton.position ),
-      velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
-      intensity: rgbPhoton.intensity
-    };
-  },
-  fromStateObject( stateObject ) {
-    return new RGBPhoton(
-      Vector2IO.fromStateObject( stateObject.position ),
-      Vector2IO.fromStateObject( stateObject.velocity ),
-      stateObject.intensity
-    );
-  }
+  toStateObject: rgbPhoton => ( {
+    position: Vector2IO.toStateObject( rgbPhoton.position ),
+    velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
+    intensity: rgbPhoton.intensity
+  } ),
+  fromStateObject: stateObject => new RGBPhoton(
+    Vector2IO.fromStateObject( stateObject.position ),
+    Vector2IO.fromStateObject( stateObject.velocity ),
+    stateObject.intensity
+  )
 } );
 
 colorVision.register( 'RGBPhotonIO', RGBPhotonIO );

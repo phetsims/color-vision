@@ -15,13 +15,7 @@ import RGBPhotonIO from '../../rgb/model/RGBPhotonIO.js';
 const SingleBulbPhotonIO = new IOType( 'SingleBulbPhotonIO', {
   isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton,
   documentation: 'A Photon from a single bulb.',
-  /**
-   * Serializes an instance.
-   * @param {SingleBulbPhoton} singleBulbPhoton
-   * @returns {Object}
-   * @public
-   */
-  toStateObject( singleBulbPhoton ) {
+  toStateObject: singleBulbPhoton => {
     return merge( {
       isWhite: singleBulbPhoton.isWhite,
       color: singleBulbPhoton.color.toStateObject(),
@@ -30,13 +24,8 @@ const SingleBulbPhotonIO = new IOType( 'SingleBulbPhotonIO', {
     }, RGBPhotonIO.toStateObject( singleBulbPhoton ) );
   },
 
-  /**
-   * Deserializes an instance. Not needed here since all children are created by the container.
-   * @param {Object} stateObject
-   * @returns {{}}
-   * @public
-   */
-  fromStateObject( stateObject ) {
+  // Not needed here since all children are created by the container.
+  fromStateObject: stateObject => {
     return {};
   }
 } );
