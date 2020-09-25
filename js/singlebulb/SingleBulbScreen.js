@@ -9,7 +9,6 @@
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import inherit from '../../../phet-core/js/inherit.js';
 import colorVision from '../colorVision.js';
 import colorVisionStrings from '../colorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
@@ -17,36 +16,35 @@ import SingleBulbModel from './model/SingleBulbModel.js';
 import SingleBulbIconNode from './view/SingleBulbIconNode.js';
 import SingleBulbScreenView from './view/SingleBulbScreenView.js';
 
-const singleBulbModuleTitleString = colorVisionStrings.SingleBulbModule.title;
+class SingleBulbScreen extends Screen {
 
-/**
- * @param {Tandem} tandem
- * @constructor
- */
-function SingleBulbScreen( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-  const options = {
-    name: singleBulbModuleTitleString,
-    backgroundColorProperty: new Property( 'black' ),
-    homeScreenIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
-      maxIconWidthProportion: 1,
-      maxIconHeightProportion: 1
-    } ),
-    navigationBarIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
-      maxIconWidthProportion: 1,
-      maxIconHeightProportion: 1
-    } ),
-    showUnselectedHomeScreenIconFrame: true,
-    tandem: tandem
-  };
+    const options = {
+      name: colorVisionStrings.SingleBulbModule.title,
+      backgroundColorProperty: new Property( 'black' ),
+      homeScreenIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
+        maxIconWidthProportion: 1,
+        maxIconHeightProportion: 1
+      } ),
+      navigationBarIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
+        maxIconWidthProportion: 1,
+        maxIconHeightProportion: 1
+      } ),
+      showUnselectedHomeScreenIconFrame: true,
+      tandem: tandem
+    };
 
-  Screen.call( this,
-    function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
-    function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); },
-    options );
+    super(
+      function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
+      function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); },
+      options
+    );
+  }
 }
 
 colorVision.register( 'SingleBulbScreen', SingleBulbScreen );
-
-inherit( Screen, SingleBulbScreen );
 export default SingleBulbScreen;
