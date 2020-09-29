@@ -8,16 +8,18 @@
 
 import Emitter from '../../../../axon/js/Emitter.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
+import ColorIO from '../../../../scenery/js/util/ColorIO.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 import SingleBulbPhoton from './SingleBulbPhoton.js';
-import SingleBulbPhotonBeamIO from './SingleBulbPhotonBeamIO.js';
 
 // constants
 const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
@@ -30,7 +32,7 @@ const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
  */
 function SingleBulbPhotonBeam( model, beamLength, options ) {
   options = merge( {
-    phetioType: SingleBulbPhotonBeamIO,
+    phetioType: SingleBulbPhotonBeam.SingleBulbPhotonBeamIO,
     phetioState: false
   }, options );
 
@@ -209,6 +211,51 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
     for ( let i = 0; i < this.photons.length; i++ ) {
       this.photons[ i ].position.x = 0;
     }
+  }
+} );
+
+SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
+  valueType: SingleBulbPhotonBeam,
+  documentation: 'The Beam on the single bulb screen.',
+
+  /**
+   * Clears the children from the model so it can be deserialized.
+   * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
+   * @public
+   // TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
+   */
+  clearChildInstances( singleBulbPhotonBeam ) {
+    while ( singleBulbPhotonBeam.photons.length > 0 ) {
+      const p = singleBulbPhotonBeam.photons.pop();
+      p.dispose();
+    }
+  },
+
+  /**
+   * Adds a photon beam as specified by the phetioID and state.
+   * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
+   * @param {Tandem} tandem
+   * @param {Object} photonStateObject
+   * @public
+   * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
+   */
+  addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
+
+    // position, velocity, intensity, color, isWhite, wavelength, tandem
+    const photonInstance = new phet.colorVision.SingleBulbPhoton(
+      Vector2IO.fromStateObject( photonStateObject.position ),
+      Vector2IO.fromStateObject( photonStateObject.velocity ),
+      photonStateObject.intensity,
+      ColorIO.fromStateObject( photonStateObject.color ),
+      photonStateObject.isWhite,
+      photonStateObject.wavelength, {
+        tandem: tandem
+      }
+    );
+    photonInstance.passedFilter = photonStateObject.passedFilter;
+    singleBulbPhotonBeam.photons.push( photonInstance );
+    singleBulbPhotonBeam.repaintEmitter.emit();
+    return photonInstance;
   }
 } );
 
