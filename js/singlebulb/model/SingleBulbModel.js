@@ -10,7 +10,6 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import Range from '../../../../dot/js/Range.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import inherit from '../../../../phet-core/js/inherit.js';
@@ -38,14 +37,14 @@ function SingleBulbModel( tandem ) {
   this.lightTypeProperty = new Property( 'colored', {
     validValues: [ 'white', 'colored' ],
     tandem: tandem.createTandem( 'lightTypeProperty' ),
-    phetioType: PropertyIO( StringIO )
+    phetioType: Property.PropertyIO( StringIO )
   } );
 
   // @public {Property.<string>} indicates solid beam vs individual photons
   this.beamTypeProperty = new Property( 'beam', {
     validValues: [ 'beam', 'photon' ],
     tandem: tandem.createTandem( 'beamTypeProperty' ),
-    phetioType: PropertyIO( StringIO )
+    phetioType: Property.PropertyIO( StringIO )
   } );
 
   // @public {Property.<number>} in units of nm, default wavelength is yellow
