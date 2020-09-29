@@ -19,7 +19,7 @@ const SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
    * Clears the children from the model so it can be deserialized.
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
    * @public
-   // TODO: https://github.com/phetsims/tandem/issues/211 is never called
+   // TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
    */
   clearChildInstances( singleBulbPhotonBeam ) {
     while ( singleBulbPhotonBeam.photons.length > 0 ) {
@@ -34,7 +34,7 @@ const SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
    * @param {Tandem} tandem
    * @param {Object} photonStateObject
    * @public
-   * TODO: https://github.com/phetsims/tandem/issues/211 deprecated pattern
+   * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
    */
   addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
 
