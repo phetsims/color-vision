@@ -10,7 +10,7 @@
 import merge from '../../../../phet-core/js/merge.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import colorVision from '../../colorVision.js';
-import RGBPhotonIO from '../../rgb/model/RGBPhotonIO.js';
+import RGBPhoton from '../../rgb/model/RGBPhoton.js';
 
 const SingleBulbPhotonIO = new IOType( 'SingleBulbPhotonIO', {
   isValidValue: v => v instanceof phet.colorVision.SingleBulbPhoton,
@@ -21,7 +21,7 @@ const SingleBulbPhotonIO = new IOType( 'SingleBulbPhotonIO', {
       color: singleBulbPhoton.color.toStateObject(),
       wavelength: singleBulbPhoton.wavelength,
       passedFilter: singleBulbPhoton.passedFilter
-    }, RGBPhotonIO.toStateObject( singleBulbPhoton ) );
+    }, RGBPhoton.RGBPhotonIO.toStateObject( singleBulbPhoton ) );
   },
 
   // Not needed here since all children are created by the container.
