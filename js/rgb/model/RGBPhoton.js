@@ -6,7 +6,7 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
@@ -43,13 +43,13 @@ RGBPhoton.RGBPhotonIO = new IOType( 'RGBPhotonIO', {
   valueType: RGBPhoton,
   documentation: 'A Photon that has R, G, and B',
   toStateObject: rgbPhoton => ( {
-    position: Vector2IO.toStateObject( rgbPhoton.position ),
-    velocity: Vector2IO.toStateObject( rgbPhoton.velocity ),
+    position: Vector2.Vector2IO.toStateObject( rgbPhoton.position ),
+    velocity: Vector2.Vector2IO.toStateObject( rgbPhoton.velocity ),
     intensity: rgbPhoton.intensity
   } ),
   fromStateObject: stateObject => new RGBPhoton(
-    Vector2IO.fromStateObject( stateObject.position ),
-    Vector2IO.fromStateObject( stateObject.velocity ),
+    Vector2.Vector2IO.fromStateObject( stateObject.position ),
+    Vector2.Vector2IO.fromStateObject( stateObject.velocity ),
     stateObject.intensity
   )
 } );

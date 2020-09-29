@@ -8,7 +8,6 @@
 
 import Emitter from '../../../../axon/js/Emitter.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
@@ -243,8 +242,8 @@ SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamI
 
     // position, velocity, intensity, color, isWhite, wavelength, tandem
     const photonInstance = new phet.colorVision.SingleBulbPhoton(
-      Vector2IO.fromStateObject( photonStateObject.position ),
-      Vector2IO.fromStateObject( photonStateObject.velocity ),
+      Vector2.Vector2IO.fromStateObject( photonStateObject.position ),
+      Vector2.Vector2IO.fromStateObject( photonStateObject.velocity ),
       photonStateObject.intensity,
       ColorIO.fromStateObject( photonStateObject.color ),
       photonStateObject.isWhite,
