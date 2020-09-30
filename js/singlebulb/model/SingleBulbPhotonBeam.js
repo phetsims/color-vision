@@ -12,7 +12,6 @@ import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import ColorIO from '../../../../scenery/js/util/ColorIO.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import colorVision from '../../colorVision.js';
@@ -245,7 +244,7 @@ SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamI
       Vector2.Vector2IO.fromStateObject( photonStateObject.position ),
       Vector2.Vector2IO.fromStateObject( photonStateObject.velocity ),
       photonStateObject.intensity,
-      ColorIO.fromStateObject( photonStateObject.color ),
+      Color.ColorIO.fromStateObject( photonStateObject.color ),
       photonStateObject.isWhite,
       photonStateObject.wavelength, {
         tandem: tandem

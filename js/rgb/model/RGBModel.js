@@ -12,7 +12,6 @@ import Range from '../../../../dot/js/Range.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import ColorIO from '../../../../scenery/js/util/ColorIO.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import RGBConstants from '../RGBConstants.js';
@@ -112,7 +111,7 @@ function RGBModel( tandem ) {
         Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) );
     }, {
       tandem: tandem.createTandem( 'perceivedColorProperty' ),
-      phetioType: DerivedProperty.DerivedPropertyIO( ColorIO )
+      phetioType: DerivedProperty.DerivedPropertyIO( Color.ColorIO )
     } );
 
   // create a ConstantEventModel for each beam

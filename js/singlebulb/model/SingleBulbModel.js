@@ -15,7 +15,6 @@ import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import inherit from '../../../../phet-core/js/inherit.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import ColorIO from '../../../../scenery/js/util/ColorIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
@@ -126,7 +125,7 @@ function SingleBulbModel( tandem ) {
       }
     }, {
       tandem: tandem.createTandem( 'perceivedColorProperty' ),
-      phetioType: DerivedProperty.DerivedPropertyIO( ColorIO )
+      phetioType: DerivedProperty.DerivedPropertyIO( Color.ColorIO )
     } );
 
   // @public
