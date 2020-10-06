@@ -30,7 +30,6 @@ const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
  */
 function SingleBulbPhotonBeam( model, beamLength, options ) {
   options = merge( {
-    phetioType: SingleBulbPhotonBeam.SingleBulbPhotonBeamIO,
     phetioState: false
   }, options );
 
@@ -42,9 +41,6 @@ function SingleBulbPhotonBeam( model, beamLength, options ) {
 
   // @private
   this.model = model;
-
-  // @public
-  this.photonGroupTandem = options.tandem.createGroupTandem( 'photons' );
 
   // @public
   this.repaintEmitter = new Emitter();
@@ -63,8 +59,6 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
 
   // @public
   updateAnimationFrame: function( dt ) {
-
-    const self = this;
 
     let probability = 1; // probability for a given photon to pass the filter
     const filterWavelength = this.model.filterWavelengthProperty.value;
@@ -152,9 +146,7 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
         1,
         BLACK_ALPHA_0,
         false,
-        undefined, {
-          tandem: self.photonGroupTandem.createNextTandem()
-        }
+        undefined
       );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
@@ -168,16 +160,14 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
         1,
         BLACK_ALPHA_0,
         false,
-        undefined, {// TODO: quoi?
-          tandem: self.photonGroupTandem.createNextTandem()
-        }
+        undefined
       ) );
     }
   },
 
   // @public
   createPhoton: function( timeElapsed ) {
-    const self = this;
+
     // if the flashlight is on, create a new photon this animation frame
     if ( this.model.flashlightOnProperty.value ) {
       const newColor = ( this.model.lightTypeProperty.value === 'white' ) ?
@@ -196,9 +186,7 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
         1,
         newColor,
         this.model.lightTypeProperty.value === 'white',
-        this.model.flashlightWavelengthProperty.value, {
-          tandem: self.photonGroupTandem.createNextTandem()
-        }
+        this.model.flashlightWavelengthProperty.value
       ) );
     }
   },
