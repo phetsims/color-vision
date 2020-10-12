@@ -8,7 +8,6 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
 import flashlightImage from '../../../images/flashlight-0-deg_png.js';
@@ -26,88 +25,89 @@ import RGBSlider from './RGBSlider.js';
 const BEAM_ANGLE = Math.PI / 6;
 const FLASHLIGHT_SCALE = 0.73;
 
-/**
- * @param {RGBModel} model
- * @param {Tandem} tandem
- * @constructor
- */
-function RGBScreenView( model, tandem ) {
+class RGBScreenView extends ColorVisionScreenView {
 
-  ColorVisionScreenView.call( this, model, tandem );
+  /**
+   * @param {RGBModel} model
+   * @param {Tandem} tandem
+   */
+  constructor( model, tandem ) {
 
-  // Add photon beams
-  // @private
-  this.redBeam = new RGBPhotonBeamNode( model.redBeam, tandem.createTandem( 'redBeam' ), {
-    canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
-    x: 280,
-    y: 190,
-    rotation: -BEAM_ANGLE
-  } );
+    super( model, tandem );
 
-  // @private
-  this.greenBeam = new RGBPhotonBeamNode( model.greenBeam, tandem.createTandem( 'greenBeam' ), {
-    canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
-    x: 320
-  } );
-  this.greenBeam.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
+    // Add photon beams
+    // @private
+    this.redBeam = new RGBPhotonBeamNode( model.redBeam, tandem.createTandem( 'redBeam' ), {
+      canvasBounds: new Bounds2( 0, 0, RGBConstants.RED_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
+      x: 280,
+      y: 190,
+      rotation: -BEAM_ANGLE
+    } );
 
-  // @private
-  this.blueBeam = new RGBPhotonBeamNode( model.blueBeam, tandem.createTandem( 'blueBeam' ), {
-    canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
-    x: 320,
-    y: 145,
-    rotation: BEAM_ANGLE
-  } );
+    // @private
+    this.greenBeam = new RGBPhotonBeamNode( model.greenBeam, tandem.createTandem( 'greenBeam' ), {
+      canvasBounds: new Bounds2( 0, 0, RGBConstants.GREEN_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
+      x: 320
+    } );
+    this.greenBeam.centerY = this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET;
 
-  // add head node
-  const beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
-  const headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, tandem.createTandem( 'headNode' ) );
-  this.addChild( headNode );
+    // @private
+    this.blueBeam = new RGBPhotonBeamNode( model.blueBeam, tandem.createTandem( 'blueBeam' ), {
+      canvasBounds: new Bounds2( 0, 0, RGBConstants.BLUE_BEAM_LENGTH, ColorVisionConstants.BEAM_HEIGHT ),
+      x: 320,
+      y: 145,
+      rotation: BEAM_ANGLE
+    } );
 
-  // Add flashlights
-  const redFlashlightNode = new Image( flashlightDownImage, { scale: FLASHLIGHT_SCALE } );
-  const greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
-  const blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
+    // add head node
+    const beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
+    const headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, tandem.createTandem( 'headNode' ) );
+    this.addChild( headNode );
 
-  const flashlightVBox = new VBox( {
-    children: [
-      redFlashlightNode,
-      greenFlashlightNode,
-      blueFlashlightNode ],
-    spacing: 85,
-    right: this.layoutBounds.maxX - 84,
-    centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET
-  } );
+    // Add flashlights
+    const redFlashlightNode = new Image( flashlightDownImage, { scale: FLASHLIGHT_SCALE } );
+    const greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
+    const blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
 
-  this.addChild( flashlightVBox );
+    const flashlightVBox = new VBox( {
+      children: [
+        redFlashlightNode,
+        greenFlashlightNode,
+        blueFlashlightNode ],
+      spacing: 85,
+      right: this.layoutBounds.maxX - 84,
+      centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET
+    } );
 
-  // Add sliders
-  const redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
-  const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
-  const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
+    this.addChild( flashlightVBox );
 
-  const sliderVBox = new VBox( {
-    children: [
-      redSlider,
-      greenSlider,
-      blueSlider ],
-    spacing: 15,
-    right: this.layoutBounds.maxX - 30,
-    centerY: flashlightVBox.centerY
-  } );
+    // Add sliders
+    const redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
+    const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
+    const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
 
-  this.addChild( sliderVBox );
-}
+    const sliderVBox = new VBox( {
+      children: [
+        redSlider,
+        greenSlider,
+        blueSlider ],
+      spacing: 15,
+      right: this.layoutBounds.maxX - 30,
+      centerY: flashlightVBox.centerY
+    } );
 
-colorVision.register( 'RGBScreenView', RGBScreenView );
+    this.addChild( sliderVBox );
+  }
 
-inherit( ColorVisionScreenView, RGBScreenView, {
-  step: function( dt ) {
-    dt = Math.min( dt, 0.5 ); // Cap DT, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
+  // @public
+  step( dt ) {
+    // Cap dt, see https://github.com/phetsims/color-vision/issues/115 and https://github.com/phetsims/joist/issues/130
+    dt = Math.min( dt, 0.5 );
     this.redBeam.step( dt );
     this.greenBeam.step( dt );
     this.blueBeam.step( dt );
   }
-} );
+}
 
+colorVision.register( 'RGBScreenView', RGBScreenView );
 export default RGBScreenView;
