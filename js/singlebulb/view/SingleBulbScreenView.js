@@ -14,7 +14,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import RadioButtonGroup from '../../../../sun/js/buttons/RadioButtonGroup.js';
+import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
 import beamViewIcon from '../../../images/beam-view-icon_png.js';
 import filterLeftImage from '../../../images/filter-left_png.js';
 import filterRightImage from '../../../images/filter-right_png.js';
@@ -126,7 +126,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       tandemName: 'coloredLightRadioButton'
     } ];
 
-    const colorWhiteSelectButtons = new RadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
+    const whiteColoredRadioButtonGroup = new RectangularRadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       merge( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
@@ -143,15 +143,15 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       tandemName: 'photonRadioButton'
     } ];
 
-    const beamPhotonSelectButtons = new RadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
+    const beamPhotonRadioButtonGroup = new RectangularRadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       merge( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
       }, iconToggleOptions )
     );
 
-    this.addChild( colorWhiteSelectButtons );
-    this.addChild( beamPhotonSelectButtons );
+    this.addChild( whiteColoredRadioButtonGroup );
+    this.addChild( beamPhotonRadioButtonGroup );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same and will match up perfectly

@@ -15,7 +15,7 @@ import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import RadioButtonGroup from '../../../../sun/js/buttons/RadioButtonGroup.js';
+import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
 import headFrontImage from '../../../images/head-front_png.js';
 import silhouetteIcon from '../../../images/head-icon_png.js';
 import headImage from '../../../images/head_png.js';
@@ -86,7 +86,7 @@ function HeadNode( headModeProperty, layoutBoundsBottom, photonBeams, tandem, op
     tandemName: 'showBrainRadioButton'
   } ];
 
-  const radioButtonGroup = new RadioButtonGroup( headModeProperty, toggleButtonsContent, merge( {
+  const radioButtonGroup = new RectangularRadioButtonGroup( headModeProperty, toggleButtonsContent, merge( {
     buttonContentXMargin: 4,
     buttonContentYMargin: 4,
     bottom: layoutBoundsBottom - 22,
