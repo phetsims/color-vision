@@ -8,39 +8,38 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import colorVision from '../../colorVision.js';
 
-/**
- * @param {Property.<number>} filterWavelengthProperty
- * @param {Property.<number>} filterVisibleProperty
- * @param {number} centerX
- * @param {number} centerY
- * @param {number} radiusX
- * @param {number} radiusY
- * @param {boolean} left is true to draw the left half of the filter, false to draw the right
- * @constructor
- */
-function FilterHalfEllipse( filterWavelengthProperty, filterVisibleProperty, centerX, centerY, radiusX, radiusY, left ) {
+class FilterHalfEllipse extends Path {
 
-  const shape = new Shape()
-    .moveTo( centerX, centerY - radiusY )
-    .ellipticalArc( centerX, centerY, radiusX, radiusY, 0, -Math.PI / 2, Math.PI / 2, left )
-    .close();
+  /**
+   * @param {Property.<number>} filterWavelengthProperty
+   * @param {Property.<number>} filterVisibleProperty
+   * @param {number} centerX
+   * @param {number} centerY
+   * @param {number} radiusX
+   * @param {number} radiusY
+   * @param {boolean} left is true to draw the left half of the filter, false to draw the right
+   */
+  constructor( filterWavelengthProperty, filterVisibleProperty, centerX, centerY, radiusX, radiusY, left ) {
 
-  Path.call( this, shape );
-  const self = this;
+    const shape = new Shape()
+      .moveTo( centerX, centerY - radiusY )
+      .ellipticalArc( centerX, centerY, radiusX, radiusY, 0, -Math.PI / 2, Math.PI / 2, left )
+      .close();
 
-  filterWavelengthProperty.link( function( wavelength ) {
-    self.fill = VisibleColor.wavelengthToColor( wavelength );
-  } );
+    super( shape );
 
-  filterVisibleProperty.linkAttribute( this, 'visible' );
+    filterWavelengthProperty.link( wavelength => {
+      this.fill = VisibleColor.wavelengthToColor( wavelength );
+    } );
+
+    filterVisibleProperty.linkAttribute( this, 'visible' );
+  }
 }
 
 colorVision.register( 'FilterHalfEllipse', FilterHalfEllipse );
 
-inherit( Path, FilterHalfEllipse );
 export default FilterHalfEllipse;

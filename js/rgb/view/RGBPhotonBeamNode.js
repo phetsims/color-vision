@@ -7,7 +7,6 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import inherit from '../../../../phet-core/js/inherit.js';
 import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import colorVision from '../../colorVision.js';
@@ -17,43 +16,40 @@ import colorVision from '../../colorVision.js';
 // flashlight image.
 const debug = false;
 
-/**
- * @param {PhotonBeam} photonBeam
- * @param {Tandem} tandem
- * @param {Object} [options] (must contain a field canvasBounds to indicate the bounds of the beam)
- * @constructor
- */
-function RGBPhotonBeamNode( photonBeam, tandem, options ) {
+class RGBPhotonBeamNode extends CanvasNode {
 
-  const self = this;
+  /**
+   * @param {PhotonBeam} photonBeam
+   * @param {Tandem} tandem
+   * @param {Object} [options] (must contain a field canvasBounds to indicate the bounds of the beam)
+   */
+  constructor( photonBeam, tandem, options ) {
 
-  // @private
-  this.beamBounds = options.canvasBounds;
-  this.photons = photonBeam.photons;
-  this.color = photonBeam.color;
+    // Export for the sole purpose of having phet-io call invalidatePaint() after load complete
+    options.tandem = tandem;
 
-  // Export for the sole purpose of having phet-io call invalidatePaint() after load complete
-  options.tandem = tandem;
+    super( options );
 
-  CanvasNode.call( this, options );
-  this.invalidatePaint();
+    // @private
+    this.beamBounds = options.canvasBounds;
+    this.photons = photonBeam.photons;
+    this.color = photonBeam.color;
 
-  // TODO: alternatively, use the pattern in TrackNode?
-  // In the state wrapper, when the state changes, we must update the skater node
-  Tandem.PHET_IO_ENABLED && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( function() {
-    self.invalidatePaint();
-  } );
-}
+    this.invalidatePaint();
 
-colorVision.register( 'RGBPhotonBeamNode', RGBPhotonBeamNode );
+    // TODO: alternatively, use the pattern in TrackNode?
+    // In the state wrapper, when the state changes, we must update the skater node
+    Tandem.PHET_IO_ENABLED && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( () => {
+      this.invalidatePaint();
+    } );
+  }
 
-inherit( CanvasNode, RGBPhotonBeamNode, {
 
   /**
    * @param {CanvasRenderingContext2D} context
    * @private
    */
-  paintCanvas: function( context ) {
+  paintCanvas( context ) {
 
     //If the debug flag is enabled, it will show the bounds of the canvas
     if ( debug ) {
@@ -68,13 +64,14 @@ inherit( CanvasNode, RGBPhotonBeamNode, {
         context.fillRect( this.photons[ i ].position.x, this.photons[ i ].position.y, 3, 2 );
       }
     }
-  },
-
-  // @public
-  step: function( dt ) {
-    this.invalidatePaint();
   }
 
-} );
+  // @public
+  step( dt ) {
+    this.invalidatePaint();
+  }
+}
+
+colorVision.register( 'RGBPhotonBeamNode', RGBPhotonBeamNode );
 
 export default RGBPhotonBeamNode;

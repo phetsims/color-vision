@@ -6,36 +6,35 @@
  * @author Aaron Davis
  */
 
-import inherit from '../../../../phet-core/js/inherit.js';
 import colorVision from '../../colorVision.js';
 import RGBPhoton from '../../rgb/model/RGBPhoton.js';
 
-/**
- * @param {Vector2} position
- * @param {Vector2} velocity
- * @param {number} intensity between 0-1 for color alpha value
- * @param {Color} color
- * @param {boolean} isWhite
- * @param {number} wavelength
- * @param {Object} [options]
- * @constructor
- */
-function SingleBulbPhoton( position, velocity, intensity, color, isWhite, wavelength, options ) {
+class SingleBulbPhoton extends RGBPhoton {
 
-  RGBPhoton.call( this, position, velocity, intensity, options );
+  /**
+   * @param {Vector2} position
+   * @param {Vector2} velocity
+   * @param {number} intensity between 0-1 for color alpha value
+   * @param {Color} color
+   * @param {boolean} isWhite
+   * @param {number} wavelength
+   * @param {Object} [options]
+   */
+  constructor( position, velocity, intensity, color, isWhite, wavelength, options ) {
 
-  // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
-  // White photons passing through must be changed to match the filter color, but keep full intensity.
-  // Colored photons must lose intensity when passing through the filter.
-  // @public
-  this.isWhite = this.wasWhite = isWhite;
-  this.color = color;
-  this.wavelength = wavelength;
-  this.passedFilter = false;
+    super( position, velocity, intensity, options );
+
+    // the "wasWhite" attribute is needed to determine the intensity of a photon passing through the filter.
+    // White photons passing through must be changed to match the filter color, but keep full intensity.
+    // Colored photons must lose intensity when passing through the filter.
+    // @public
+    this.isWhite = this.wasWhite = isWhite;
+    this.color = color;
+    this.wavelength = wavelength;
+    this.passedFilter = false;
+  }
 }
 
 colorVision.register( 'SingleBulbPhoton', SingleBulbPhoton );
-
-inherit( RGBPhoton, SingleBulbPhoton );
 
 export default SingleBulbPhoton;

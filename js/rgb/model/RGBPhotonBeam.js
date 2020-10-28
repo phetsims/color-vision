@@ -7,37 +7,34 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import RGBPhoton from './RGBPhoton.js';
 
-/**
- * @param {string} color an rgb string
- * @param {Property.<number>} intensityProperty the intensity property for this color from the model
- * @param {Property.<number>} perceivedIntensityProperty the perceived intensity property for this color from the model
- * @param {number} beamLength the length of the beam, used to calculate the starting x coordinate
- * @param {Tandem} tandem
- * @constructor
- */
-function RGBPhotonBeam( color, intensityProperty, perceivedIntensityProperty, beamLength, tandem ) {
+class RGBPhotonBeam {
+
+  /**
+   * @param {string} color an rgb string
+   * @param {Property.<number>} intensityProperty the intensity property for this color from the model
+   * @param {Property.<number>} perceivedIntensityProperty the perceived intensity property for this color from the model
+   * @param {number} beamLength the length of the beam, used to calculate the starting x coordinate
+   * @param {Tandem} tandem
+   */
+  constructor( color, intensityProperty, perceivedIntensityProperty, beamLength, tandem ) {
+
+    // @public
+    this.photons = [];
+    this.color = color;
+    this.beamLength = beamLength;
+
+    // @private
+    this.intensityProperty = intensityProperty;
+    this.perceivedIntensityProperty = perceivedIntensityProperty;
+  }
+
 
   // @public
-  this.photons = [];
-  this.color = color;
-  this.beamLength = beamLength;
-
-  // @private
-  this.intensityProperty = intensityProperty;
-  this.perceivedIntensityProperty = perceivedIntensityProperty;
-}
-
-colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
-
-inherit( Object, RGBPhotonBeam, {
-
-  // @public
-  updateAnimationFrame: function( dt ) {
+  updateAnimationFrame( dt ) {
 
     // move all photons that are currently active
     for ( let i = 0; i < this.photons.length; i++ ) {
@@ -64,10 +61,10 @@ inherit( Object, RGBPhotonBeam, {
       );
       this.photons.push( blackPhoton );
     }
-  },
+  }
 
   // @public
-  createPhoton: function( timeElapsed ) {
+  createPhoton( timeElapsed ) {
     const intensity = this.intensityProperty.get();
 
     // only create a new photon if intensity is greater than 0
@@ -85,15 +82,17 @@ inherit( Object, RGBPhotonBeam, {
         intensity )
       );
     }
-  },
+  }
 
   // @public
-  reset: function() {
+  reset() {
     // empty photon array
     while ( this.photons.length ) {
       this.photons.pop();
     }
   }
-} );
+}
+
+colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
 
 export default RGBPhotonBeam;

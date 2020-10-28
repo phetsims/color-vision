@@ -27,7 +27,7 @@ const simOptions = {
   }
 };
 
-simLauncher.launch( function() {
+simLauncher.launch( () => {
   const sim = new Sim( colorVisionTitleString, [
     new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
     new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )

@@ -7,7 +7,6 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -17,40 +16,41 @@ import colorVision from '../../colorVision.js';
 // constants
 const SCALE = 0.75;
 
-/**
- * @param {number} rotation
- * @param {string} color - an rgb string or other legitimate color string
- * @param {Object} [options]
- * @constructor
- */
-function FlashlightNode( rotation, color, options ) {
+class FlashlightNode extends Node {
 
-  Node.call( this, { rotation: rotation } );
+  /**
+   * @param {number} rotation
+   * @param {string} color - an rgb string or other legitimate color string
+   * @param {Object} [options]
+   */
+  constructor( rotation, color, options ) {
 
-  // draw the flashlight image, with the bulb pointed toward the left
-  const flashlightNode = new Image( flashlightImage, { scale: SCALE } );
+    super( { rotation: rotation } );
 
-  // values used for drawing the beam shape
-  const startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight
-  const centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
-  const dx = 170 * SCALE;                        // length of the beam in the x direction
-  const dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
+    // draw the flashlight image, with the bulb pointed toward the left
+    const flashlightNode = new Image( flashlightImage, { scale: SCALE } );
 
-  // draw a trapezoidal beam shape, just to the left of the flashlight image
-  const beamShape = new Shape()
-    .moveTo( startX, centerY + dy )
-    .lineTo( startX - dx, centerY + dy * 2 )
-    .lineTo( startX - dx, centerY - dy * 2 )
-    .lineTo( startX, centerY - dy )
-    .close();
+    // values used for drawing the beam shape
+    const startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight
+    const centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
+    const dx = 170 * SCALE;                        // length of the beam in the x direction
+    const dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
 
-  this.addChild( new Path( beamShape, { fill: color } ) );
-  this.addChild( flashlightNode );
+    // draw a trapezoidal beam shape, just to the left of the flashlight image
+    const beamShape = new Shape()
+      .moveTo( startX, centerY + dy )
+      .lineTo( startX - dx, centerY + dy * 2 )
+      .lineTo( startX - dx, centerY - dy * 2 )
+      .lineTo( startX, centerY - dy )
+      .close();
 
-  this.mutate( options );
+    this.addChild( new Path( beamShape, { fill: color } ) );
+    this.addChild( flashlightNode );
+
+    this.mutate( options );
+  }
 }
 
 colorVision.register( 'FlashlightNode', FlashlightNode );
 
-inherit( Node, FlashlightNode );
 export default FlashlightNode;

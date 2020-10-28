@@ -99,7 +99,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       25 );
 
     // make bulb color slider invisible when on white light mode
-    model.lightTypeProperty.link( function( lightType ) {
+    model.lightTypeProperty.link( lightType => {
       const coloredLight = lightType !== 'white';
       bulbColorSlider.visible = coloredLight;
       bulbColorTextNode.visible = coloredLight;

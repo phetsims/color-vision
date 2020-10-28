@@ -9,7 +9,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -20,112 +19,111 @@ import colorVision from '../../colorVision.js';
 const DEFAULT_BEAM_ALPHA = 0.8;
 const WHITE_WITH_ALPHA = Color.WHITE.withAlpha( DEFAULT_BEAM_ALPHA );
 
-/**
- * @param {SingleBulbModel} model
- * @param {Bounds2} bounds
- * @param {number} cutoff the x-coordinate of the filter
- * @constructor
- */
-function SolidBeamNode( model, bounds, cutoff ) {
+class SolidBeamNode extends Node {
 
-  Node.call( this );
+  /**
+   * @param {SingleBulbModel} model
+   * @param {Bounds2} bounds
+   * @param {number} cutoff the x-coordinate of the filter
+   */
+  constructor( model, bounds, cutoff ) {
 
-  // use the principle of similar triangles to calculate where to split the beam
-  const width = bounds.maxX - bounds.minX;
-  const triangleHeight = 30; // height of right triangle the overlaps with the beam fanning
-  const smallTriangleWidth = cutoff - bounds.minX;
-  const smallTriangleHeight = smallTriangleWidth * triangleHeight / width;
+    super();
 
-  const leftHalfShape = new Shape()
-    .moveTo( bounds.minX, bounds.minY )
-    .lineTo( bounds.minX, bounds.maxY )
-    .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
-    .lineTo( cutoff, bounds.minY - smallTriangleHeight )
-    .close();
+    // use the principle of similar triangles to calculate where to split the beam
+    const width = bounds.maxX - bounds.minX;
+    const triangleHeight = 30; // height of right triangle the overlaps with the beam fanning
+    const smallTriangleWidth = cutoff - bounds.minX;
+    const smallTriangleHeight = smallTriangleWidth * triangleHeight / width;
 
-  const rightHalfShape = new Shape()
-    .moveTo( cutoff, bounds.minY - smallTriangleHeight )
-    .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
-    .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
-    .lineTo( bounds.maxX, bounds.minY - triangleHeight )
-    .close();
+    const leftHalfShape = new Shape()
+      .moveTo( bounds.minX, bounds.minY )
+      .lineTo( bounds.minX, bounds.maxY )
+      .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
+      .lineTo( cutoff, bounds.minY - smallTriangleHeight )
+      .close();
 
-  // use the whole beam when the filter is disabled, to avoid seeing the cut between the halves
-  const wholeBeamShape = new Shape()
-    .moveTo( bounds.minX, bounds.minY )
-    .lineTo( bounds.minX, bounds.maxY )
-    .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
-    .lineTo( bounds.maxX, bounds.minY - triangleHeight )
-    .close();
+    const rightHalfShape = new Shape()
+      .moveTo( cutoff, bounds.minY - smallTriangleHeight )
+      .lineTo( cutoff, bounds.maxY + smallTriangleHeight )
+      .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
+      .lineTo( bounds.maxX, bounds.minY - triangleHeight )
+      .close();
 
-  const leftHalf = new Path( leftHalfShape );
-  const rightHalf = new Path( rightHalfShape );
-  const wholeBeam = new Path( wholeBeamShape );
+    // use the whole beam when the filter is disabled, to avoid seeing the cut between the halves
+    const wholeBeamShape = new Shape()
+      .moveTo( bounds.minX, bounds.minY )
+      .lineTo( bounds.minX, bounds.maxY )
+      .lineTo( bounds.maxX, bounds.maxY + triangleHeight )
+      .lineTo( bounds.maxX, bounds.minY - triangleHeight )
+      .close();
 
-  model.flashlightWavelengthProperty.link( function( wavelength ) {
-    const newColor = VisibleColor.wavelengthToColor( wavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
-    rightHalf.fill = newColor;
-    wholeBeam.fill = newColor;
-  } );
+    const leftHalf = new Path( leftHalfShape );
+    const rightHalf = new Path( rightHalfShape );
+    const wholeBeam = new Path( wholeBeamShape );
 
-  model.filterVisibleProperty.link( function( visible ) {
-    // when the filter turns off, make the whole beam visible and the halves invisible
-    wholeBeam.visible = !visible;
-    leftHalf.visible = visible;
-    rightHalf.visible = visible;
+    model.flashlightWavelengthProperty.link( wavelength => {
+      const newColor = VisibleColor.wavelengthToColor( wavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
+      rightHalf.fill = newColor;
+      wholeBeam.fill = newColor;
+    } );
 
-    if ( wholeBeam.visible ) {
-      wholeBeam.fill = rightHalf.fill.withAlpha( DEFAULT_BEAM_ALPHA );
-    }
-  } );
+    model.filterVisibleProperty.link( visible => {
+      // when the filter turns off, make the whole beam visible and the halves invisible
+      wholeBeam.visible = !visible;
+      leftHalf.visible = visible;
+      rightHalf.visible = visible;
 
-  // listen for any changes to the model that condition when the beam should be white.
-  Property.multilink( [
-      model.flashlightWavelengthProperty,
-      model.filterWavelengthProperty,
-      model.lightTypeProperty,
-      model.filterVisibleProperty,
-      model.beamTypeProperty
-    ],
-    function( flashlightWavelength, filterWavelength, lightType, filterVisible, beamMode ) {
-      // update the beam only if it is visible
-      if ( beamMode === 'beam' ) {
-        if ( lightType === 'white' && filterVisible ) {
-          leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
-          rightHalf.fill = WHITE_WITH_ALPHA;
-        }
-        else if ( lightType === 'white' && !filterVisible ) {
-          wholeBeam.fill = WHITE_WITH_ALPHA;
-        }
-        else if ( lightType === 'colored' && filterVisible ) {
-          rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
-        }
-        else if ( lightType === 'colored' && !filterVisible ) {
-          wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
-        }
+      if ( wholeBeam.visible ) {
+        wholeBeam.fill = rightHalf.fill.withAlpha( DEFAULT_BEAM_ALPHA );
       }
     } );
 
-  const visibleProperty = new DerivedProperty( [ model.flashlightOnProperty, model.beamTypeProperty ],
-    function( flashlightOn, beamType ) {
-      return ( flashlightOn && beamType === 'beam' );
-    } );
-  visibleProperty.linkAttribute( this, 'visible' );
+    // listen for any changes to the model that condition when the beam should be white.
+    Property.multilink( [
+        model.flashlightWavelengthProperty,
+        model.filterWavelengthProperty,
+        model.lightTypeProperty,
+        model.filterVisibleProperty,
+        model.beamTypeProperty
+      ],
+      ( flashlightWavelength, filterWavelength, lightType, filterVisible, beamMode ) => {
+        // update the beam only if it is visible
+        if ( beamMode === 'beam' ) {
+          if ( lightType === 'white' && filterVisible ) {
+            leftHalf.fill = VisibleColor.wavelengthToColor( filterWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
+            rightHalf.fill = WHITE_WITH_ALPHA;
+          }
+          else if ( lightType === 'white' && !filterVisible ) {
+            wholeBeam.fill = WHITE_WITH_ALPHA;
+          }
+          else if ( lightType === 'colored' && filterVisible ) {
+            rightHalf.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
+          }
+          else if ( lightType === 'colored' && !filterVisible ) {
+            wholeBeam.fill = VisibleColor.wavelengthToColor( flashlightWavelength ).withAlpha( DEFAULT_BEAM_ALPHA );
+          }
+        }
+      } );
 
-  Property.multilink( [ model.perceivedColorProperty, visibleProperty ],
-    function( perceivedColor, visible ) {
-      if ( visible ) {
-        // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
-        leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA * perceivedColor.a );
-      }
-    } );
+    const visibleProperty = new DerivedProperty( [ model.flashlightOnProperty, model.beamTypeProperty ],
+      ( flashlightOn, beamType ) => flashlightOn && beamType === 'beam' );
+    visibleProperty.linkAttribute( this, 'visible' );
 
-  this.addChild( leftHalf );
-  this.addChild( rightHalf );
-  this.addChild( wholeBeam );
+    Property.multilink( [ model.perceivedColorProperty, visibleProperty ],
+      ( perceivedColor, visible ) => {
+        if ( visible ) {
+          // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
+          leftHalf.fill = perceivedColor.withAlpha( DEFAULT_BEAM_ALPHA * perceivedColor.a );
+        }
+      } );
+
+    this.addChild( leftHalf );
+    this.addChild( rightHalf );
+    this.addChild( wholeBeam );
+  }
 }
 
 colorVision.register( 'SolidBeamNode', SolidBeamNode );
 
-inherit( Node, SolidBeamNode );
 export default SolidBeamNode;

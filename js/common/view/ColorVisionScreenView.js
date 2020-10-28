@@ -49,7 +49,7 @@ class ColorVisionScreenView extends ScreenView {
 
     // Reset All button
     const resetAllButton = new ResetAllButton( {
-      listener: function() { model.reset(); },
+      listener: () => { model.reset(); },
       bottom: this.layoutBounds.bottom - 5,
       right: this.layoutBounds.right - 30,
       radius: 18,

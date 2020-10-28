@@ -39,8 +39,8 @@ class SingleBulbScreen extends Screen {
     };
 
     super(
-      function() { return new SingleBulbModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ); },
+      () => new SingleBulbModel( tandem.createTandem( 'model' ) ),
+      model => new SingleBulbScreenView( model, tandem.createTandem( 'view' ) ),
       options
     );
   }

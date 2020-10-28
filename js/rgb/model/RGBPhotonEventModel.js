@@ -7,25 +7,25 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import colorVision from '../../colorVision.js';
 
-/*
- * Event model that will fire events at a variable rate. An event will occur every 1/rate time units.
- * @param {Property.<number>} rateProperty
- * @constructor
- */
-function RGBPhotonEventModel( rateProperty ) {
-  assert && assert( rateProperty instanceof Property, 'The rateProperty should be a Property' );
+class RGBPhotonEventModel {
 
-  this.rateProperty = rateProperty; // @private
-}
+  /**
+   * Event model that will fire events at a variable rate. An event will occur every 1/rate time units.
+   * @param {Property.<number>} rateProperty
+   */
+  constructor( rateProperty ) {
+    assert && assert( rateProperty instanceof Property, 'The rateProperty should be a Property' );
 
-colorVision.register( 'RGBPhotonEventModel', RGBPhotonEventModel );
+    this.rateProperty = rateProperty; // @private
+  }
 
-inherit( Object, RGBPhotonEventModel, {
-
-  getPeriodBeforeNextEvent: function() {
+  /**
+   * @returns {number}
+   * @public
+   */
+  getPeriodBeforeNextEvent() {
     const rate = this.rateProperty.get() * 2;
     assert && assert( rate >= 0, 'We need to have a non-negative rate in order to prevent infinite loops.' );
 
@@ -37,7 +37,8 @@ inherit( Object, RGBPhotonEventModel, {
       return 1 / rate;
     }
   }
+}
 
-} );
+colorVision.register( 'RGBPhotonEventModel', RGBPhotonEventModel );
 
 export default RGBPhotonEventModel;

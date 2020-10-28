@@ -39,8 +39,8 @@ class RGBScreen extends Screen {
     };
 
     super(
-      function() { return new RGBModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new RGBScreenView( model, tandem.createTandem( 'view' ) ); },
+      () => new RGBModel( tandem.createTandem( 'model' ) ),
+      model => new RGBScreenView( model, tandem.createTandem( 'view' ) ),
       options
     );
   }

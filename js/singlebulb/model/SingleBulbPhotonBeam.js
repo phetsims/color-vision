@@ -8,7 +8,6 @@
 
 import Emitter from '../../../../axon/js/Emitter.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
@@ -22,43 +21,34 @@ import SingleBulbPhoton from './SingleBulbPhoton.js';
 // constants
 const BLACK_ALPHA_0 = Color.BLACK.withAlpha( 0 ).setImmutable();
 
-/**
- * @param {SingleBulbModel} model
- * @param {number} beamLength the length of the beam. This is used to determine what position to restart the photons.
- * @param {Object} [options] - required
- * @constructor
- */
-function SingleBulbPhotonBeam( model, beamLength, options ) {
-  options = merge( {
-    phetioState: false
-  }, options );
+class SingleBulbPhotonBeam extends PhetioObject {
 
-  PhetioObject.call( this, options );
+  /**
+   * @param {SingleBulbModel} model
+   * @param {number} beamLength the length of the beam. This is used to determine what position to restart the photons.
+   * @param {Object} [options] - required
+   */
+  constructor( model, beamLength, options ) {
+    options = merge( {
+      phetioState: false
+    }, options );
 
-  // @public
-  this.photons = [];
-  this.beamLength = beamLength;
+    super( options );
 
-  // @private
-  this.model = model;
+    // @public
+    this.photons = [];
+    this.beamLength = beamLength;
 
-  // @public
-  this.repaintEmitter = new Emitter();
-}
+    // @private
+    this.model = model;
 
-colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
+    // @public
+    this.repaintEmitter = new Emitter();
+  }
 
-function randomColor() {
-  const r = Math.floor( phet.joist.random.nextDouble() * 256 );
-  const g = Math.floor( phet.joist.random.nextDouble() * 256 );
-  const b = Math.floor( phet.joist.random.nextDouble() * 256 );
-  return new Color( r, g, b, 1 );
-}
-
-inherit( PhetioObject, SingleBulbPhotonBeam, {
 
   // @public
-  updateAnimationFrame: function( dt ) {
+  updateAnimationFrame( dt ) {
 
     let probability = 1; // probability for a given photon to pass the filter
     const filterWavelength = this.model.filterWavelengthProperty.value;
@@ -163,10 +153,10 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
         undefined
       ) );
     }
-  },
+  }
 
   // @public
-  createPhoton: function( timeElapsed ) {
+  createPhoton( timeElapsed ) {
 
     // if the flashlight is on, create a new photon this animation frame
     if ( this.model.flashlightOnProperty.value ) {
@@ -189,16 +179,25 @@ inherit( PhetioObject, SingleBulbPhotonBeam, {
         this.model.flashlightWavelengthProperty.value
       ) );
     }
-  },
+  }
 
   // @public
-  reset: function() {
+  reset() {
     // set all photons to be out of bounds to trigger empty redraw
     for ( let i = 0; i < this.photons.length; i++ ) {
       this.photons[ i ].position.x = 0;
     }
   }
-} );
+}
+
+colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
+
+function randomColor() {
+  const r = Math.floor( phet.joist.random.nextDouble() * 256 );
+  const g = Math.floor( phet.joist.random.nextDouble() * 256 );
+  const b = Math.floor( phet.joist.random.nextDouble() * 256 );
+  return new Color( r, g, b, 1 );
+}
 
 SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
   valueType: SingleBulbPhotonBeam,

@@ -10,46 +10,45 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import colorVision from '../../colorVision.js';
 
-/**
- * @param {Tandem} tandem
- * @constructor
- */
-function ColorVisionModel( tandem ) {
+class ColorVisionModel {
 
-  // @public {Property.<boolean>} is the model running?
-  this.playingProperty = new BooleanProperty( true, {
-    tandem: tandem.createTandem( 'playingProperty' )
-  } );
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-  // @public {Property.<string>} which head view to show
-  this.headModeProperty = new StringProperty( 'no-brain', {
-    validValues: [ 'brain', 'no-brain' ],
-    tandem: tandem.createTandem( 'headModeProperty' )
-  } );
+    // @public {Property.<boolean>} is the model running?
+    this.playingProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'playingProperty' )
+    } );
 
-  // @public {DerivedProperty.<Color|string>}
-  // the color perceived by the viewer, must be defined by the subtype.
-  this.perceivedColorProperty = null;
-}
+    // @public {Property.<string>} which head view to show
+    this.headModeProperty = new StringProperty( 'no-brain', {
+      validValues: [ 'brain', 'no-brain' ],
+      tandem: tandem.createTandem( 'headModeProperty' )
+    } );
 
-colorVision.register( 'ColorVisionModel', ColorVisionModel );
+    // @public {DerivedProperty.<Color|string>}
+    // the color perceived by the viewer, must be defined by the subtype.
+    this.perceivedColorProperty = null;
+  }
 
-inherit( Object, ColorVisionModel, {
 
   // @public
-  reset: function() {
+  reset() {
     this.playingProperty.reset();
     this.headModeProperty.reset();
-  },
+  }
 
   // @public @abstract
   // step one frame, assuming 60fps
-  manualStep: function() {
+  manualStep() {
     throw new Error( 'must be defined by subtype' );
   }
-} );
+}
+
+colorVision.register( 'ColorVisionModel', ColorVisionModel );
 
 export default ColorVisionModel;

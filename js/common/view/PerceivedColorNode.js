@@ -7,39 +7,39 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
-import inherit from '../../../../phet-core/js/inherit.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import colorVision from '../../colorVision.js';
 
-/**
- * @param {Property.<Color|string>} perceivedColorProperty
- * @param {Object} [options]
- * @constructor
- */
-function PerceivedColorNode( perceivedColorProperty, options ) {
+class PerceivedColorNode extends Path {
 
-  options = merge( {
-    lineWidth: 0.5,
-    stroke: '#c0b9b9' // gray
-  }, options );
+  /**
+   * @param {Property.<Color|string>} perceivedColorProperty
+   * @param {Object} [options]
+   */
+  constructor( perceivedColorProperty, options ) {
 
-  // four thought bubbles, described from largest to smallest
-  const shape = new Shape()
-    .ellipse( 0, 0, 90, 45, 0 )
-    .newSubpath()
-    .ellipse( -130, 45, 30, 15, 0 )
-    .newSubpath()
-    .ellipse( -158, 105, 24, 12, 0 )
-    .newSubpath()
-    .ellipse( -170, 160, 14, 7, 0 );
+    options = merge( {
+      lineWidth: 0.5,
+      stroke: '#c0b9b9' // gray
+    }, options );
 
-  Path.call( this, shape, options );
+    // four thought bubbles, described from largest to smallest
+    const shape = new Shape()
+      .ellipse( 0, 0, 90, 45, 0 )
+      .newSubpath()
+      .ellipse( -130, 45, 30, 15, 0 )
+      .newSubpath()
+      .ellipse( -158, 105, 24, 12, 0 )
+      .newSubpath()
+      .ellipse( -170, 160, 14, 7, 0 );
 
-  perceivedColorProperty.linkAttribute( this, 'fill' );
+    super( shape, options );
+
+    perceivedColorProperty.linkAttribute( this, 'fill' );
+  }
 }
 
 colorVision.register( 'PerceivedColorNode', PerceivedColorNode );
 
-inherit( Path, PerceivedColorNode );
 export default PerceivedColorNode;
