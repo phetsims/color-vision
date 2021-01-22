@@ -6,6 +6,7 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
@@ -70,7 +71,7 @@ class RGBPhotonBeam {
     // only create a new photon if intensity is greater than 0
     if ( intensity > 0 ) {
       const x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
-      const yVelocity = ( phet.joist.random.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
+      const yVelocity = ( dotRandom.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
       const initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
       const deltaY = yVelocity * timeElapsed;

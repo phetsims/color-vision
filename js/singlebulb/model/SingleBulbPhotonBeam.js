@@ -7,6 +7,7 @@
  */
 
 import Emitter from '../../../../axon/js/Emitter.js';
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
@@ -79,7 +80,7 @@ class SingleBulbPhotonBeam extends PhetioObject {
         probability = ( !photon.wasWhite ) ? probability : 0.5;
 
         // remove a percentage of photons from the beam
-        if ( phet.joist.random.nextDouble() >= probability ) {
+        if ( dotRandom.nextDouble() >= probability ) {
           this.photons[ j ].dispose();
           this.photons.splice( j, 1 ); // remove jth photon from list
           continue;
@@ -164,7 +165,7 @@ class SingleBulbPhotonBeam extends PhetioObject {
                        randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
 
       const x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
-      const yVelocity = ( phet.joist.random.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
+      const yVelocity = ( dotRandom.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
 
       const initialY = yVelocity * ( 25 / 60 ) + ( ColorVisionConstants.BEAM_HEIGHT / 2 );
       const deltaY = yVelocity * timeElapsed;
@@ -193,9 +194,9 @@ class SingleBulbPhotonBeam extends PhetioObject {
 colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 
 function randomColor() {
-  const r = Math.floor( phet.joist.random.nextDouble() * 256 );
-  const g = Math.floor( phet.joist.random.nextDouble() * 256 );
-  const b = Math.floor( phet.joist.random.nextDouble() * 256 );
+  const r = Math.floor( dotRandom.nextDouble() * 256 );
+  const g = Math.floor( dotRandom.nextDouble() * 256 );
+  const b = Math.floor( dotRandom.nextDouble() * 256 );
   return new Color( r, g, b, 1 );
 }
 
