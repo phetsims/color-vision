@@ -205,19 +205,6 @@ SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamI
   documentation: 'The Beam on the single bulb screen.',
 
   /**
-   * Clears the children from the model so it can be deserialized.
-   * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
-   * @public
-   // TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
-   */
-  clearChildInstances( singleBulbPhotonBeam ) {
-    while ( singleBulbPhotonBeam.photons.length > 0 ) {
-      const p = singleBulbPhotonBeam.photons.pop();
-      p.dispose();
-    }
-  },
-
-  /**
    * Adds a photon beam as specified by the phetioID and state.
    * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
    * @param {Tandem} tandem
