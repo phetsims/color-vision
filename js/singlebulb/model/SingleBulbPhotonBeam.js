@@ -202,34 +202,7 @@ function randomColor() {
 
 SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
   valueType: SingleBulbPhotonBeam,
-  documentation: 'The Beam on the single bulb screen.',
-
-  /**
-   * Adds a photon beam as specified by the phetioID and state.
-   * @param {SingleBulbPhotonBeam} singleBulbPhotonBeam
-   * @param {Tandem} tandem
-   * @param {Object} photonStateObject
-   * @public
-   * TODO: eliminate this legacy pattern, see https://github.com/phetsims/tandem/issues/87
-   */
-  addChildElementDeprecated( singleBulbPhotonBeam, tandem, photonStateObject ) {
-
-    // position, velocity, intensity, color, isWhite, wavelength, tandem
-    const photonInstance = new phet.colorVision.SingleBulbPhoton(
-      Vector2.Vector2IO.fromStateObject( photonStateObject.position ),
-      Vector2.Vector2IO.fromStateObject( photonStateObject.velocity ),
-      photonStateObject.intensity,
-      Color.ColorIO.fromStateObject( photonStateObject.color ),
-      photonStateObject.isWhite,
-      photonStateObject.wavelength, {
-        tandem: tandem
-      }
-    );
-    photonInstance.passedFilter = photonStateObject.passedFilter;
-    singleBulbPhotonBeam.photons.push( photonInstance );
-    singleBulbPhotonBeam.repaintEmitter.emit();
-    return photonInstance;
-  }
+  documentation: 'The Beam on the single bulb screen.'
 } );
 
 export default SingleBulbPhotonBeam;
