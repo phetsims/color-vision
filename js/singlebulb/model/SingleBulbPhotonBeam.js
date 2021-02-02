@@ -162,7 +162,8 @@ class SingleBulbPhotonBeam extends PhetioObject {
     // if the flashlight is on, create a new photon this animation frame
     if ( this.model.flashlightOnProperty.value ) {
       const newColor = ( this.model.lightTypeProperty.value === 'white' ) ?
-                       randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
+                       randomVisibleColor() :
+                       VisibleColor.wavelengthToColor( this.model.flashlightWavelengthProperty.value );
 
       const x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
       const yVelocity = ( dotRandom.nextDouble() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
@@ -191,13 +192,13 @@ class SingleBulbPhotonBeam extends PhetioObject {
   }
 }
 
-colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
-
-function randomColor() {
-  const r = Math.floor( dotRandom.nextDouble() * 256 );
-  const g = Math.floor( dotRandom.nextDouble() * 256 );
-  const b = Math.floor( dotRandom.nextDouble() * 256 );
-  return new Color( r, g, b, 1 );
+/**
+ * Gets a random visible Color. This is used to generate random photon colors when the light source is white light.
+ * @returns {Color}
+ */
+function randomVisibleColor() {
+  const randomWavelength = dotRandom.nextIntBetween( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH );
+  return VisibleColor.wavelengthToColor( randomWavelength );
 }
 
 SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamIO', {
@@ -205,4 +206,5 @@ SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamI
   documentation: 'The Beam on the single bulb screen.'
 } );
 
+colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 export default SingleBulbPhotonBeam;
