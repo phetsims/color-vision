@@ -46,11 +46,15 @@ define( function( require ) {
 
   colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 
-  function randomColor() {
-    var r = Math.floor( Math.random() * 256 );
-    var g = Math.floor( Math.random() * 256 );
-    var b = Math.floor( Math.random() * 256 );
-    return new Color( r, g, b, 1 );
+  /**
+   * Gets a random visible Color. This is used to generate random photon colors when the light source is white light.
+   * @returns {Color}
+   */
+  function randomVisibleColor() {
+    var randomWavelength = VisibleColor.MIN_WAVELENGTH + Math.random() * ( VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH );
+    assert && assert( randomWavelength >= VisibleColor.MIN_WAVELENGTH && randomWavelength <= VisibleColor.MAX_WAVELENGTH,
+      'invalid randomWavelength: ' + randomWavelength );
+    return VisibleColor.wavelengthToColor( randomWavelength );
   }
 
   return inherit( PropertySet, SingleBulbPhotonBeam, {
@@ -151,7 +155,9 @@ define( function( require ) {
     createPhoton: function( timeElapsed ) {
       // if the flashlight is on, create a new photon this animation frame
       if ( this.model.flashlightOn ) {
-        var newColor = ( this.model.lightType === 'white' ) ? randomColor() : VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
+        var newColor = ( this.model.lightType === 'white' ) ?
+                       randomVisibleColor() :
+                       VisibleColor.wavelengthToColor( this.model.flashlightWavelength );
 
         var x = this.beamLength + ColorVisionConstants.X_VELOCITY * timeElapsed;
         var yVelocity = ( Math.random() * ColorVisionConstants.FAN_FACTOR - ( ColorVisionConstants.FAN_FACTOR / 2 ) ) * 60;
