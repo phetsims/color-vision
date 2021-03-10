@@ -10,11 +10,11 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
@@ -33,17 +33,16 @@ class SingleBulbModel extends ColorVisionModel {
     const filterTandem = tandem.createTandem( 'filter' );
 
     // @public {Property.<string>} kind of light in the beam
-    this.lightTypeProperty = new Property( 'colored', {
+    // TODO: Why not an enum?
+    this.lightTypeProperty = new StringProperty( 'colored', {
       validValues: [ 'white', 'colored' ],
-      tandem: tandem.createTandem( 'lightTypeProperty' ),
-      phetioType: Property.PropertyIO( StringIO )
+      tandem: tandem.createTandem( 'lightTypeProperty' )
     } );
 
     // @public {Property.<string>} indicates solid beam vs individual photons
-    this.beamTypeProperty = new Property( 'beam', {
+    this.beamTypeProperty = new StringProperty( 'beam', {
       validValues: [ 'beam', 'photon' ],
-      tandem: tandem.createTandem( 'beamTypeProperty' ),
-      phetioType: Property.PropertyIO( StringIO )
+      tandem: tandem.createTandem( 'beamTypeProperty' )
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
@@ -98,7 +97,7 @@ class SingleBulbModel extends ColorVisionModel {
         }
         // if the filter is visible, and the beam type is colored, calculate the percentage of color to pass
         else if ( filterVisible && lightType === 'colored' ) {
-          let alpha; // the new alpha value for the color, porportional to the percentage of light to pass through the filter
+          let alpha; // the new alpha value for the color, proportional to the percentage of light to pass through the filter
           const halfWidth = SingleBulbConstants.GAUSSIAN_WIDTH / 2;
 
           // If the flashlightWavelength is outside the transmission width, no color passes.
