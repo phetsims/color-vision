@@ -36,17 +36,17 @@ class RGBModel extends ColorVisionModel {
     // Range is 0-100.
     this.redIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'redIntensityProperty' ),
-      units: 'percent',
+      units: '%',
       range: PERCENT_RANGE
     } );
     this.greenIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'greenIntensityProperty' ),
-      units: 'percent',
+      units: '%',
       range: PERCENT_RANGE
     } );
     this.blueIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'blueIntensityProperty' ),
-      units: 'percent',
+      units: '%',
       range: PERCENT_RANGE
     } );
 
@@ -59,19 +59,19 @@ class RGBModel extends ColorVisionModel {
     // Range is 0-100.
     this.perceivedRedIntensityProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'perceivedRedIntensityProperty' ),
-      units: 'percent',
+      units: '%',
       range: PERCENT_RANGE
     } );
     this.perceivedGreenIntensityProperty = new NumberProperty( 0, {
       value: 0,
       tandem: tandem.createTandem( 'perceivedGreenIntensityProperty' ),
-      units: 'percent',
+      units: '%',
       range: PERCENT_RANGE
     } );
     this.perceivedBlueIntensityProperty = new NumberProperty( 0, {
       value: 0,
       tandem: tandem.createTandem( 'perceivedBlueIntensityProperty' ),
-      units: 'percent',
+      units: '%',
       range: PERCENT_RANGE
     } );
 

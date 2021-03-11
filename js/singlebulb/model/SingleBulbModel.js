@@ -48,14 +48,14 @@ class SingleBulbModel extends ColorVisionModel {
     // @public {Property.<number>} in units of nm, default wavelength is yellow
     this.flashlightWavelengthProperty = new NumberProperty( 570, {
       tandem: flashlightTandem.createTandem( 'flashlightWavelengthProperty' ),
-      units: 'nanometers',
+      units: 'nm',
       range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
     this.filterWavelengthProperty = new NumberProperty( 570, {
       tandem: filterTandem.createTandem( 'filterWavelengthProperty' ),
-      units: 'nanometers',
+      units: 'nm',
       range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
     } );
 
