@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.24 Mon May 10 2021 14:05:38 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.1.25-rc.1 Fri May 14 2021 02:47:04 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "d80183cbb7a02f760a4b660600ed9baa109abf0a",
+    "sha": "63f4e98e3866c4e82a56d1a1e4fca99f6f57f104",
     "branch": "1.1"
   },
   "dot": {
@@ -46,7 +46,7 @@
   },
   "scenery": {
     "sha": "7f82d8f1c65f6f852c8dcc2e1b75b378e09f7d7e",
-    "branch": "color-vision-1.1"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "71937eb4ba428f1a5529b1757caa248fafd93213",
