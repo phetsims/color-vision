@@ -3,7 +3,7 @@
 /**
  * The 'RGB' screen. Conforms to the contract specified in joist/Screen.
  *
- * @author Sam Reid
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Property from '../../../axon/js/Property.js';
