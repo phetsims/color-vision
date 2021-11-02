@@ -81,7 +81,7 @@ class GaussianWavelengthSlider extends Node {
     // create a gaussian shaped curve and set it as the clip area of the container node
     const gaussianCurve = new Shape().moveTo( xOffset, height );
     for ( let i = 0; i <= gaussianWidth; i++ ) {
-      const xCoord = domainLinearFunction( i );
+      const xCoord = domainLinearFunction.evaluate( i );
       gaussianCurve.lineTo( i + xOffset, height - gaussian( xCoord ) * height * 1.2 );
     }
     containerNode.setClipArea( gaussianCurve );
