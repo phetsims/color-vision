@@ -6,7 +6,7 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 
-import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
+import { CanvasNode } from '../../../../scenery/js/imports.js';
 import colorVision from '../../colorVision.js';
 
 class SingleBulbPhotonBeamNode extends CanvasNode {

@@ -6,8 +6,8 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 
-import Image from '../../../../scenery/js/nodes/Image.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import { Image } from '../../../../scenery/js/imports.js';
+import { Node } from '../../../../scenery/js/imports.js';
 import BooleanRoundStickyToggleButton from '../../../../sun/js/buttons/BooleanRoundStickyToggleButton.js';
 import flashlightImage from '../../../images/flashlight-0-deg_png.js';
 import colorVision from '../../colorVision.js';

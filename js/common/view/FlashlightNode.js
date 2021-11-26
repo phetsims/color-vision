@@ -7,9 +7,9 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
-import Image from '../../../../scenery/js/nodes/Image.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
-import Path from '../../../../scenery/js/nodes/Path.js';
+import { Image } from '../../../../scenery/js/imports.js';
+import { Node } from '../../../../scenery/js/imports.js';
+import { Path } from '../../../../scenery/js/imports.js';
 import flashlightImage from '../../../images/flashlight-icon_png.js';
 import colorVision from '../../colorVision.js';
 

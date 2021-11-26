@@ -9,9 +9,9 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
-import Path from '../../../../scenery/js/nodes/Path.js';
-import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
+import { Node } from '../../../../scenery/js/imports.js';
+import { Path } from '../../../../scenery/js/imports.js';
+import { LinearGradient } from '../../../../scenery/js/imports.js';
 import OnOffSwitch from '../../../../sun/js/OnOffSwitch.js';
 import colorVision from '../../colorVision.js';
 
