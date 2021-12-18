@@ -15,12 +15,12 @@ import merge from '../../../../phet-core/js/merge.js';
 import { Image } from '../../../../scenery/js/imports.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
-import headFrontImage from '../../../images/head-front_png.js';
-import silhouetteIcon from '../../../images/head-icon_png.js';
-import headImage from '../../../images/head_png.js';
-import silhouetteFrontImage from '../../../images/silhouette-front_png.js';
-import headIcon from '../../../images/silhouette-icon_png.js';
-import silhouetteImage from '../../../images/silhouette_png.js';
+import headFront_png from '../../../images/headFront_png.js';
+import headIcon_png from '../../../images/headIcon_png.js';
+import head_png from '../../../images/head_png.js';
+import silhouetteFront_png from '../../../images/silhouetteFront_png.js';
+import silhouetteIcon_png from '../../../images/silhouetteIcon_png.js';
+import silhouette_png from '../../../images/silhouette_png.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../ColorVisionConstants.js';
 
@@ -46,10 +46,10 @@ class HeadNode extends Node {
     const headOptions = { bottom: layoutBoundsBottom + BOTTOM_OFFSET, left: 75, scale: SCALE };
 
     // create nodes for each head image
-    const silhouetteNode = new Image( silhouetteImage, silhouetteOptions );
-    const headNode = new Image( headImage, headOptions );
-    const silhouetteFrontNode = new Image( silhouetteFrontImage, silhouetteOptions );
-    const headFrontNode = new Image( headFrontImage, headOptions );
+    const silhouetteNode = new Image( silhouette_png, silhouetteOptions );
+    const headNode = new Image( head_png, headOptions );
+    const silhouetteFrontNode = new Image( silhouetteFront_png, silhouetteOptions );
+    const headFrontNode = new Image( headFront_png, headOptions );
 
     // Make sure only one image is visible at at time, depending on the user's selection
     headModeProperty.link( mode => {
@@ -78,11 +78,11 @@ class HeadNode extends Node {
     // Add head mode toggle
     const toggleButtonsContent = [ {
       value: 'no-brain',
-      node: new Image( silhouetteIcon, { scale: IMAGE_SCALE } ),
+      node: new Image( headIcon_png, { scale: IMAGE_SCALE } ),
       tandemName: 'hideBrainRadioButton'
     }, {
       value: 'brain',
-      node: new Image( headIcon, { scale: IMAGE_SCALE } ),
+      node: new Image( silhouetteIcon_png, { scale: IMAGE_SCALE } ),
       tandemName: 'showBrainRadioButton'
     } ];
 

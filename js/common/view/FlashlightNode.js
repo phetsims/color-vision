@@ -10,7 +10,7 @@ import Shape from '../../../../kite/js/Shape.js';
 import { Image } from '../../../../scenery/js/imports.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import { Path } from '../../../../scenery/js/imports.js';
-import flashlightImage from '../../../images/flashlight-icon_png.js';
+import flashlightIcon_png from '../../../images/flashlightIcon_png.js';
 import colorVision from '../../colorVision.js';
 
 // constants
@@ -28,7 +28,7 @@ class FlashlightNode extends Node {
     super( { rotation: rotation } );
 
     // draw the flashlight image, with the bulb pointed toward the left
-    const flashlightNode = new Image( flashlightImage, { scale: SCALE } );
+    const flashlightNode = new Image( flashlightIcon_png, { scale: SCALE } );
 
     // values used for drawing the beam shape
     const startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight

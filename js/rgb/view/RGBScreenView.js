@@ -10,9 +10,9 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import { Image } from '../../../../scenery/js/imports.js';
 import { VBox } from '../../../../scenery/js/imports.js';
-import flashlightImage from '../../../images/flashlight-0-deg_png.js';
-import flashlightDownImage from '../../../images/flashlight-neg-45-deg_png.js';
-import flashlightUpImage from '../../../images/flashlight-pos-45-deg_png.js';
+import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
+import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
+import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';
@@ -65,9 +65,9 @@ class RGBScreenView extends ColorVisionScreenView {
     this.addChild( headNode );
 
     // Add flashlights
-    const redFlashlightNode = new Image( flashlightDownImage, { scale: FLASHLIGHT_SCALE } );
-    const greenFlashlightNode = new Image( flashlightImage, { scale: FLASHLIGHT_SCALE } );
-    const blueFlashlightNode = new Image( flashlightUpImage, { scale: FLASHLIGHT_SCALE } );
+    const redFlashlightNode = new Image( flashlightNeg45Deg_png, { scale: FLASHLIGHT_SCALE } );
+    const greenFlashlightNode = new Image( flashlight0Deg_png, { scale: FLASHLIGHT_SCALE } );
+    const blueFlashlightNode = new Image( flashlightPos45Deg_png, { scale: FLASHLIGHT_SCALE } );
 
     const flashlightVBox = new VBox( {
       children: [

@@ -1,5 +1,5 @@
 {
-  "beam-view-icon.png": {
+  "beamViewIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -7,7 +7,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "filter-left.png": {
+  "filterLeft.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -15,7 +15,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "filter-right.png": {
+  "filterRight.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -23,7 +23,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "flashlight-icon.png": {
+  "flashlightIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -31,7 +31,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "flashlight-0-deg.png": {
+  "flashlight0Deg.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -39,7 +39,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "flashlight-neg-45-deg.png": {
+  "flashlightNeg45Deg.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -47,7 +47,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "flashlight-pos-45-deg.png": {
+  "flashlightPos45Deg.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -63,7 +63,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by M Fowler"
   },
-  "head-front.png": {
+  "headFront.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -71,7 +71,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by M Fowler"
   },
-  "head-icon.png": {
+  "headIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -79,7 +79,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "photon-view-icon.png": {
+  "photonViewIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -87,7 +87,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "created by Bryce Gruneich"
   },
-  "single-color-light-icon.png": {
+  "singleColorLightIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -103,7 +103,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "Modified from the colorized versions"
   },
-  "silhouette-front.png": {
+  "silhouetteFront.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -111,7 +111,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "Modified from the colorized versions"
   },
-  "silhouette-icon.png": {
+  "silhouetteIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],
@@ -119,7 +119,7 @@
     "license": "contact phethelp@colorado.edu",
     "notes": "Modified from the colorized versions"
   },
-  "white-light-icon.png": {
+  "whiteLightIcon.png": {
     "text": [
       "Copyright 2002-2015 University of Colorado Boulder"
     ],

@@ -15,12 +15,12 @@ import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
 import { Image } from '../../../../scenery/js/imports.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
-import beamViewIcon from '../../../images/beam-view-icon_png.js';
-import filterLeftImage from '../../../images/filter-left_png.js';
-import filterRightImage from '../../../images/filter-right_png.js';
-import photonViewIcon from '../../../images/photon-view-icon_png.js';
-import singleColorLightIcon from '../../../images/single-color-light-icon_png.js';
-import whiteLightIcon from '../../../images/white-light-icon_png.js';
+import beamViewIcon_png from '../../../images/beamViewIcon_png.js';
+import filterLeft_png from '../../../images/filterLeft_png.js';
+import filterRight_png from '../../../images/filterRight_png.js';
+import photonViewIcon_png from '../../../images/photonViewIcon_png.js';
+import singleColorLightIcon_png from '../../../images/singleColorLightIcon_png.js';
+import whiteLightIcon_png from '../../../images/whiteLightIcon_png.js';
 import colorVision from '../../colorVision.js';
 import colorVisionStrings from '../../colorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
@@ -118,11 +118,11 @@ class SingleBulbScreenView extends ColorVisionScreenView {
 
     const whiteColoredButtonsContent = [ {
       value: 'white',
-      node: new Image( whiteLightIcon, ICON_OPTIONS ),
+      node: new Image( whiteLightIcon_png, ICON_OPTIONS ),
       tandemName: 'whiteLightRadioButton'
     }, {
       value: 'colored',
-      node: new Image( singleColorLightIcon, ICON_OPTIONS ),
+      node: new Image( singleColorLightIcon_png, ICON_OPTIONS ),
       tandemName: 'coloredLightRadioButton'
     } ];
 
@@ -135,11 +135,11 @@ class SingleBulbScreenView extends ColorVisionScreenView {
 
     const beamPhotonButtonsContent = [ {
       value: 'beam',
-      node: new Image( beamViewIcon, ICON_OPTIONS ),
+      node: new Image( beamViewIcon_png, ICON_OPTIONS ),
       tandemName: 'beamRadioButton'
     }, {
       value: 'photon',
-      node: new Image( photonViewIcon, ICON_OPTIONS ),
+      node: new Image( photonViewIcon_png, ICON_OPTIONS ),
       tandemName: 'photonRadioButton'
     } ];
 
@@ -164,8 +164,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     // Add the circular filter images into the scene
     // Note: In Chrome, there is a 1px wide white line that can been seen separating the two image halves,
     // seen in both Windows and OSX. So far, it has seemed minor enough to ignore.
-    const filterLeftNode = new Image( filterLeftImage, filterOptions );
-    const filterRightNode = new Image( filterRightImage, filterOptions );
+    const filterLeftNode = new Image( filterLeft_png, filterOptions );
+    const filterRightNode = new Image( filterRight_png, filterOptions );
     model.filterVisibleProperty.linkAttribute( filterLeftNode, 'visible' );
     model.filterVisibleProperty.linkAttribute( filterRightNode, 'visible' );
 

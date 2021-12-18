@@ -9,7 +9,7 @@
 import { Image } from '../../../../scenery/js/imports.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import BooleanRoundStickyToggleButton from '../../../../sun/js/buttons/BooleanRoundStickyToggleButton.js';
-import flashlightImage from '../../../images/flashlight-0-deg_png.js';
+import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import colorVision from '../../colorVision.js';
 
 class FlashlightWithButtonNode extends Node {
@@ -23,7 +23,7 @@ class FlashlightWithButtonNode extends Node {
 
     super();
 
-    const flashlightNode = new Image( flashlightImage, { scale: 0.85 } );
+    const flashlightNode = new Image( flashlight0Deg_png, { scale: 0.85 } );
 
     const button = new BooleanRoundStickyToggleButton( onProperty, {
       centerY: flashlightNode.centerY,
