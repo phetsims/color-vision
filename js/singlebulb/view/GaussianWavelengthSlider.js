@@ -10,7 +10,7 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import LinearFunction from '../../../../dot/js/LinearFunction.js';
 import Utils from '../../../../dot/js/Utils.js';
-import Shape from '../../../../kite/js/Shape.js';
+import { Shape } from '../../../../kite/js/imports.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
 import WavelengthSpectrumNode from '../../../../scenery-phet/js/WavelengthSpectrumNode.js';
