@@ -9,19 +9,19 @@ import colorVision from './colorVision.js';
 
 type StringsType = {
   'filterSlider': {
-    'label': string
-  },
+    'label': string;
+  };
   'RgbBulbsModule': {
-    'title': string
-  },
+    'title': string;
+  };
   'color-vision': {
-    'title': string
-  },
+    'title': string;
+  };
   'bulbSlider': {
-    'label': string
-  },
+    'label': string;
+  };
   'SingleBulbModule': {
-    'title': string
+    'title': string;
   }
 };
 
