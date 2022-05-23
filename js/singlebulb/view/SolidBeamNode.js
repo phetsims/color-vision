@@ -7,7 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import { Node } from '../../../../scenery/js/imports.js';
@@ -80,7 +80,7 @@ class SolidBeamNode extends Node {
     } );
 
     // listen for any changes to the model that condition when the beam should be white.
-    Property.multilink( [
+    Multilink.multilink( [
         model.flashlightWavelengthProperty,
         model.filterWavelengthProperty,
         model.lightTypeProperty,
@@ -110,7 +110,7 @@ class SolidBeamNode extends Node {
       ( flashlightOn, beamType ) => flashlightOn && beamType === 'beam' );
     visibleProperty.linkAttribute( this, 'visible' );
 
-    Property.multilink( [ model.perceivedColorProperty, visibleProperty ],
+    Multilink.multilink( [ model.perceivedColorProperty, visibleProperty ],
       ( perceivedColor, visible ) => {
         if ( visible ) {
           // scale the alpha between 0 and DEFAULT_BEAM_ALPHA instead of 0 and 1 so the beam always retains some transparency
