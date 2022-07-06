@@ -109,12 +109,14 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     this.addChild( flashlightWire );
     this.addChild( bulbColorSlider );
 
-    // options common to all IconToggleNodes
-    const iconToggleOptions = merge( {
+    // options common to all RectangularRadioButtonGroups
+    const radioButtonGroupOptions = merge( {
       left: flashlightNode.left,
-      buttonContentXMargin: 2,
-      buttonContentYMargin: 2
-    }, ColorVisionConstants.RADIO_BUTTON_OPTIONS );
+      radioButtonOptions: {
+        xMargin: 2,
+        yMargin: 2
+      }
+    }, ColorVisionConstants.RADIO_BUTTON_GROUP_OPTIONS );
 
     const whiteColoredButtonsContent = [ {
       value: 'white',
@@ -130,7 +132,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       merge( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
-      }, iconToggleOptions )
+      }, radioButtonGroupOptions )
     );
 
     const beamPhotonButtonsContent = [ {
@@ -147,7 +149,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       merge( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
-      }, iconToggleOptions )
+      }, radioButtonGroupOptions )
     );
 
     this.addChild( whiteColoredRadioButtonGroup );

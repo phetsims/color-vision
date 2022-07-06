@@ -87,12 +87,14 @@ class HeadNode extends Node {
     } ];
 
     const radioButtonGroup = new RectangularRadioButtonGroup( headModeProperty, toggleButtonsContent, merge( {
-      buttonContentXMargin: 4,
-      buttonContentYMargin: 4,
+      radioButtonOptions: {
+        xMargin: 4,
+        yMargin: 4
+      },
       bottom: layoutBoundsBottom - 22,
       centerX: silhouetteNode.centerX - 42,
       tandem: tandem.createTandem( 'radioButtonGroup' )
-    }, ColorVisionConstants.RADIO_BUTTON_OPTIONS ) );
+    }, ColorVisionConstants.RADIO_BUTTON_GROUP_OPTIONS ) );
     this.addChild( radioButtonGroup );
   }
 }

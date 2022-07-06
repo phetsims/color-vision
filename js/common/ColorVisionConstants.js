@@ -27,15 +27,17 @@ const ColorVisionConstants = {
   HOME_SCREEN_ICON_OPTIONS: { fill: 'rgb(20,20,20)' },
   NAVBAR_ICON_OPTIONS: { fill: 'black' },
 
-  // options common to the radio buttons in both SingleBulbScreenView and HeadNode
-  RADIO_BUTTON_OPTIONS: {
-    baseColor: 'black',
-    selectedStroke: 'yellow',
-    deselectedStroke: 'yellow',
-    selectedLineWidth: 1.3,
-    deselectedLineWidth: 0.6,
+  // options common to the radio buttons groups in both SingleBulbScreenView and HeadNode
+  RADIO_BUTTON_GROUP_OPTIONS: {
     orientation: 'horizontal',
-    spacing: 13
+    spacing: 13,
+    radioButtonOptions: {
+      baseColor: 'black',
+      selectedStroke: 'yellow',
+      deselectedStroke: 'yellow',
+      selectedLineWidth: 1.3,
+      deselectedLineWidth: 0.6
+    }
   }
 };
 
