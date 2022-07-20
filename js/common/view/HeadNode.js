@@ -12,15 +12,14 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import { Image, Node } from '../../../../scenery/js/imports.js';
 import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
+import head_png from '../../../images/head_png.js';
 import headFront_png from '../../../images/headFront_png.js';
 import headIcon_png from '../../../images/headIcon_png.js';
-import head_png from '../../../images/head_png.js';
+import silhouette_png from '../../../images/silhouette_png.js';
 import silhouetteFront_png from '../../../images/silhouetteFront_png.js';
 import silhouetteIcon_png from '../../../images/silhouetteIcon_png.js';
-import silhouette_png from '../../../images/silhouette_png.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../ColorVisionConstants.js';
 

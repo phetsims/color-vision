@@ -7,9 +7,7 @@
  */
 
 import { Shape } from '../../../../kite/js/imports.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Path } from '../../../../scenery/js/imports.js';
+import { Image, Node, Path } from '../../../../scenery/js/imports.js';
 import flashlightIcon_png from '../../../images/flashlightIcon_png.js';
 import colorVision from '../../colorVision.js';
 

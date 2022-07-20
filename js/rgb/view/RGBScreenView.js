@@ -8,8 +8,7 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import { VBox } from '../../../../scenery/js/imports.js';
+import { Image, VBox } from '../../../../scenery/js/imports.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
