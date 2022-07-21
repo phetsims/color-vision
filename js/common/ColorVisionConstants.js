@@ -33,10 +33,12 @@ const ColorVisionConstants = {
     spacing: 13,
     radioButtonOptions: {
       baseColor: 'black',
-      selectedStroke: 'yellow',
-      deselectedStroke: 'yellow',
-      selectedLineWidth: 1.3,
-      deselectedLineWidth: 0.6
+      buttonAppearanceStrategyOptions: {
+        selectedStroke: 'yellow',
+        deselectedStroke: 'yellow',
+        selectedLineWidth: 1.3,
+        deselectedLineWidth: 0.6
+      }
     }
   }
 };
