@@ -17,6 +17,9 @@
       "phet-io",
       "adapted-from-phet"
     ],
+    "simFeatures": {
+      "supportsSound": true
+    },
     "simulation": true,
     "supportsOutputJS": true
   },
