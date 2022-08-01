@@ -30,6 +30,7 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
 
     super( options );
 
+    // Create sound clips for the three light ranges, i.e. R, G, and B.
     const highRangeSoundClip = new SoundClip( colorVisionAmbienceHigh_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
     highRangeSoundClip.connect( this.masterGainNode );
     const midRangeSoundClip = new SoundClip( colorVisionAmbienceMid_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
@@ -37,6 +38,7 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
     const lowRangeSoundClip = new SoundClip( colorVisionAmbienceLow_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
     lowRangeSoundClip.connect( this.masterGainNode );
 
+    // Adjust the volume of the sound clips based on the levels of the constituent colors.
     perceivedColorProperty.link( pc => {
       adjustSoundLevel( pc.r, lowRangeSoundClip );
       adjustSoundLevel( pc.g, midRangeSoundClip );
