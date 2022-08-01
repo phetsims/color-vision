@@ -39,10 +39,11 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
     lowRangeSoundClip.connect( this.masterGainNode );
 
     // Adjust the volume of the sound clips based on the levels of the constituent colors.
-    perceivedColorProperty.link( pc => {
-      adjustSoundLevel( pc.r, lowRangeSoundClip );
-      adjustSoundLevel( pc.g, midRangeSoundClip );
-      adjustSoundLevel( pc.b, highRangeSoundClip );
+    perceivedColorProperty.link( perceivedColor => {
+      console.log( `perceivedColor = ${perceivedColor}` );
+      adjustSoundLevel( perceivedColor.r, lowRangeSoundClip );
+      adjustSoundLevel( perceivedColor.g, midRangeSoundClip );
+      adjustSoundLevel( perceivedColor.b, highRangeSoundClip );
     } );
   }
 }
