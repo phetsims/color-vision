@@ -47,7 +47,6 @@ class SingleBulbPhotonBeam extends PhetioObject {
     this.repaintEmitter = new Emitter();
   }
 
-
   // @public
   updateAnimationFrame( dt ) {
 
@@ -58,7 +57,7 @@ class SingleBulbPhotonBeam extends PhetioObject {
     for ( let j = 0; j < this.photons.length; j++ ) {
       const photon = this.photons[ j ];
 
-      // calculate the new position of the photon in order to check whether will still be in bounds
+      // calculate the new position of the photon in order to check whether it will still be in bounds
       const newX = photon.position.x + dt * photon.velocity.x;
       const newY = photon.position.y + dt * photon.velocity.y;
 
@@ -110,9 +109,22 @@ class SingleBulbPhotonBeam extends PhetioObject {
         photon.updateAnimationFrame( newX, newY );
       }
 
-      // if the photon goes out of bounds, update the lastPhotonColor property, which is used in determining the perceived color
+      // if the photon goes out of bounds, update the lastPhotonColor Property, which is used in determining the perceived color
       else {
-        const newPerceivedColor = ( photon.isWhite ) ? Color.WHITE : photon.color.withAlpha( photon.intensity );
+
+        // the perceived color, and in particular its intensity, is based in part on whether it is or was white
+        let newPerceivedColor;
+        if ( photon.isWhite ) {
+          newPerceivedColor = Color.WHITE;
+        }
+        else {
+          if ( photon.wasWhite ) {
+            newPerceivedColor = photon.color;
+          }
+          else {
+            newPerceivedColor = photon.color.withAlpha( photon.intensity );
+          }
+        }
 
         // don't update the lastPhotonColor unless it is different than before, for performance reasons
         // and don't bother to update the color if the view is on beam mode
