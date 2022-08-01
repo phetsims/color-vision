@@ -18,6 +18,7 @@
       "adapted-from-phet"
     ],
     "simFeatures": {
+      "supportsInteractiveDescription": true,
       "supportsSound": true
     },
     "simulation": true,
