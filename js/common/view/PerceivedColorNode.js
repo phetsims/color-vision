@@ -41,9 +41,10 @@ class PerceivedColorNode extends Path {
     perceivedColorProperty.linkAttribute( this, 'fill' );
 
     // sound generation
-    soundManager.addSoundGenerator( new PerceivedColorSoundGenerator( perceivedColorProperty, {
-      initialOutputLevel: 0.1
-    } ) );
+    soundManager.addSoundGenerator(
+      new PerceivedColorSoundGenerator( perceivedColorProperty, { initialOutputLevel: 0.1 } ),
+      { associatedViewNode: this }
+    );
   }
 }
 
