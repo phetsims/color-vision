@@ -31,10 +31,10 @@ class ColorVisionScreenView extends ScreenView {
       left: 20,
       top: 5
     } );
-    this.addChild( perceivedColorNode );
+    this.pdomControlAreaNode.addChild( perceivedColorNode );
 
-    // add the play/pause and step buttons
-    const timeControlNode = new TimeControlNode( model.playingProperty, {
+    // @protected (read-only) {TimeControlNode} - the play/pause and step buttons
+    this.timeControlNode = new TimeControlNode( model.playingProperty, {
       bottom: this.layoutBounds.bottom - 20,
       centerX: this.layoutBounds.centerX - 3,
       playPauseStepButtonOptions: {
@@ -45,17 +45,17 @@ class ColorVisionScreenView extends ScreenView {
       },
       tandem: tandem.createTandem( 'timeControlNode' )
     } );
-    this.addChild( timeControlNode );
+    this.pdomControlAreaNode.addChild( this.timeControlNode );
 
-    // Reset All button
-    const resetAllButton = new ResetAllButton( {
+    // @protected (read-only) {ResetAllButton} - the Reset All button
+    this.resetAllButton = new ResetAllButton( {
       listener: () => { model.reset(); },
       bottom: this.layoutBounds.bottom - 5,
       right: this.layoutBounds.right - 30,
       radius: 18,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
-    this.addChild( resetAllButton );
+    this.pdomControlAreaNode.addChild( this.resetAllButton );
   }
 }
 

@@ -89,7 +89,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       maxWidth: 0.85 * bulbColorSlider.width,
       tandem: tandem.createTandem( 'bulbColorText' )
     } );
-    this.addChild( bulbColorTextNode );
+    this.pdomControlAreaNode.addChild( bulbColorTextNode );
 
     // Add wire from flashlight to WavelengthSlider
     const flashlightWire = new FlashlightWireNode(
@@ -105,8 +105,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       flashlightWire.visible = coloredLight;
     } );
 
-    this.addChild( flashlightWire );
-    this.addChild( bulbColorSlider );
+    this.pdomControlAreaNode.addChild( flashlightWire );
+    this.pdomControlAreaNode.addChild( bulbColorSlider );
 
     // options common to all RectangularRadioButtonGroups
     const radioButtonGroupOptions = merge( {
@@ -151,8 +151,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       }, radioButtonGroupOptions )
     );
 
-    this.addChild( whiteColoredRadioButtonGroup );
-    this.addChild( beamPhotonRadioButtonGroup );
+    this.pdomControlAreaNode.addChild( whiteColoredRadioButtonGroup );
+    this.pdomControlAreaNode.addChild( beamPhotonRadioButtonGroup );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same and will match up perfectly
@@ -197,17 +197,18 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       maxWidth: 0.85 * gaussianSlider.width,
       tandem: tandem.createTandem( 'filterColorTextNode' )
     } );
-    this.addChild( filterColorTextNode );
+    this.pdomControlAreaNode.addChild( filterColorTextNode );
 
     // Add the wire from the slider to the filter
-    this.addChild( new FilterWireNode(
+    const filterWireNode = new FilterWireNode(
       model.filterVisibleProperty,
       new Vector2( filterLeftNode.centerX, filterLeftNode.bottom ),
       new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
       tandem.createTandem( 'filterWireNode' )
-    ) );
+    );
+    this.pdomControlAreaNode.addChild( filterWireNode );
 
-    this.addChild( gaussianSlider );
+    this.pdomControlAreaNode.addChild( gaussianSlider );
 
     // Left half of the filter
     const filterLeft = new FilterHalfEllipse(
@@ -242,19 +243,37 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     const solidBeam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter before the solid beam and the left side
-    this.addChild( filterRightNode );
-    this.addChild( filterRight );
+    this.pdomControlAreaNode.addChild( filterRightNode );
+    this.pdomControlAreaNode.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
-    const headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, [ solidBeam, this.photonBeamNode ], tandem.createTandem( 'headNode' ) );
-    this.addChild( headNode );
+    const headNode = new HeadNode(
+      model.headModeProperty,
+      this.layoutBounds.bottom,
+      [ solidBeam, this.photonBeamNode ],
+      tandem.createTandem( 'headNode' )
+    );
+    this.pdomControlAreaNode.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind
-    this.addChild( filterLeftNode );
-    this.addChild( filterLeft );
+    this.pdomControlAreaNode.addChild( filterLeftNode );
+    this.pdomControlAreaNode.addChild( filterLeft );
 
     // flashlight is added after the beams so it covers up the beginning of the beam
-    this.addChild( flashlightNode );
+    this.pdomControlAreaNode.addChild( flashlightNode );
+
+    // set the tab navigation order
+    this.pdomControlAreaNode.pdomOrder = [
+      flashlightNode,
+      bulbColorSlider,
+      whiteColoredRadioButtonGroup,
+      beamPhotonRadioButtonGroup,
+      filterWireNode,
+      gaussianSlider,
+      headNode,
+      this.timeControlNode,
+      this.resetAllButton
+    ];
   }
 
   // @public
