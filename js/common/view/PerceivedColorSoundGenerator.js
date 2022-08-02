@@ -23,7 +23,7 @@ const CONSTITUENT_SOUND_CLIP_OPTIONS = {
 class PerceivedColorSoundGenerator extends SoundGenerator {
 
   /**
-   * @param {Property.<Color|string>} perceivedColorProperty
+   * @param {Property.<Color>} perceivedColorProperty
    * @param {SoundGeneratorOptions} [options]
    */
   constructor( perceivedColorProperty, options ) {

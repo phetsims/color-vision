@@ -17,9 +17,10 @@ class PerceivedColorNode extends Path {
 
   /**
    * @param {Property.<Color>} perceivedColorProperty
+   * @param {Property.<boolean>} simPlayingProperty
    * @param {Object} [options]
    */
-  constructor( perceivedColorProperty, options ) {
+  constructor( perceivedColorProperty, simPlayingProperty, options ) {
 
     options = merge( {
       lineWidth: 0.5,
@@ -42,7 +43,10 @@ class PerceivedColorNode extends Path {
 
     // sound generation
     soundManager.addSoundGenerator(
-      new PerceivedColorSoundGenerator( perceivedColorProperty, { initialOutputLevel: 0.1 } ),
+      new PerceivedColorSoundGenerator( perceivedColorProperty, {
+        initialOutputLevel: 0.1,
+        enableControlProperties: [ simPlayingProperty ]
+      } ),
       { associatedViewNode: this }
     );
   }

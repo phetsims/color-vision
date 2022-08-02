@@ -27,7 +27,7 @@ class ColorVisionScreenView extends ScreenView {
     } );
 
     // 'Thought bubbles' that display perceived color
-    const perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty, {
+    const perceivedColorNode = new PerceivedColorNode( model.perceivedColorProperty, model.playingProperty, {
       left: 20,
       top: 5
     } );
