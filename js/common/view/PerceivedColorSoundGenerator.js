@@ -40,16 +40,16 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
 
     // Adjust the volume of the sound clips based on the levels of the constituent colors.
     perceivedColorProperty.link( perceivedColor => {
-      adjustSoundLevel( perceivedColor.r, lowRangeSoundClip );
-      adjustSoundLevel( perceivedColor.g, midRangeSoundClip );
-      adjustSoundLevel( perceivedColor.b, highRangeSoundClip );
+      adjustSoundLevel( perceivedColor.r, perceivedColor.a, lowRangeSoundClip );
+      adjustSoundLevel( perceivedColor.g, perceivedColor.a, midRangeSoundClip );
+      adjustSoundLevel( perceivedColor.b, perceivedColor.a, highRangeSoundClip );
     } );
   }
 }
 
 // helper function to avoid code duplication
-const adjustSoundLevel = ( colorLevel, soundClip ) => {
-  const normalizedColorLevel = Utils.clamp( colorLevel / 255, 0, 1 );
+const adjustSoundLevel = ( colorLevel, alpha, soundClip ) => {
+  const normalizedColorLevel = Utils.clamp( ( colorLevel * alpha ) / 255, 0, 1 );
   if ( normalizedColorLevel === 0 && soundClip.isPlaying ) {
     soundClip.stop();
   }
