@@ -11,14 +11,28 @@ import Utils from '../../../../dot/js/Utils.js';
 import SoundClip from '../../../../tambo/js/sound-generators/SoundClip.js';
 import SoundGenerator from '../../../../tambo/js/sound-generators/SoundGenerator.js';
 import colorVisionHighAmbienceV2_mp3 from '../../../sounds/colorVisionHighAmbienceV2_mp3.js';
-import colorVisionMidAmbienceV2_mp3 from '../../../sounds/colorVisionMidAmbienceV2_mp3.js';
+import colorVisionIndividualNotesChord01_mp3 from '../../../sounds/colorVisionIndividualNotesChord01_mp3.js';
+import colorVisionIndividualNotesChord02_mp3 from '../../../sounds/colorVisionIndividualNotesChord02_mp3.js';
+import colorVisionIndividualNotesChord03_mp3 from '../../../sounds/colorVisionIndividualNotesChord03_mp3.js';
+import colorVisionIndividualNotesOctave01_mp3 from '../../../sounds/colorVisionIndividualNotesOctave01_mp3.js';
+import colorVisionIndividualNotesOctave02_mp3 from '../../../sounds/colorVisionIndividualNotesOctave02_mp3.js';
+import colorVisionIndividualNotesOctave03_mp3 from '../../../sounds/colorVisionIndividualNotesOctave03_mp3.js';
 import colorVisionLowAmbienceV2_mp3 from '../../../sounds/colorVisionLowAmbienceV2_mp3.js';
+import colorVisionMidAmbienceV2_mp3 from '../../../sounds/colorVisionMidAmbienceV2_mp3.js';
 import colorVision from '../../colorVision.js';
 
 // constants
 const CONSTITUENT_SOUND_CLIP_OPTIONS = {
   loop: true
 };
+
+const SOUND_SETS = [
+  [ colorVisionLowAmbienceV2_mp3, colorVisionMidAmbienceV2_mp3, colorVisionHighAmbienceV2_mp3 ],
+  [ colorVisionIndividualNotesChord01_mp3, colorVisionIndividualNotesChord02_mp3, colorVisionIndividualNotesChord03_mp3 ],
+  [ colorVisionIndividualNotesOctave01_mp3, colorVisionIndividualNotesOctave02_mp3, colorVisionIndividualNotesOctave03_mp3 ]
+];
+
+const SOUND_SET = SOUND_SETS[ 2 ];
 
 class PerceivedColorSoundGenerator extends SoundGenerator {
 
@@ -31,12 +45,12 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
     super( options );
 
     // Create sound clips for the three light ranges, i.e. R, G, and B.
-    const highRangeSoundClip = new SoundClip( colorVisionHighAmbienceV2_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
-    highRangeSoundClip.connect( this.masterGainNode );
-    const midRangeSoundClip = new SoundClip( colorVisionMidAmbienceV2_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
-    midRangeSoundClip.connect( this.masterGainNode );
-    const lowRangeSoundClip = new SoundClip( colorVisionLowAmbienceV2_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
+    const lowRangeSoundClip = new SoundClip( SOUND_SET[ 0 ], CONSTITUENT_SOUND_CLIP_OPTIONS );
     lowRangeSoundClip.connect( this.masterGainNode );
+    const midRangeSoundClip = new SoundClip( SOUND_SET[ 1 ], CONSTITUENT_SOUND_CLIP_OPTIONS );
+    midRangeSoundClip.connect( this.masterGainNode );
+    const highRangeSoundClip = new SoundClip( SOUND_SET[ 2 ], CONSTITUENT_SOUND_CLIP_OPTIONS );
+    highRangeSoundClip.connect( this.masterGainNode );
 
     // Adjust the volume of the sound clips based on the levels of the constituent colors.
     perceivedColorProperty.link( perceivedColor => {
