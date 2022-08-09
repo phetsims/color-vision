@@ -7,6 +7,10 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
+// TODO: There are a number of build- or run-time options in this file for different sounds.  They exists to support
+//       comparisons between different options in the sound design, and should be removed once the design is finalized.
+//       see https://github.com/phetsims/color-vision/issues/139.
+
 import Utils from '../../../../dot/js/Utils.js';
 import SoundClip from '../../../../tambo/js/sound-generators/SoundClip.js';
 import SoundGenerator from '../../../../tambo/js/sound-generators/SoundGenerator.js';
