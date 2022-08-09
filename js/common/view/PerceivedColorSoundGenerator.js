@@ -11,6 +11,7 @@
 //       comparisons between different options in the sound design, and should be removed once the design is finalized.
 //       see https://github.com/phetsims/color-vision/issues/139.
 
+import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
 import SoundClip from '../../../../tambo/js/sound-generators/SoundClip.js';
 import SoundGenerator from '../../../../tambo/js/sound-generators/SoundGenerator.js';
@@ -36,7 +37,13 @@ const SOUND_SETS = [
   [ colorVisionIndividualNotesOctave01_mp3, colorVisionIndividualNotesOctave02_mp3, colorVisionIndividualNotesOctave03_mp3 ]
 ];
 
-const SOUND_SET = SOUND_SETS[ 2 ];
+const SOUND_SET = SOUND_SETS[ 1 ];
+
+const USE_FILTERS = true;
+
+const LOW_FILTER_RANGE = new Range( 200, 2000 );
+const MID_FILTER_RANGE = new Range( 200, 4000 );
+const HIGH_FILTER_RANGE = new Range( 300, 8000 );
 
 class PerceivedColorSoundGenerator extends SoundGenerator {
 
@@ -50,22 +57,56 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
 
     // Create sound clips for the three light ranges, i.e. R, G, and B.
     const lowRangeSoundClip = new SoundClip( SOUND_SET[ 0 ], CONSTITUENT_SOUND_CLIP_OPTIONS );
-    lowRangeSoundClip.connect( this.masterGainNode );
     const midRangeSoundClip = new SoundClip( SOUND_SET[ 1 ], CONSTITUENT_SOUND_CLIP_OPTIONS );
-    midRangeSoundClip.connect( this.masterGainNode );
     const highRangeSoundClip = new SoundClip( SOUND_SET[ 2 ], CONSTITUENT_SOUND_CLIP_OPTIONS );
-    highRangeSoundClip.connect( this.masterGainNode );
 
-    // Adjust the volume of the sound clips based on the levels of the constituent colors.
+    // Create the filters that will be used to alter the source sounds if they are turned on.
+    let lowFilter = null;
+    let midFilter = null;
+    let highFilter = null;
+    if ( USE_FILTERS ) {
+      const now = this.audioContext.currentTime;
+      lowFilter = this.audioContext.createBiquadFilter();
+      lowFilter.type = 'lowpass';
+      lowFilter.frequency.setValueAtTime( LOW_FILTER_RANGE.min, now );
+      midFilter = this.audioContext.createBiquadFilter();
+      midFilter.type = 'lowpass';
+      midFilter.frequency.setValueAtTime( MID_FILTER_RANGE.min, now );
+      highFilter = this.audioContext.createBiquadFilter();
+      highFilter.type = 'lowpass';
+      highFilter.frequency.setValueAtTime( HIGH_FILTER_RANGE.min, now );
+
+      // Wire up the audio path.
+      lowRangeSoundClip.connect( lowFilter );
+      lowFilter.connect( this.masterGainNode );
+      midRangeSoundClip.connect( midFilter );
+      midFilter.connect( this.masterGainNode );
+      highRangeSoundClip.connect( highFilter );
+      highFilter.connect( this.masterGainNode );
+    }
+    else {
+      lowRangeSoundClip.connect( this.masterGainNode );
+      midRangeSoundClip.connect( this.masterGainNode );
+      highRangeSoundClip.connect( this.masterGainNode );
+    }
+
+    // Adjust the audio based on the perceived color.  This may lead to changes in volume or filter frequencies.
     perceivedColorProperty.link( perceivedColor => {
-      adjustSoundLevel( perceivedColor.r, perceivedColor.a, lowRangeSoundClip );
-      adjustSoundLevel( perceivedColor.g, perceivedColor.a, midRangeSoundClip );
-      adjustSoundLevel( perceivedColor.b, perceivedColor.a, highRangeSoundClip );
+      if ( USE_FILTERS ) {
+        adjustAudio( perceivedColor.r, perceivedColor.a, lowRangeSoundClip, lowFilter, LOW_FILTER_RANGE );
+        adjustAudio( perceivedColor.g, perceivedColor.a, midRangeSoundClip, midFilter, MID_FILTER_RANGE );
+        adjustAudio( perceivedColor.b, perceivedColor.a, highRangeSoundClip, highFilter, HIGH_FILTER_RANGE );
+      }
+      else {
+        adjustSoundLevel( perceivedColor.r, perceivedColor.a, lowRangeSoundClip );
+        adjustSoundLevel( perceivedColor.g, perceivedColor.a, midRangeSoundClip );
+        adjustSoundLevel( perceivedColor.b, perceivedColor.a, highRangeSoundClip );
+      }
     } );
   }
 }
 
-// helper function to avoid code duplication
+// helper function to adjust output level, created to avoid code duplication
 const adjustSoundLevel = ( colorLevel, alpha, soundClip ) => {
   const normalizedColorLevel = Utils.clamp( ( colorLevel * alpha ) / 255, 0, 1 );
   if ( normalizedColorLevel === 0 && soundClip.isPlaying ) {
@@ -75,6 +116,18 @@ const adjustSoundLevel = ( colorLevel, alpha, soundClip ) => {
     soundClip.play();
   }
   soundClip.setOutputLevel( normalizedColorLevel );
+};
+
+// helper function to adjust filter cutoff frequency and sound clip output level, created to avoid code duplication
+const adjustAudio = ( colorLevel, alpha, soundClip, filter, filterRange ) => {
+  const normalizedColorLevel = Utils.clamp( ( colorLevel * alpha ) / 255, 0, 1 );
+  if ( normalizedColorLevel === 0 && soundClip.isPlaying ) {
+    soundClip.stop();
+  }
+  else if ( normalizedColorLevel > 0 && !soundClip.isPlaying ) {
+    soundClip.play();
+  }
+  filter.frequency.setValueAtTime( filterRange.expandNormalizedValue( Math.pow( normalizedColorLevel, 4 ) ), 0 );
 };
 
 colorVision.register( 'PerceivedColorSoundGenerator', PerceivedColorSoundGenerator );
