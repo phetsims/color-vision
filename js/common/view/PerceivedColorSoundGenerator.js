@@ -10,9 +10,9 @@
 import Utils from '../../../../dot/js/Utils.js';
 import SoundClip from '../../../../tambo/js/sound-generators/SoundClip.js';
 import SoundGenerator from '../../../../tambo/js/sound-generators/SoundGenerator.js';
-import colorVisionAmbienceHigh_mp3 from '../../../sounds/colorVisionAmbienceHigh_mp3.js';
-import colorVisionAmbienceLow_mp3 from '../../../sounds/colorVisionAmbienceLow_mp3.js';
-import colorVisionAmbienceMid_mp3 from '../../../sounds/colorVisionAmbienceMid_mp3.js';
+import colorVisionHighAmbienceV2_mp3 from '../../../sounds/colorVisionHighAmbienceV2_mp3.js';
+import colorVisionMidAmbienceV2_mp3 from '../../../sounds/colorVisionMidAmbienceV2_mp3.js';
+import colorVisionLowAmbienceV2_mp3 from '../../../sounds/colorVisionLowAmbienceV2_mp3.js';
 import colorVision from '../../colorVision.js';
 
 // constants
@@ -31,11 +31,11 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
     super( options );
 
     // Create sound clips for the three light ranges, i.e. R, G, and B.
-    const highRangeSoundClip = new SoundClip( colorVisionAmbienceHigh_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
+    const highRangeSoundClip = new SoundClip( colorVisionHighAmbienceV2_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
     highRangeSoundClip.connect( this.masterGainNode );
-    const midRangeSoundClip = new SoundClip( colorVisionAmbienceMid_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
+    const midRangeSoundClip = new SoundClip( colorVisionMidAmbienceV2_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
     midRangeSoundClip.connect( this.masterGainNode );
-    const lowRangeSoundClip = new SoundClip( colorVisionAmbienceLow_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
+    const lowRangeSoundClip = new SoundClip( colorVisionLowAmbienceV2_mp3, CONSTITUENT_SOUND_CLIP_OPTIONS );
     lowRangeSoundClip.connect( this.masterGainNode );
 
     // Adjust the volume of the sound clips based on the levels of the constituent colors.
