@@ -108,7 +108,7 @@ class RGBModel extends ColorVisionModel {
         Math.floor( greenIntensity * COLOR_SCALE_FACTOR ),
         Math.floor( blueIntensity * COLOR_SCALE_FACTOR ) ), {
         tandem: tandem.createTandem( 'perceivedColorProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( Color.ColorIO )
+        phetioValueType: Color.ColorIO
       } );
 
     // create a ConstantEventModel for each beam

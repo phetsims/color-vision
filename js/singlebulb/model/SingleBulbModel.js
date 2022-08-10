@@ -124,7 +124,7 @@ class SingleBulbModel extends ColorVisionModel {
         }
       }, {
         tandem: tandem.createTandem( 'perceivedColorProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( Color.ColorIO )
+        phetioValueType: Color.ColorIO
       } );
 
     // @public
