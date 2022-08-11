@@ -32,12 +32,12 @@ const CONSTITUENT_SOUND_CLIP_OPTIONS = {
 };
 
 const SOUND_SETS = [
-  [ colorVisionLowAmbienceV2_mp3, colorVisionMidAmbienceV2_mp3, colorVisionHighAmbienceV2_mp3 ],
   [ colorVisionIndividualNotesChord01_mp3, colorVisionIndividualNotesChord02_mp3, colorVisionIndividualNotesChord03_mp3 ],
-  [ colorVisionIndividualNotesOctave01_mp3, colorVisionIndividualNotesOctave02_mp3, colorVisionIndividualNotesOctave03_mp3 ]
+  [ colorVisionIndividualNotesOctave01_mp3, colorVisionIndividualNotesOctave02_mp3, colorVisionIndividualNotesOctave03_mp3 ],
+  [ colorVisionLowAmbienceV2_mp3, colorVisionMidAmbienceV2_mp3, colorVisionHighAmbienceV2_mp3 ]
 ];
 
-const SOUND_SET = SOUND_SETS[ 1 ];
+const SOUND_SET = SOUND_SETS[ 0 ];
 
 const USE_FILTERS = true;
 
