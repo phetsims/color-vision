@@ -5,23 +5,29 @@
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
+import TReadOnlyProperty from '../../axon/js/TReadOnlyProperty.js';
 import colorVision from './colorVision.js';
 
 type StringsType = {
   'filterSlider': {
     'label': string;
+    'labelProperty': TReadOnlyProperty<string>;
   };
   'RgbBulbsModule': {
     'title': string;
+    'titleProperty': TReadOnlyProperty<string>;
   };
   'color-vision': {
     'title': string;
+    'titleProperty': TReadOnlyProperty<string>;
   };
   'bulbSlider': {
     'label': string;
+    'labelProperty': TReadOnlyProperty<string>;
   };
   'SingleBulbModule': {
     'title': string;
+    'titleProperty': TReadOnlyProperty<string>;
   }
 };
 
