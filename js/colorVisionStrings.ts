@@ -11,23 +11,23 @@ import colorVision from './colorVision.js';
 type StringsType = {
   'filterSlider': {
     'label': string;
-    'labelProperty': TReadOnlyProperty<string>;
+    'labelStringProperty': TReadOnlyProperty<string>;
   };
   'RgbBulbsModule': {
     'title': string;
-    'titleProperty': TReadOnlyProperty<string>;
+    'titleStringProperty': TReadOnlyProperty<string>;
   };
   'color-vision': {
     'title': string;
-    'titleProperty': TReadOnlyProperty<string>;
+    'titleStringProperty': TReadOnlyProperty<string>;
   };
   'bulbSlider': {
     'label': string;
-    'labelProperty': TReadOnlyProperty<string>;
+    'labelStringProperty': TReadOnlyProperty<string>;
   };
   'SingleBulbModule': {
     'title': string;
-    'titleProperty': TReadOnlyProperty<string>;
+    'titleStringProperty': TReadOnlyProperty<string>;
   }
 };
 
