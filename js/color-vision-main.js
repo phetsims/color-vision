@@ -13,7 +13,7 @@ import colorVisionStrings from './colorVisionStrings.js';
 import RGBScreen from './rgb/RGBScreen.js';
 import SingleBulbScreen from './singlebulb/SingleBulbScreen.js';
 
-const colorVisionTitleString = colorVisionStrings[ 'color-vision' ].title;
+const colorVisionTitleStringProperty = colorVisionStrings[ 'color-vision' ].titleStringProperty;
 
 const tandem = Tandem.ROOT;
 
@@ -28,7 +28,7 @@ const simOptions = {
 };
 
 simLauncher.launch( () => {
-  const sim = new Sim( colorVisionTitleString, [
+  const sim = new Sim( colorVisionTitleStringProperty, [
     new SingleBulbScreen( tandem.createTandem( 'singleBulbScreen' ) ),
     new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
   ], simOptions );
