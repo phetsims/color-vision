@@ -10,7 +10,7 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import colorVision from '../colorVision.js';
-import colorVisionStrings from '../colorVisionStrings.js';
+import ColorVisionStrings from '../ColorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
 import SingleBulbModel from './model/SingleBulbModel.js';
 import SingleBulbIconNode from './view/SingleBulbIconNode.js';
@@ -24,7 +24,7 @@ class SingleBulbScreen extends Screen {
   constructor( tandem ) {
 
     const options = {
-      name: colorVisionStrings.SingleBulbModule.title,
+      name: ColorVisionStrings.SingleBulbModule.title,
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
         maxIconWidthProportion: 1,

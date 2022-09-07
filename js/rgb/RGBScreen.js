@@ -10,7 +10,7 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import colorVision from '../colorVision.js';
-import colorVisionStrings from '../colorVisionStrings.js';
+import ColorVisionStrings from '../ColorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
 import RGBModel from './model/RGBModel.js';
 import RGBIconNode from './view/RGBIconNode.js';
@@ -24,7 +24,7 @@ class RGBScreen extends Screen {
   constructor( tandem ) {
 
     const options = {
-      name: colorVisionStrings.RgbBulbsModule.title,
+      name: ColorVisionStrings.RgbBulbsModule.title,
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new ScreenIcon( new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
         maxIconWidthProportion: 1,

@@ -9,11 +9,11 @@
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
-import colorVisionStrings from './colorVisionStrings.js';
+import ColorVisionStrings from './ColorVisionStrings.js';
 import RGBScreen from './rgb/RGBScreen.js';
 import SingleBulbScreen from './singlebulb/SingleBulbScreen.js';
 
-const colorVisionTitleStringProperty = colorVisionStrings[ 'color-vision' ].titleStringProperty;
+const colorVisionTitleStringProperty = ColorVisionStrings[ 'color-vision' ].titleStringProperty;
 
 const tandem = Tandem.ROOT;
 

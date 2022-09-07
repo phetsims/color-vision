@@ -21,7 +21,7 @@ import photonViewIcon_png from '../../../images/photonViewIcon_png.js';
 import singleColorLightIcon_png from '../../../images/singleColorLightIcon_png.js';
 import whiteLightIcon_png from '../../../images/whiteLightIcon_png.js';
 import colorVision from '../../colorVision.js';
-import colorVisionStrings from '../../colorVisionStrings.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';
 import HeadNode from '../../common/view/HeadNode.js';
@@ -34,8 +34,8 @@ import GaussianWavelengthSlider from './GaussianWavelengthSlider.js';
 import SingleBulbPhotonBeamNode from './SingleBulbPhotonBeamNode.js';
 import SolidBeamNode from './SolidBeamNode.js';
 
-const bulbSliderLabelString = colorVisionStrings.bulbSlider.label;
-const filterSliderLabelString = colorVisionStrings.filterSlider.label;
+const bulbSliderLabelString = ColorVisionStrings.bulbSlider.label;
+const filterSliderLabelString = ColorVisionStrings.filterSlider.label;
 
 // constants
 const DISTANCE_FROM_FLASHLIGHT = 20;

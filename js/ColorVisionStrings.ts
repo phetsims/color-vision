@@ -31,8 +31,8 @@ type StringsType = {
   }
 };
 
-const colorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;
+const ColorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;
 
-colorVision.register( 'colorVisionStrings', colorVisionStrings );
+colorVision.register( 'ColorVisionStrings', ColorVisionStrings );
 
-export default colorVisionStrings;
+export default ColorVisionStrings;
