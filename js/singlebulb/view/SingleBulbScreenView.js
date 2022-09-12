@@ -189,15 +189,15 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       } );
 
     // Add the text above the gaussian wavelength slider
-    const filterColorTextNode = new Text( filterSliderLabelString, {
+    const filterColorText = new Text( filterSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: gaussianSlider.top - 3,
       right: gaussianSlider.right - 18,
       maxWidth: 0.85 * gaussianSlider.width,
-      tandem: tandem.createTandem( 'filterColorTextNode' )
+      tandem: tandem.createTandem( 'filterColorText' )
     } );
-    this.pdomControlAreaNode.addChild( filterColorTextNode );
+    this.pdomControlAreaNode.addChild( filterColorText );
 
     // Add the wire from the slider to the filter
     const filterWireNode = new FilterWireNode(
