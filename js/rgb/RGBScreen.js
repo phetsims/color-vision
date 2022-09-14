@@ -24,7 +24,7 @@ class RGBScreen extends Screen {
   constructor( tandem ) {
 
     const options = {
-      name: ColorVisionStrings.RgbBulbsModule.title,
+      name: ColorVisionStrings.RgbBulbsModule.titleStringProperty,
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new ScreenIcon( new RGBIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
         maxIconWidthProportion: 1,

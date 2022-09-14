@@ -24,7 +24,7 @@ class SingleBulbScreen extends Screen {
   constructor( tandem ) {
 
     const options = {
-      name: ColorVisionStrings.SingleBulbModule.title,
+      name: ColorVisionStrings.SingleBulbModule.titleStringProperty,
       backgroundColorProperty: new Property( 'black' ),
       homeScreenIcon: new ScreenIcon( new SingleBulbIconNode( ColorVisionConstants.HOME_SCREEN_ICON_OPTIONS ), {
         maxIconWidthProportion: 1,
