@@ -119,11 +119,11 @@ class SingleBulbScreenView extends ColorVisionScreenView {
 
     const whiteColoredButtonsContent = [ {
       value: 'white',
-      node: new Image( whiteLightIcon_png, ICON_OPTIONS ),
+      createNode: tandem => new Image( whiteLightIcon_png, ICON_OPTIONS ),
       tandemName: 'whiteLightRadioButton'
     }, {
       value: 'colored',
-      node: new Image( singleColorLightIcon_png, ICON_OPTIONS ),
+      createNode: tandem => new Image( singleColorLightIcon_png, ICON_OPTIONS ),
       tandemName: 'coloredLightRadioButton'
     } ];
 
@@ -136,11 +136,11 @@ class SingleBulbScreenView extends ColorVisionScreenView {
 
     const beamPhotonButtonsContent = [ {
       value: 'beam',
-      node: new Image( beamViewIcon_png, ICON_OPTIONS ),
+      createNode: tandem => new Image( beamViewIcon_png, ICON_OPTIONS ),
       tandemName: 'beamRadioButton'
     }, {
       value: 'photon',
-      node: new Image( photonViewIcon_png, ICON_OPTIONS ),
+      createNode: tandem => new Image( photonViewIcon_png, ICON_OPTIONS ),
       tandemName: 'photonRadioButton'
     } ];
 
