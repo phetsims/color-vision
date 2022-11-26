@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.18-phetio Wed Sep 22 2021 21:36:57 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.2.19-phetiorc.1 Sat Nov 26 2022 10:39:09 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "0803ff662104e0315f1ca188af712ba37b098c81",
+    "sha": "6b46c3390944b8e1fa4cbc4c428dc3d48bd51af3",
     "branch": "1.2-phetio"
   },
   "dot": {
