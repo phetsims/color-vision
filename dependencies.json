@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "cb4ca92f716db05e302de7b3b08061eb0ff06e56",
+    "sha": "524d1f14b910bef60c825495d92b94a7560dbc1c",
     "branch": "1.1"
   },
   "dot": {
@@ -37,7 +37,7 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "72e873e159c952f6114fe7f4c71e386c8a3e6870",
+    "sha": "85f364e71cc6266bb9676d8be5a25ee713e34527",
     "branch": "HEAD"
   },
   "phetmarks": {
