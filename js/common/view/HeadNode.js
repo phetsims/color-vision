@@ -77,11 +77,11 @@ class HeadNode extends Node {
     // Add head mode toggle
     const toggleButtonsContent = [ {
       value: 'no-brain',
-      createNode: tandem => new Image( headIcon_png, { scale: IMAGE_SCALE } ),
+      createNode: () => new Image( headIcon_png, { scale: IMAGE_SCALE } ),
       tandemName: 'hideBrainRadioButton'
     }, {
       value: 'brain',
-      createNode: tandem => new Image( silhouetteIcon_png, { scale: IMAGE_SCALE } ),
+      createNode: () => new Image( silhouetteIcon_png, { scale: IMAGE_SCALE } ),
       tandemName: 'showBrainRadioButton'
     } ];
 
