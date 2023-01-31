@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.1.31 Wed Jan 18 2023 11:45:42 GMT-0700 (Mountain Standard Time)",
+  "comment": "# color-vision 1.1.32-rc.1 Tue Jan 31 2023 15:12:12 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "84bb11f8e3fad16ec8c15a57a0587aebe5bd6b02",
+    "sha": "df4ab7d3db98df7e8f0b6d4e5855e0ece435f0ed",
     "branch": "1.1"
   },
   "dot": {
