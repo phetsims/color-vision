@@ -19,6 +19,10 @@
       "preload": [
         "../phet-io/js/api/color-vision-api.js"
       ]
-    }
+    },
+    "screenNameKeys": [
+      "COLOR_VISION/SingleBulbModule.title",
+      "COLOR_VISION/RgbBulbsModule.title"
+    ]
   }
 }
