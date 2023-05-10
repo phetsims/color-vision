@@ -13,6 +13,10 @@
     "requirejs": "~2.1.8"
   },
   "phet": {
-    "requirejsNamespace": "COLOR_VISION"
+    "requirejsNamespace": "COLOR_VISION",
+    "screenNameKeys": [
+      "COLOR_VISION/SingleBulbModule.title",
+      "COLOR_VISION/RgbBulbsModule.title"
+    ]
   }
 }
