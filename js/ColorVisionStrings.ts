@@ -5,29 +5,29 @@
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
-import LinkableProperty from '../../axon/js/LinkableProperty.js';
+import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProperty.js';
 import colorVision from './colorVision.js';
 
 type StringsType = {
   'filterSlider': {
     'label': string;
-    'labelStringProperty': LinkableProperty<string>;
+    'labelStringProperty': LocalizedStringProperty;
   };
   'RgbBulbsModule': {
     'title': string;
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
   'color-vision': {
     'title': string;
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
   'bulbSlider': {
     'label': string;
-    'labelStringProperty': LinkableProperty<string>;
+    'labelStringProperty': LocalizedStringProperty;
   };
   'SingleBulbModule': {
     'title': string;
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   }
 };
 
