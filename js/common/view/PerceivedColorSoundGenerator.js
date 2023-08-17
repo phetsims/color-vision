@@ -78,16 +78,16 @@ class PerceivedColorSoundGenerator extends SoundGenerator {
 
       // Wire up the audio path.
       lowRangeSoundClip.connect( lowFilter );
-      lowFilter.connect( this.masterGainNode );
+      lowFilter.connect( this.mainGainNode );
       midRangeSoundClip.connect( midFilter );
-      midFilter.connect( this.masterGainNode );
+      midFilter.connect( this.mainGainNode );
       highRangeSoundClip.connect( highFilter );
-      highFilter.connect( this.masterGainNode );
+      highFilter.connect( this.mainGainNode );
     }
     else {
-      lowRangeSoundClip.connect( this.masterGainNode );
-      midRangeSoundClip.connect( this.masterGainNode );
-      highRangeSoundClip.connect( this.masterGainNode );
+      lowRangeSoundClip.connect( this.mainGainNode );
+      midRangeSoundClip.connect( this.mainGainNode );
+      highRangeSoundClip.connect( this.mainGainNode );
     }
 
     // Adjust the audio based on the perceived color.  This may lead to changes in volume or filter frequencies.
