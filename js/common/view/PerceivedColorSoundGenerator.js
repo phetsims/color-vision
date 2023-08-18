@@ -1,4 +1,4 @@
-// Copyright 2022, University of Colorado Boulder
+// Copyright 2022-2023, University of Colorado Boulder
 
 /**
  * PerceivedColorSoundGenerator generates a sound that indicates the color that is being perceived by the person in the
