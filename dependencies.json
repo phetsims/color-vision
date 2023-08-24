@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.2.26-phetio Wed May 10 2023 12:09:53 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.2.26-phetio Thu Aug 24 2023 11:57:10 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "12e6bcd0238a593293cf4bb583ff3b5b19e24442",
+    "sha": "ba831481cbe010fe9dee1e29795d67377da50b23",
     "branch": "1.2-phetio"
   },
   "dot": {
