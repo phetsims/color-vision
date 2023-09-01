@@ -81,7 +81,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     } );
 
     // add text above the upper slider
-    const bulbColorTextNode = new Text( bulbSliderLabelString, {
+    const bulbColorText = new Text( bulbSliderLabelString, {
       fill: 'white',
       font: new PhetFont( 20 ),
       bottom: bulbColorSlider.top - 3,
@@ -89,7 +89,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       maxWidth: 0.85 * bulbColorSlider.width,
       tandem: tandem.createTandem( 'bulbColorText' )
     } );
-    this.pdomControlAreaNode.addChild( bulbColorTextNode );
+    this.pdomControlAreaNode.addChild( bulbColorText );
 
     // Add wire from flashlight to WavelengthSlider
     const flashlightWire = new FlashlightWireNode(
@@ -101,7 +101,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     model.lightTypeProperty.link( lightType => {
       const coloredLight = lightType !== 'white';
       bulbColorSlider.visible = coloredLight;
-      bulbColorTextNode.visible = coloredLight;
+      bulbColorText.visible = coloredLight;
       flashlightWire.visible = coloredLight;
     } );
 
