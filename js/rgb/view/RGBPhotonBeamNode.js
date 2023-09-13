@@ -37,7 +37,7 @@ class RGBPhotonBeamNode extends CanvasNode {
 
     this.invalidatePaint();
 
-    // TODO: alternatively, use the pattern in TrackNode?
+    // TODO: alternatively, use the pattern in TrackNode? https://github.com/phetsims/tasks/issues/1129
     // In the state wrapper, when the state changes, we must update the skater node
     Tandem.PHET_IO_ENABLED && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( () => {
       this.invalidatePaint();
