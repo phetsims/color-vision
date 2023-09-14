@@ -33,7 +33,6 @@ class SingleBulbModel extends ColorVisionModel {
     const filterTandem = tandem.createTandem( 'filter' );
 
     // @public {Property.<string>} kind of light in the beam
-    // TODO: Why not an enum? https://github.com/phetsims/tasks/issues/1129
     this.lightTypeProperty = new StringProperty( 'colored', {
       validValues: [ 'white', 'colored' ],
       tandem: tandem.createTandem( 'lightTypeProperty' )

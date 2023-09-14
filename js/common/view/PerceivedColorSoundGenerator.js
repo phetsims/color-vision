@@ -7,9 +7,9 @@
  * @author John Blanco (PhET Interactive Simulations)
  */
 
-// TODO: There are a number of build- or run-time options in this file for different sounds.  They exists to support https://github.com/phetsims/tasks/issues/1129
-//       comparisons between different options in the sound design, and should be removed once the design is finalized.
-//       see https://github.com/phetsims/color-vision/issues/139.
+//TODO https://github.com/phetsims/color-vision/issues/139 There are a number of build- or run-time options in this file
+// for different sounds.  They exists to support comparisons between different options in the sound design, and should
+// be removed once the design is finalized.
 
 import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
