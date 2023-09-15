@@ -37,9 +37,7 @@ class RGBPhotonBeamNode extends CanvasNode {
 
     this.invalidatePaint();
 
-    //TODO https://github.com/phetsims/color-vision/issues/147 alternatively, use the pattern in TrackNode?
-    //TODO https://github.com/phetsims/color-vision/issues/147 fix bogus reference to "skater node"
-    // In the state wrapper, when the state changes, we must update the skater node
+    // When the PhET-iO state has been set, we must invalidate the canvas, so it will be repainted before it is displayed
     Tandem.PHET_IO_ENABLED && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( () => {
       this.invalidatePaint();
     } );
