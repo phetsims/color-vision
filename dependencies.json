@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "d08776ea541da19d1d7300dfceeffab4e3ee42d2",
+    "sha": "6c2e6383cd7797780c216c6196845d574adb36e7",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -57,7 +57,7 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "606774fdc91a8533e090d30c9976c723a90693f6",
+    "sha": "ba93fa88336225220bfca14886111882c00c68bb",
     "branch": "HEAD"
   },
   "scenery-phet": {
