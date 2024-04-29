@@ -34,8 +34,8 @@ import GaussianWavelengthSlider from './GaussianWavelengthSlider.js';
 import SingleBulbPhotonBeamNode from './SingleBulbPhotonBeamNode.js';
 import SolidBeamNode from './SolidBeamNode.js';
 
-const bulbSliderLabelString = ColorVisionStrings.bulbSlider.label;
-const filterSliderLabelString = ColorVisionStrings.filterSlider.label;
+const bulbSliderLabelStringProperty = ColorVisionStrings.bulbSlider.labelStringProperty;
+const filterSliderLabelStringProperty = ColorVisionStrings.filterSlider.labelStringProperty;
 
 // constants
 const DISTANCE_FROM_FLASHLIGHT = 20;
@@ -64,6 +64,25 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       right: this.layoutBounds.maxX - 40
     } );
 
+    // Create and add given string above given slider. Returns the text object created.
+    const addSliderText = ( slider, sliderLabelStringProperty, textName ) => {
+      const sliderText = new Text( sliderLabelStringProperty, {
+        fill: 'white',
+        font: new PhetFont( 20 ),
+        bottom: slider.top - 3,
+        maxWidth: 0.85 * slider.width,
+        tandem: tandem.createTandem( textName )
+      } );
+
+      // Ensure sliderText is always right-aligned with the slider, to support dynamic locale
+      sliderLabelStringProperty.link( () => {
+        sliderText.right = slider.right - 18;
+      } );
+
+      this.pdomControlAreaNode.addChild( sliderText );
+      return sliderText;
+    };
+
     // Create upper WavelengthSlider node
     const bulbColorSlider = new WavelengthSlider( model.flashlightWavelengthProperty, {
       top: this.layoutBounds.top + 40,
@@ -81,15 +100,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     } );
 
     // add text above the upper slider
-    const bulbColorText = new Text( bulbSliderLabelString, {
-      fill: 'white',
-      font: new PhetFont( 20 ),
-      bottom: bulbColorSlider.top - 3,
-      right: bulbColorSlider.right - 18,
-      maxWidth: 0.85 * bulbColorSlider.width,
-      tandem: tandem.createTandem( 'bulbColorText' )
-    } );
-    this.pdomControlAreaNode.addChild( bulbColorText );
+    const bulbColorText = addSliderText( bulbColorSlider, bulbSliderLabelStringProperty, 'bulbColorText' );
 
     // Add wire from flashlight to WavelengthSlider
     const flashlightWire = new FlashlightWireNode(
@@ -189,15 +200,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       } );
 
     // Add the text above the gaussian wavelength slider
-    const filterColorText = new Text( filterSliderLabelString, {
-      fill: 'white',
-      font: new PhetFont( 20 ),
-      bottom: gaussianSlider.top - 3,
-      right: gaussianSlider.right - 18,
-      maxWidth: 0.85 * gaussianSlider.width,
-      tandem: tandem.createTandem( 'filterColorText' )
-    } );
-    this.pdomControlAreaNode.addChild( filterColorText );
+    addSliderText( gaussianSlider, filterSliderLabelStringProperty, 'filterColorText' );
 
     // Add the wire from the slider to the filter
     const filterWireNode = new FilterWireNode(
