@@ -19,6 +19,7 @@ import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 import SingleBulbPhotonBeam from './SingleBulbPhotonBeam.js';
+import { ConstantEventModel } from '../../../../phet-core/js/EventTimer.js';
 
 class SingleBulbModel extends ColorVisionModel {
 
@@ -134,7 +135,7 @@ class SingleBulbModel extends ColorVisionModel {
 
     // create a new photon every 1/120 seconds
     // @private
-    this.eventTimer = new EventTimer( new EventTimer.ConstantEventModel( 120 ), timeElapsed => {
+    this.eventTimer = new EventTimer( new ConstantEventModel( 120 ), timeElapsed => {
       this.photonBeam.createPhoton( timeElapsed );
     } );
   }
