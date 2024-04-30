@@ -148,8 +148,7 @@ class SingleBulbPhotonBeam extends PhetioObject {
         new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
         1,
         BLACK_ALPHA_0,
-        false,
-        undefined
+        false
       );
       blackPhoton.passedFilter = true;
       this.photons.push( blackPhoton );
@@ -162,8 +161,7 @@ class SingleBulbPhotonBeam extends PhetioObject {
         new Vector2( ColorVisionConstants.X_VELOCITY, 0 ),
         1,
         BLACK_ALPHA_0,
-        false,
-        undefined
+        false
       ) );
     }
   }
@@ -190,7 +188,9 @@ class SingleBulbPhotonBeam extends PhetioObject {
         1,
         newColor,
         this.model.lightTypeProperty.value === 'white',
-        this.model.flashlightWavelengthProperty.value
+        {
+          wavelength: this.model.flashlightWavelengthProperty.value
+        }
       ) );
     }
   }

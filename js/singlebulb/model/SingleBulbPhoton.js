@@ -6,6 +6,7 @@
  * @author Aaron Davis
  */
 
+import merge from '../../../../phet-core/js/merge.js';
 import colorVision from '../../colorVision.js';
 import RGBPhoton from '../../rgb/model/RGBPhoton.js';
 
@@ -17,10 +18,13 @@ class SingleBulbPhoton extends RGBPhoton {
    * @param {number} intensity between 0-1 for color alpha value
    * @param {Color} color
    * @param {boolean} isWhite
-   * @param {number} wavelength
    * @param {Object} [options]
    */
-  constructor( position, velocity, intensity, color, isWhite, wavelength, options ) {
+  constructor( position, velocity, intensity, color, isWhite, options ) {
+
+    options = merge( {
+      wavelength: undefined // for black photons for resetting the perceived color to black
+    }, options );
 
     super( position, velocity, intensity, options );
 
@@ -30,7 +34,7 @@ class SingleBulbPhoton extends RGBPhoton {
     // @public
     this.isWhite = this.wasWhite = isWhite;
     this.color = color;
-    this.wavelength = wavelength;
+    this.wavelength = options.wavelength;
     this.passedFilter = false;
   }
 }
