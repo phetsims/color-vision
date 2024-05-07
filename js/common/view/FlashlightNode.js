@@ -29,7 +29,7 @@ class FlashlightNode extends Node {
     const flashlightNode = new Image( flashlightIcon_png, { scale: SCALE } );
 
     // values used for drawing the beam shape
-    const startX = flashlightNode.left + 15;       // start drawing the beam to the left of the flashlight
+    const startX = flashlightNode.left + 15;       // start drawing the beam to the right of the flashlight
     const centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
     const dx = 170 * SCALE;                        // length of the beam in the x direction
     const dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
@@ -42,6 +42,8 @@ class FlashlightNode extends Node {
       .lineTo( startX, centerY - dy )
       .close();
 
+    // Add the beam node first. This ensures that the flashlight node (added next) will overlap and cover the initial
+    // 15-pixel extension of the beam, creating the effect of the beam originating from within the flashlight.
     this.addChild( new Path( beamShape, { fill: color } ) );
     this.addChild( flashlightNode );
 
