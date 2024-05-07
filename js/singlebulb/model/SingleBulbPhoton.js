@@ -23,7 +23,7 @@ class SingleBulbPhoton extends RGBPhoton {
   constructor( position, velocity, intensity, color, isWhite, options ) {
 
     options = merge( {
-      wavelength: undefined // for black photons for resetting the perceived color to black
+      wavelength: -1 // for black photons for resetting the perceived color to black
     }, options );
 
     super( position, velocity, intensity, options );

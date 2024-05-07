@@ -72,7 +72,14 @@ class SingleBulbPhotonBeam extends PhetioObject {
         }
         // flashlightWavelength is within the transmission width, pass a linear percentage.
         else {
-          probability = 1 - Math.abs( filterWavelength - photon.wavelength ) / halfWidth;
+          // check if the wavelength is valid
+          if ( photon.wavelength >= 0 ) {
+            probability = 1 - Math.abs( filterWavelength - photon.wavelength ) / halfWidth;
+          }
+          else {
+            // negative wavelength thus the photon is black so temporarily set probability to negative value
+            probability = -1;
+          }
         }
 
         // set the probability to be 0.5 for white photons, this is just based on the observation of what looks good
@@ -95,7 +102,7 @@ class SingleBulbPhotonBeam extends PhetioObject {
           // set the photonIntensity to be the same as the percentage passing through the filter,
           // for use when setting the perceived color when the photon hits the eye.
           // make sure the intensity is at least 0.2, otherwise it looks too black in the view
-          photon.intensity = isFinite( probability ) ? ( ( probability < 0.2 ) ? 0.2 : probability ) : 0;
+          photon.intensity = ( probability >= 0 ) ? ( ( probability < 0.2 ) ? 0.2 : probability ) : 0;
         }
       }
 
