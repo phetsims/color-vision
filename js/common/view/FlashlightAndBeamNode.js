@@ -1,7 +1,7 @@
 // Copyright 2014-2024, University of Colorado Boulder
 
 /**
- * FlashlightNode - for use inside icons for both screens
+ * FlashlightAndBeamNode - for use inside icons for both screens
  *
  * @author Aaron Davis (PhET Interactive Simulations)
  */
@@ -14,7 +14,7 @@ import colorVision from '../../colorVision.js';
 // constants
 const SCALE = 0.75;
 
-class FlashlightNode extends Node {
+class FlashlightAndBeamNode extends Node {
 
   /**
    * @param {number} rotation
@@ -51,6 +51,6 @@ class FlashlightNode extends Node {
   }
 }
 
-colorVision.register( 'FlashlightNode', FlashlightNode );
+colorVision.register( 'FlashlightAndBeamNode', FlashlightAndBeamNode );
 
-export default FlashlightNode;
+export default FlashlightAndBeamNode;

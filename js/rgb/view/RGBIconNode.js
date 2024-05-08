@@ -9,7 +9,7 @@
 import Screen from '../../../../joist/js/Screen.js';
 import { Rectangle, VBox } from '../../../../scenery/js/imports.js';
 import colorVision from '../../colorVision.js';
-import FlashlightNode from '../../common/view/FlashlightNode.js';
+import FlashlightAndBeamNode from '../../common/view/FlashlightAndBeamNode.js';
 
 class RGBIconNode extends Rectangle {
 
@@ -20,9 +20,9 @@ class RGBIconNode extends Rectangle {
 
     super( 0, 0, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height, options );
 
-    const redFlashlight = new FlashlightNode( -Math.PI / 12, 'red' );
-    const greenFlashlight = new FlashlightNode( 0, 'green' );
-    const blueFlashlight = new FlashlightNode( Math.PI / 12, 'blue' );
+    const redFlashlight = new FlashlightAndBeamNode( -Math.PI / 12, 'red' );
+    const greenFlashlight = new FlashlightAndBeamNode( 0, 'green' );
+    const blueFlashlight = new FlashlightAndBeamNode( Math.PI / 12, 'blue' );
 
     const flashlightVBox = new VBox(
       {
