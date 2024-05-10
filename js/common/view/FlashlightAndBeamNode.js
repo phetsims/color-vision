@@ -7,9 +7,9 @@
  */
 
 import { Shape } from '../../../../kite/js/imports.js';
-import { Image, Node, Path } from '../../../../scenery/js/imports.js';
-import flashlightIcon_png from '../../../images/flashlightIcon_png.js';
+import { Node, Path } from '../../../../scenery/js/imports.js';
 import colorVision from '../../colorVision.js';
+import FlashlightNode from './FlashlightNode.js';
 
 // constants
 const SCALE = 0.75;
@@ -26,10 +26,10 @@ class FlashlightAndBeamNode extends Node {
     super( { rotation: rotation } );
 
     // draw the flashlight image, with the bulb pointed toward the left
-    const flashlightNode = new Image( flashlightIcon_png, { scale: SCALE } );
+    const flashlightNode = new FlashlightNode( rotation );
 
     // values used for drawing the beam shape
-    const startX = flashlightNode.left + 15;       // start drawing the beam to the right of the flashlight
+    const startX = flashlightNode.left + 2.5;       // start drawing the beam to the right of the flashlight
     const centerY = flashlightNode.centerY + 0.5;  // centerY of beam and flashlight
     const dx = 170 * SCALE;                        // length of the beam in the x direction
     const dy = 25 * SCALE;                         // height of the small end of the beam (the large end is 2 * dy)
@@ -41,10 +41,11 @@ class FlashlightAndBeamNode extends Node {
       .lineTo( startX - dx, centerY - dy * 2 )
       .lineTo( startX, centerY - dy )
       .close();
+    const beamPath = new Path( beamShape, { fill: color } );
 
     // Add the beam node first. This ensures that the flashlight node (added next) will overlap and cover the initial
-    // 15-pixel extension of the beam, creating the effect of the beam originating from within the flashlight.
-    this.addChild( new Path( beamShape, { fill: color } ) );
+    // 2.5-pixel extension of the beam, creating the effect of the beam originating from within the flashlight.
+    this.addChild( beamPath );
     this.addChild( flashlightNode );
 
     this.mutate( options );
