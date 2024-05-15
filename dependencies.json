@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "cd8fc0b4d378ab81d8d7e4f0a25f96bfaae1cadc",
+    "sha": "6c0c97a2d670e6bed012e91f12efc31ee4383cf5",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -45,7 +45,7 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "cf747b5d90f3abbda03bf342df8486fd488ec4c2",
+    "sha": "98633265fa521bb447b1a6ea5e4eec72fa3c10b3",
     "branch": "HEAD"
   },
   "phetmarks": {
