@@ -14,14 +14,14 @@ import colorVision from '../../colorVision.js';
 class FlashlightNode extends Node {
 
   /**
-   * @param {number} rotation
+   * @param {number} rotation - The rotation of the flashlight.
    * @param {Object} [options]
    */
   constructor( rotation, options ) {
 
     super( options );
 
-    // Vector positions adn dimensions to draw the flashlight
+    // Define the dimensions for the flashlight
     const headWidth = 18;
     const headHeight = 51.75;
     const jointWidth = 16.25;
@@ -29,7 +29,7 @@ class FlashlightNode extends Node {
     const bodyLength = 150;
     const hSpaceFromBody = 10;
 
-    // Define the gradient for the flashlight
+    // Define the colors for the flashlight gradient
     const darkestColor = new Color( 138, 139, 140 );
     const middleColor = new Color( 186, 187, 189 );
     const lightestColor = new Color( 227, 228, 229 );
@@ -38,6 +38,8 @@ class FlashlightNode extends Node {
     const xOffset = Math.sin( rotation ) * headHeight / 2;
     const yOffset = Math.cos( rotation ) * headHeight / 2;
 
+    // Function to create the flashlight gradient. The gradient is rotated based on the rotation of the flashlight,
+    // which affects the direction of the gradient to give the flashlight a realistic metallic look.
     const createFlashlightGradient = () => {
       return new LinearGradient( -xOffset, -yOffset, xOffset, yOffset )
         .addColorStop( 0, darkestColor )
@@ -60,14 +62,14 @@ class FlashlightNode extends Node {
       .addColorStop( 0.75, new Color( 75, 76, 77 ) )
       .addColorStop( 1, darkestStrokeColor );
 
-    // Create the flashlight head
+    // Create the flashlight head as a trapezoidal shape
     const flashlightHeadShape = new Shape()
-      .moveTo( 0, -headHeight / 2 ) // Start at the top-left of the head
-      .lineTo( -headWidth, -headHeight / 2 ) // Draw the top-right of the head
-      .lineTo( -headWidth, headHeight / 2 ) // Draw the right side of the head
-      .lineTo( 0, headHeight / 2 ) // Draw the bottom of the head
-      .lineTo( jointWidth, shorterJointHeight / 2 ) // Draw the bottom side of the trapezoid
-      .lineTo( jointWidth, -shorterJointHeight / 2 ) // Draw the top side of the trapezoid
+      .moveTo( 0, -headHeight / 2 )
+      .lineTo( -headWidth, -headHeight / 2 )
+      .lineTo( -headWidth, headHeight / 2 )
+      .lineTo( 0, headHeight / 2 )
+      .lineTo( jointWidth, shorterJointHeight / 2 )
+      .lineTo( jointWidth, -shorterJointHeight / 2 )
       .close();
     const flashlightHeadPath = new Path( flashlightHeadShape,
       { fill: flashlightHeadFillGradient, stroke: flashlightStrokeGradient, lineWidth: 0.75 } );
@@ -78,29 +80,25 @@ class FlashlightNode extends Node {
 
     // Draw the flashlight body
     const flashlightBodyFillGradient = createFlashlightGradient();
-    if ( rotation < 0 ) {
-      flashlightBodyFillGradient.start = new Vector2( -xOffset, -yOffset - 25 );
-      flashlightBodyFillGradient.end = new Vector2( xOffset, yOffset - 25 );
-    }
-    else if ( rotation > 0 ) {
-      flashlightBodyFillGradient.start = new Vector2( -xOffset, -yOffset + 15 );
-      flashlightBodyFillGradient.end = new Vector2( xOffset, yOffset + 15 );
-    }
+    const gradientAdjustment = rotation < 0 ? -25 : ( rotation > 0 ? 15 : 0 );
+    flashlightBodyFillGradient.start = new Vector2( -xOffset, -yOffset + gradientAdjustment );
+    flashlightBodyFillGradient.end = new Vector2( xOffset, yOffset + gradientAdjustment );
     const flashlightBody = new Rectangle( 0, -headHeight / 2, bodyLength, headHeight,
       { fill: flashlightBodyFillGradient, stroke: flashlightStrokeGradient, lineWidth: 0.5, scale: 0.675 } );
 
-    // Define the vertical lines in the body
+    // Define a lighter color and thicker lineWidth for the 1st, 5th, and 9th lines
+    const colors = [ new Color( 121, 123, 124 ), new Color( 88, 86, 87 ) ];
+    const lineWidths = [ 2, 1 ];
+
+    // Create the vertical lines in the body
     const spacing = headHeight / 10.5;
     const linesNode = new Node();
     for ( let i = 0; i < 10; i++ ) {
-
-      // Define a lighter color for the 1st, 5th, and 9th lines
-      const color = ( i === 0 || i === 4 || i === 8 ) ? new Color( 121, 123, 124 ) : new Color( 88, 86, 87 );
-
+      const index = ( i === 0 || i === 4 || i === 8 ) ? 0 : 1;
       const y = ( -headHeight / 2 ) + 3 + i * spacing;
       const line = new Line( flashlightBody.left + hSpaceFromBody, y, bodyLength - hSpaceFromBody, y, {
-        stroke: color,
-        lineWidth: ( i === 0 || i === 4 || i === 8 ) ? 2 : 1
+        stroke: colors[ index ],
+        lineWidth: lineWidths[ index ]
       } );
       linesNode.addChild( line );
     }
