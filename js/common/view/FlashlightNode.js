@@ -13,12 +13,15 @@ import colorVision from '../../colorVision.js';
 class FlashlightNode extends Node {
 
   /**
-   * @param {number} rotation - The rotation of the flashlight.
+   * @param {number} rotation - The rotation angle at which the flashlight is tilted, in radians.
    * @param {Object} [options]
    */
   constructor( rotation, options ) {
 
     super( options );
+
+    // Many of the values defined in this constructor, such as the dimensions of the flashlight and the spacing of the
+    // vertical lines, were empirically determined to match the original flashlight image.
 
     // Define the dimensions for the flashlight
     const headWidth = 18;
@@ -48,7 +51,7 @@ class FlashlightNode extends Node {
     const yOffset = Math.cos( rotation ) * headHeight / 2;
 
     // Function to creates a rotated LinearGradient for the flashlight using 'flashlightColors'.
-    // gradientHeightAdjustment is used for vertical shift to achieve an overall metallic look.
+    // gradientHeightAdjustment is used for vertical shift of the gradient to achieve a 3D overall metallic look.
     const createFlashlightGradient = gradientHeightAdjustment => {
       return new LinearGradient( -xOffset, -yOffset + gradientHeightAdjustment, xOffset, yOffset + gradientHeightAdjustment )
         .addColorStop( 0, flashlightColors[ 0 ] )
@@ -58,9 +61,6 @@ class FlashlightNode extends Node {
         .addColorStop( 0.6, flashlightColors[ 1 ] )
         .addColorStop( 0.9, flashlightColors[ 0 ] );
     };
-
-    // Define the flashlight gradient
-    const flashlightHeadFillGradient = createFlashlightGradient( 0 );
 
     // Define the flashlight stroke's gradient
     const flashlightStrokeGradient = new LinearGradient( -xOffset, -yOffset, xOffset, yOffset )
@@ -79,6 +79,7 @@ class FlashlightNode extends Node {
       .lineTo( jointWidth, shorterJointHeight / 2 )
       .lineTo( jointWidth, -shorterJointHeight / 2 )
       .close();
+    const flashlightHeadFillGradient = createFlashlightGradient( 0 );
     const flashlightHeadPath = new Path( flashlightHeadShape,
       { fill: flashlightHeadFillGradient, stroke: flashlightStrokeGradient, lineWidth: 0.75 } );
 
