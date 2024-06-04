@@ -23,7 +23,7 @@ const simOptions = {
     softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley (PixelZoom, Inc.), Sam Reid',
     team: 'Wendy Adams, Danielle Harlow, Ariel Paul, Carl Wieman',
     qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
-    graphicArts: 'Mike Fowler'
+    graphicArts: 'Mike Fowler, Mariah Hermsmeyer, Amanda McGarry'
   }
 };
 
