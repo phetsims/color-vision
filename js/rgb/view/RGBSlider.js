@@ -35,7 +35,7 @@ class RGBSlider extends Rectangle {
       tandem: tandem
     } );
 
-    const tickLabelOptions = { font: new Font( { size: 12 } ), fill: Color.WHITE, maxWidth: 25 };
+    const tickLabelOptions = { font: new Font( { size: 12 } ), fill: Color.WHITE };
 
     // major ticks
     slider.addMajorTick( range.min, new Text( range.min, tickLabelOptions ) );
