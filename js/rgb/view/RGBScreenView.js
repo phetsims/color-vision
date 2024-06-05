@@ -74,7 +74,7 @@ class RGBScreenView extends ColorVisionScreenView {
         greenFlashlightNode,
         blueFlashlightNode ],
       spacing: 85,
-      right: this.layoutBounds.maxX - 84,
+      right: this.layoutBounds.maxX - 96,
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET
     } );
 
@@ -91,7 +91,7 @@ class RGBScreenView extends ColorVisionScreenView {
         greenSlider,
         blueSlider ],
       spacing: 15,
-      right: this.layoutBounds.maxX - 30,
+      right: this.layoutBounds.maxX - 16,
       centerY: flashlightVBox.centerY
     } );
 
