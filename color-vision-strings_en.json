@@ -22,5 +22,8 @@
   },
   "blueLight": {
     "value": "Blue Light"
+  },
+  "RgbIntensityValues": {
+    "value": "RGB Intensity Values"
   }
 }
