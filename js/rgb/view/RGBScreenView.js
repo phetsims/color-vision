@@ -93,8 +93,10 @@ class RGBScreenView extends ColorVisionScreenView {
     this.pdomControlAreaNode.addChild( flashlightVBox );
 
     const showRGBIntensityValuesBooleanProperty = new BooleanProperty( false );
-    const numberDisplayOptions = { align: 'center', cornerRadius: 3, backgroundStroke: 'black',
-      minBackgroundWidth: 65, visibleProperty: showRGBIntensityValuesBooleanProperty };
+    const numberDisplayOptions = {
+      align: 'center', cornerRadius: 3, backgroundStroke: 'black',
+      minBackgroundWidth: 65, visibleProperty: showRGBIntensityValuesBooleanProperty
+    };
     const labelOptions = { font: new Font( { size: 16 } ), fill: 'white', maxWidth: 125 };
 
     // Function to create a slider, intensity property display, and label
@@ -140,9 +142,9 @@ class RGBScreenView extends ColorVisionScreenView {
 
     // Add checkbox to show / hide the RGB intensity number displays
     const showRGBIntensityValuesCheckbox = new Checkbox( showRGBIntensityValuesBooleanProperty,
-      new Text( rgbIntensityValuesStringProperty,
-        { fill: 'white', font: new Font( { size: 16 } ), maxWidth: 175 } ),
-      { checkboxColor: 'white', checkboxColorBackground: 'black' }
+      new Text( rgbIntensityValuesStringProperty, { fill: 'white', font: new Font( { size: 16 } ), maxWidth: 175 } ), {
+        checkboxColor: 'white', checkboxColorBackground: 'black', tandem: tandem.createTandem( 'showRGBIntensityValuesCheckbox' )
+      }
     );
     showRGBIntensityValuesCheckbox.centerY = this.timeControlNode.centerY;
     showRGBIntensityValuesCheckbox.left = this.timeControlNode.right + 30;
