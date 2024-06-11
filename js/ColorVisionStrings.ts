@@ -24,9 +24,9 @@ type StringsType = {
   'SingleBulbModule': {
     'titleStringProperty': LocalizedStringProperty;
   };
-  'redLightStringProperty': LocalizedStringProperty;
-  'greenLightStringProperty': LocalizedStringProperty;
-  'blueLightStringProperty': LocalizedStringProperty;
+  'redStringProperty': LocalizedStringProperty;
+  'greenStringProperty': LocalizedStringProperty;
+  'blueStringProperty': LocalizedStringProperty;
   'RgbIntensityValuesStringProperty': LocalizedStringProperty;
 };
 
