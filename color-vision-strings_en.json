@@ -14,14 +14,14 @@
   "SingleBulbModule.title": {
     "value": "Single Bulb"
   },
-  "red": {
-    "value": "Red"
+  "redLight": {
+    "value": "Red Light"
   },
-  "green": {
-    "value": "Green"
+  "greenLight": {
+    "value": "Green Light"
   },
-  "blue": {
-    "value": "Blue"
+  "blueLight": {
+    "value": "Blue Light"
   },
   "RgbIntensityValues": {
     "value": "RGB Intensity Values"

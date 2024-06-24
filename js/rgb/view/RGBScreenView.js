@@ -31,9 +31,9 @@ const BEAM_ANGLE = Math.PI / 6;
 const FLASHLIGHT_SCALE = 0.73;
 
 // strings
-const redStringProperty = ColorVisionStrings.redStringProperty;
-const greenStringProperty = ColorVisionStrings.greenStringProperty;
-const blueStringProperty = ColorVisionStrings.blueStringProperty;
+const redLightStringProperty = ColorVisionStrings.redLightStringProperty;
+const greenLightStringProperty = ColorVisionStrings.greenLightStringProperty;
+const blueLightStringProperty = ColorVisionStrings.blueLightStringProperty;
 const rgbIntensityValuesStringProperty = ColorVisionStrings.RgbIntensityValuesStringProperty;
 
 class RGBScreenView extends ColorVisionScreenView {
@@ -121,9 +121,9 @@ class RGBScreenView extends ColorVisionScreenView {
     };
 
     // Create sliders and labels
-    const redSliderAndLabel = createSliderAndLabel( model.redIntensityProperty, 'red', 'redSlider', redStringProperty );
-    const greenSliderAndLabel = createSliderAndLabel( model.greenIntensityProperty, 'green', 'greenSlider', greenStringProperty );
-    const blueSliderAndLabel = createSliderAndLabel( model.blueIntensityProperty, 'blue', 'blueSlider', blueStringProperty );
+    const redSliderAndLabel = createSliderAndLabel( model.redIntensityProperty, 'red', 'redSlider', redLightStringProperty );
+    const greenSliderAndLabel = createSliderAndLabel( model.greenIntensityProperty, 'green', 'greenSlider', greenLightStringProperty );
+    const blueSliderAndLabel = createSliderAndLabel( model.blueIntensityProperty, 'blue', 'blueSlider', blueLightStringProperty );
 
     const sliderAndLabelVBox = new VBox( {
       children: [ redSliderAndLabel, greenSliderAndLabel, blueSliderAndLabel ],
@@ -134,7 +134,7 @@ class RGBScreenView extends ColorVisionScreenView {
     } );
 
     // Ensure sliderAndLabelVBox stays right-aligned to support dynamic locale
-    Multilink.multilink( [ redStringProperty, greenStringProperty, blueStringProperty ], () => {
+    Multilink.multilink( [ redLightStringProperty, greenLightStringProperty, blueLightStringProperty ], () => {
       sliderAndLabelVBox.right = this.layoutBounds.maxX - 16;
     } );
 
