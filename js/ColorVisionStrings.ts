@@ -10,23 +10,25 @@ import colorVision from './colorVision.js';
 
 type StringsType = {
   'filterSlider': {
+    'label': string;
     'labelStringProperty': LocalizedStringProperty;
   };
   'RgbBulbsModule': {
+    'title': string;
     'titleStringProperty': LocalizedStringProperty;
   };
   'color-vision': {
+    'title': string;
     'titleStringProperty': LocalizedStringProperty;
   };
   'bulbSlider': {
+    'label': string;
     'labelStringProperty': LocalizedStringProperty;
   };
   'SingleBulbModule': {
+    'title': string;
     'titleStringProperty': LocalizedStringProperty;
-  };
-  'redLightStringProperty': LocalizedStringProperty;
-  'greenLightStringProperty': LocalizedStringProperty;
-  'blueLightStringProperty': LocalizedStringProperty;
+  }
 };
 
 const ColorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;

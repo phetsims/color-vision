@@ -7,14 +7,12 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { Color, Font, Image, VBox, Text, HBox } from '../../../../scenery/js/imports.js';
+import { Image, VBox } from '../../../../scenery/js/imports.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
 import colorVision from '../../colorVision.js';
-import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';
 import HeadNode from '../../common/view/HeadNode.js';
@@ -25,11 +23,6 @@ import RGBSlider from './RGBSlider.js';
 // constants
 const BEAM_ANGLE = Math.PI / 6;
 const FLASHLIGHT_SCALE = 0.73;
-
-// strings
-const redLightStringProperty = ColorVisionStrings.redLightStringProperty;
-const greenLightStringProperty = ColorVisionStrings.greenLightStringProperty;
-const blueLightStringProperty = ColorVisionStrings.blueLightStringProperty;
 
 class RGBScreenView extends ColorVisionScreenView {
 
@@ -87,43 +80,26 @@ class RGBScreenView extends ColorVisionScreenView {
 
     this.pdomControlAreaNode.addChild( flashlightVBox );
 
-    // Create sliders
+    // Add sliders
     const redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
     const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
     const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
 
-    // Create flashlight color labels
-    const labelOptions = { font: new Font( { size: 16 } ), fill: Color.WHITE, maxWidth: 185 };
-    const redLightLabel = new Text( redLightStringProperty, labelOptions );
-    const greenLightLabel = new Text( greenLightStringProperty, labelOptions );
-    const blueLightLabel = new Text( blueLightStringProperty, labelOptions );
-
-    // Add flashlight labels and sliders
-    const flashlightLabelAndSliderHBox = ( lightLabel, slider ) => {
-      return new HBox( { children: [ lightLabel, slider ], spacing: 20, align: 'bottom' } );
-    };
-
-    const sliderAndLabelVBox = new VBox( {
+    const sliderVBox = new VBox( {
       children: [
-        flashlightLabelAndSliderHBox( redLightLabel, redSlider ),
-        flashlightLabelAndSliderHBox( greenLightLabel, greenSlider ),
-        flashlightLabelAndSliderHBox( blueLightLabel, blueSlider ) ],
+        redSlider,
+        greenSlider,
+        blueSlider ],
       spacing: 15,
-      align: 'right',
       right: this.layoutBounds.maxX - 16,
       centerY: flashlightVBox.centerY
     } );
 
-    // Ensure sliderAndLabelVBox stays right-aligned to support dynamic locale
-    Multilink.multilink( [ redLightStringProperty, greenLightStringProperty, blueLightStringProperty ], () => {
-      sliderAndLabelVBox.right = this.layoutBounds.maxX - 16;
-    } );
-
-    this.pdomControlAreaNode.addChild( sliderAndLabelVBox );
+    this.pdomControlAreaNode.addChild( sliderVBox );
 
     // set the tab navigation order
     this.pdomControlAreaNode.pdomOrder = [
-      sliderAndLabelVBox,
+      sliderVBox,
       headNode,
       this.timeControlNode,
       this.resetAllButton

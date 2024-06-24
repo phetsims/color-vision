@@ -13,14 +13,5 @@
   },
   "SingleBulbModule.title": {
     "value": "Single Bulb"
-  },
-  "redLight": {
-    "value": "Red Light"
-  },
-  "greenLight": {
-    "value": "Green Light"
-  },
-  "blueLight": {
-    "value": "Blue Light"
   }
 }
