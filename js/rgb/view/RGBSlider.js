@@ -8,7 +8,7 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
-import { Color, Font, LinearGradient, Rectangle, Text } from '../../../../scenery/js/imports.js';
+import { LinearGradient, Rectangle } from '../../../../scenery/js/imports.js';
 import VSlider from '../../../../sun/js/VSlider.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
@@ -22,29 +22,13 @@ class RGBSlider extends Rectangle {
    */
   constructor( intensityProperty, color, tandem ) {
 
-    const range = new Range( 0, 100 );
-    const slider = new VSlider( intensityProperty, range, {
+    const slider = new VSlider( intensityProperty, new Range( 0, 100 ), {
       trackSize: new Dimension2( 2, 100 ),
       thumbSize: new Dimension2( 28, 14 ),
       thumbTouchAreaXDilation: 7,
       thumbTouchAreaYDilation: 7,
-      majorTickStroke: Color.WHITE,
-      minorTickStroke: Color.WHITE,
-      majorTickLength: 15,
-      minorTickLength: 7,
       tandem: tandem
     } );
-
-    const tickLabelOptions = { font: new Font( { size: 12 } ), fill: Color.WHITE, maxWidth: 25 };
-
-    // major ticks
-    slider.addMajorTick( range.min, new Text( range.min, tickLabelOptions ) );
-    slider.addMajorTick( range.getCenter(), new Text( range.getCenter(), tickLabelOptions ) );
-    slider.addMajorTick( range.max, new Text( range.max, tickLabelOptions ) );
-
-    // minor ticks
-    slider.addMinorTick( range.min + 0.25 * range.getLength() );
-    slider.addMinorTick( range.min + 0.75 * range.getLength() );
 
     const rectWidth = slider.width + 8;
     const rectHeight = slider.height + 22;
