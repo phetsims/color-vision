@@ -1,4 +1,4 @@
-// Copyright 2021-2023, University of Colorado Boulder
+// Copyright 2021-2024, University of Colorado Boulder
 
 /**
  * Auto-generated from modulify, DO NOT manually modify.
@@ -10,25 +10,21 @@ import colorVision from './colorVision.js';
 
 type StringsType = {
   'filterSlider': {
-    'label': string;
     'labelStringProperty': LocalizedStringProperty;
   };
   'RgbBulbsModule': {
-    'title': string;
     'titleStringProperty': LocalizedStringProperty;
   };
   'color-vision': {
-    'title': string;
     'titleStringProperty': LocalizedStringProperty;
   };
   'bulbSlider': {
-    'label': string;
     'labelStringProperty': LocalizedStringProperty;
   };
   'SingleBulbModule': {
-    'title': string;
     'titleStringProperty': LocalizedStringProperty;
-  }
+  };
+  'valuePercentPatternStringProperty': LocalizedStringProperty;
 };
 
 const ColorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;

@@ -13,5 +13,8 @@
   },
   "SingleBulbModule.title": {
     "value": "Single Bulb"
+  },
+  "valuePercentPattern": {
+    "value": "{{value}}%"
   }
 }

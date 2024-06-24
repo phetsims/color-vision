@@ -8,9 +8,11 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
-import { LinearGradient, Rectangle } from '../../../../scenery/js/imports.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { LinearGradient, Rectangle, VBox, Text, Font } from '../../../../scenery/js/imports.js';
 import VSlider from '../../../../sun/js/VSlider.js';
 import colorVision from '../../colorVision.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 
 class RGBSlider extends Rectangle {
@@ -22,16 +24,37 @@ class RGBSlider extends Rectangle {
    */
   constructor( intensityProperty, color, tandem ) {
 
-    const slider = new VSlider( intensityProperty, new Range( 0, 100 ), {
-      trackSize: new Dimension2( 2, 100 ),
+    const range = new Range( 0, 100 );
+    const slider = new VSlider( intensityProperty, range, {
+      trackSize: new Dimension2( 2, 90 ),
       thumbSize: new Dimension2( 28, 14 ),
       thumbTouchAreaXDilation: 7,
       thumbTouchAreaYDilation: 7,
+      majorTickStroke: 'white',
+      minorTickStroke: 'white',
+      majorTickLength: 15,
+      minorTickLength: 7,
       tandem: tandem
     } );
 
-    const rectWidth = slider.width + 8;
-    const rectHeight = slider.height + 22;
+    // major ticks
+    slider.addMajorTick( range.min );
+    slider.addMajorTick( range.getCenter() );
+    slider.addMajorTick( range.max );
+
+    // minor ticks
+    slider.addMinorTick( range.min + 0.25 * range.getLength() );
+    slider.addMinorTick( range.min + 0.75 * range.getLength() );
+
+    // labels
+    const labelOptions = { font: new Font( { size: 12 } ), maxWidth: 40, fill: 'white' };
+    const rangeMaxText = new Text( StringUtils.fillIn( ColorVisionStrings.valuePercentPatternStringProperty, { value: range.max } ), labelOptions );
+    const rangeMinText = new Text( StringUtils.fillIn( ColorVisionStrings.valuePercentPatternStringProperty, { value: range.min } ), labelOptions );
+
+    const sliderAndLabelsVBox = new VBox( { children: [ rangeMaxText, slider, rangeMinText ], spacing: 0 } );
+
+    const rectWidth = sliderAndLabelsVBox.width + 8;
+    const rectHeight = sliderAndLabelsVBox.height + 6;
 
     super( 0, 0, rectWidth, rectHeight, 5, 5,
       {
@@ -39,10 +62,10 @@ class RGBSlider extends Rectangle {
         stroke: ColorVisionConstants.SLIDER_BORDER_STROKE
       } );
 
-    slider.centerX = this.centerX;
-    slider.centerY = this.centerY;
+    sliderAndLabelsVBox.centerX = this.centerX;
+    sliderAndLabelsVBox.centerY = this.centerY;
 
-    this.addChild( slider );
+    this.addChild( sliderAndLabelsVBox );
   }
 }
 
