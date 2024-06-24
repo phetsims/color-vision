@@ -9,9 +9,7 @@
 
 import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import Range from '../../../../dot/js/Range.js';
-import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
-import { Font, HBox, Image, Text, VBox } from '../../../../scenery/js/imports.js';
+import { Color, Font, Image, VBox, Text, HBox } from '../../../../scenery/js/imports.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
@@ -89,37 +87,27 @@ class RGBScreenView extends ColorVisionScreenView {
 
     this.pdomControlAreaNode.addChild( flashlightVBox );
 
-    const numberDisplayOptions = { align: 'center', cornerRadius: 3, backgroundStroke: 'black', minBackgroundWidth: 70 };
-    const labelOptions = { font: new Font( { size: 16 } ), fill: 'white', maxWidth: 125 };
+    // Create sliders
+    const redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
+    const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
+    const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
 
-    // Function to create a slider, intensity property display, and label
-    const createSliderAndLabel = ( intensityProperty, color, tandemId, lightStringProperty ) => {
-      const slider = new RGBSlider( intensityProperty, color, tandem.createTandem( tandemId ) );
-      const intensityPropertyDisplay = new NumberDisplay( intensityProperty, new Range( 0, 100 ), numberDisplayOptions );
-      const lightLabel = new Text( lightStringProperty, labelOptions );
+    // Create flashlight color labels
+    const labelOptions = { font: new Font( { size: 16 } ), fill: Color.WHITE, maxWidth: 185 };
+    const redLightLabel = new Text( redLightStringProperty, labelOptions );
+    const greenLightLabel = new Text( greenLightStringProperty, labelOptions );
+    const blueLightLabel = new Text( blueLightStringProperty, labelOptions );
 
-      // Create a VBox for the intensity property display and light label
-      const lightLabelAndIntensityVBox = new VBox( {
-        children: [ intensityPropertyDisplay, lightLabel ],
-        spacing: 3,
-        align: 'center'
-      } );
-
-      // Combine VBox and slider in an HBox
-      return new HBox( {
-        children: [ lightLabelAndIntensityVBox, slider ],
-        spacing: 20,
-        align: 'bottom'
-      } );
+    // Add flashlight labels and sliders
+    const flashlightLabelAndSliderHBox = ( lightLabel, slider ) => {
+      return new HBox( { children: [ lightLabel, slider ], spacing: 20, align: 'bottom' } );
     };
 
-    // Create sliders and labels
-    const redSliderAndLabel = createSliderAndLabel( model.redIntensityProperty, 'red', 'redSlider', redLightStringProperty );
-    const greenSliderAndLabel = createSliderAndLabel( model.greenIntensityProperty, 'green', 'greenSlider', greenLightStringProperty );
-    const blueSliderAndLabel = createSliderAndLabel( model.blueIntensityProperty, 'blue', 'blueSlider', blueLightStringProperty );
-
     const sliderAndLabelVBox = new VBox( {
-      children: [ redSliderAndLabel, greenSliderAndLabel, blueSliderAndLabel ],
+      children: [
+        flashlightLabelAndSliderHBox( redLightLabel, redSlider ),
+        flashlightLabelAndSliderHBox( greenLightLabel, greenSlider ),
+        flashlightLabelAndSliderHBox( blueLightLabel, blueSlider ) ],
       spacing: 15,
       align: 'right',
       right: this.layoutBounds.maxX - 16,

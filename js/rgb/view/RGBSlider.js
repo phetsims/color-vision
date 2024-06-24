@@ -8,7 +8,7 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
-import { Font, LinearGradient, Rectangle, Text } from '../../../../scenery/js/imports.js';
+import { Color, Font, LinearGradient, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import VSlider from '../../../../sun/js/VSlider.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
@@ -28,14 +28,14 @@ class RGBSlider extends Rectangle {
       thumbSize: new Dimension2( 28, 14 ),
       thumbTouchAreaXDilation: 7,
       thumbTouchAreaYDilation: 7,
-      majorTickStroke: 'white',
-      minorTickStroke: 'white',
+      majorTickStroke: Color.WHITE,
+      minorTickStroke: Color.WHITE,
       majorTickLength: 15,
       minorTickLength: 7,
       tandem: tandem
     } );
 
-    const tickLabelOptions = { font: new Font( { size: 12 } ), fill: 'white' };
+    const tickLabelOptions = { font: new Font( { size: 12 } ), fill: Color.WHITE };
 
     // major ticks
     slider.addMajorTick( range.min, new Text( range.min, tickLabelOptions ) );
