@@ -7,13 +7,11 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Range from '../../../../dot/js/Range.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
 import { Font, HBox, Image, Text, VBox } from '../../../../scenery/js/imports.js';
-import Checkbox from '../../../../sun/js/Checkbox.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
@@ -34,7 +32,6 @@ const FLASHLIGHT_SCALE = 0.73;
 const redLightStringProperty = ColorVisionStrings.redLightStringProperty;
 const greenLightStringProperty = ColorVisionStrings.greenLightStringProperty;
 const blueLightStringProperty = ColorVisionStrings.blueLightStringProperty;
-const rgbIntensityValuesStringProperty = ColorVisionStrings.RgbIntensityValuesStringProperty;
 
 class RGBScreenView extends ColorVisionScreenView {
 
@@ -92,9 +89,7 @@ class RGBScreenView extends ColorVisionScreenView {
 
     this.pdomControlAreaNode.addChild( flashlightVBox );
 
-    const showRGBIntensityValuesBooleanProperty = new BooleanProperty( false );
-    const numberDisplayOptions = { align: 'center', cornerRadius: 3, backgroundStroke: 'black',
-      minBackgroundWidth: 65, visibleProperty: showRGBIntensityValuesBooleanProperty };
+    const numberDisplayOptions = { align: 'center', cornerRadius: 3, backgroundStroke: 'black', minBackgroundWidth: 70 };
     const labelOptions = { font: new Font( { size: 16 } ), fill: 'white', maxWidth: 125 };
 
     // Function to create a slider, intensity property display, and label
@@ -138,20 +133,9 @@ class RGBScreenView extends ColorVisionScreenView {
 
     this.pdomControlAreaNode.addChild( sliderAndLabelVBox );
 
-    // Add checkbox to show / hide the RGB intensity number displays
-    const showRGBIntensityValuesCheckbox = new Checkbox( showRGBIntensityValuesBooleanProperty,
-      new Text( rgbIntensityValuesStringProperty,
-        { fill: 'white', font: new Font( { size: 16 } ), maxWidth: 175 } ),
-      { checkboxColor: 'white', checkboxColorBackground: 'black' }
-    );
-    showRGBIntensityValuesCheckbox.centerY = this.timeControlNode.centerY;
-    showRGBIntensityValuesCheckbox.left = this.timeControlNode.right + 30;
-    this.pdomControlAreaNode.addChild( showRGBIntensityValuesCheckbox );
-
     // set the tab navigation order
     this.pdomControlAreaNode.pdomOrder = [
       sliderAndLabelVBox,
-      showRGBIntensityValuesCheckbox,
       headNode,
       this.timeControlNode,
       this.resetAllButton

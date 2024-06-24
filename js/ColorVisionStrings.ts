@@ -1,4 +1,4 @@
-// Copyright 2021-2024, University of Colorado Boulder
+// Copyright 2021-2023, University of Colorado Boulder
 
 /**
  * Auto-generated from modulify, DO NOT manually modify.
@@ -27,7 +27,6 @@ type StringsType = {
   'redLightStringProperty': LocalizedStringProperty;
   'greenLightStringProperty': LocalizedStringProperty;
   'blueLightStringProperty': LocalizedStringProperty;
-  'RgbIntensityValuesStringProperty': LocalizedStringProperty;
 };
 
 const ColorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;
