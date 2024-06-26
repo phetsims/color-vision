@@ -16,5 +16,14 @@
   },
   "valuePercentPattern": {
     "value": "{{value}}%"
+  },
+  "red": {
+    "value": "Red"
+  },
+  "green": {
+    "value": "Green"
+  },
+  "blue": {
+    "value": "Blue"
   }
 }

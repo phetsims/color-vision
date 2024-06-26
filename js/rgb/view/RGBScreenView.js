@@ -8,11 +8,12 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { Image, VBox } from '../../../../scenery/js/imports.js';
+import { Font, Image, Node, Rectangle, Text, VBox } from '../../../../scenery/js/imports.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
 import colorVision from '../../colorVision.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';
 import HeadNode from '../../common/view/HeadNode.js';
@@ -67,6 +68,33 @@ class RGBScreenView extends ColorVisionScreenView {
     const redFlashlightNode = new Image( flashlightNeg45Deg_png, { scale: FLASHLIGHT_SCALE } );
     const greenFlashlightNode = new Image( flashlight0Deg_png, { scale: FLASHLIGHT_SCALE } );
     const blueFlashlightNode = new Image( flashlightPos45Deg_png, { scale: FLASHLIGHT_SCALE } );
+
+    // Add flashlight color labels
+    const addFlashlightColorLabel = ( colorStringProperty, rotation, flashlightNode, xOffset, yOffset, textName ) => {
+      const colorLabelText = new Text( colorStringProperty,
+        { font: new Font( { size: 20 } ), maxWidth: 90, tandem: textName } );
+      const backgroundRectangle = new Rectangle( 0, 0, 105, 33,
+        { cornerRadius: 10, fill: 'white', opacity: 0.5 } );
+      const labelAndBackgroundNode = new Node();
+
+      // Ensure the color label stays centered on the background rectangle, to support dynamic locale
+      colorStringProperty.link( () => {
+        colorLabelText.center = backgroundRectangle.center;
+      } );
+
+      labelAndBackgroundNode.addChild( backgroundRectangle );
+      labelAndBackgroundNode.addChild( colorLabelText );
+      labelAndBackgroundNode.setRotation( rotation );
+      labelAndBackgroundNode.centerX = flashlightNode.centerX + xOffset;
+      labelAndBackgroundNode.centerY = flashlightNode.centerY + yOffset;
+      flashlightNode.addChild( labelAndBackgroundNode );
+    };
+    addFlashlightColorLabel( ColorVisionStrings.redStringProperty, -29 * Math.PI / 180, redFlashlightNode,
+      45, 3, 'redLightText' );
+    addFlashlightColorLabel( ColorVisionStrings.greenStringProperty, 0, greenFlashlightNode,
+      45, 10, 'greenLightText' );
+    addFlashlightColorLabel( ColorVisionStrings.blueStringProperty, 7 * Math.PI / 45, blueFlashlightNode,
+      46, 30, 'blueLightText' );
 
     const flashlightVBox = new VBox( {
       children: [
