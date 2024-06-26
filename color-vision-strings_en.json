@@ -25,5 +25,14 @@
   },
   "blue": {
     "value": "Blue"
+  },
+  "redLight": {
+    "value": "Red Light"
+  },
+  "greenLight": {
+    "value": "Green Light"
+  },
+  "blueLight": {
+    "value": "Blue Light"
   }
 }

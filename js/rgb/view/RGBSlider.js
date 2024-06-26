@@ -22,7 +22,7 @@ class RGBSlider extends Rectangle {
    * @param {string} color
    * @param {Tandem} tandem
    */
-  constructor( intensityProperty, color, tandem ) {
+  constructor( intensityProperty, color, lightColorStringProperty, tandem ) {
 
     const range = new Range( 0, 100 );
     const slider = new VSlider( intensityProperty, range, {
@@ -34,6 +34,7 @@ class RGBSlider extends Rectangle {
       minorTickStroke: 'white',
       majorTickLength: 15,
       minorTickLength: 7,
+      accessibleName: lightColorStringProperty,
       tandem: tandem
     } );
 

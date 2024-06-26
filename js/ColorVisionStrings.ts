@@ -28,6 +28,9 @@ type StringsType = {
   'redStringProperty': LocalizedStringProperty;
   'greenStringProperty': LocalizedStringProperty;
   'blueStringProperty': LocalizedStringProperty;
+  'redLightStringProperty': LocalizedStringProperty;
+  'greenLightStringProperty': LocalizedStringProperty;
+  'blueLightStringProperty': LocalizedStringProperty;
 };
 
 const ColorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;

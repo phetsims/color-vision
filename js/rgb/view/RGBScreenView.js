@@ -109,9 +109,12 @@ class RGBScreenView extends ColorVisionScreenView {
     this.pdomControlAreaNode.addChild( flashlightVBox );
 
     // Add sliders
-    const redSlider = new RGBSlider( model.redIntensityProperty, 'red', tandem.createTandem( 'redSlider' ) );
-    const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green', tandem.createTandem( 'greenSlider' ) );
-    const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue', tandem.createTandem( 'blueSlider' ) );
+    const redSlider = new RGBSlider( model.redIntensityProperty, 'red',
+      ColorVisionStrings.redLightStringProperty, tandem.createTandem( 'redSlider' ) );
+    const greenSlider = new RGBSlider( model.greenIntensityProperty, 'green',
+      ColorVisionStrings.greenLightStringProperty, tandem.createTandem( 'greenSlider' ) );
+    const blueSlider = new RGBSlider( model.blueIntensityProperty, 'blue',
+      ColorVisionStrings.blueLightStringProperty, tandem.createTandem( 'blueSlider' ) );
 
     const sliderVBox = new VBox( {
       children: [
