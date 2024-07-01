@@ -94,7 +94,7 @@ class RGBScreenView extends ColorVisionScreenView {
     addFlashlightColorLabel( ColorVisionStrings.greenStringProperty, 0, greenFlashlightNode,
       45, 10, 'greenLightText' );
     addFlashlightColorLabel( ColorVisionStrings.blueStringProperty, 7 * Math.PI / 45, blueFlashlightNode,
-      46, 30, 'blueLightText' );
+      46, 32, 'blueLightText' );
 
     const flashlightVBox = new VBox( {
       children: [
