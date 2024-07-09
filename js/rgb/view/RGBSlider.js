@@ -26,7 +26,7 @@ class RGBSlider extends Rectangle {
 
     const range = new Range( 0, 100 );
     const slider = new VSlider( intensityProperty, range, {
-      trackSize: new Dimension2( 2, 90 ),
+      trackSize: new Dimension2( 0.5, 90 ),
       thumbSize: new Dimension2( 28, 14 ),
       thumbTouchAreaXDilation: 7,
       thumbTouchAreaYDilation: 7,
@@ -34,6 +34,7 @@ class RGBSlider extends Rectangle {
       minorTickStroke: 'white',
       majorTickLength: 15,
       minorTickLength: 7,
+      trackStroke: 'white',
       accessibleName: lightColorStringProperty,
       tandem: tandem
     } );
