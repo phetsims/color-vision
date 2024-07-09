@@ -35,6 +35,7 @@ class GaussianWavelengthSlider extends Node {
 
     // Add lower WavelengthSlider
     const slider = new WavelengthSlider( filterWavelengthProperty, {
+      accessibleName: 'Filter Color',
       tandem: tandem,
       tweakersVisible: false,
       valueVisible: false,

@@ -67,6 +67,7 @@ class FilterWireNode extends Node {
       trackFillRight: '#eeeeee',
       trackStroke: 'black',
       thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' ),
+      accessibleName: 'Filter',
       tandem: tandem.createTandem( 'onOffSwitch' )
     } );
 

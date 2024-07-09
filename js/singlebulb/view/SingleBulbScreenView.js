@@ -96,6 +96,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
+      accessibleName: 'Flashlight Bulb Color',
       tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
 

@@ -29,6 +29,7 @@ class FlashlightWithButtonNode extends Node {
       centerX: flashlightNode.centerX + 15,
       baseColor: 'red',
       radius: 15,
+      accessibleName: 'Flashlight',
       tandem: tandem.createTandem( 'button' )
     } );
 
