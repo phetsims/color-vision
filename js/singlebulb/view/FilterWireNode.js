@@ -1,4 +1,4 @@
-// Copyright 2014-2022, University of Colorado Boulder
+// Copyright 2014-2024, University of Colorado Boulder
 
 /**
  * FilterWireNode forms the wire going from the filter to the slider, including the filter enabled switch.
