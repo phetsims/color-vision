@@ -142,7 +142,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     const whiteColoredRadioButtonGroup = new RectangularRadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
       merge( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
-        tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' )
+        tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' ),
+        labelContent: 'Light output types'
       }, radioButtonGroupOptions )
     );
 
@@ -159,7 +160,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     const beamPhotonRadioButtonGroup = new RectangularRadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
       merge( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
-        tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' )
+        tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' ),
+        labelContent: 'Light representation modes'
       }, radioButtonGroupOptions )
     );
 

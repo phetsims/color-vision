@@ -92,7 +92,8 @@ class HeadNode extends Node {
       },
       bottom: layoutBoundsBottom - 22,
       centerX: silhouetteNode.centerX - 42,
-      tandem: tandem.createTandem( 'radioButtonGroup' )
+      tandem: tandem.createTandem( 'radioButtonGroup' ),
+      labelContent: 'Brain view options'
     }, ColorVisionConstants.RADIO_BUTTON_GROUP_OPTIONS ) );
     this.addChild( radioButtonGroup );
   }
