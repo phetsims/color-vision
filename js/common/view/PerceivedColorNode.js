@@ -45,9 +45,9 @@ class PerceivedColorNode extends Path {
     soundManager.addSoundGenerator(
       new PerceivedColorSoundGenerator( perceivedColorProperty, {
         initialOutputLevel: 0.1,
-        enableControlProperties: [ simPlayingProperty ]
-      } ),
-      { associatedViewNode: this }
+        enabledProperty: simPlayingProperty,
+        associatedViewNode: this
+      } )
     );
   }
 }
