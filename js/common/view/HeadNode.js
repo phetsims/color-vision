@@ -78,11 +78,11 @@ class HeadNode extends Node {
     const toggleButtonsContent = [ {
       value: 'no-brain',
       createNode: () => new Image( headIcon_png, { scale: IMAGE_SCALE } ),
-      tandemName: 'hideBrainRadioButton'
+      tandemName: 'exteriorViewRadioButton'
     }, {
       value: 'brain',
       createNode: () => new Image( silhouetteIcon_png, { scale: IMAGE_SCALE } ),
-      tandemName: 'showBrainRadioButton'
+      tandemName: 'interiorViewRadioButton'
     } ];
 
     const radioButtonGroup = new RectangularRadioButtonGroup( headModeProperty, toggleButtonsContent, merge( {
@@ -93,7 +93,7 @@ class HeadNode extends Node {
       bottom: layoutBoundsBottom - 22,
       centerX: silhouetteNode.centerX - 42,
       tandem: tandem.createTandem( 'radioButtonGroup' ),
-      labelContent: 'Brain view options'
+      labelContent: 'Viewer Representation'
     }, ColorVisionConstants.RADIO_BUTTON_GROUP_OPTIONS ) );
     this.addChild( radioButtonGroup );
   }

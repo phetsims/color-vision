@@ -136,7 +136,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     }, {
       value: 'colored',
       createNode: () => new Image( singleColorLightIcon_png, ICON_OPTIONS ),
-      tandemName: 'coloredLightRadioButton'
+      tandemName: 'monochromaticLightRadioButton'
     } ];
 
     const whiteColoredRadioButtonGroup = new RectangularRadioButtonGroup( model.lightTypeProperty, whiteColoredButtonsContent,
@@ -154,7 +154,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     }, {
       value: 'photon',
       createNode: () => new Image( photonViewIcon_png, ICON_OPTIONS ),
-      tandemName: 'photonRadioButton'
+      tandemName: 'photonsRadioButton'
     } ];
 
     const beamPhotonRadioButtonGroup = new RectangularRadioButtonGroup( model.beamTypeProperty, beamPhotonButtonsContent,
