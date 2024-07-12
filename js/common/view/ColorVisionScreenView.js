@@ -35,7 +35,7 @@ class ColorVisionScreenView extends ScreenView {
       left: 20,
       top: 5
     } );
-    this.pdomControlAreaNode.addChild( perceivedColorNode );
+    this.pdomPlayAreaNode.addChild( perceivedColorNode );
 
     // @protected (read-only) {TimeControlNode} - the play/pause and step buttons
     this.timeControlNode = new TimeControlNode( model.playingProperty, {
@@ -60,6 +60,12 @@ class ColorVisionScreenView extends ScreenView {
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
     this.pdomControlAreaNode.addChild( this.resetAllButton );
+
+    // set the tab navigation order
+    this.pdomControlAreaNode.pdomOrder = [
+      this.timeControlNode,
+      this.resetAllButton
+    ];
   }
 }
 

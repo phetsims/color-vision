@@ -62,7 +62,7 @@ class RGBScreenView extends ColorVisionScreenView {
     // add head node
     const beamArray = [ this.redBeam, this.blueBeam, this.greenBeam ];
     const headNode = new HeadNode( model.headModeProperty, this.layoutBounds.bottom, beamArray, tandem.createTandem( 'headNode' ) );
-    this.pdomControlAreaNode.addChild( headNode );
+    this.pdomPlayAreaNode.addChild( headNode );
 
     // Add flashlights
     const redFlashlightNode = new Image( flashlightNeg45Deg_png, { scale: FLASHLIGHT_SCALE } );
@@ -106,7 +106,7 @@ class RGBScreenView extends ColorVisionScreenView {
       centerY: this.layoutBounds.centerY + ColorVisionConstants.CENTER_Y_OFFSET
     } );
 
-    this.pdomControlAreaNode.addChild( flashlightVBox );
+    this.pdomPlayAreaNode.addChild( flashlightVBox );
 
     // Add sliders
     const redSlider = new RGBSlider( model.redIntensityProperty, 'red',
@@ -126,14 +126,12 @@ class RGBScreenView extends ColorVisionScreenView {
       centerY: flashlightVBox.centerY
     } );
 
-    this.pdomControlAreaNode.addChild( sliderVBox );
+    this.pdomPlayAreaNode.addChild( sliderVBox );
 
     // set the tab navigation order
-    this.pdomControlAreaNode.pdomOrder = [
+    this.pdomPlayAreaNode.pdomOrder = [
       sliderVBox,
-      headNode,
-      this.timeControlNode,
-      this.resetAllButton
+      headNode
     ];
   }
 

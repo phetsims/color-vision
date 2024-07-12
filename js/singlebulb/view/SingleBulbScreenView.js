@@ -79,7 +79,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
         sliderText.right = slider.right - 18;
       } );
 
-      this.pdomControlAreaNode.addChild( sliderText );
+      this.pdomPlayAreaNode.addChild( sliderText );
       return sliderText;
     };
 
@@ -96,7 +96,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-      accessibleName: 'Flashlight Bulb Color',
+      accessibleName: 'Bulb Color',
       tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
 
@@ -117,8 +117,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       flashlightWire.visible = coloredLight;
     } );
 
-    this.pdomControlAreaNode.addChild( flashlightWire );
-    this.pdomControlAreaNode.addChild( bulbColorSlider );
+    this.pdomPlayAreaNode.addChild( flashlightWire );
+    this.pdomPlayAreaNode.addChild( bulbColorSlider );
 
     // options common to all RectangularRadioButtonGroups
     const radioButtonGroupOptions = merge( {
@@ -165,8 +165,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       }, radioButtonGroupOptions )
     );
 
-    this.pdomControlAreaNode.addChild( whiteColoredRadioButtonGroup );
-    this.pdomControlAreaNode.addChild( beamPhotonRadioButtonGroup );
+    this.pdomPlayAreaNode.addChild( whiteColoredRadioButtonGroup );
+    this.pdomPlayAreaNode.addChild( beamPhotonRadioButtonGroup );
 
     // right and left filters have the same image dimensions (while only taking up half of the image each),
     // so both can use the same option parameters and can be positioned the same and will match up perfectly
@@ -212,9 +212,9 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       new Vector2( gaussianSlider.left + 16, gaussianSlider.centerY - SLIDER_Y_OFFSET ),
       tandem.createTandem( 'filterWireNode' )
     );
-    this.pdomControlAreaNode.addChild( filterWireNode );
+    this.pdomPlayAreaNode.addChild( filterWireNode );
 
-    this.pdomControlAreaNode.addChild( gaussianSlider );
+    this.pdomPlayAreaNode.addChild( gaussianSlider );
 
     // Left half of the filter
     const filterLeft = new FilterHalfEllipse(
@@ -249,8 +249,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     const solidBeam = new SolidBeamNode( model, beamBounds, filterLeftNode.centerX );
 
     // Add right side of filter before the solid beam and the left side
-    this.pdomControlAreaNode.addChild( filterRightNode );
-    this.pdomControlAreaNode.addChild( filterRight );
+    this.pdomPlayAreaNode.addChild( filterRightNode );
+    this.pdomPlayAreaNode.addChild( filterRight );
 
     // Add the head node and solid and photon beams above the right side of the filter so they show up on top
     const headNode = new HeadNode(
@@ -259,26 +259,24 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       [ solidBeam, this.photonBeamNode ],
       tandem.createTandem( 'headNode' )
     );
-    this.pdomControlAreaNode.addChild( headNode );
+    this.pdomPlayAreaNode.addChild( headNode );
 
     // Add the left side of the filter above the beams so it appears to pass behind
-    this.pdomControlAreaNode.addChild( filterLeftNode );
-    this.pdomControlAreaNode.addChild( filterLeft );
+    this.pdomPlayAreaNode.addChild( filterLeftNode );
+    this.pdomPlayAreaNode.addChild( filterLeft );
 
     // flashlight is added after the beams so it covers up the beginning of the beam
-    this.pdomControlAreaNode.addChild( flashlightNode );
+    this.pdomPlayAreaNode.addChild( flashlightNode );
 
     // set the tab navigation order
-    this.pdomControlAreaNode.pdomOrder = [
+    this.pdomPlayAreaNode.pdomOrder = [
       flashlightNode,
       bulbColorSlider,
       whiteColoredRadioButtonGroup,
       beamPhotonRadioButtonGroup,
       filterWireNode,
       gaussianSlider,
-      headNode,
-      this.timeControlNode,
-      this.resetAllButton
+      headNode
     ];
   }
 
