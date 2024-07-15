@@ -17,6 +17,7 @@ import WavelengthSpectrumNode from '../../../../scenery-phet/js/WavelengthSpectr
 import { Node, Path } from '../../../../scenery/js/imports.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 
 class GaussianWavelengthSlider extends Node {
@@ -35,7 +36,7 @@ class GaussianWavelengthSlider extends Node {
 
     // Add lower WavelengthSlider
     const slider = new WavelengthSlider( filterWavelengthProperty, {
-      accessibleName: 'Filter Color',
+      accessibleName: ColorVisionStrings.filterSlider.labelStringProperty,
       tandem: tandem,
       tweakersVisible: false,
       valueVisible: false,

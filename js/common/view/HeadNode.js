@@ -22,6 +22,7 @@ import silhouetteFront_png from '../../../images/silhouetteFront_png.js';
 import silhouetteIcon_png from '../../../images/silhouetteIcon_png.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../ColorVisionConstants.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 
 // constants
 const BOTTOM_OFFSET = 15;
@@ -93,7 +94,7 @@ class HeadNode extends Node {
       bottom: layoutBoundsBottom - 22,
       centerX: silhouetteNode.centerX - 42,
       tandem: tandem.createTandem( 'radioButtonGroup' ),
-      labelContent: 'Viewer Representation'
+      labelContent: ColorVisionStrings.a11y.viewerRepresentationStringProperty
     }, ColorVisionConstants.RADIO_BUTTON_GROUP_OPTIONS ) );
     this.addChild( radioButtonGroup );
   }

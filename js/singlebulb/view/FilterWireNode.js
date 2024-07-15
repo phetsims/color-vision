@@ -11,6 +11,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import { LinearGradient, Node, Path } from '../../../../scenery/js/imports.js';
 import OnOffSwitch from '../../../../sun/js/OnOffSwitch.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 import colorVision from '../../colorVision.js';
 
 // constants
@@ -67,7 +68,7 @@ class FilterWireNode extends Node {
       trackFillRight: '#eeeeee',
       trackStroke: 'black',
       thumbStroke: new LinearGradient( 0, 0, 0, SWITCH_HEIGHT ).addColorStop( 0, '#666666' ).addColorStop( 1, '#333333' ),
-      accessibleName: 'Filter',
+      accessibleName: ColorVisionStrings.a11y.filterStringProperty,
       tandem: tandem.createTandem( 'onOffSwitch' )
     } );
 

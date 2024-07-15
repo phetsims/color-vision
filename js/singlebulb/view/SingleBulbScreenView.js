@@ -96,7 +96,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-      accessibleName: 'Bulb Color',
+      accessibleName: ColorVisionStrings.bulbSlider.labelStringProperty,
       tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
 
@@ -143,7 +143,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       merge( {
         bottom: flashlightNode.top - DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'whiteColoredRadioButtonGroup' ),
-        labelContent: 'Light output types'
+        labelContent: ColorVisionStrings.a11y.lightOutputTypesStringProperty
       }, radioButtonGroupOptions )
     );
 
@@ -161,7 +161,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       merge( {
         top: flashlightNode.bottom + DISTANCE_FROM_FLASHLIGHT,
         tandem: tandem.createTandem( 'beamPhotonRadioButtonGroup' ),
-        labelContent: 'Light representation modes'
+        labelContent: ColorVisionStrings.a11y.lightRepresentationModesStringProperty
       }, radioButtonGroupOptions )
     );
 

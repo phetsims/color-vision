@@ -9,6 +9,7 @@
 import { Image, Node } from '../../../../scenery/js/imports.js';
 import BooleanRoundStickyToggleButton from '../../../../sun/js/buttons/BooleanRoundStickyToggleButton.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 import colorVision from '../../colorVision.js';
 
 class FlashlightWithButtonNode extends Node {
@@ -29,7 +30,7 @@ class FlashlightWithButtonNode extends Node {
       centerX: flashlightNode.centerX + 15,
       baseColor: 'red',
       radius: 15,
-      accessibleName: 'Flashlight',
+      accessibleName: ColorVisionStrings.a11y.flashlightStringProperty,
       tandem: tandem.createTandem( 'button' )
     } );
 
