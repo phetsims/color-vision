@@ -96,7 +96,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       thumbHeight: 40,
       thumbTouchAreaYDilation: 10,
       trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
-      accessibleName: ColorVisionStrings.a11y.bulbColorStringProperty,
+      accessibleName: ColorVisionStrings.bulbSlider.labelStringProperty,
       tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
 

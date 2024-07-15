@@ -42,12 +42,6 @@
     "filter": {
       "value": "Filter"
     },
-    "bulbColor": {
-      "value": "Bulb color"
-    },
-    "filterColor": {
-      "value": "Filter color"
-    },
     "viewerRepresentation": {
       "value": "Viewer representation"
     },

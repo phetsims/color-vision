@@ -34,8 +34,6 @@ type StringsType = {
   'a11y': {
     'flashlightStringProperty': LocalizedStringProperty;
     'filterStringProperty': LocalizedStringProperty;
-    'bulbColorStringProperty': LocalizedStringProperty;
-    'filterColorStringProperty': LocalizedStringProperty;
     'viewerRepresentationStringProperty': LocalizedStringProperty;
     'lightOutputTypesStringProperty': LocalizedStringProperty;
     'lightRepresentationModesStringProperty': LocalizedStringProperty;
