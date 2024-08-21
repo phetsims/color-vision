@@ -12,6 +12,7 @@ import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import colorVision from '../colorVision.js';
 import ColorVisionStrings from '../ColorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
+import ColorVisionKeyboardHelpContent from '../common/view/ColorVisionKeyboardHelpContent.js';
 import RGBModel from './model/RGBModel.js';
 import RGBIconNode from './view/RGBIconNode.js';
 import RGBScreenView from './view/RGBScreenView.js';
@@ -34,6 +35,7 @@ class RGBScreen extends Screen {
         maxIconWidthProportion: 1,
         maxIconHeightProportion: 1
       } ),
+      createKeyboardHelpNode: () => new ColorVisionKeyboardHelpContent(),
       showUnselectedHomeScreenIconFrame: true,
       tandem: tandem
     };

@@ -12,6 +12,7 @@ import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import colorVision from '../colorVision.js';
 import ColorVisionStrings from '../ColorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
+import ColorVisionKeyboardHelpContent from '../common/view/ColorVisionKeyboardHelpContent.js';
 import SingleBulbModel from './model/SingleBulbModel.js';
 import SingleBulbIconNode from './view/SingleBulbIconNode.js';
 import SingleBulbScreenView from './view/SingleBulbScreenView.js';
@@ -34,6 +35,7 @@ class SingleBulbScreen extends Screen {
         maxIconWidthProportion: 1,
         maxIconHeightProportion: 1
       } ),
+      createKeyboardHelpNode: () => new ColorVisionKeyboardHelpContent(),
       showUnselectedHomeScreenIconFrame: true,
       tandem: tandem
     };
