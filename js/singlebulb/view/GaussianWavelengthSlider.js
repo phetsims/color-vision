@@ -9,15 +9,18 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import LinearFunction from '../../../../dot/js/LinearFunction.js';
+import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
+import SpectrumSliderThumb from '../../../../scenery-phet/js/SpectrumSliderThumb.js';
+import SpectrumSliderTrack from '../../../../scenery-phet/js/SpectrumSliderTrack.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
-import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
 import WavelengthSpectrumNode from '../../../../scenery-phet/js/WavelengthSpectrumNode.js';
-import { Node, Path } from '../../../../scenery/js/imports.js';
+import { Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
+import Slider from '../../../../sun/js/Slider.js';
 import colorVision from '../../colorVision.js';
-import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
+import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 
 class GaussianWavelengthSlider extends Node {
@@ -35,21 +38,46 @@ class GaussianWavelengthSlider extends Node {
     super();
 
     // Add lower WavelengthSlider
-    const slider = new WavelengthSlider( filterWavelengthProperty, {
+    const colorSpectrumRange = new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH );
+    const spectrumSliderTrack = new SpectrumSliderTrack( filterWavelengthProperty, colorSpectrumRange, {
+      size: new Dimension2( width, height ),
+      opacity: 0.5,
+      borderRectangleOptions: {
+        stroke: null // We create the border elsewhere so that it is not affected by this Node's opacity
+      },
+      valueToColor: function( value ) {
+        return VisibleColor.wavelengthToColor( value );
+      }
+    } );
+
+    const thumbNode = new SpectrumSliderThumb( filterWavelengthProperty, {
+      width: 30,
+      height: 40,
+      lineWidth: 0.5,
+      windowCursorOptions: {
+        visible: false
+      },
+      valueToColor: function( value ) {
+        return VisibleColor.wavelengthToColor( value );
+      }
+    } );
+
+    const slider = new Slider( filterWavelengthProperty, colorSpectrumRange, {
       accessibleName: ColorVisionStrings.filterSlider.labelStringProperty,
       tandem: tandem,
       tweakersVisible: false,
       valueVisible: false,
-      trackWidth: width,
-      trackHeight: height,
-      trackOpacity: 0.5,
-      cursorVisible: false,
-      thumbWidth: 30,
-      thumbHeight: 40,
-      thumbTouchAreaYDilation: 10,
-      trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE
+      trackNode: spectrumSliderTrack,
+      thumbNode: thumbNode
     } );
     this.addChild( slider );
+
+    // We don't want the border to be affected by opacity.
+    const spectrumSliderTrackWithBorder = new Rectangle( 0, 0, spectrumSliderTrack.width, spectrumSliderTrack.height, {
+      stroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
+      lineWidth: 1
+    } );
+    this.addChild( spectrumSliderTrackWithBorder );
 
     // Create an empty node for taking the gaussian clip area. This node will shift the opposite direction as the
     // wavelength track in order to create the effect of the gaussian moving without having to redraw the shape
