@@ -8,7 +8,7 @@
  */
 
 import { CanvasNode } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import phetioStateSetEmitter from '../../../../tandem/js/phetioStateSetEmitter.js';
 import colorVision from '../../colorVision.js';
 
 // If this is set to true, it will show a rectangle around the beam.
@@ -38,7 +38,7 @@ class RGBPhotonBeamNode extends CanvasNode {
     this.invalidatePaint();
 
     // When the PhET-iO state has been set, we must invalidate the canvas, so it will be repainted before it is displayed
-    Tandem.PHET_IO_ENABLED && phet.phetio.phetioEngine.phetioStateEngine.stateSetEmitter.addListener( () => {
+    phetioStateSetEmitter.addListener( () => {
       this.invalidatePaint();
     } );
   }
