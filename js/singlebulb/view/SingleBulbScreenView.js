@@ -8,12 +8,17 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Dimension2 from '../../../../dot/js/Dimension2.js';
+import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
+import SpectrumSliderThumb from '../../../../scenery-phet/js/SpectrumSliderThumb.js';
+import SpectrumSliderTrack from '../../../../scenery-phet/js/SpectrumSliderTrack.js';
+import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import { Image, Text } from '../../../../scenery/js/imports.js';
 import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
+import Slider from '../../../../sun/js/Slider.js';
 import beamViewIcon_png from '../../../images/beamViewIcon_png.js';
 import filterLeft_png from '../../../images/filterLeft_png.js';
 import filterRight_png from '../../../images/filterRight_png.js';
@@ -84,18 +89,34 @@ class SingleBulbScreenView extends ColorVisionScreenView {
     };
 
     // Create upper WavelengthSlider node
-    const bulbColorSlider = new WavelengthSlider( model.flashlightWavelengthProperty, {
+    const colorSpectrumRange = new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH );
+    const spectrumSliderTrack = new SpectrumSliderTrack( model.flashlightWavelengthProperty, colorSpectrumRange, {
+      size: new Dimension2( SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT ),
+      borderRectangleOptions: {
+        stroke: ColorVisionConstants.SLIDER_BORDER_STROKE
+      },
+      valueToColor: function( value ) {
+        return VisibleColor.wavelengthToColor( value );
+      }
+    } );
+    const thumbNode = new SpectrumSliderThumb( model.flashlightWavelengthProperty, {
+      width: 30,
+      height: 40,
+      lineWidth: 0.5,
+      windowCursorOptions: {
+        stroke: 'white'
+      },
+      valueToColor: function( value ) {
+        return VisibleColor.wavelengthToColor( value );
+      }
+    } );
+    const bulbColorSlider = new Slider( model.flashlightWavelengthProperty, colorSpectrumRange, {
       top: this.layoutBounds.top + 40,
       right: wavelengthSliderDistance,
       tweakersVisible: false,
       valueVisible: false,
-      trackWidth: SLIDER_TRACK_WIDTH,
-      trackHeight: SLIDER_TRACK_HEIGHT,
-      cursorStroke: 'white',
-      thumbWidth: 30,
-      thumbHeight: 40,
-      thumbTouchAreaYDilation: 10,
-      trackBorderStroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
+      trackNode: spectrumSliderTrack,
+      thumbNode: thumbNode,
       accessibleName: ColorVisionStrings.bulbSlider.labelStringProperty,
       tandem: tandem.createTandem( 'bulbColorSlider' )
     } );
