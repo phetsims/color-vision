@@ -8,6 +8,7 @@
 
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
+import soundManager from '../../tambo/js/soundManager.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import ColorVisionStrings from './ColorVisionStrings.js';
 import RGBScreen from './rgb/RGBScreen.js';
@@ -33,4 +34,7 @@ simLauncher.launch( () => {
     new RGBScreen( tandem.createTandem( 'rgbBulbsScreen' ) )
   ], simOptions );
   sim.start();
+
+  // Mute the sim-specific sounds, see: https://github.com/phetsims/color-vision/issues/158
+  soundManager.setOutputLevelForCategory( 'sim-specific', 0 );
 } );

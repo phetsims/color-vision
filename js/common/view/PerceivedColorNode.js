@@ -47,7 +47,9 @@ class PerceivedColorNode extends Path {
         initialOutputLevel: 0.1,
         enabledProperty: simPlayingProperty,
         associatedViewNode: this
-      } )
+      } ), {
+        categoryName: 'sim-specific'
+      }
     );
   }
 }
