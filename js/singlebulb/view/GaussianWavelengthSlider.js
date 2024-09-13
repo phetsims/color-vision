@@ -39,7 +39,7 @@ class GaussianWavelengthSlider extends Node {
 
     // Add lower WavelengthSlider
     const colorSpectrumRange = new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH );
-    const spectrumSliderTrack = new SpectrumSliderTrack( filterWavelengthProperty, colorSpectrumRange, {
+    const trackNode = new SpectrumSliderTrack( filterWavelengthProperty, colorSpectrumRange, {
       size: new Dimension2( width, height ),
       opacity: 0.5,
       borderRectangleOptions: {
@@ -48,7 +48,7 @@ class GaussianWavelengthSlider extends Node {
       valueToColor: function( value ) {
         return VisibleColor.wavelengthToColor( value );
       },
-      tandem: tandem.createTandem( 'spectrumSliderTrack' )
+      tandem: tandem.createTandem( 'trackNode' )
     } );
 
     const thumbNode = new SpectrumSliderThumb( filterWavelengthProperty, {
@@ -69,13 +69,13 @@ class GaussianWavelengthSlider extends Node {
       tandem: tandem,
       tweakersVisible: false,
       valueVisible: false,
-      trackNode: spectrumSliderTrack,
+      trackNode: trackNode,
       thumbNode: thumbNode
     } );
     this.addChild( slider );
 
     // We don't want the border to be affected by opacity.
-    const spectrumSliderTrackWithBorder = new Rectangle( 0, 0, spectrumSliderTrack.width, spectrumSliderTrack.height, {
+    const spectrumSliderTrackWithBorder = new Rectangle( 0, 0, trackNode.width, trackNode.height, {
       stroke: ColorVisionConstants.SLIDER_BORDER_STROKE,
       lineWidth: 1
     } );

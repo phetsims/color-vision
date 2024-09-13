@@ -90,7 +90,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
 
     // Create upper WavelengthSlider node
     const colorSpectrumRange = new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH );
-    const spectrumSliderTrack = new SpectrumSliderTrack( model.flashlightWavelengthProperty, colorSpectrumRange, {
+    const trackNode = new SpectrumSliderTrack( model.flashlightWavelengthProperty, colorSpectrumRange, {
       size: new Dimension2( SLIDER_TRACK_WIDTH, SLIDER_TRACK_HEIGHT ),
       borderRectangleOptions: {
         stroke: ColorVisionConstants.SLIDER_BORDER_STROKE
@@ -98,7 +98,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       valueToColor: function( value ) {
         return VisibleColor.wavelengthToColor( value );
       },
-      tandem: tandem.createTandem( 'spectrumSliderTrack' )
+      tandem: tandem.createTandem( 'trackNode' )
     } );
     const thumbNode = new SpectrumSliderThumb( model.flashlightWavelengthProperty, {
       width: 30,
@@ -117,7 +117,7 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       right: wavelengthSliderDistance,
       tweakersVisible: false,
       valueVisible: false,
-      trackNode: spectrumSliderTrack,
+      trackNode: trackNode,
       thumbNode: thumbNode,
       accessibleName: ColorVisionStrings.bulbSlider.labelStringProperty,
       tandem: tandem.createTandem( 'bulbColorSlider' )
