@@ -47,7 +47,8 @@ class GaussianWavelengthSlider extends Node {
       },
       valueToColor: function( value ) {
         return VisibleColor.wavelengthToColor( value );
-      }
+      },
+      tandem: tandem.createTandem( 'spectrumSliderTrack' )
     } );
 
     const thumbNode = new SpectrumSliderThumb( filterWavelengthProperty, {
@@ -59,7 +60,8 @@ class GaussianWavelengthSlider extends Node {
       },
       valueToColor: function( value ) {
         return VisibleColor.wavelengthToColor( value );
-      }
+      },
+      tandem: tandem.createTandem( 'thumbNode' )
     } );
 
     const slider = new Slider( filterWavelengthProperty, colorSpectrumRange, {

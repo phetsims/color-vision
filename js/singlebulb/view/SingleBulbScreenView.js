@@ -97,7 +97,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       },
       valueToColor: function( value ) {
         return VisibleColor.wavelengthToColor( value );
-      }
+      },
+      tandem: tandem.createTandem( 'spectrumSliderTrack' )
     } );
     const thumbNode = new SpectrumSliderThumb( model.flashlightWavelengthProperty, {
       width: 30,
@@ -108,7 +109,8 @@ class SingleBulbScreenView extends ColorVisionScreenView {
       },
       valueToColor: function( value ) {
         return VisibleColor.wavelengthToColor( value );
-      }
+      },
+      tandem: tandem.createTandem( 'thumbNode' )
     } );
     const bulbColorSlider = new Slider( model.flashlightWavelengthProperty, colorSpectrumRange, {
       top: this.layoutBounds.top + 40,
