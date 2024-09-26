@@ -1,7 +1,7 @@
 // Copyright 2024, University of Colorado Boulder
 
 /**
- * ESlint configuration for color-vision.
+ * ESLint configuration for color-vision.
  *
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Michael Kauzmann (PhET Interactive Simulations)
