@@ -29,8 +29,5 @@
       "COLOR_VISION/SingleBulbModule.title",
       "COLOR_VISION/RgbBulbsModule.title"
     ]
-  },
-  "eslintConfig": {
-    "extends": "../chipper/eslint/sim_eslintrc.js"
   }
 }
