@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.3.0-dev.5 Fri Sep 27 2024 09:45:24 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.3.0-rc.0 Wed Oct 02 2024 12:57:10 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "31e3cab3f1de126d53782b5700e52c4fed423b09",
     "branch": "main"
@@ -13,12 +13,12 @@
     "branch": "main"
   },
   "chipper": {
-    "sha": "223cc8e331aa87b46cf35283358b341ec4e78a46",
+    "sha": "8fd0fd124270300ad9fd47b84cfbcf085bee1600",
     "branch": "main"
   },
   "color-vision": {
-    "sha": "fb9da1b9d610746b61f5c25a41fe803e68867d9c",
-    "branch": "main"
+    "sha": "6bad285e9e3ed3ebe21f42672022503d68441dd0",
+    "branch": "1.3"
   },
   "dot": {
     "sha": "9322db8f05d75dcd325f1f966fb9d87a0d713907",
@@ -29,11 +29,11 @@
     "branch": "main"
   },
   "kite": {
-    "sha": "ca23a3b26120ddde2b5fabfcbe14fa1f05efe691",
+    "sha": "f993deaf01152473dbec8dc06e2c4b731d4268e8",
     "branch": "main"
   },
   "perennial-alias": {
-    "sha": "656c501b5b97976abafda1e2987ba23db9214e3e",
+    "sha": "564c3db2f6ea009ace6e3906d5b43c09bb0b2791",
     "branch": "main"
   },
   "phet-core": {
@@ -45,11 +45,11 @@
     "branch": "main"
   },
   "phet-io-sim-specific": {
-    "sha": "eb4acf43300ec212a1eb239d2c566e309491027f",
+    "sha": "994ebfa016504ac62063fbe32aba586b1458175c",
     "branch": "main"
   },
   "phet-io-wrappers": {
-    "sha": "a64c47d48c339e9a156eec9df7d0ebbbda380360",
+    "sha": "10eb23e37ce16d26a17ac90bca8d7aa682f7ef92",
     "branch": "main"
   },
   "phetcommon": {
@@ -65,11 +65,11 @@
     "branch": "main"
   },
   "scenery": {
-    "sha": "27d92873d21a1aa90e10eed117ef8f810bdda111",
+    "sha": "68f08a8da8075d6dd7706986d938c271d9d5e5bf",
     "branch": "main"
   },
   "scenery-phet": {
-    "sha": "ad2afb03851998f27263fa83d5583bf03b7cc976",
+    "sha": "1d6d8d570d34b085ab1be3784a0803ae7d82415f",
     "branch": "main"
   },
   "sherpa": {
@@ -81,7 +81,7 @@
     "branch": "main"
   },
   "sun": {
-    "sha": "b6b4502c14306a8dfd629ac4f01a6704525d3741",
+    "sha": "29355c912c245dde158fde3e58d9f2a5763635e8",
     "branch": "main"
   },
   "tambo": {
