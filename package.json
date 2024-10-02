@@ -13,9 +13,7 @@
     "requirejsNamespace": "COLOR_VISION",
     "runnable": true,
     "supportedBrands": [
-      "phet",
-      "phet-io",
-      "adapted-from-phet"
+      "phet"
     ],
     "simFeatures": {
       "supportsInteractiveDescription": true,
