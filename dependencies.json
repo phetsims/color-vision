@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.3.0-rc.3 Tue Oct 15 2024 13:22:17 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# color-vision 1.3.0-rc.4 Tue Oct 15 2024 13:45:24 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "31e3cab3f1de126d53782b5700e52c4fed423b09",
     "branch": "HEAD"
@@ -14,10 +14,10 @@
   },
   "chipper": {
     "sha": "0dbc5d719a7cb5c94ffc7f4f3c0f27fe74fc984c",
-    "branch": "color-vision-1.3"
+    "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "86cad81b4cb123fdfcd4a82b0b483b54c1f15bb1",
+    "sha": "a341bce6af92aecb83a9ca39c53ff58afc3a7df1",
     "branch": "1.3"
   },
   "dot": {
