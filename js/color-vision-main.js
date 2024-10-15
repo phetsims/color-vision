@@ -21,9 +21,9 @@ const tandem = Tandem.ROOT;
 const simOptions = {
   credits: {
     leadDesign: 'Bryce Gruneich, Kathy Perkins',
-    softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley (PixelZoom, Inc.), Sam Reid',
+    softwareDevelopment: 'Aaron Davis, Ron LeMaster, Chris Malley (PixelZoom, Inc.), Sam Reid, Marla Schulz, Luisa Vargas',
     team: 'Wendy Adams, Danielle Harlow, Ariel Paul, Carl Wieman',
-    qualityAssurance: 'Oliver Orejola, Amy Rouinfar, Bryan Yoelin',
+    qualityAssurance: 'Matthew Moore, Ashton Morris, Oliver Orejola, Amy Rouinfar, Nancy Salpepi, Kathryn Woessner Bryan Yoelin',
     graphicArts: 'Mike Fowler, Mariah Hermsmeyer, Amanda McGarry'
   }
 };
