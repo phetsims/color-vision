@@ -51,7 +51,7 @@ class HeadNode extends Node {
     const silhouetteFrontNode = new Image( silhouetteFront_png, silhouetteOptions );
     const headFrontNode = new Image( headFront_png, headOptions );
 
-    // Make sure only one image is visible at at time, depending on the user's selection
+    // Make sure only one image is visible at a time, depending on the user's selection
     headModeProperty.link( mode => {
       silhouetteNode.visible = ( mode === 'brain' );
       headNode.visible = ( mode === 'no-brain' );
