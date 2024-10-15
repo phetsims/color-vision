@@ -37,7 +37,8 @@ const ColorVisionConstants = {
         selectedStroke: 'yellow',
         deselectedStroke: 'yellow',
         selectedLineWidth: 1.3,
-        deselectedLineWidth: 0.6
+        deselectedLineWidth: 0.6,
+        deselectedButtonOpacity: 0.8
       }
     }
   }
