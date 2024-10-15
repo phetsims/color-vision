@@ -7,6 +7,7 @@
  * @author Aaron Davis
  */
 
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import LinearFunction from '../../../../dot/js/LinearFunction.js';
 import Range from '../../../../dot/js/Range.js';
@@ -16,7 +17,7 @@ import SpectrumSliderThumb from '../../../../scenery-phet/js/SpectrumSliderThumb
 import SpectrumSliderTrack from '../../../../scenery-phet/js/SpectrumSliderTrack.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import WavelengthSpectrumNode from '../../../../scenery-phet/js/WavelengthSpectrumNode.js';
-import { Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
+import { HighlightPath, Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
 import Slider from '../../../../sun/js/Slider.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
@@ -51,9 +52,11 @@ class GaussianWavelengthSlider extends Node {
       tandem: tandem.createTandem( 'trackNode' )
     } );
 
+    const thumbNodeWidth = 30;
+    const thumbNodeHeight = 40;
     const thumbNode = new SpectrumSliderThumb( filterWavelengthProperty, {
-      width: 30,
-      height: 40,
+      width: thumbNodeWidth,
+      height: thumbNodeHeight,
       lineWidth: 0.5,
       windowCursorOptions: {
         visible: false
@@ -71,6 +74,13 @@ class GaussianWavelengthSlider extends Node {
       valueVisible: false,
       trackNode: trackNode,
       thumbNode: thumbNode
+    } );
+
+    // ThumbNode's origin is at the top center of the thumb.
+    // The focus highlight for slider should cover the thumb node as well as extend into the track to cover the gaussian shape.
+    const extendedThumbNodeBounds = new Bounds2( -thumbNodeWidth / 2, -height, thumbNodeWidth / 2, thumbNodeHeight );
+    slider.focusHighlight = new HighlightPath( Shape.bounds( extendedThumbNodeBounds ), {
+      transformSourceNode: thumbNode
     } );
     this.addChild( slider );
 
