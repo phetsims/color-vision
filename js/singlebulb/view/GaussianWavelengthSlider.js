@@ -77,8 +77,9 @@ class GaussianWavelengthSlider extends Node {
     } );
 
     // ThumbNode's origin is at the top center of the thumb.
-    // The focus highlight for slider should cover the thumb node as well as extend into the track to cover the gaussian shape.
-    const extendedThumbNodeBounds = new Bounds2( -thumbNodeWidth / 2, -height, thumbNodeWidth / 2, thumbNodeHeight );
+    // We are matching the focus highlight for the SpectrumSliderThumb which extends up into the track as well as
+    // dilates out a few pixels.
+    const extendedThumbNodeBounds = new Bounds2( -thumbNodeWidth / 2, -height, thumbNodeWidth / 2, thumbNodeHeight ).dilate( 3 );
     slider.focusHighlight = new HighlightPath( Shape.bounds( extendedThumbNodeBounds ), {
       transformSourceNode: thumbNode
     } );
