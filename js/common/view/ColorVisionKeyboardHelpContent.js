@@ -9,7 +9,7 @@
 import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
-import TimingControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/TimingControlsKeyboardHelpSection.js';
+import TimeControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/TimeControlsKeyboardHelpSection.ts';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import colorVision from '../../colorVision.js';
 
@@ -20,12 +20,12 @@ class ColorVisionKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
     // Create the various sections that will be combined to make up the dialog contents.
     const sliderHelpSection = new SliderControlsKeyboardHelpSection();
     const basicActionsHelpSection = new BasicActionsKeyboardHelpSection();
-    const timingControlsHelpSection = new TimingControlsKeyboardHelpSection();
+    const timeControlsHelpSection = new TimeControlsKeyboardHelpSection();
 
     // Vertically align the left sections.
-    KeyboardHelpSection.alignHelpSectionIcons( [ sliderHelpSection, timingControlsHelpSection ] );
+    KeyboardHelpSection.alignHelpSectionIcons( [ sliderHelpSection, timeControlsHelpSection ] );
 
-    super( [ sliderHelpSection, timingControlsHelpSection ], [ basicActionsHelpSection ] );
+    super( [ sliderHelpSection, timeControlsHelpSection ], [ basicActionsHelpSection ] );
   }
 }
 
