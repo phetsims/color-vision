@@ -12,14 +12,13 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import Range from '../../../../dot/js/Range.js';
-import EventTimer from '../../../../phet-core/js/EventTimer.js';
+import EventTimer, { ConstantEventModel } from '../../../../phet-core/js/EventTimer.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 import SingleBulbPhotonBeam from './SingleBulbPhotonBeam.js';
-import { ConstantEventModel } from '../../../../phet-core/js/EventTimer.js';
 
 class SingleBulbModel extends ColorVisionModel {
 

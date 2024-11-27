@@ -21,8 +21,8 @@ import silhouette_png from '../../../images/silhouette_png.js';
 import silhouetteFront_png from '../../../images/silhouetteFront_png.js';
 import silhouetteIcon_png from '../../../images/silhouetteIcon_png.js';
 import colorVision from '../../colorVision.js';
-import ColorVisionConstants from '../ColorVisionConstants.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
+import ColorVisionConstants from '../ColorVisionConstants.js';
 
 // constants
 const BOTTOM_OFFSET = 15;

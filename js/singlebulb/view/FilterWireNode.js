@@ -11,8 +11,8 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import { LinearGradient, Node, Path } from '../../../../scenery/js/imports.js';
 import OnOffSwitch from '../../../../sun/js/OnOffSwitch.js';
-import ColorVisionStrings from '../../ColorVisionStrings.js';
 import colorVision from '../../colorVision.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 
 // constants
 const HOLDER_WIDTH = 10;

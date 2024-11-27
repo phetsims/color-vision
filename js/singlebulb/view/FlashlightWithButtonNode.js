@@ -9,8 +9,8 @@
 import { Image, Node } from '../../../../scenery/js/imports.js';
 import BooleanRoundStickyToggleButton from '../../../../sun/js/buttons/BooleanRoundStickyToggleButton.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
-import ColorVisionStrings from '../../ColorVisionStrings.js';
 import colorVision from '../../colorVision.js';
+import ColorVisionStrings from '../../ColorVisionStrings.js';
 
 class FlashlightWithButtonNode extends Node {
 
