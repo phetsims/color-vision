@@ -27,7 +27,8 @@ class ColorVisionModel {
     // @public {Property.<string>} which head view to show
     this.headModeProperty = new StringProperty( 'no-brain', {
       validValues: [ 'brain', 'no-brain' ],
-      tandem: tandem.createTandem( 'headModeProperty' )
+      tandem: tandem.createTandem( 'headModeProperty' ),
+      phetioFeatured: true
     } );
 
     // @public {DerivedProperty.<Color|string>}

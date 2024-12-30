@@ -35,13 +35,15 @@ class SingleBulbModel extends ColorVisionModel {
     // @public {Property.<string>} kind of light in the beam
     this.lightTypeProperty = new StringProperty( 'colored', {
       validValues: [ 'white', 'colored' ],
-      tandem: tandem.createTandem( 'lightTypeProperty' )
+      tandem: tandem.createTandem( 'lightTypeProperty' ),
+      phetioFeatured: true
     } );
 
     // @public {Property.<string>} indicates solid beam vs individual photons
     this.beamTypeProperty = new StringProperty( 'beam', {
       validValues: [ 'beam', 'photon' ],
-      tandem: tandem.createTandem( 'beamTypeProperty' )
+      tandem: tandem.createTandem( 'beamTypeProperty' ),
+      phetioFeatured: true
     } );
 
     // @public {Property.<number>} in units of nm, default wavelength is yellow
