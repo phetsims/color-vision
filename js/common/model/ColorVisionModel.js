@@ -21,7 +21,8 @@ class ColorVisionModel {
 
     // @public {Property.<boolean>} is the model running?
     this.playingProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'playingProperty' )
+      tandem: tandem.createTandem( 'playingProperty' ),
+      phetioFeatured: true
     } );
 
     // @public {Property.<string>} which head view to show
