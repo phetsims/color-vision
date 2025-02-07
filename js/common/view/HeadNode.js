@@ -12,7 +12,8 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Image, Node } from '../../../../scenery/js/imports.js';
+import Image from '../../../../scenery/js/nodes/Image.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
 import head_png from '../../../images/head_png.js';
 import headFront_png from '../../../images/headFront_png.js';

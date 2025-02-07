@@ -6,9 +6,9 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
-import { Path } from '../../../../scenery/js/imports.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
 import colorVision from '../../colorVision.js';
 import PerceivedColorSoundGenerator from './PerceivedColorSoundGenerator.js';

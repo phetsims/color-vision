@@ -6,8 +6,14 @@
  * @author Luisa Vargas
  */
 
-import { Shape } from '../../../../kite/js/imports.js';
-import { Color, HBox, Line, LinearGradient, Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
+import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
+import Line from '../../../../scenery/js/nodes/Line.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import Color from '../../../../scenery/js/util/Color.js';
+import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import colorVision from '../../colorVision.js';
 
 class FlashlightNode extends Node {

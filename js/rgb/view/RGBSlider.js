@@ -9,7 +9,11 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import { Font, LinearGradient, Rectangle, Text, VBox } from '../../../../scenery/js/imports.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import Font from '../../../../scenery/js/util/Font.js';
+import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import VSlider from '../../../../sun/js/VSlider.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';

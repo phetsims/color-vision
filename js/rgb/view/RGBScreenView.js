@@ -8,7 +8,12 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import { Font, Image, Node, Rectangle, Text, VBox } from '../../../../scenery/js/imports.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
+import Image from '../../../../scenery/js/nodes/Image.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import Font from '../../../../scenery/js/util/Font.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';

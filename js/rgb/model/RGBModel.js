@@ -10,7 +10,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
-import { Color } from '../../../../scenery/js/imports.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import RGBConstants from '../RGBConstants.js';

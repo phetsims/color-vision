@@ -7,7 +7,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import { CanvasNode } from '../../../../scenery/js/imports.js';
+import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
 import phetioStateSetEmitter from '../../../../tandem/js/phetioStateSetEmitter.js';
 import colorVision from '../../colorVision.js';
 

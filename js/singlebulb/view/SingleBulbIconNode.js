@@ -7,7 +7,7 @@
  */
 
 import Screen from '../../../../joist/js/Screen.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import colorVision from '../../colorVision.js';
 import FlashlightAndBeamNode from '../../common/view/FlashlightAndBeamNode.js';
 

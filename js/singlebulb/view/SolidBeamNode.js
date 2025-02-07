@@ -8,9 +8,11 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
-import { Color, Node, Path } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import colorVision from '../../colorVision.js';
 
 // constants

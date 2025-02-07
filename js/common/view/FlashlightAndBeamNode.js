@@ -6,8 +6,9 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 
-import { Shape } from '../../../../kite/js/imports.js';
-import { Node, Path } from '../../../../scenery/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
 import colorVision from '../../colorVision.js';
 import FlashlightNode from './FlashlightNode.js';
 

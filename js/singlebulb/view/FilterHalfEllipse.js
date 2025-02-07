@@ -7,9 +7,9 @@
  * @author Aaron Davis (PhET Interactive Simulations)
  */
 
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
-import { Path } from '../../../../scenery/js/imports.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
 import colorVision from '../../colorVision.js';
 
 class FilterHalfEllipse extends Path {
