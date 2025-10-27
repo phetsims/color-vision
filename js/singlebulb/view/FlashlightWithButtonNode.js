@@ -33,6 +33,7 @@ class FlashlightWithButtonNode extends Node {
       radius: 15,
       touchAreaDilation: 5,
       accessibleName: ColorVisionStrings.a11y.flashlightStringProperty,
+      accessibleRoleConfiguration: 'switch',
       tandem: tandem.createTandem( 'button' )
     } );
 
