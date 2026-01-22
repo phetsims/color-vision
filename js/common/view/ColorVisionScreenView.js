@@ -1,4 +1,4 @@
-// Copyright 2014-2015, University of Colorado Boulder
+// Copyright 2014-2016, University of Colorado Boulder
 
 /**
  * View components shared by both screens. Subclassed by SingleBulbScreenView and RGBScreenView.
