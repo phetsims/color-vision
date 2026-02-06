@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.3.4-rc.2 Mon Feb 02 2026 16:58:40 GMT-0500 (Eastern Standard Time)",
+  "comment": "# color-vision 1.3.4 Fri Feb 06 2026 14:57:35 GMT-0500 (Eastern Standard Time)",
   "assert": {
     "sha": "31e3cab3f1de126d53782b5700e52c4fed423b09",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "b3a5651ec22018e5c4efdc16f2a047e148d36abe",
+    "sha": "ae6c566a9f728b1e032fc8b94867dada1c3eb716",
     "branch": "1.3"
   },
   "dot": {
