@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "fdc8c367c58aa3ceaf010b5ee18714a56e118de1",
+    "sha": "48a5b14022abf0d0ed44a289384bddb23a641a02",
     "branch": "1.3"
   },
   "dot": {
@@ -33,7 +33,7 @@
     "branch": "HEAD"
   },
   "perennial-alias": {
-    "sha": "564c3db2f6ea009ace6e3906d5b43c09bb0b2791",
+    "sha": "2ca8127a54f6abb3ef870a1e5280dfa6cfe976fe",
     "branch": "HEAD"
   },
   "phet-core": {
