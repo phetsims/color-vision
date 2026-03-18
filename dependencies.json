@@ -13,11 +13,11 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "7f0923faf140a9149b6a9f5e31dd9c168fcd1afc",
+    "sha": "0fa248929ba250b6f0d667a44a81d7594fb0d5ef",
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "374e8f7caec5bc1813f1ca47c0910a7983c1399c",
+    "sha": "9da1c840cd264202b87e4477e1debd0533d82f42",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -65,7 +65,7 @@
     "branch": "HEAD"
   },
   "sherpa": {
-    "sha": "7a7b88b0658d2ee65bdf66cf232a46a6c20c9917",
+    "sha": "987bb2d0a5666291cbe68e5f3615b7894764a7cf",
     "branch": "HEAD"
   },
   "sun": {
