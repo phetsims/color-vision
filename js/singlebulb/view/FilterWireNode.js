@@ -13,7 +13,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import OnOffSwitch from '../../../../sun/js/OnOffSwitch.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
 
 // constants
@@ -79,7 +78,5 @@ class FilterWireNode extends Node {
     this.addChild( onOffSwitch );
   }
 }
-
-colorVision.register( 'FilterWireNode', FilterWireNode );
 
 export default FilterWireNode;

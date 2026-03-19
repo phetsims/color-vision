@@ -10,7 +10,6 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import TimeControlNode from '../../../../scenery-phet/js/TimeControlNode.js';
-import colorVision from '../../colorVision.js';
 import PerceivedColorNode from './PerceivedColorNode.js';
 
 class ColorVisionScreenView extends ScreenView {
@@ -69,5 +68,4 @@ class ColorVisionScreenView extends ScreenView {
   }
 }
 
-colorVision.register( 'ColorVisionScreenView', ColorVisionScreenView );
 export default ColorVisionScreenView;

@@ -11,7 +11,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import RGBConstants from '../RGBConstants.js';
 import RGBPhotonBeam from './RGBPhotonBeam.js';
@@ -193,7 +192,5 @@ class RGBModel extends ColorVisionModel {
     this.blueBeam.reset();
   }
 }
-
-colorVision.register( 'RGBModel', RGBModel );
 
 export default RGBModel;

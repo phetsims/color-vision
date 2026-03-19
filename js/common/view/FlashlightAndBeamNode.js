@@ -9,7 +9,6 @@
 import Shape from '../../../../kite/js/Shape.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
-import colorVision from '../../colorVision.js';
 import FlashlightNode from './FlashlightNode.js';
 
 // constants
@@ -52,7 +51,5 @@ class FlashlightAndBeamNode extends Node {
     this.mutate( options );
   }
 }
-
-colorVision.register( 'FlashlightAndBeamNode', FlashlightAndBeamNode );
 
 export default FlashlightAndBeamNode;

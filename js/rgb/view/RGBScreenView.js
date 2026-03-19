@@ -17,7 +17,6 @@ import Font from '../../../../scenery/js/util/Font.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
 import flashlightNeg45Deg_png from '../../../images/flashlightNeg45Deg_png.js';
 import flashlightPos45Deg_png from '../../../images/flashlightPos45Deg_png.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';
@@ -150,5 +149,4 @@ class RGBScreenView extends ColorVisionScreenView {
   }
 }
 
-colorVision.register( 'RGBScreenView', RGBScreenView );
 export default RGBScreenView;

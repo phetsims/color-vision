@@ -7,7 +7,6 @@
  */
 
 import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
-import colorVision from '../../colorVision.js';
 
 class SingleBulbPhotonBeamNode extends CanvasNode {
 
@@ -52,7 +51,5 @@ class SingleBulbPhotonBeamNode extends CanvasNode {
     this.invalidatePaint();
   }
 }
-
-colorVision.register( 'SingleBulbPhotonBeamNode', SingleBulbPhotonBeamNode );
 
 export default SingleBulbPhotonBeamNode;

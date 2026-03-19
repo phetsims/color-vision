@@ -9,7 +9,6 @@
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import colorVision from '../colorVision.js';
 import ColorVisionStrings from '../ColorVisionStrings.js';
 import ColorVisionConstants from '../common/ColorVisionConstants.js';
 import ColorVisionKeyboardHelpContent from '../common/view/ColorVisionKeyboardHelpContent.js';
@@ -48,5 +47,4 @@ class SingleBulbScreen extends Screen {
   }
 }
 
-colorVision.register( 'SingleBulbScreen', SingleBulbScreen );
 export default SingleBulbScreen;

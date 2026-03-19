@@ -11,7 +11,6 @@ import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/Keybo
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
 import TimeControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/TimeControlsKeyboardHelpSection.js';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
-import colorVision from '../../colorVision.js';
 
 class ColorVisionKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -29,5 +28,4 @@ class ColorVisionKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
   }
 }
 
-colorVision.register( 'ColorVisionKeyboardHelpContent', ColorVisionKeyboardHelpContent );
 export default ColorVisionKeyboardHelpContent;

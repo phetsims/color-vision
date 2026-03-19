@@ -9,7 +9,6 @@
 import Screen from '../../../../joist/js/Screen.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
-import colorVision from '../../colorVision.js';
 import FlashlightAndBeamNode from '../../common/view/FlashlightAndBeamNode.js';
 
 class RGBIconNode extends Rectangle {
@@ -39,7 +38,5 @@ class RGBIconNode extends Rectangle {
     this.addChild( flashlightVBox );
   }
 }
-
-colorVision.register( 'RGBIconNode', RGBIconNode );
 
 export default RGBIconNode;

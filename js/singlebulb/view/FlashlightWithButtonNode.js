@@ -10,7 +10,6 @@ import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import BooleanRoundStickyToggleButton from '../../../../sun/js/buttons/BooleanRoundStickyToggleButton.js';
 import flashlight0Deg_png from '../../../images/flashlight0Deg_png.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
 
 class FlashlightWithButtonNode extends Node {
@@ -42,7 +41,5 @@ class FlashlightWithButtonNode extends Node {
     this.mutate( options );
   }
 }
-
-colorVision.register( 'FlashlightWithButtonNode', FlashlightWithButtonNode );
 
 export default FlashlightWithButtonNode;

@@ -22,7 +22,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Slider from '../../../../sun/js/Slider.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
@@ -145,7 +144,5 @@ class GaussianWavelengthSlider extends Node {
     this.mutate( options );
   }
 }
-
-colorVision.register( 'GaussianWavelengthSlider', GaussianWavelengthSlider );
 
 export default GaussianWavelengthSlider;

@@ -15,7 +15,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Font from '../../../../scenery/js/util/Font.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import VSlider from '../../../../sun/js/VSlider.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 
@@ -74,7 +73,5 @@ class RGBSlider extends Rectangle {
     this.addChild( sliderAndLabelsVBox );
   }
 }
-
-colorVision.register( 'RGBSlider', RGBSlider );
 
 export default RGBSlider;

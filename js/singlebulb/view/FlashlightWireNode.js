@@ -8,7 +8,6 @@
 
 import Shape from '../../../../kite/js/Shape.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
-import colorVision from '../../colorVision.js';
 
 class FlashlightWireNode extends Path {
 
@@ -36,7 +35,5 @@ class FlashlightWireNode extends Path {
       } );
   }
 }
-
-colorVision.register( 'FlashlightWireNode', FlashlightWireNode );
 
 export default FlashlightWireNode;

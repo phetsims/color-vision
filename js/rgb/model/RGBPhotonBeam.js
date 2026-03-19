@@ -8,7 +8,6 @@
 
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import RGBPhoton from './RGBPhoton.js';
 
@@ -93,7 +92,5 @@ class RGBPhotonBeam {
     }
   }
 }
-
-colorVision.register( 'RGBPhotonBeam', RGBPhotonBeam );
 
 export default RGBPhotonBeam;

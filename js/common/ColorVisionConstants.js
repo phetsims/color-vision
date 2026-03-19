@@ -5,8 +5,6 @@
  * @author Aaron Davis
  */
 
-import colorVision from '../colorVision.js';
-
 const ColorVisionConstants = {
 
   // height of all photonBeamNodes from both screens
@@ -43,7 +41,5 @@ const ColorVisionConstants = {
     }
   }
 };
-
-colorVision.register( 'ColorVisionConstants', ColorVisionConstants );
 
 export default ColorVisionConstants;

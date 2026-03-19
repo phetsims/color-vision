@@ -14,7 +14,6 @@ import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 import SingleBulbPhoton from './SingleBulbPhoton.js';
@@ -225,5 +224,4 @@ SingleBulbPhotonBeam.SingleBulbPhotonBeamIO = new IOType( 'SingleBulbPhotonBeamI
   documentation: 'The Beam on the single bulb screen.'
 } );
 
-colorVision.register( 'SingleBulbPhotonBeam', SingleBulbPhotonBeam );
 export default SingleBulbPhotonBeam;

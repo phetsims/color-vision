@@ -9,7 +9,6 @@
 
 import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
 import phetioStateSetEmitter from '../../../../tandem/js/phetioStateSetEmitter.js';
-import colorVision from '../../colorVision.js';
 
 // If this is set to true, it will show a rectangle around the beam.
 // This is useful for getting the placement of the beam correct relative to the
@@ -70,7 +69,5 @@ class RGBPhotonBeamNode extends CanvasNode {
     this.invalidatePaint();
   }
 }
-
-colorVision.register( 'RGBPhotonBeamNode', RGBPhotonBeamNode );
 
 export default RGBPhotonBeamNode;

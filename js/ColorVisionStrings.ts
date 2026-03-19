@@ -45,6 +45,4 @@ type StringsType = {
 
 const ColorVisionStrings = getStringModule( 'COLOR_VISION' ) as StringsType;
 
-colorVision.register( 'ColorVisionStrings', ColorVisionStrings );
-
 export default ColorVisionStrings;

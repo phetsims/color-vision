@@ -9,7 +9,6 @@
 import Vector2 from '../../../../dot/js/Vector2.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import colorVision from '../../colorVision.js';
 
 class RGBPhoton extends PhetioObject {
 
@@ -38,8 +37,6 @@ class RGBPhoton extends PhetioObject {
     this.position.y = newY;
   }
 }
-
-colorVision.register( 'RGBPhoton', RGBPhoton );
 
 RGBPhoton.RGBPhotonIO = new IOType( 'RGBPhotonIO', {
   valueType: RGBPhoton,

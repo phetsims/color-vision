@@ -26,7 +26,6 @@ import filterRight_png from '../../../images/filterRight_png.js';
 import photonViewIcon_png from '../../../images/photonViewIcon_png.js';
 import singleColorLightIcon_png from '../../../images/singleColorLightIcon_png.js';
 import whiteLightIcon_png from '../../../images/whiteLightIcon_png.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionStrings from '../../ColorVisionStrings.js';
 import ColorVisionConstants from '../../common/ColorVisionConstants.js';
 import ColorVisionScreenView from '../../common/view/ColorVisionScreenView.js';
@@ -313,5 +312,4 @@ class SingleBulbScreenView extends ColorVisionScreenView {
   }
 }
 
-colorVision.register( 'SingleBulbScreenView', SingleBulbScreenView );
 export default SingleBulbScreenView;

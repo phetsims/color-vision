@@ -24,7 +24,6 @@ import colorVisionIndividualNotesOctave02_mp3 from '../../../sounds/colorVisionI
 import colorVisionIndividualNotesOctave03_mp3 from '../../../sounds/colorVisionIndividualNotesOctave03_mp3.js';
 import colorVisionLowAmbienceV2_mp3 from '../../../sounds/colorVisionLowAmbienceV2_mp3.js';
 import colorVisionMidAmbienceV2_mp3 from '../../../sounds/colorVisionMidAmbienceV2_mp3.js';
-import colorVision from '../../colorVision.js';
 
 // constants
 const CONSTITUENT_SOUND_CLIP_OPTIONS = {
@@ -129,7 +128,5 @@ const adjustAudio = ( colorLevel, alpha, soundClip, filter, filterRange ) => {
   }
   filter.frequency.setValueAtTime( filterRange.expandNormalizedValue( Math.pow( normalizedColorLevel, 4 ) ), 0 );
 };
-
-colorVision.register( 'PerceivedColorSoundGenerator', PerceivedColorSoundGenerator );
 
 export default PerceivedColorSoundGenerator;

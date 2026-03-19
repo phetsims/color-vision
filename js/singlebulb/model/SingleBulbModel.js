@@ -15,7 +15,6 @@ import Range from '../../../../dot/js/Range.js';
 import EventTimer, { ConstantEventModel } from '../../../../phet-core/js/EventTimer.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import colorVision from '../../colorVision.js';
 import ColorVisionModel from '../../common/model/ColorVisionModel.js';
 import SingleBulbConstants from '../SingleBulbConstants.js';
 import SingleBulbPhotonBeam from './SingleBulbPhotonBeam.js';
@@ -177,7 +176,5 @@ class SingleBulbModel extends ColorVisionModel {
     this.photonBeam.reset();
   }
 }
-
-colorVision.register( 'SingleBulbModel', SingleBulbModel );
 
 export default SingleBulbModel;

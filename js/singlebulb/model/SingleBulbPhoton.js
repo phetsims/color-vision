@@ -7,7 +7,6 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import colorVision from '../../colorVision.js';
 import RGBPhoton from '../../rgb/model/RGBPhoton.js';
 
 class SingleBulbPhoton extends RGBPhoton {
@@ -38,7 +37,5 @@ class SingleBulbPhoton extends RGBPhoton {
     this.passedFilter = false;
   }
 }
-
-colorVision.register( 'SingleBulbPhoton', SingleBulbPhoton );
 
 export default SingleBulbPhoton;

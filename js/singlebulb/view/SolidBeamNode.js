@@ -13,7 +13,6 @@ import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import colorVision from '../../colorVision.js';
 
 // constants
 const DEFAULT_BEAM_ALPHA = 0.8;
@@ -123,7 +122,5 @@ class SolidBeamNode extends Node {
     this.addChild( wholeBeam );
   }
 }
-
-colorVision.register( 'SolidBeamNode', SolidBeamNode );
 
 export default SolidBeamNode;

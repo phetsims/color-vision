@@ -8,7 +8,6 @@
 
 import Screen from '../../../../joist/js/Screen.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
-import colorVision from '../../colorVision.js';
 import FlashlightAndBeamNode from '../../common/view/FlashlightAndBeamNode.js';
 
 class SingleBulbIconNode extends Rectangle {
@@ -21,7 +20,5 @@ class SingleBulbIconNode extends Rectangle {
     this.addChild( new FlashlightAndBeamNode( 0, 'yellow', { centerX: this.centerX, centerY: this.centerY } ) );
   }
 }
-
-colorVision.register( 'SingleBulbIconNode', SingleBulbIconNode );
 
 export default SingleBulbIconNode;

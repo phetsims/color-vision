@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import colorVision from '../../colorVision.js';
 
 class RGBPhotonEventModel {
 
@@ -38,7 +37,5 @@ class RGBPhotonEventModel {
     }
   }
 }
-
-colorVision.register( 'RGBPhotonEventModel', RGBPhotonEventModel );
 
 export default RGBPhotonEventModel;

@@ -10,7 +10,6 @@ import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
-import colorVision from '../../colorVision.js';
 import PerceivedColorSoundGenerator from './PerceivedColorSoundGenerator.js';
 
 class PerceivedColorNode extends Path {
@@ -53,7 +52,5 @@ class PerceivedColorNode extends Path {
     );
   }
 }
-
-colorVision.register( 'PerceivedColorNode', PerceivedColorNode );
 
 export default PerceivedColorNode;
