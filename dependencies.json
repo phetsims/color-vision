@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "dd76494a9e93700b2f3c745dd6ca203744ffb387",
+    "sha": "ee592c5cf2010858363be52558b3966432d6ad5b",
     "branch": "HEAD"
   },
   "chipper": {
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "9d1d4d3ebae3ce67756f87d68ca6a01c8d83eb43",
+    "sha": "894a907ef8ee0e08d3958feeb91b7e40dca438e7",
     "branch": "1.2-phetio"
   },
   "dot": {
