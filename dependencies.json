@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "894a907ef8ee0e08d3958feeb91b7e40dca438e7",
+    "sha": "54eb6a74b9c4c62f2685c9d194240cb16975c3a3",
     "branch": "1.2-phetio"
   },
   "dot": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "e89c5485484070dec68515878f44c2fdbecc6723",
+    "sha": "8dc8594d90acade6425d5e421259e6091dc52c83",
     "branch": "HEAD"
   },
   "kite": {
