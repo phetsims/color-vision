@@ -1,5 +1,5 @@
 {
-  "comment": "# color-vision 1.3.6-rc.2 Wed Apr 08 2026 12:19:28 GMT-0400 (Eastern Daylight Time)",
+  "comment": "# color-vision 1.3.6 Fri Apr 10 2026 18:00:56 GMT-0400 (Eastern Daylight Time)",
   "assert": {
     "sha": "31e3cab3f1de126d53782b5700e52c4fed423b09",
     "branch": "HEAD"
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "color-vision": {
-    "sha": "1cc3ebc8702282923c535191028f1bf387a7a209",
+    "sha": "05b3708554aef2911e8e9184c1152860ef11b1fb",
     "branch": "1.3"
   },
   "dot": {
